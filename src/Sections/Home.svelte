@@ -15,10 +15,12 @@
     display: flex;
   }
   .col-1 {
+    position: relative;
     margin-left: 210px;
   }
   .col-2 {
-    margin-left: 451px;
+    /* margin-left: 451px; */
+    margin-left: 300px;
   }
 
   img {
@@ -26,8 +28,11 @@
     width: 587px;
   }
   .button {
+    width: 100%;
     display: flex;
     justify-content: center;
+    position: absolute;
+    top: 580px;
   }
 
   .accordion {

@@ -4,7 +4,7 @@
 
 <style>
   nav {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 400px;
     font-family: 'Josefin Sans', sans-serif;
     color: white;
@@ -18,7 +18,19 @@
   }
 
   li > ul:not(:last-child) {
-    margin-right: 90px;
+    margin-right: 40px;
+  }
+
+  li > ul {
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
+    /* background-color: yellowgreen; */
+    width: 150px;
+    text-align: center;
+  }
+
+  ul:hover {
+    cursor: pointer;
+    letter-spacing: 0.15em;
   }
 </style>
 
