@@ -15,6 +15,9 @@
     display: flex;
   }
   .col-1 {
+    display: flex;
+
+    flex-direction: column;
     position: relative;
     margin-left: 210px;
   }
@@ -28,11 +31,12 @@
     width: 587px;
   }
   .button {
-    width: 100%;
+    width: 150px;
     display: flex;
     justify-content: center;
     position: absolute;
     top: 580px;
+    align-self: center;
   }
 
   .accordion {
@@ -55,9 +59,10 @@
       {/each}
     </div>
     <div class="button">
-      <Button />
+      <Button>Contacto</Button>
     </div>
   </div>
-
-  <div class="col-2"><img src="./images/laptop.svg" alt="" /></div>
+  <div class="col-2">
+    <img src="./images/laptop.svg" alt="Laptop with code on the screen" />
+  </div>
 </div>

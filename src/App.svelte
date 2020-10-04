@@ -1,5 +1,6 @@
 <script>
   import Home from './Sections/Home.svelte';
+  import Services from './Sections/Services.svelte';
 </script>
 
 <style>
@@ -13,8 +14,17 @@
       #23074b 57.34%
     );
   }
+
+  .home-wrapper {
+    height: 100vh;
+  }
 </style>
 
 <main>
-  <Home />
+  <div class="home-wrapper">
+    <Home />
+  </div>
+  <div class="services-wrapper" id="services">
+    <Services />
+  </div>
 </main>
