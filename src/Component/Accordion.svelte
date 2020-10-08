@@ -1,6 +1,6 @@
 <script>
   import { get } from 'svelte/store';
-  import { onMount, afterUpdate } from 'svelte';
+  import { onMount } from 'svelte';
   import { stateStore } from '../Stores';
   export let accordionId = 'Math.random()';
   accordionId = Math.random();

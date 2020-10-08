@@ -22,7 +22,6 @@
     margin-left: 210px;
   }
   .col-2 {
-    /* margin-left: 451px; */
     margin-left: 300px;
   }
 
@@ -42,6 +41,12 @@
   .accordion {
     margin-top: 20px;
   }
+  .button-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
 </style>
 
 <div class="navbar">
@@ -59,7 +64,9 @@
       {/each}
     </div>
     <div class="button">
-      <Button>Contacto</Button>
+      <Button>
+        <div class="button-contact">Contacto</div>
+      </Button>
     </div>
   </div>
   <div class="col-2">

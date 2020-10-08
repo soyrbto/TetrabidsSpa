@@ -1,4 +1,12 @@
 /*DO NOT TOUCH THE RESET*/
+:root{
+--display-typo:'Josefin Sans', sans-serif;
+--par-typo: 'Montserrat', sans-serif;
+
+
+}
+
+
 
 html {
   font-size: 62.5%;
@@ -46,4 +54,17 @@ line-height: 1.5;
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+.typo-paragraph{
+ font-weight: 400;
+ margin-top: 28px;
+ font-family: var(--par-typo);
+ font-size: 16px;
+}
+
+.typo-title{
+   font-family: 'Josefin Sans', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
 }
