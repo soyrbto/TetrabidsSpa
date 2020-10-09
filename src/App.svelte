@@ -1,9 +1,12 @@
 <script>
   import Home from "./Sections/Home.svelte";
   import Services from "./Sections/Services.svelte";
+  import SecNavbar from "./Sections/SecNavbar.svelte";
+
+  let displaySection = "products";
 </script>
 
-<style>
+<style type="text/scss">
   main {
     height: 200vh;
     background: linear-gradient(
@@ -18,13 +21,39 @@
   .home-wrapper {
     height: 100vh;
   }
+
+  .section-wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .secnavbar-wrapper {
+    width: 118px;
+    margin-right: 110px;
+    align-self: center;
+
+    .secnavbar-card-content {
+      height: 290px;
+      width: 190px;
+      padding: 30px;
+    }
+  }
 </style>
 
 <main>
   <div class="home-wrapper">
     <Home />
   </div>
-  <div class="services-wrapper" id="services">
-    <Services />
+
+  <div class="section-wrapper">
+    <div class="secnavbar-wrapper">
+      <div class="secnavbar-card-content">
+        <SecNavbar />
+      </div>
+    </div>
+    <div class="services-wrapper" id="services">
+      <Services />
+    </div>
   </div>
 </main>

@@ -1,11 +1,10 @@
 <script>
   import { onMount } from "svelte";
-  import secNavBar from "../Component/SecNavBar.svelte";
+  import SecNavbar from "./SecNavbar.svelte";
   import Card from "../Component/SharedComponents/Card.svelte";
   import Button from "../Component/SharedComponents/button.svelte";
   import { colorButtonStore } from "../Stores";
   import { servicesData } from "../StaticStore";
-  import SecNavBar from "../Component/SecNavBar.svelte";
   let bodyContent = "asesoria";
   let buttonColor = {};
 
@@ -31,12 +30,6 @@
 </script>
 
 <style type="text/scss">
-  .section-wrapper {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-  }
-
   .columns-wrapper {
     background-image: url(../images/services-background.svg);
     background-position: right;
@@ -95,25 +88,25 @@
     justify-content: center;
     padding: 27px 25px 47px 25px;
     position: relative;
+
+    .meeting {
+      display: block;
+      margin: 0 auto;
+      height: 220px;
+    }
+
+    .service-body {
+      margin-top: 1px;
+      margin-bottom: 29px;
+      font-size: 14px;
+      height: 240px;
+      line-height: 175%;
+      letter-spacing: 0.08em;
+    }
   }
 
   .typo-title {
     color: #066d92;
-  }
-
-  .service-body {
-    margin-top: 1px;
-    margin-bottom: 29px;
-    font-size: 14px;
-    height: 240px;
-    line-height: 175%;
-    letter-spacing: 0.08em;
-  }
-
-  .meeting {
-    display: block;
-    margin: 0 auto;
-    height: 220px;
   }
 
   .button-wrapper {
@@ -132,33 +125,11 @@
       height: 58px;
     }
   }
-
-  .secnavbar-wrapper {
-    width: 118px;
-    margin-right: 110px;
-    align-self: center;
-
-    .secnavbar-card-content {
-      height: 290px;
-      width: 190px;
-      padding: 30px;
-    }
-  }
 </style>
 
-<!-- WHOLE SERVICE SCREEN -->
-<div class="section-wrapper">
-  <!-- SECUNDARY NAVBAR SECTION -->
-  <div class="secnavbar-wrapper">
-      <div class="secnavbar-card-content"><SecNavBar/></div>
-  </div>
-  
-  
-
-  <!--  SERVICES SECTION -->
-  <Card>
+<!--  SERVICES SECTION -->
+<Card>
     <div class="columns-wrapper">
-
       <!--  SERVICE ABSTRACT SUB-SECTION -->
       <div class="col-1">
         <h2 class="title">{servicesData.title}</h2>
@@ -184,7 +155,7 @@
             <p class="service-body typo-paragraph">
               {@html servicesData[bodyContent]}
             </p>
-            <img src="./images/meeting.png" alt="" class="meeting" />
+            <img src="./images/meeting.png" alt="" class="meeting"/>
             <div class="button-wrapper">
               <Button color="purple">
                 <div class="button-card-content">Sigue Leyendo</div>
@@ -195,4 +166,3 @@
       </div>
     </div>
   </Card>
-</div>
