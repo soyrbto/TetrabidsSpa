@@ -1,6 +1,6 @@
 <script>
-  import Home from './Sections/Home.svelte';
-  import Services from './Sections/Services.svelte';
+  import Home from "./Sections/Home.svelte";
+  import Services from "./Sections/Services.svelte";
 </script>
 
 <style>

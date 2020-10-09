@@ -47,7 +47,6 @@ dd{
 
 body {
 box-sizing: border-box;
-scroll-behavior: smooth;
 text-rendering: optimizeSpeed;
 line-height: 1.5;
 }

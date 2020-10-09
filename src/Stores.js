@@ -1,7 +1,6 @@
-import {writable} from "svelte/store";
+import { writable } from "svelte/store";
 
-const stateStore = writable({}); 
+const stateStore = writable({});
 const colorButtonStore = writable({});
 
- 
-export {stateStore, colorButtonStore};
+export { stateStore, colorButtonStore };

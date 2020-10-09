@@ -1,9 +1,29 @@
 <script>
-  import Navbar from '../Component/NavBar.svelte';
-  import TitleSubtitle from '../Component/TitleSubtitle.svelte';
-  import { accordionData } from '../StaticStore';
-  import Accordion from '../Component/Accordion.svelte';
-  import Button from '../Component/SharedComponents/button.svelte';
+  import Navbar from "../Component/NavBar.svelte";
+  import TitleSubtitle from "../Component/TitleSubtitle.svelte";
+  import { accordionData } from "../StaticStore";
+  import Accordion from "../Component/Accordion.svelte";
+  import Button from "../Component/SharedComponents/button.svelte";
+  let active = true;
+
+  const nextSection = (e) => {
+    e.preventDefault();
+    if ((e.deltaY > 0) & active) {
+      active = false;
+      window.scrollTo({ top: 1920, left: 0, behavior: "smooth" });
+      setTimeout(() => {
+        active = true;
+      }, 400);
+    } else if ((e.deltaY < 0) & active) {
+      active = false;
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      setTimeout(() => {
+        active = true;
+      }, 400);
+    }
+  };
+
+  window.addEventListener("wheel", nextSection, { passive: false });
 </script>
 
 <style>
@@ -50,7 +70,7 @@
 </style>
 
 <div class="navbar">
-  <Navbar />
+  <Navbar on:itemLink={nextSection} />
 </div>
 <div class="wrapper">
   <div class="col-1">

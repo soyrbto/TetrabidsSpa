@@ -1,12 +1,15 @@
 <script>
-  import { NavBarItems } from '../StaticStore';
+  import { NavBarItems } from "../StaticStore";
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
 </script>
 
 <style>
   nav {
     font-size: 22px;
     font-weight: 400px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     color: white;
   }
 
@@ -37,7 +40,7 @@
 <nav>
   <li>
     {#each NavBarItems as item}
-      <ul>{item}</ul>
+      <ul onclick={dispatch('itemLink', { item })}>{item}</ul>
     {/each}
   </li>
 </nav>
