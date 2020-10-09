@@ -39,11 +39,11 @@
 
   .columns-wrapper {
     background-image: url(../images/services-background.svg);
-    background-position: top right;
+    background-position: right;
     background-repeat: no-repeat;
     background-size: auto 100%;
     display: flex;
-    padding: 96px 0 91px 0;
+    padding: 96px 0 85px 0;
 
     .col-1 {
       display: flex;

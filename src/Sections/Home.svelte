@@ -4,26 +4,43 @@
   import { accordionData } from "../StaticStore";
   import Accordion from "../Component/Accordion.svelte";
   import Button from "../Component/SharedComponents/button.svelte";
-  let active = true;
 
-  const nextSection = (e) => {
+  let active = true;
+  // INDEX OF SECTIONS AND POSITION
+  let sectionMove = {
+    home: function () {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    },
+    servicios: function () {
+      window.scrollTo({ top: 1920, left: 0, behavior: "smooth" });
+    },
+  };
+  // FUNCTION THAT SCROLLS UP TO CERTAIN SECTION DURING A CERTAIN TIME
+  function movement(section, time) {
+    active = false;
+    sectionMove[section]();
+    setTimeout(() => {
+      active = true;
+    }, time);
+  }
+  // FUNCTION THAT CALL THE SCROLLS ON WHEEL EVENT
+  const wheelNextSection = (e) => {
     e.preventDefault();
     if ((e.deltaY > 0) & active) {
-      active = false;
-      window.scrollTo({ top: 1920, left: 0, behavior: "smooth" });
-      setTimeout(() => {
-        active = true;
-      }, 400);
+      movement("servicios", 400);
     } else if ((e.deltaY < 0) & active) {
-      active = false;
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-      setTimeout(() => {
-        active = true;
-      }, 400);
+      movement("home", 400);
     }
   };
 
-  window.addEventListener("wheel", nextSection, { passive: false });
+  window.addEventListener("wheel", wheelNextSection, { passive: false });
+  //FUNCTION THAT SCROLLS WHEN A NAVBAR ITEM IS CLICKED
+
+  const navbarNextSection = (e) => {
+    if (e.detail === "Servicios") {
+      movement("servicios", 400);
+    }
+  };
 </script>
 
 <style>
@@ -70,7 +87,7 @@
 </style>
 
 <div class="navbar">
-  <Navbar on:itemLink={nextSection} />
+  <Navbar on:itemLink={navbarNextSection} />
 </div>
 <div class="wrapper">
   <div class="col-1">

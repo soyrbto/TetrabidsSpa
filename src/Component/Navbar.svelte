@@ -40,7 +40,7 @@
 <nav>
   <li>
     {#each NavBarItems as item}
-      <ul onclick={dispatch('itemLink', { item })}>{item}</ul>
+      <ul on:click={() => dispatch('itemLink', `${item}`)}>{item}</ul>
     {/each}
   </li>
 </nav>
