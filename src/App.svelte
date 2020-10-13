@@ -3,7 +3,13 @@
   import Services from "./Sections/Services.svelte";
   import SecNavbar from "./Sections/SecNavbar.svelte";
 
-  let displaySection = "products";
+  $: displaySection = "Servicios";
+
+  const changeSection = (e) => {
+    console.log(e.detail);
+    displaySection = e.detail;
+    console.log(displaySection);
+  };
 </script>
 
 <style type="text/scss">
@@ -49,11 +55,13 @@
   <div class="section-wrapper">
     <div class="secnavbar-wrapper">
       <div class="secnavbar-card-content">
-        <SecNavbar />
+        <SecNavbar on:secNavbarClick={changeSection} />
       </div>
     </div>
-    <div class="services-wrapper" id="services">
-      <Services />
-    </div>
+    {#if displaySection === 'Servicios'}
+      <div class="services-wrapper" id="services">
+        <Services />
+      </div>
+    {/if}
   </div>
 </main>

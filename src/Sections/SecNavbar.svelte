@@ -1,11 +1,14 @@
 <script>
-  let items = ['Servicios', 'Productos', 'Contacto'];
+  import { createEventDispatcher } from "svelte";
+  let items = ["Servicios", "Productos", "Contacto"];
+
+  const dispatch = createEventDispatcher();
 </script>
 
 <style>
   .item {
     font-size: 25px;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     color: #11a7dd;
     font-weight: 700;
     margin-bottom: 10px;
@@ -25,5 +28,12 @@
 
 <img src="./images/home-button.svg" alt="blue home button" />
 {#each items as item}
-  <div class="item">{item}</div>
+  <div
+    class="item"
+    on:click={() => {
+      dispatch('secNavbarClick', `${item}`);
+    }}
+  >
+    {item}
+  </div>
 {/each}

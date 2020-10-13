@@ -4,6 +4,7 @@
   import { accordionData } from "../StaticStore";
   import Accordion from "../Component/Accordion.svelte";
   import Button from "../Component/SharedComponents/button.svelte";
+  import Textures from "../Component/Textures.svelte";
 
   let active = true;
   // INDEX OF SECTIONS AND POSITION
@@ -60,6 +61,7 @@
   }
   .col-2 {
     margin-left: 300px;
+    z-index: 1;
   }
 
   img {
@@ -86,6 +88,7 @@
   }
 </style>
 
+<Textures />
 <div class="navbar">
   <Navbar on:itemLink={navbarNextSection} />
 </div>
