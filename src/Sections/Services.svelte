@@ -5,7 +5,7 @@
   import Button from "../Component/SharedComponents/button.svelte";
   import { colorButtonStore } from "../Stores";
   import { servicesData } from "../StaticStore";
-  let bodyContent = "asesoria";
+  let bodyContent = servicesData.serviceItems[0];
   let buttonColor = {};
 
   // WHEN MOUNTED

@@ -1,11 +1,14 @@
 <script>
   import Navbar from "../Component/NavBar.svelte";
   import TitleSubtitle from "../Component/TitleSubtitle.svelte";
+  import { createEventDispatcher } from "svelte";
   import { accordionData } from "../StaticStore";
   import Accordion from "../Component/Accordion.svelte";
   import Button from "../Component/SharedComponents/button.svelte";
   import Textures from "../Component/Textures.svelte";
+  import { navbarItems } from "../StaticStore";
 
+  const dispatch = createEventDispatcher();
   let active = true;
   // INDEX OF SECTIONS AND POSITION
   let sectionMove = {
@@ -38,8 +41,16 @@
   //FUNCTION THAT SCROLLS WHEN A NAVBAR ITEM IS CLICKED
 
   const navbarNextSection = (e) => {
-    if (e.detail === "Servicios") {
+    if (e.detail === navbarItems[0]) {
       movement("servicios", 400);
+      setTimeout(() => {
+        dispatch("navbarClicked", e.detail);
+      }, 600);
+    } else {
+      movement("servicios", 400);
+      setTimeout(() => {
+        dispatch("navbarClicked", e.detail);
+      }, 600);
     }
   };
 </script>

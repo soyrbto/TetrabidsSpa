@@ -2,13 +2,15 @@
   import Home from "./Sections/Home.svelte";
   import Services from "./Sections/Services.svelte";
   import SecNavbar from "./Sections/SecNavbar.svelte";
-
-  $: displaySection = "Servicios";
+  import Products from "./Sections/Products.svelte";
+  import { navbarItems } from "./StaticStore.js";
+  $: displaySection = "Productos";
 
   const changeSection = (e) => {
-    console.log(e.detail);
-    displaySection = e.detail;
-    console.log(displaySection);
+    if (e.detail === `${navbarItems[0]}`) {
+      displaySection = e.detail;
+      // here you must put the rest of function // movement to other sections
+    } else displaySection = e.detail;
   };
 </script>
 
@@ -38,29 +40,33 @@
     width: 118px;
     margin-right: 110px;
     align-self: center;
+  }
 
-    .secnavbar-card-content {
-      height: 290px;
-      width: 190px;
-      padding: 30px;
-    }
+  .secnavbar-card-content {
+    height: 290px;
+    width: 190px;
+    padding: 30px;
   }
 </style>
 
 <main>
   <div class="home-wrapper">
-    <Home />
+    <Home on:navbarClicked={changeSection} />
   </div>
 
   <div class="section-wrapper">
     <div class="secnavbar-wrapper">
       <div class="secnavbar-card-content">
-        <SecNavbar on:secNavbarClick={changeSection} />
+        <SecNavbar on:secNavbarClicked={changeSection} />
       </div>
     </div>
-    {#if displaySection === 'Servicios'}
+    {#if displaySection === navbarItems[0]}
       <div class="services-wrapper" id="services">
         <Services />
+      </div>
+    {:else}
+      <div class="services-wrapper" id="services">
+        <Products />
       </div>
     {/if}
   </div>

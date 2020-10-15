@@ -1,5 +1,5 @@
 <script>
-  import { NavBarItems } from "../StaticStore";
+  import { navbarItems } from "../StaticStore";
   import { createEventDispatcher } from "svelte";
 
   const dispatch = createEventDispatcher();
@@ -39,7 +39,7 @@
 
 <nav>
   <li>
-    {#each NavBarItems as item}
+    {#each navbarItems as item}
       <ul on:click={() => dispatch('itemLink', `${item}`)}>{item}</ul>
     {/each}
   </li>

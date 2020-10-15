@@ -31,7 +31,7 @@
   <div
     class="item"
     on:click={() => {
-      dispatch('secNavbarClick', `${item}`);
+      dispatch('secNavbarClicked', `${item}`);
     }}
   >
     {item}
