@@ -57,45 +57,66 @@
 
 <style>
   .navbar {
-    margin-bottom: 95px;
+    margin-bottom: 9.5rem;
   }
 
   .wrapper {
     display: flex;
+    height: 57.7rem;
   }
   .col-1 {
     display: flex;
-
     flex-direction: column;
     position: relative;
-    margin-left: 210px;
+    /*  meta margin 210 px */
+    margin-left: calc(7vw);
   }
   .col-2 {
-    margin-left: 300px;
+    display: flex;
+    /*  15.625 is the meta measure */
+    margin-left: calc(26.83vw - 20rem);
     z-index: 1;
+    align-items: center;
   }
 
   img {
-    height: 587px;
-    width: 587px;
+    /* meta width 587px */
+    width: calc(18vw + 24rem);
   }
+
+  @media only screen and (max-width: 1000px) {
+    .col-2 {
+      display: none;
+    }
+
+    .wrapper {
+      justify-content: center;
+    }
+  }
+
   .button {
-    width: 150px;
+    /*  meta width 150px */
+    width: calc(0.5vw + 13rem);
     display: flex;
     justify-content: center;
     position: absolute;
-    top: 580px;
+    /* meta top 580px */
+    top: calc(6vw + 46rem);
     align-self: center;
   }
 
   .accordion {
-    margin-top: 20px;
+    margin-top: 2rem;
   }
   .button-contact {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
+    height: 6rem;
+  }
+
+  p {
+    height: 90px;
   }
 </style>
 
