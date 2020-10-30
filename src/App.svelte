@@ -4,23 +4,31 @@
   import SecNavbar from "./Sections/SecNavbar.svelte";
   import Products from "./Sections/Products.svelte";
   import { navbarItems } from "./StaticStore.js";
-  import Footer from "./Sections/footer.svelte";
-  $: displaySection = "Productos";
+  import Footer from "./Sections/Footer.svelte";
+  import Contact from "./Sections/Contact.svelte";
+
+  $: displaySection = navbarItems[0];
 
   let productBinder;
   let serviceBinder;
+  let contactBinder;
 
   const changeSection = (e) => {
     // IF THE ELEMENT CLICKED IS EQUAL TO "SERVICIOS"
     if (e.detail === `${navbarItems[0]}`) {
       // here you must put the rest of function // movement to other sections
-      productBinder.classList.add("slide-out-right");
+      if (displaySection === `${navbarItems[2]}`) {
+        productBinder.classList.add("slide-out-right");
+      } else contactBinder.classList.add("slide-out-right");
+
       setTimeout(() => {
         displaySection = e.detail;
         // serviceBinder.classList.remove("section-wrapper-in");
       }, 600);
-    } else {
-      serviceBinder.classList.add("slide-out-right");
+    } else if (e.detail === `${navbarItems[2]}`) {
+      if (displaySection === `${navbarItems[0]}`) {
+        serviceBinder.classList.add("slide-out-right");
+      } else contactBinder.classList.add("slide-out-right");
       setTimeout(() => {
         displaySection = e.detail;
       }, 600);
@@ -62,11 +70,6 @@
     align-self: center;
   }
 
-  .secnavbar-card-content {
-    height: 290px;
-    width: 190px;
-    padding: 30px;
-  }
   .page-container {
     position: relative;
     height: 208vh;
@@ -81,25 +84,19 @@
 
     <div class="section-wrapper">
       <div class="secnavbar-wrapper">
-        <div class="secnavbar-card-content">
-          <SecNavbar on:secNavbarClicked={changeSection} />
-        </div>
+        <SecNavbar on:secNavbarClicked={changeSection} />
       </div>
       {#if displaySection === navbarItems[0]}
-        <div
-          bind:this={serviceBinder}
-          class="section-wrapper slide-in-right"
-          id="services"
-        >
+        <div bind:this={serviceBinder} class="section-wrapper slide-in-right">
           <Services />
         </div>
-      {:else}
-        <div
-          bind:this={productBinder}
-          class="section-wrapper slide-in-right"
-          id="services"
-        >
+      {:else if displaySection === navbarItems[2]}
+        <div bind:this={productBinder} class="section-wrapper slide-in-right">
           <Products />
+        </div>
+      {:else}
+        <div bind:this={contactBinder} class="section-wrapper slide-in-right">
+          <Contact />
         </div>
       {/if}
     </div>
