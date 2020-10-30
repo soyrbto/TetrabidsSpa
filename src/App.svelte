@@ -3,32 +3,18 @@
   import Services from "./Sections/Services.svelte";
   import SecNavbar from "./Sections/SecNavbar.svelte";
   import Products from "./Sections/Products.svelte";
-  import { navbarItems } from "./StaticStore.js";
+  import { secNavbarItems } from "./StaticStore.js";
   import Footer from "./Sections/Footer.svelte";
   import Contact from "./Sections/Contact.svelte";
 
-  $: displaySection = navbarItems[0];
-
-  let productBinder;
-  let serviceBinder;
-  let contactBinder;
+  $: displaySection = secNavbarItems[2];
 
   const changeSection = (e) => {
-    // IF THE ELEMENT CLICKED IS EQUAL TO "SERVICIOS"
-    if (e.detail === `${navbarItems[0]}`) {
-      // here you must put the rest of function // movement to other sections
-      if (displaySection === `${navbarItems[2]}`) {
-        productBinder.classList.add("slide-out-right");
-      } else contactBinder.classList.add("slide-out-right");
+    if (displaySection != e.detail) {
+      document
+        .querySelector(`.${displaySection}`)
+        .classList.add("slide-out-right");
 
-      setTimeout(() => {
-        displaySection = e.detail;
-        // serviceBinder.classList.remove("section-wrapper-in");
-      }, 600);
-    } else if (e.detail === `${navbarItems[2]}`) {
-      if (displaySection === `${navbarItems[0]}`) {
-        serviceBinder.classList.add("slide-out-right");
-      } else contactBinder.classList.add("slide-out-right");
       setTimeout(() => {
         displaySection = e.detail;
       }, 600);
@@ -60,10 +46,6 @@
     transition: all;
   }
 
-  // .section-wrapper-in {
-  //   transform: translateX(1000px);
-  // }
-
   .secnavbar-wrapper {
     width: 118px;
     margin-right: 110px;
@@ -86,16 +68,16 @@
       <div class="secnavbar-wrapper">
         <SecNavbar on:secNavbarClicked={changeSection} />
       </div>
-      {#if displaySection === navbarItems[0]}
-        <div bind:this={serviceBinder} class="section-wrapper slide-in-right">
+      {#if displaySection === secNavbarItems[0]}
+        <div class="section-wrapper slide-in-right {secNavbarItems[0]}">
           <Services />
         </div>
-      {:else if displaySection === navbarItems[2]}
-        <div bind:this={productBinder} class="section-wrapper slide-in-right">
+      {:else if displaySection === secNavbarItems[1]}
+        <div class="section-wrapper slide-in-right {secNavbarItems[1]}">
           <Products />
         </div>
-      {:else}
-        <div bind:this={contactBinder} class="section-wrapper slide-in-right">
+      {:else if displaySection === secNavbarItems[2]}
+        <div class="section-wrapper slide-in-right {secNavbarItems[2]}">
           <Contact />
         </div>
       {/if}

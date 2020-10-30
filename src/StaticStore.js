@@ -1,4 +1,5 @@
 const navbarItems = ["Servicios", "Blog", "Productos", "FAQ"];
+const secNavbarItems = ["Servicios", "Productos", "Contacto"];
 
 const accordionData = [
   {
@@ -55,4 +56,18 @@ const productsData = {
   "Paginas a medida": `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis, doloremque odio officia, harum tempora dolores repudiandae vel minus molestiae necessitatibus blanditiis ipsam. Incidunt placeat illum impedit nulla esse, earum ad et facere! Voluptates et, incidunt, magnam dolore placeat voluptatum porro velit animi maiores dignissimos natus recusandae autem.`,
 };
 
-export { navbarItems, accordionData, servicesData, productsData };
+const contactData = {
+  title: "¿Quieres conocer mas de nuestros servivios?",
+  subtitle: "Escribenos y nos contactaremos contigo a la brevedad posible.",
+  email: "contacto@tetrabids",
+  location: "Agencia totalmente remota",
+};
+
+export {
+  navbarItems,
+  accordionData,
+  servicesData,
+  productsData,
+  secNavbarItems,
+  contactData,
+};
