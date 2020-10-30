@@ -57,7 +57,8 @@
 
 <style>
   .navbar {
-    margin-bottom: 9.5rem;
+    /* META MARGIN 95PX */
+    margin-bottom: 4.95vw;
   }
 
   .wrapper {
@@ -101,7 +102,7 @@
     justify-content: center;
     position: absolute;
     /* meta top 580px */
-    top: calc(6vw + 46rem);
+    top: calc(8vw + 44rem);
     align-self: center;
   }
 

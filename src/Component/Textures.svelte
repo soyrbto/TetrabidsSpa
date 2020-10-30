@@ -1,23 +1,24 @@
 <style>
   .ellipse-1 {
     position: absolute;
-    width: 400px;
-    height: 420px;
+    width: 20.83vw;
+    height: 21.875vw;
     border-radius: 50%;
-    left: 1613px;
-    top: 129px;
+    left: 84vw;
+    top: 6.72vw;
 
     background: #ffffff;
     mix-blend-mode: multiply;
     box-shadow: -88px 38px 48px 6px rgba(0, 0, 0, 0.25);
-    z-index: 1;
+    z-index: 0;
   }
 
   .ellipse-2 {
     position: absolute;
     border-radius: 50%;
-    width: 568px;
-    height: 598.05px;
+    /* META WIDTH 568PX */
+    width: calc(15vw + 28.4rem);
+    height: calc(15.5vw + 29.4rem);
     left: 0px;
     top: 346.95px;
     background: radial-gradient(

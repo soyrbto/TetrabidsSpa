@@ -12,7 +12,7 @@
   }
 
   span {
-    margin-top: -25px;
+    margin-top: -20px;
     display: block;
     /* meta font size 45px*/
     font-size: clamp(28px, 1.46vw + 17px, 50px);
