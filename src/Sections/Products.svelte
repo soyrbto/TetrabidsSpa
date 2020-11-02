@@ -29,10 +29,10 @@
 </script>
 
 <style type="text/scss">
-  .columns-wrapper {
+  .wrapper-section {
     display: flex;
     padding: 96px 0 85px 0;
-    width: 1505px;
+    width: 1511px;
     justify-content: space-around;
 
     .col-1 {
@@ -126,41 +126,41 @@
 
 <!--  SERVICES SECTION -->
 <Card>
-    <div class="columns-wrapper">
-
-      <!--  SERVICE ABSTRACT SUB-SECTION -->
-      <div class="col-1">
-        <h2 class="title">{productsData.title}</h2>
-        <p class="abstract typo-paragraph">{productsData.abstract}</p>
-         {#each productsData.productItems as serviceItem}
-          <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
-            <div class="button-item" on:click={getContent}>{serviceItem}</div>
-          </Button>
-        {/each}
-      </div>
-      <!--  SERVICE CENTER IMAGE SUB-SECTION -->
-      <div class="col-2">
-       <img
-          src="./images/tecnologias.svg"
-          alt="3 workers behind a desk waving at you"
-          class="center-image" />
-      </div>
-      <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
-      <div class="col-3">
-        <Card>
-          <div class="description-card-content">
-            <h3 class="typo-title">{bodyContent}</h3>
-            <p class="service-body typo-paragraph">
-              {@html productsData[bodyContent]}
-            </p>
-            <img src="./images/meeting.png" alt="" class="meeting" />
-            <div class="button-wrapper">
-              <Button color="purple">
-                <div class="button-card-content">Sigue Leyendo</div>
-              </Button>
-            </div>
-          </div>
-        </Card>
-      </div>
+  <div class="wrapper-section">
+    <!--  SERVICE ABSTRACT SUB-SECTION -->
+    <div class="col-1">
+      <h2 class="title">{productsData.title}</h2>
+      <p class="abstract typo-paragraph">{productsData.abstract}</p>
+      {#each productsData.productItems as serviceItem}
+        <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
+          <div class="button-item" on:click={getContent}>{serviceItem}</div>
+        </Button>
+      {/each}
     </div>
-  </Card>
+    <!--  SERVICE CENTER IMAGE SUB-SECTION -->
+    <div class="col-2">
+      <img
+        src="./images/tecnologias.svg"
+        alt="3 workers behind a desk waving at you"
+        class="center-image"
+      />
+    </div>
+    <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
+    <div class="col-3">
+      <Card>
+        <div class="description-card-content">
+          <h3 class="typo-title">{bodyContent}</h3>
+          <p class="service-body typo-paragraph">
+            {@html productsData[bodyContent]}
+          </p>
+          <img src="./images/meeting.png" alt="" class="meeting" />
+          <div class="button-wrapper">
+            <Button color="purple">
+              <div class="button-card-content">Sigue Leyendo</div>
+            </Button>
+          </div>
+        </div>
+      </Card>
+    </div>
+  </div>
+</Card>

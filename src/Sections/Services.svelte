@@ -30,13 +30,14 @@
 </script>
 
 <style type="text/scss">
-  .columns-wrapper {
+  .wrapper-section {
     background-image: url(../images/services-background.svg);
     background-position: right;
     background-repeat: no-repeat;
     background-size: auto 100%;
     display: flex;
     padding: 96px 0 85px 0;
+    width: 1511px;
 
     .col-1 {
       display: flex;
@@ -129,40 +130,41 @@
 
 <!--  SERVICES SECTION -->
 <Card>
-    <div class="columns-wrapper">
-      <!--  SERVICE ABSTRACT SUB-SECTION -->
-      <div class="col-1">
-        <h2 class="title">{servicesData.title}</h2>
-        <p class="abstract typo-paragraph">{servicesData.abstract}</p>
-        <img
-          src="./images/team.png"
-          alt="3 workers behind a desk waving at you"
-          class="team-image" />
-      </div>
-      <!--  SERVICE ITEMS SUB-SECTION -->
-      <div class="col-2">
-        {#each servicesData.serviceItems as serviceItem}
-          <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
-            <div class="button-item" on:click={getContent}>{serviceItem}</div>
-          </Button>
-        {/each}
-      </div>
-      <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
-      <div class="col-3">
-        <Card>
-          <div class="description-card-content">
-            <h3 class="typo-title">{bodyContent}</h3>
-            <p class="service-body typo-paragraph">
-              {@html servicesData[bodyContent]}
-            </p>
-            <img src="./images/meeting.png" alt="" class="meeting"/>
-            <div class="button-wrapper">
-              <Button color="purple">
-                <div class="button-card-content">Sigue Leyendo</div>
-              </Button>
-            </div>
-          </div>
-        </Card>
-      </div>
+  <div class="wrapper-section">
+    <!--  SERVICE ABSTRACT SUB-SECTION -->
+    <div class="col-1">
+      <h2 class="title">{servicesData.title}</h2>
+      <p class="abstract typo-paragraph">{servicesData.abstract}</p>
+      <img
+        src="./images/team.png"
+        alt="3 workers behind a desk waving at you"
+        class="team-image"
+      />
     </div>
-  </Card>
+    <!--  SERVICE ITEMS SUB-SECTION -->
+    <div class="col-2">
+      {#each servicesData.serviceItems as serviceItem}
+        <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
+          <div class="button-item" on:click={getContent}>{serviceItem}</div>
+        </Button>
+      {/each}
+    </div>
+    <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
+    <div class="col-3">
+      <Card>
+        <div class="description-card-content">
+          <h3 class="typo-title">{bodyContent}</h3>
+          <p class="service-body typo-paragraph">
+            {@html servicesData[bodyContent]}
+          </p>
+          <img src="./images/meeting.png" alt="" class="meeting" />
+          <div class="button-wrapper">
+            <Button color="purple">
+              <div class="button-card-content">Sigue Leyendo</div>
+            </Button>
+          </div>
+        </div>
+      </Card>
+    </div>
+  </div>
+</Card>

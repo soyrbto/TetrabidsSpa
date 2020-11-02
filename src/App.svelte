@@ -55,6 +55,7 @@
   .page-container {
     position: relative;
     height: 208vh;
+    overflow: hidden;
   }
 </style>
 

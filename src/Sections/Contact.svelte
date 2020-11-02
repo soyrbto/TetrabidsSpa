@@ -1,14 +1,18 @@
 <script>
   import Card from "../Component/SharedComponents/Card.svelte";
+  import Button from "../Component/SharedComponents/button.svelte";
   import { contactData } from "../StaticStore";
 </script>
 
 <style type="text/scss">
   .wrapper-section {
     display: flex;
+    padding-right: 90px;
+    width: 1511px;
   }
 
   .col-1 {
+    justify-self: flex-end;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,35 +82,107 @@
     justify-content: center;
   }
 
-  [class$="-field"] {
-    margin-bottom: 100px;
-  }
-  // acordarme de mejorar la seleccion de fields
-
   .column-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 709px;
     padding: 30px 46px 59px 46px;
   }
 
   .name-field {
     width: 616px;
     height: 63px;
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    // margin-bottom: 37px;
   }
 
   .email-field {
     width: 616px;
     height: 63px;
-    background-color: #f3f3f3;
-    // margin-bottom: 37px;
   }
 
   .message-field {
     width: 616px;
     height: 300px;
+    overflow: visible;
+  }
+
+  .fields {
     background-color: #f3f3f3;
-    // margin-bottom: 37px;
+    font-family: Josefin Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 150%;
+    color: black;
+    padding: 0px 0 0 20px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .group {
+    position: relative;
+    font-family: Josefin Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 50%;
+    color: #838383;
+    position: relative;
+    margin-bottom: 37px;
+  }
+
+  .group > label {
+    position: absolute;
+    top: 27px;
+    left: 15px;
+    transition: all 0.35s;
+    user-select: none;
+  }
+
+  input:focus ~ label {
+    top: -6px;
+    background: white;
+  }
+
+  input:valid ~ label {
+    top: -6px;
+    background: white;
+    border-style: solid black;
+  }
+
+  textarea:focus ~ label {
+    top: -6px;
+    background: white;
+  }
+
+  textarea:valid ~ label {
+    top: -6px;
+    background: white;
+    border-style: solid black;
+  }
+
+  .button-wrapper {
+    width: 153px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+  }
+
+  .button-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 58px;
+  }
+
+  .message-field {
+    border-style: none;
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 0.4em;
+    padding-right: 0.4em;
   }
 </style>
 
@@ -126,9 +202,23 @@
     <div class="col-2">
       <Card>
         <div class="column-wrapper">
-          <div class="name-field">Nombre</div>
-          <div class="email-field">Email</div>
-          <div class="message-field">Message</div>
+          <div class="group">
+            <input required class="name-field fields" id="name" />
+            <label for="name">nombre</label>
+          </div>
+          <div class="group">
+            <input required class="email-field fields" id="email" />
+            <label for="email">email</label>
+          </div>
+          <div class="group">
+            <textarea required class="message-field fields" id="message" />
+            <label for="message">mensaje</label>
+          </div>
+          <div class="button-wrapper">
+            <Button>
+              <div class="button-content">Enviar</div>
+            </Button>
+          </div>
         </div>
       </Card>
     </div>
