@@ -9,6 +9,7 @@
 
   $: displaySection = secNavbarItems[2];
 
+  // FUNCTION THAT CHAMGES THE SECTION WHEN SECNAVBAR OR NAVBAR IS CLICKED
   const changeSection = (e) => {
     if (displaySection != e.detail) {
       document

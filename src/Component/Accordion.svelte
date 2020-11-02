@@ -68,23 +68,9 @@
     cursor: auto;
   }
 
-  svg path {
-    fill: none;
-    stroke: #000;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    transition: 0.6s;
-  }
-
-  svg {
-    width: 30%;
-    height: 30%;
-    background: #eee;
-    margin-bottom: 5%;
-  }
-
-  .container-open > .svg path {
+  .container-open svg path {
     d: path("M2 7H12 M7 7L7 7");
+    transition: 0.6s;
   }
 
   .body {
@@ -152,7 +138,7 @@
         <path
           d="M2 7H12 M7 2L7 12"
           stroke="white"
-          stroke-width="3"
+          stroke-width="4"
           stroke-linecap="round"
         />
       </svg></button>
