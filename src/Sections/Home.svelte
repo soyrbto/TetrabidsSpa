@@ -58,7 +58,7 @@
 <style>
   .navbar {
     /* META MARGIN 95PX */
-    margin-bottom: 4.95vw;
+    margin-bottom: 3vw;
   }
 
   .wrapper {
@@ -83,6 +83,7 @@
   img {
     /* meta width 587px */
     width: calc(18vw + 24rem);
+    padding-top: 2.5vw;
   }
 
   @media only screen and (max-width: 1000px) {

@@ -5,6 +5,7 @@
   export let accordionId = "Math.random()";
   accordionId = Math.random();
   let active = false;
+  let buttonStatus = "plus";
 
   // WHEN EVERY ELEMENT IS MOUNTED
   onMount(() => {
@@ -62,6 +63,30 @@
     height: clamp(16rem, 6.2vw + 9rem, 240px);
   }
 
+  .container-open > .title,
+  .container-open button {
+    cursor: auto;
+  }
+
+  svg path {
+    fill: none;
+    stroke: #000;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: 0.6s;
+  }
+
+  svg {
+    width: 30%;
+    height: 30%;
+    background: #eee;
+    margin-bottom: 5%;
+  }
+
+  .container-open > .svg path {
+    d: path("M2 7H12 M7 7L7 7");
+  }
+
   .body {
     overflow: hidden;
     font-family: montserrat;
@@ -88,6 +113,7 @@
     display: flex;
     line-height: 22px;
     cursor: pointer;
+    user-select: none;
   }
 
   .button {
@@ -122,7 +148,14 @@
       id={accordionId}
       type="button"
       class="button"
-    >+</button>
+    ><svg class="svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path
+          d="M2 7H12 M7 2L7 12"
+          stroke="white"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+      </svg></button>
     <slot name="header" />
   </label>
 

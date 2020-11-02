@@ -83,6 +83,7 @@
   }
 
   .column-wrapper {
+    font-family: josefin Sans;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -90,45 +91,31 @@
     padding: 30px 46px 59px 46px;
   }
 
-  .name-field {
-    width: 616px;
-    height: 63px;
-  }
-
-  .email-field {
-    width: 616px;
-    height: 63px;
-  }
-
-  .message-field {
-    width: 616px;
-    height: 300px;
-    overflow: visible;
-  }
-
-  .fields {
-    background-color: #f3f3f3;
-    font-family: Josefin Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 150%;
-    color: black;
-    padding: 0px 0 0 20px;
-    width: 100%;
-    border-radius: 5px;
-  }
-
   .group {
     position: relative;
-    font-family: Josefin Sans;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 50%;
     color: #838383;
-    position: relative;
     margin-bottom: 37px;
+  }
+
+  .fields {
+    width: 616px;
+    height: 63px;
+    background-color: #f3f3f3;
+    font-size: 16px;
+    line-height: 150%;
+    padding: 0px 0 0 20px;
+    border-radius: 5px;
+  }
+
+  .group textarea {
+    height: 300px;
+    border-style: none;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 0.4em;
+    padding-right: 0.4em;
   }
 
   .group > label {
@@ -139,26 +126,12 @@
     user-select: none;
   }
 
-  input:focus ~ label {
-    top: -6px;
-    background: white;
-  }
-
-  input:valid ~ label {
-    top: -6px;
-    background: white;
-    border-style: solid black;
-  }
-
-  textarea:focus ~ label {
-    top: -6px;
-    background: white;
-  }
-
+  input:focus ~ label,
+  input:valid ~ label,
+  textarea:focus ~ label,
   textarea:valid ~ label {
     top: -6px;
     background: white;
-    border-style: solid black;
   }
 
   .button-wrapper {
@@ -174,15 +147,6 @@
     justify-content: center;
     align-items: center;
     height: 58px;
-  }
-
-  .message-field {
-    border-style: none;
-    text-align: left;
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-bottom: 0.4em;
-    padding-right: 0.4em;
   }
 </style>
 
@@ -202,23 +166,25 @@
     <div class="col-2">
       <Card>
         <div class="column-wrapper">
-          <div class="group">
-            <input required class="name-field fields" id="name" />
-            <label for="name">nombre</label>
-          </div>
-          <div class="group">
-            <input required class="email-field fields" id="email" />
-            <label for="email">email</label>
-          </div>
-          <div class="group">
-            <textarea required class="message-field fields" id="message" />
-            <label for="message">mensaje</label>
-          </div>
-          <div class="button-wrapper">
-            <Button>
-              <div class="button-content">Enviar</div>
-            </Button>
-          </div>
+          <form action="">
+            <div class="group">
+              <input required name="hidden" class="fields" id="name" />
+              <label for="name">nombre</label>
+            </div>
+            <div class="group">
+              <input required class="fields" id="email" />
+              <label for="email">email</label>
+            </div>
+            <div class="group">
+              <textarea required class="fields" id="message" />
+              <label for="message">mensaje</label>
+            </div>
+            <div class="button-wrapper">
+              <Button>
+                <div class="button-content">Enviar</div>
+              </Button>
+            </div>
+          </form>
         </div>
       </Card>
     </div>
