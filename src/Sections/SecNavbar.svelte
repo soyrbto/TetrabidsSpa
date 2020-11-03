@@ -22,10 +22,12 @@
     font-weight: 700;
     margin-bottom: 10px;
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
+    user-select: none;
   }
   .item:hover {
     cursor: pointer;
     letter-spacing: 0.15em;
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
   }
 
   img {
@@ -39,20 +41,22 @@
   }
 
   .active {
-   border-bottom: 3px solid white;
-   animation: slide 0.5s ease-in-out;
+    margin: 20px 0;
+    width: 120%;
+    border-bottom: 3px solid white;
+    animation: slide 0.5s ease-in-out;
+    letter-spacing: 0.15em;
   }
 
   @keyframes slide {
-  from {
-    width: 0%
-  }
+    from {
+      width: 0%;
+    }
 
-  to {
-    width: 100%;
+    to {
+      width: 100%;
+    }
   }
-}
-
 </style>
 
 <img
@@ -61,7 +65,13 @@
   alt="blue home button"
 />
 {#each secNavbarItems as item}
-  <div class="item" class:active={item === $displayedSection} on:click={() => {dispatch('secNavbarClicked', `${item}`);}}>
+  <div
+    class="item"
+    class:active={item === $displayedSection}
+    on:click={() => {
+      dispatch('secNavbarClicked', `${item}`);
+    }}
+  >
     {item}
   </div>
 {/each}

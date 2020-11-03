@@ -1,7 +1,7 @@
 <script>
-  import Card from '../Component/SharedComponents/Card.svelte';
-  import Button from '../Component/SharedComponents/button.svelte';
-  import { contactData } from '../StaticStore';
+  import Card from "../Component/SharedComponents/Card.svelte";
+  import Button from "../Component/SharedComponents/button.svelte";
+  import { contactData } from "../StaticStore";
 </script>
 
 <style type="text/scss">
@@ -9,6 +9,7 @@
     display: flex;
     padding-right: 90px;
     width: 1511px;
+    height: 786px;
   }
 
   .col-1 {
