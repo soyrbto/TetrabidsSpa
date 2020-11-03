@@ -1,8 +1,22 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  let items = ["Servicios", "Productos", "Contacto"];
+  import {secNavbarItems} from "../StaticStore";
+  
 
   const dispatch = createEventDispatcher();
+
+
+
+  let sectionMove = {
+    home: function () {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    },
+    servicios: function () {
+      window.scrollTo({ top: 1920, left: 0, behavior: "smooth" });
+    },
+  };
+
+
 </script>
 
 <style>
@@ -24,10 +38,15 @@
     margin: 0 auto;
     margin-bottom: 20px;
   }
+
+  img:hover {
+    cursor: pointer;
+  }
+
 </style>
 
-<img src="./images/home-button.svg" alt="blue home button" />
-{#each items as item}
+<img on:click={sectionMove.home} src="./images/home-button.svg" alt="blue home button" />
+{#each secNavbarItems as item}
   <div
     class="item"
     on:click={() => {
