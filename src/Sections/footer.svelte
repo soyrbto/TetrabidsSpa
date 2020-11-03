@@ -5,15 +5,14 @@
   footer {
     display: flex;
     width: 100%;
-    height: 132px;
+    height: 86px;
     background: black;
     font-family: var(--display-typo);
     color: #666666;
     font-size: 24px;
-    padding: 78px 101px 30px 50px;
+    padding: 25px 101px 25px 50px;
     position: absolute;
     bottom: 0px;
-    z-index: -100;
     justify-content: space-between;
   }
 
@@ -29,12 +28,26 @@
 
   li {
     list-style: none;
+
   }
 
   .icons {
     width: 141px;
   }
-</style>
+
+  .overFooter {
+    position: absolute;
+    bottom: 0px;
+    height: 50px;
+    width: 100%;
+    z-index: -1;
+    background-color: black;
+    margin-bottom: 86px;
+  }
+
+ </style>
+
+<div class="overFooter"></div>
 
 <footer>
   <div class="content">Designed and powered <span> by Tetrabids</span></div>
@@ -45,7 +58,7 @@
           <img src="./images/facebook.svg" alt="facebook icon" /></a>
       </li>
       <li>
-        <a href="www.change.com">
+        <a href="https://www.instagram.com/tetrabids/" target="_blank">
           <img src="./images/instagram.svg" alt="instagram icon" /></a>
       </li>
       <li>
