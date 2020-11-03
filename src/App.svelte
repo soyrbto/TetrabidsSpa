@@ -1,20 +1,20 @@
 <script>
-  import Home from "./Sections/Home.svelte";
-  import Services from "./Sections/Services.svelte";
-  import SecNavbar from "./Sections/SecNavbar.svelte";
-  import Products from "./Sections/Products.svelte";
-  import { secNavbarItems } from "./StaticStore.js";
-  import Footer from "./Sections/Footer.svelte";
-  import Contact from "./Sections/Contact.svelte";
+  import Home from './Sections/Home.svelte';
+  import Services from './Sections/Services.svelte';
+  import SecNavbar from './Sections/SecNavbar.svelte';
+  import Products from './Sections/Products.svelte';
+  import { secNavbarItems } from './StaticStore.js';
+  import Footer from './Sections/Footer.svelte';
+  import Contact from './Sections/Contact.svelte';
 
-  $: displaySection = secNavbarItems[2];
-
+  $: displaySection = secNavbarItems[0];
+  //estaba buscando que hace e.detail con el valor
   // FUNCTION THAT CHAMGES THE SECTION WHEN SECNAVBAR OR NAVBAR IS CLICKED
   const changeSection = (e) => {
     if (displaySection != e.detail) {
       document
         .querySelector(`.${displaySection}`)
-        .classList.add("slide-out-right");
+        .classList.add('slide-out-right');
 
       setTimeout(() => {
         displaySection = e.detail;
