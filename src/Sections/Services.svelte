@@ -34,20 +34,22 @@
     background-image: url(../images/services-background.svg);
     background-position: right;
     background-repeat: no-repeat;
-    background-size: auto 100%;
+    background-size: 70vw 1200px;
+    border-radius: 20px;
     display: flex;
-    padding: 96px 0 85px 0;
-    width: 1511px;
+    padding: 9.6rem 0 8.5rem 0;
+    //  META WIDTH 1511PX
+    width: 78.65vw;
 
     .col-1 {
       display: flex;
       flex-direction: column;
-      margin-left: 70px;
-      width: 358px;
+      margin-left: 7rem;
+      width: 35.8rem;
 
       .abstract {
         display: block;
-        margin-bottom: 50px;
+        margin-bottom: 5rem;
       }
 
       .title {
@@ -65,21 +67,22 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      width: 245px;
-      margin-left: 208px;
-      height: 601px;
+      width: 24.5rem;
+      //META MARGING 208PX
+      margin-left: calc(21.25vw - 20rem);
+      height: 60.1rem;
 
       .button-item {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 60px;
+        height: 6rem;
       }
     }
 
     .col-3 {
-      width: 486px;
-      margin: 0 72px 0 66px;
+      width: 48.6rem;
+      margin: 0 7.2rem 0 6.6rem;
     }
   }
 
@@ -87,20 +90,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 27px 25px 47px 25px;
+    padding: 2.7rem 2.5rem 4.7rem 2.5rem;
     position: relative;
 
     .meeting {
       display: block;
       margin: 0 auto;
-      height: 220px;
+      height: 22rem;
     }
 
     .service-body {
       margin-top: 1px;
-      margin-bottom: 29px;
+      margin-bottom: 2.9rem;
       font-size: 14px;
-      height: 240px;
+      height: 24rem;
       line-height: 175%;
       letter-spacing: 0.08em;
     }
@@ -114,16 +117,16 @@
     display: flex;
     justify-content: center;
     position: absolute;
-    width: 246px;
+    width: 24.6rem;
     align-self: center;
-    top: 570px;
+    top: 57rem;
 
     .button-card-content {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 246px;
-      height: 58px;
+      width: 24.6rem;
+      height: 5.8rem;
     }
   }
 </style>
@@ -136,7 +139,7 @@
       <h2 class="title">{servicesData.title}</h2>
       <p class="abstract typo-paragraph">{servicesData.abstract}</p>
       <img
-        src="./images/team.png"
+        src="./images/team.svg"
         alt="3 workers behind a desk waving at you"
         class="team-image"
       />

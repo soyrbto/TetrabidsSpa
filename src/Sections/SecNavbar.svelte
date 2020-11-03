@@ -44,7 +44,7 @@
     margin: 20px 0;
     width: 120%;
     border-bottom: 3px solid white;
-    animation: slide 0.5s ease-in-out;
+    animation: slide 0.2s ease-in-out;
     letter-spacing: 0.15em;
   }
 

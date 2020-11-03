@@ -5,7 +5,7 @@
   footer {
     display: flex;
     width: 100%;
-    height: 86px;
+    height: 75px;
     background: black;
     font-family: var(--display-typo);
     color: #666666;
@@ -28,7 +28,6 @@
 
   li {
     list-style: none;
-
   }
 
   .icons {
@@ -38,16 +37,14 @@
   .overFooter {
     position: absolute;
     bottom: 0px;
-    height: 50px;
+    height: 120px;
     width: 100%;
     z-index: -1;
     background-color: black;
-    margin-bottom: 86px;
   }
+</style>
 
- </style>
-
-<div class="overFooter"></div>
+<div class="overFooter" />
 
 <footer>
   <div class="content">Designed and powered <span> by Tetrabids</span></div>
