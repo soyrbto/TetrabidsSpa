@@ -1,6 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
   import { secNavbarItems } from "../StaticStore";
+  import { displayedSection } from "../Stores";
   const dispatch = createEventDispatcher();
 
   let sectionMove = {
@@ -36,6 +37,22 @@
   img:hover {
     cursor: pointer;
   }
+
+  .active {
+   border-bottom: 3px solid white;
+   animation: slide 0.5s ease-in-out;
+  }
+
+  @keyframes slide {
+  from {
+    width: 0%
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
 </style>
 
 <img
@@ -44,12 +61,7 @@
   alt="blue home button"
 />
 {#each secNavbarItems as item}
-  <div
-    class="item"
-    on:click={() => {
-      dispatch('secNavbarClicked', `${item}`);
-    }}
-  >
+  <div class="item" class:active={item === $displayedSection} on:click={() => {dispatch('secNavbarClicked', `${item}`);}}>
     {item}
   </div>
 {/each}
