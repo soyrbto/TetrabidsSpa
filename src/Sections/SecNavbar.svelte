@@ -20,7 +20,7 @@
     font-family: "Josefin Sans", sans-serif;
     color: #11a7dd;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
     user-select: none;
   }
