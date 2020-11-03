@@ -1,11 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  import {secNavbarItems} from "../StaticStore";
-  
-
+  import { secNavbarItems } from "../StaticStore";
   const dispatch = createEventDispatcher();
-
-
 
   let sectionMove = {
     home: function () {
@@ -15,8 +11,6 @@
       window.scrollTo({ top: 1920, left: 0, behavior: "smooth" });
     },
   };
-
-
 </script>
 
 <style>
@@ -42,10 +36,13 @@
   img:hover {
     cursor: pointer;
   }
-
 </style>
 
-<img on:click={sectionMove.home} src="./images/home-button.svg" alt="blue home button" />
+<img
+  on:click={sectionMove.home}
+  src="./images/home-button.svg"
+  alt="blue home button"
+/>
 {#each secNavbarItems as item}
   <div
     class="item"

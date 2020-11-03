@@ -1,23 +1,23 @@
 <script>
-  import Home from './Sections/Home.svelte';
-  import Services from './Sections/Services.svelte';
-  import SecNavbar from './Sections/SecNavbar.svelte';
-  import Products from './Sections/Products.svelte';
-  import { secNavbarItems } from './StaticStore.js';
-  import Footer from './Sections/Footer.svelte';
-  import Contact from './Sections/Contact.svelte';
+  import Home from "./Sections/Home.svelte";
+  import Services from "./Sections/Services.svelte";
+  import SecNavbar from "./Sections/SecNavbar.svelte";
+  import Products from "./Sections/Products.svelte";
+  import { secNavbarItems } from "./StaticStore.js";
+  import Footer from "./Sections/Footer.svelte";
+  import Contact from "./Sections/Contact.svelte";
+  import { displayedSection } from "./Stores";
 
-  $: displaySection = secNavbarItems[0];
-  //estaba buscando que hace e.detail con el valor
   // FUNCTION THAT CHAMGES THE SECTION WHEN SECNAVBAR OR NAVBAR IS CLICKED
   const changeSection = (e) => {
-    if (displaySection != e.detail) {
+    if ($displayedSection != e.detail) {
       document
-        .querySelector(`.${displaySection}`)
-        .classList.add('slide-out-right');
+        .querySelector(`.${$displayedSection}`)
+        .classList.add("slide-out-right");
 
       setTimeout(() => {
-        displaySection = e.detail;
+        displayedSection.set(e.detail);
+        // displaySection = e.detail;
       }, 600);
     }
   };
@@ -70,15 +70,15 @@
       <div class="secnavbar-wrapper">
         <SecNavbar on:secNavbarClicked={changeSection} />
       </div>
-      {#if displaySection === secNavbarItems[0]}
+      {#if $displayedSection === secNavbarItems[0]}
         <div class="section-wrapper slide-in-right {secNavbarItems[0]}">
           <Services />
         </div>
-      {:else if displaySection === secNavbarItems[1]}
+      {:else if $displayedSection === secNavbarItems[1]}
         <div class="section-wrapper slide-in-right {secNavbarItems[1]}">
           <Products />
         </div>
-      {:else if displaySection === secNavbarItems[2]}
+      {:else if $displayedSection === secNavbarItems[2]}
         <div class="section-wrapper slide-in-right {secNavbarItems[2]}">
           <Contact />
         </div>

@@ -1,11 +1,11 @@
 <script>
-  import { get } from 'svelte/store';
-  import { onMount } from 'svelte';
-  import { stateStore } from '../Stores';
-  export let accordionId = 'Math.random()';
+  import { get } from "svelte/store";
+  import { onMount } from "svelte";
+  import { stateStore } from "../Stores";
+  export let accordionId = "Math.random()";
   accordionId = Math.random();
   let active = false;
-  let buttonStatus = 'plus';
+  let buttonStatus = "plus";
 
   // WHEN EVERY ELEMENT IS MOUNTED
   onMount(() => {
@@ -25,7 +25,7 @@
     if (active && !get(stateStore)[accordionId]) {
       //IT WILL UPDATE THE PROPERTY NAME OF THE COMPONENT ID ATO ITS OPPOSITE BOOLEAN VALUE
       stateStore.update(
-        (value) => (value = { ...value, [accordionId]: !value[accordionId] }),
+        (value) => (value = { ...value, [accordionId]: !value[accordionId] })
       );
 
       //THEM IT WILL LOOP TROUGH ALL OF THE PROPERTY NAMES AND GIVE THEM FALSE EXCEPT THIS COMPONENT
@@ -33,7 +33,7 @@
       stateArray.forEach((current) => {
         if (accordionId != current) {
           stateStore.update(
-            (value) => (value = { ...value, [current]: false }),
+            (value) => (value = { ...value, [current]: false })
           );
         }
       });
@@ -69,7 +69,7 @@
   }
 
   /* .container-open svg path {
-    d: path('M2 7H12 M7 7L7 7');
+    d: path("M2 7H12 M7 7L7 7");
     transition: 0.6s;
   } */
 
@@ -93,7 +93,7 @@
     margin: 22px 0 17px 11px;
     margin-bottom: clamp(12px, 0.52vw + 7px, 18px);
     font-weight: 600;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     /* meta font size 18px */
     font-size: clamp(14px, 0.52vw + 8px, 22px);
     display: flex;
@@ -126,23 +126,21 @@
 
 <div
   class:container-open={$stateStore[accordionId]}
-  class="container container-smaller">
+  class="container container-smaller"
+>
   <label for={accordionId} class="title"><button
       class:disabled={$stateStore[accordionId]}
       on:click={changeState}
       id={accordionId}
       type="button"
-      class="button"><svg
-        class="svg"
-        width="14"
-        height="14"
-        viewBox="0 0 14 14"
-        fill="none">
+      class="button"
+    ><svg class="svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path
           d="M2 7H12 M7 2L7 12"
           stroke="white"
           stroke-width="4"
-          stroke-linecap="round" />
+          stroke-linecap="round"
+        />
       </svg></button>
     <slot name="header" />
   </label>
