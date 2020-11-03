@@ -1,7 +1,7 @@
 <script>
-  import Card from "../Component/SharedComponents/Card.svelte";
-  import Button from "../Component/SharedComponents/button.svelte";
-  import { contactData } from "../StaticStore";
+  import Card from '../Component/SharedComponents/Card.svelte';
+  import Button from '../Component/SharedComponents/button.svelte';
+  import { contactData } from '../StaticStore';
 </script>
 
 <style type="text/scss">
@@ -166,7 +166,7 @@
     <div class="col-2">
       <Card>
         <div class="column-wrapper">
-          <form action="">
+          <form action="" autocomplete="off">
             <div class="group">
               <input required name="hidden" class="fields" id="name" />
               <label for="name">nombre</label>

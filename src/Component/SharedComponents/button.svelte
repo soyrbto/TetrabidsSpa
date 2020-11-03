@@ -1,7 +1,12 @@
 <script>
+  import { createEventDispatcher } from 'svelte';
   export let borderRadius = '50px';
   export let color = 'orange';
   export let animation = '';
+
+  const dispatch = createEventDispatcher();
+  let eventName = 'contactClicked';
+  let evDetail = 'Contacto';
 </script>
 
 <style>
@@ -134,9 +139,6 @@
   }
 </style>
 
-<button
-  onclick
-  style="border-radius:{borderRadius};"
-  class={`${color} ${animation}`}>
+<button style="border-radius:{borderRadius};" class={`${color} ${animation}`}>
   <slot />
 </button>

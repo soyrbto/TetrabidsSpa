@@ -1,22 +1,23 @@
 <script>
-  import Navbar from "../Component/NavBar.svelte";
-  import TitleSubtitle from "../Component/TitleSubtitle.svelte";
-  import { createEventDispatcher } from "svelte";
-  import { accordionData } from "../StaticStore";
-  import Accordion from "../Component/Accordion.svelte";
-  import Button from "../Component/SharedComponents/button.svelte";
-  import Textures from "../Component/Textures.svelte";
-  import { navbarItems } from "../StaticStore";
+  import Navbar from '../Component/NavBar.svelte';
+  import TitleSubtitle from '../Component/TitleSubtitle.svelte';
+  import { createEventDispatcher } from 'svelte';
+  import { accordionData } from '../StaticStore';
+  import Accordion from '../Component/Accordion.svelte';
+  import Button from '../Component/SharedComponents/button.svelte';
+  import Textures from '../Component/Textures.svelte';
+  import { navbarItems, secNavbarItems } from '../StaticStore';
 
   const dispatch = createEventDispatcher();
+
   let active = true;
   // INDEX OF SECTIONS AND POSITION
   let sectionMove = {
     home: function () {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     },
     servicios: function () {
-      window.scrollTo({ top: 1920, left: 0, behavior: "smooth" });
+      window.scrollTo({ top: 1920, left: 0, behavior: 'smooth' });
     },
   };
   // FUNCTION THAT SCROLLS UP TO CERTAIN SECTION DURING A CERTAIN TIME
@@ -31,27 +32,35 @@
   const wheelNextSection = (e) => {
     e.preventDefault();
     if ((e.deltaY > 0) & active) {
-      movement("servicios", 400);
+      movement('servicios', 400);
     } else if ((e.deltaY < 0) & active) {
-      movement("home", 400);
+      movement('home', 400);
     }
   };
 
-  window.addEventListener("wheel", wheelNextSection, { passive: false });
+  window.addEventListener('wheel', wheelNextSection, { passive: false });
   //FUNCTION THAT SCROLLS WHEN A NAVBAR ITEM IS CLICKED
 
   const navbarNextSection = (e) => {
     if (e.detail === navbarItems[0]) {
-      movement("servicios", 400);
+      movement('servicios', 400);
       setTimeout(() => {
-        dispatch("navbarClicked", e.detail);
+        dispatch('navbarClicked', e.detail);
       }, 600);
     } else {
-      movement("servicios", 400);
+      movement('servicios', 400);
       setTimeout(() => {
-        dispatch("navbarClicked", e.detail);
+        dispatch('navbarClicked', e.detail);
       }, 600);
     }
+  };
+
+  const contactButton = (info) => {
+    console.log(info);
+    movement('servicios', 400);
+    setTimeout(() => {
+      dispatch('navbarClicked', info);
+    }, 600);
   };
 </script>
 
@@ -137,9 +146,13 @@
         </Accordion>
       {/each}
     </div>
-    <div class="button">
+    <div
+      on:click={() => {
+        contactButton(`${secNavbarItems[2]}`);
+      }}
+      class="button">
       <Button>
-        <div class="button-contact">Contacto</div>
+        <div class="button-contact">{secNavbarItems[2]}</div>
       </Button>
     </div>
   </div>
