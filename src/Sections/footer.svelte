@@ -5,8 +5,8 @@
   footer {
     display: flex;
     width: 100%;
-    height: 75px;
-    background: black;
+    height: 85px;
+    background: rgba(0, 0, 0, 0);
     font-family: var(--display-typo);
     color: #666666;
     font-size: 24px;
@@ -37,7 +37,7 @@
   .overFooter {
     position: absolute;
     bottom: 0px;
-    height: 120px;
+    height: 170px;
     width: 100%;
     z-index: -1;
     background-color: black;
