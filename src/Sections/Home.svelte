@@ -70,9 +70,15 @@
     margin-bottom: 3vw;
   }
 
+  @media only screen and (max-height: 845px) {
+    .navbar {
+      margin-bottom: 0;
+    }
+  }
   .wrapper {
     display: flex;
-    height: 57.7rem;
+    /* Meta HEIGHT 577PX */
+    height: vh;
   }
   .col-1 {
     display: flex;
@@ -114,6 +120,13 @@
     /* meta top 580px */
     top: calc(8vw + 44rem);
     align-self: center;
+  }
+
+  @media screen and (max-height: 845px) {
+    .button {
+      /* META top 475px */
+      top: calc(39.7vh + 20rem);
+    }
   }
 
   .accordion {
