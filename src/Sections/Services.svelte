@@ -41,11 +41,18 @@
     //  META WIDTH 1511PX
     width: 78.65vw;
 
+    @media only screen and (max-height: 845px) {
+      & {
+        padding-top: 3rem;
+      }
+    }
+
     .col-1 {
       display: flex;
       flex-direction: column;
       margin-left: 7rem;
       width: 35.8rem;
+      height: 64.908vh;
 
       .abstract {
         display: block;
@@ -70,7 +77,7 @@
       width: 24.5rem;
       //META MARGING 208PX
       margin-left: calc(21.25vw - 20rem);
-      height: 60.1rem;
+      height: 64.908vh;
 
       .button-item {
         display: flex;
@@ -83,6 +90,7 @@
     .col-3 {
       width: 48.6rem;
       margin: 0 7.2rem 0 6.6rem;
+      height: 60.908vh;
     }
   }
 
@@ -90,20 +98,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 2.7rem 2.5rem 4.7rem 2.5rem;
+    //META padding bottom 47px
+    padding: 2.7rem 2.5rem calc(1.22vw + 0.35rem) 2.5rem;
     position: relative;
 
     .meeting {
       display: block;
       margin: 0 auto;
-      height: 22rem;
+      height: 11.45vw;
     }
 
     .service-body {
       margin-top: 1px;
-      margin-bottom: 2.9rem;
-      font-size: 14px;
-      height: 24rem;
+      //META margin 29px
+      margin-bottom: 1.51vw;
+      // META HEIGHT 240PX
+      height: calc(0.125vw + 18rem);
       line-height: 175%;
       letter-spacing: 0.08em;
     }
@@ -119,7 +129,8 @@
     position: absolute;
     width: 24.6rem;
     align-self: center;
-    top: 57rem;
+    // META TOP 570PX
+    top: calc(15.32vw + 20.5rem);
 
     .button-card-content {
       display: flex;

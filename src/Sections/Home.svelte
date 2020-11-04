@@ -31,14 +31,15 @@
   // FUNCTION THAT CALL THE SCROLLS ON WHEEL EVENT
   const wheelNextSection = (e) => {
     e.preventDefault();
-    if ((e.deltaY > 0) & active) {
+    if (e.deltaY > 0 && active) {
       movement("servicios", 400);
-    } else if ((e.deltaY < 0) & active) {
+    } else if (e.deltaY < 0 && active) {
       movement("home", 400);
     }
   };
 
   window.addEventListener("wheel", wheelNextSection, { passive: false });
+
   //FUNCTION THAT SCROLLS WHEN A NAVBAR ITEM IS CLICKED
 
   const navbarNextSection = (e) => {
