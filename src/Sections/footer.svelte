@@ -4,16 +4,16 @@
 <style>
   footer {
     display: flex;
-    width: 100%;
+    align-items: center;
+    justify-content: center;
     height: 85px;
     background: rgba(0, 0, 0, 0);
     font-family: var(--display-typo);
     color: #666666;
     font-size: 24px;
-    padding: 25px 101px 25px 50px;
-    position: absolute;
-    bottom: 0px;
     justify-content: space-between;
+    padding: 0 30px;
+    line-height: 25px;
   }
 
   span {
