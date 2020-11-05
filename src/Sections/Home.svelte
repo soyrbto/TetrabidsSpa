@@ -14,7 +14,9 @@
   // INDEX OF SECTIONS AND POSITION
   let sectionMove = {
     home: function () {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }, 100);
     },
     servicios: function () {
       window.scrollTo({
