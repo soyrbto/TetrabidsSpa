@@ -17,7 +17,6 @@
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     },
     servicios: function () {
-      console.log(window.innerHeight * 1.1526);
       window.scrollTo({
         top: window.innerHeight * 1.1526,
         left: 0,

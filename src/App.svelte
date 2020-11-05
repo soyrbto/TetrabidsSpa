@@ -8,6 +8,8 @@
   import Contact from "./Sections/Contact.svelte";
   import { displayedSection } from "./Stores";
 
+  let windowsWidth;
+
   // FUNCTION THAT CHAMGES THE SECTION WHEN SECNAVBAR OR NAVBAR IS CLICKED
   const changeSection = (e) => {
     if ($displayedSection != e.detail) {
@@ -64,6 +66,8 @@
   }
 </style>
 
+<svelte:window bind:innerWidth={windowsWidth} />
+
 <div class="page-container">
   <main>
     <div class="home-wrapper">
@@ -71,9 +75,12 @@
     </div>
 
     <div class="section-wrapper">
-      <div class="secnavbar-wrapper">
-        <SecNavbar on:secNavbarClicked={changeSection} />
-      </div>
+      {#if windowsWidth > 1160}
+        <div class="secnavbar-wrapper">
+          <SecNavbar on:secNavbarClicked={changeSection} />
+        </div>
+      {/if}
+
       {#if $displayedSection === secNavbarItems[0]}
         <div class="slide-in-right {secNavbarItems[0]}">
           <Services />

@@ -54,7 +54,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 35.8rem;
+      // META WIDTH 358PX
+      width: 18.65vw;
       padding-bottom: 35px;
 
       .title {
@@ -67,16 +68,16 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      height: 31.3vw;
 
       .buttons-wrapper {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         //Meta width 243px
-        width: 12.656vw;
+        width: unquote($string: "clamp(150px, 12.65vw, 243px)");
         height: 100%;
-        padding: 75px 0;
+        //META PADDING 75PX
+        padding: unquote($string: "clamp(50px, 3.9vw, 40px)") 0;
       }
 
       .button-item {
@@ -89,7 +90,7 @@
     }
 
     .col-3 {
-      width: 48.6rem;
+      width: 25.31vw;
       @media only screen and (max-height: 845px) {
         & {
           padding-top: 3rem;
@@ -143,9 +144,9 @@
     }
   }
 
-  .team-image {
-    height: 15.625vw;
-  }
+  // .team-image {
+  //   height: 15.625vw;
+  // }
 </style>
 
 <!--  SERVICES SECTION -->
