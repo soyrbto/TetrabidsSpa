@@ -38,11 +38,9 @@
     background-repeat: no-repeat;
     background-size: 70vw 1200px;
     border-radius: 20px;
-    display: flex;
     padding: 9.6rem 7rem 8.5rem 7rem;
     //  META WIDTH 1511PX
     width: 78.65vw;
-    height: 100%;
 
     @media only screen and (max-height: 845px) {
       & {
@@ -68,13 +66,13 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+      width: unquote($string: "clamp(150px, 12.65vw, 243px)");
 
       .buttons-wrapper {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         //Meta width 243px
-        width: unquote($string: "clamp(150px, 12.65vw, 243px)");
         height: 100%;
         //META PADDING 75PX
         padding: unquote($string: "clamp(50px, 3.9vw, 40px)") 0;
@@ -97,50 +95,50 @@
           height: 60.908vh;
         }
       }
-    }
-  }
+      .description-card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        //META padding bottom 47px
+        padding: 2.7rem 2.5rem calc(1.22vw + 0.35rem) 2.5rem;
+        position: relative;
 
-  .description-card-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    //META padding bottom 47px
-    padding: 2.7rem 2.5rem calc(1.22vw + 0.35rem) 2.5rem;
-    position: relative;
+        .typo-title {
+          color: #066d92;
+        }
 
-    .meeting {
-      display: block;
-      margin: 0 auto;
-      height: 11.45vw;
-    }
+        .service-body {
+          margin-top: 1px;
+          //META margin 29px
+          margin-bottom: 1.51vw;
+          line-height: 175%;
+          letter-spacing: 0.08em;
+        }
 
-    .service-body {
-      margin-top: 1px;
-      //META margin 29px
-      margin-bottom: 1.51vw;
-      line-height: 175%;
-      letter-spacing: 0.08em;
-    }
-  }
+        .meeting {
+          display: block;
+          margin: 0 auto;
+          height: 11.45vw;
+        }
 
-  .typo-title {
-    color: #066d92;
-  }
+        .button-wrapper {
+          display: flex;
+          justify-content: center;
+          position: absolute;
+          align-self: center;
+          top: 96%;
 
-  .button-wrapper {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 24.6rem;
-    align-self: center;
-    top: 96%;
-
-    .button-card-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 24.6rem;
-      height: 5.8rem;
+          .button-card-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            //Meta width 246px
+            width: 12.81vw;
+            //META height 58px
+            height: 3vw;
+          }
+        }
+      }
     }
   }
 

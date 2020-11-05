@@ -1,12 +1,12 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
-  export let borderRadius = '50px';
-  export let color = 'orange';
-  export let animation = '';
+  import { createEventDispatcher } from "svelte";
+  export let borderRadius = "50px";
+  export let color = "orange";
+  export let animation = "";
 
   const dispatch = createEventDispatcher();
-  let eventName = 'contactClicked';
-  let evDetail = 'Contacto';
+  let eventName = "contactClicked";
+  let evDetail = "Contacto";
 </script>
 
 <style>
@@ -16,9 +16,10 @@
     padding: 0px;
     border-style: none;
     color: white;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     font-weight: 600;
-    font-size: 25px;
+    /*  META font-size 25px */
+    font-size: 1.3vw;
     outline: none;
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
