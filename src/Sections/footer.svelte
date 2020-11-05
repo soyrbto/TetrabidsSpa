@@ -34,7 +34,7 @@
     width: 141px;
   }
 
-  .overFooter {
+  .underFooter {
     position: absolute;
     bottom: 0px;
     height: 170px;
@@ -44,7 +44,7 @@
   }
 </style>
 
-<div class="overFooter" />
+<div class="underFooter" />
 
 <footer>
   <div class="content">Designed and powered <span> by Tetrabids</span></div>
