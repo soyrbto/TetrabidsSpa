@@ -31,15 +31,18 @@
 
 <style type="text/scss">
   .wrapper-section {
+    display: flex;
+    justify-content: space-between;
     background-image: url(../images/services-background.svg);
     background-position: right;
     background-repeat: no-repeat;
     background-size: 70vw 1200px;
     border-radius: 20px;
     display: flex;
-    padding: 9.6rem 0 8.5rem 0;
+    padding: 9.6rem 7rem 8.5rem 7rem;
     //  META WIDTH 1511PX
     width: 78.65vw;
+    height: 100%;
 
     @media only screen and (max-height: 845px) {
       & {
@@ -50,23 +53,13 @@
     .col-1 {
       display: flex;
       flex-direction: column;
-      margin-left: 7rem;
+      justify-content: space-between;
       width: 35.8rem;
-      height: 64.908vh;
-
-      .abstract {
-        display: block;
-        margin-bottom: 5rem;
-      }
+      padding-bottom: 35px;
 
       .title {
         font-family: var(--display-typo);
         font-size: 32px;
-      }
-
-      .team-image {
-        align-self: center;
-        justify-self: flex-end;
       }
     }
 
@@ -74,23 +67,35 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      width: 24.5rem;
-      //META MARGING 208PX
-      margin-left: calc(21.25vw - 20rem);
-      height: 64.908vh;
+      height: 31.3vw;
+
+      .buttons-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        //Meta width 243px
+        width: 12.656vw;
+        height: 100%;
+        padding: 75px 0;
+      }
 
       .button-item {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 6rem;
+        height: 3.125vw;
+        font-size: 1.3vw;
       }
     }
 
     .col-3 {
       width: 48.6rem;
-      margin: 0 7.2rem 0 6.6rem;
-      height: 60.908vh;
+      @media only screen and (max-height: 845px) {
+        & {
+          padding-top: 3rem;
+          height: 60.908vh;
+        }
+      }
     }
   }
 
@@ -112,8 +117,6 @@
       margin-top: 1px;
       //META margin 29px
       margin-bottom: 1.51vw;
-      // META HEIGHT 240PX
-      height: calc(0.125vw + 18rem);
       line-height: 175%;
       letter-spacing: 0.08em;
     }
@@ -129,8 +132,7 @@
     position: absolute;
     width: 24.6rem;
     align-self: center;
-    // META TOP 570PX
-    top: calc(15.32vw + 20.5rem);
+    top: 96%;
 
     .button-card-content {
       display: flex;
@@ -140,6 +142,10 @@
       height: 5.8rem;
     }
   }
+
+  .team-image {
+    height: 15.625vw;
+  }
 </style>
 
 <!--  SERVICES SECTION -->
@@ -147,8 +153,11 @@
   <div class="wrapper-section">
     <!--  SERVICE ABSTRACT SUB-SECTION -->
     <div class="col-1">
-      <h2 class="title">{servicesData.title}</h2>
-      <p class="abstract typo-paragraph">{servicesData.abstract}</p>
+      <div class="concept">
+        <h2 class="title">{servicesData.title}</h2>
+        <p class="abstract typo-paragraph">{servicesData.abstract}</p>
+      </div>
+
       <img
         src="./images/team.svg"
         alt="3 workers behind a desk waving at you"
@@ -157,11 +166,13 @@
     </div>
     <!--  SERVICE ITEMS SUB-SECTION -->
     <div class="col-2">
-      {#each servicesData.serviceItems as serviceItem}
-        <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
-          <div class="button-item" on:click={getContent}>{serviceItem}</div>
-        </Button>
-      {/each}
+      <div class="buttons-wrapper">
+        {#each servicesData.serviceItems as serviceItem}
+          <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
+            <div class="button-item" on:click={getContent}>{serviceItem}</div>
+          </Button>
+        {/each}
+      </div>
     </div>
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
     <div class="col-3">

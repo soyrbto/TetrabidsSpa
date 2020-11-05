@@ -24,7 +24,16 @@
 </script>
 
 <style type="text/scss">
+  .page-container {
+    position: relative;
+    height: 208vh;
+    overflow: hidden;
+  }
+
   main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 200vh;
     background: linear-gradient(
       180deg,
@@ -41,22 +50,17 @@
   }
 
   .section-wrapper {
-    margin-top: 50px;
     display: flex;
+    align-items: center;
     justify-content: center;
     transition: all;
+    height: 92vh;
   }
 
   .secnavbar-wrapper {
     width: 118px;
     margin-right: 110px;
     align-self: center;
-  }
-
-  .page-container {
-    position: relative;
-    height: 208vh;
-    overflow: hidden;
   }
 </style>
 
@@ -71,15 +75,15 @@
         <SecNavbar on:secNavbarClicked={changeSection} />
       </div>
       {#if $displayedSection === secNavbarItems[0]}
-        <div class="section-wrapper slide-in-right {secNavbarItems[0]}">
+        <div class="slide-in-right {secNavbarItems[0]}">
           <Services />
         </div>
       {:else if $displayedSection === secNavbarItems[1]}
-        <div class="section-wrapper slide-in-right {secNavbarItems[1]}">
+        <div class="slide-in-right {secNavbarItems[1]}">
           <Products />
         </div>
       {:else if $displayedSection === secNavbarItems[2]}
-        <div class="section-wrapper slide-in-right {secNavbarItems[2]}">
+        <div class="slide-in-right {secNavbarItems[2]}">
           <Contact />
         </div>
       {/if}

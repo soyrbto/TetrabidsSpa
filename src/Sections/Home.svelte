@@ -17,7 +17,12 @@
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     },
     servicios: function () {
-      window.scrollTo({ top: 1920, left: 0, behavior: "smooth" });
+      console.log(window.innerHeight * 1.1526);
+      window.scrollTo({
+        top: window.innerHeight * 1.1526,
+        left: 0,
+        behavior: "smooth",
+      });
     },
   };
   // FUNCTION THAT SCROLLS UP TO CERTAIN SECTION DURING A CERTAIN TIME
