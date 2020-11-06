@@ -3,6 +3,10 @@ import { secNavbarItems } from "./StaticStore";
 
 const stateStore = writable({});
 const colorButtonStore = writable({});
-const displayedSection = writable(secNavbarItems[2]);
-
-export { stateStore, colorButtonStore, displayedSection };
+const displayedSection = writable(secNavbarItems[0]);
+const displayedState = writable({
+  [secNavbarItems[0]]: false,
+  [secNavbarItems[1]]: false,
+  [secNavbarItems[2]]: false,
+});
+export { stateStore, colorButtonStore, displayedSection, displayedState };

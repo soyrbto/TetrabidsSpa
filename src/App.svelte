@@ -6,23 +6,9 @@
   import { secNavbarItems } from "./StaticStore.js";
   import Footer from "./Sections/Footer.svelte";
   import Contact from "./Sections/Contact.svelte";
-  import { displayedSection } from "./Stores";
+  import { displayedSection, displayedState } from "./Stores";
 
   let windowsWidth;
-
-  // FUNCTION THAT CHAMGES THE SECTION WHEN SECNAVBAR OR NAVBAR IS CLICKED
-  const changeSection = (e) => {
-    if ($displayedSection != e.detail) {
-      document
-        .querySelector(`.${$displayedSection}`)
-        .classList.add("slide-out-right");
-
-      setTimeout(() => {
-        displayedSection.set(e.detail);
-        // displaySection = e.detail;
-      }, 600);
-    }
-  };
 </script>
 
 <style type="text/scss">
@@ -64,6 +50,10 @@
     margin-right: 110px;
     align-self: center;
   }
+
+  .active {
+    background: red;
+  }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
@@ -71,26 +61,35 @@
 <div class="page-container">
   <main>
     <div class="home-wrapper">
-      <Home on:navbarClicked={changeSection} />
+      <Home />
     </div>
 
     <div class="section-wrapper">
       {#if windowsWidth > 1160}
         <div class="secnavbar-wrapper">
-          <SecNavbar on:secNavbarClicked={changeSection} />
+          <SecNavbar />
         </div>
       {/if}
 
       {#if $displayedSection === secNavbarItems[0]}
-        <div class="slide-in-right {secNavbarItems[0]}">
+        <div
+          class:slide-out-right={$displayedState[secNavbarItems[0]]}
+          class="slide-in-right {secNavbarItems[0]}"
+        >
           <Services />
         </div>
       {:else if $displayedSection === secNavbarItems[1]}
-        <div class="slide-in-right {secNavbarItems[1]}">
+        <div
+          class:slide-out-right={$displayedState['Productos']}
+          class="slide-in-right {secNavbarItems[1]}"
+        >
           <Products />
         </div>
       {:else if $displayedSection === secNavbarItems[2]}
-        <div class="slide-in-right {secNavbarItems[2]}">
+        <div
+          class:slide-out-right={$displayedState[secNavbarItems[2]]}
+          class="slide-in-right {secNavbarItems[2]}"
+        >
           <Contact />
         </div>
       {/if}
