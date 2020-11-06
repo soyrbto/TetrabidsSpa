@@ -51,17 +51,19 @@
       width: 18.65vw;
       padding-bottom: 35px;
 
-      .title {
-        font-family: var(--display-typo);
-        font-size: 32px;
-      }
+      .concept {
+        .title {
+          font-family: var(--display-typo);
+          font-size: 32px;
+        }
 
-      .abstract {
-        font-weight: 400;
-        margin-top: 28px;
-        font-family: var(--par-typo);
-        /* meta font size 14px */
-        font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+        .abstract {
+          font-weight: 400;
+          margin-top: 28px;
+          font-family: var(--par-typo);
+          /* meta font size 14px */
+          font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+        }
       }
     }
 
@@ -106,13 +108,9 @@
         }
 
         .service-body {
-          margin-top: 1px;
-          //META margin 29px
-          margin-bottom: 1.51vw;
           line-height: 175%;
           letter-spacing: 0.08em;
           font-weight: 400;
-          margin-top: 28px;
           font-family: var(--par-typo);
           /* meta font size 14px */
           font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
@@ -144,10 +142,6 @@
       }
     }
   }
-
-  // .team-image {
-  //   height: 15.625vw;
-  // }
 </style>
 
 <!--  SERVICES SECTION -->
@@ -163,7 +157,6 @@
       <img
         src="./images/team.svg"
         alt="3 workers behind a desk waving at you"
-        class="team-image"
       />
     </div>
     <!--  SERVICE ITEMS SUB-SECTION -->

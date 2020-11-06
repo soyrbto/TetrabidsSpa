@@ -31,95 +31,102 @@
 <style type="text/scss">
   .wrapper-section {
     display: flex;
-    padding: 96px 0 85px 0;
-    width: 1511px;
-    justify-content: space-around;
+    justify-content: space-between;
+    //META PADDING 96px 70px 85px 70px
+    padding: 2.5vw 3.6vw 3vw 3.6vw;
+    //  META WIDTH 1511PX
+    width: 78.65vw;
 
     .col-1 {
       display: flex;
-      justify-content: space-evenly;
       flex-direction: column;
-      margin-left: 70px;
-      width: 358px;
+      // META WIDTH 358px
+      width: 18.65vw;
 
-      .button-item {
+      .concept {
+        .title {
+          font-family: var(--display-typo);
+          font-size: 32px;
+        }
+
+        .abstract {
+          display: block;
+          font-weight: 400;
+          margin: 28px 0 50px 0;
+          font-family: var(--par-typo);
+          /* meta font size 14px */
+          font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+        }
+      }
+
+      .wrapper-button {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 60px;
-      }
+        flex-direction: column;
+        justify-content: space-between;
+        height: 50%;
+        width: 100%;
 
-      .abstract {
-        display: block;
-        margin-bottom: 50px;
-      }
-
-      .title {
-        font-family: var(--display-typo);
-        font-size: 32px;
+        .button-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 60px;
+        }
       }
     }
 
     .col-2 {
       display: flex;
       flex-direction: column;
-      margin-left: 60px;
-      height: 601px;
       justify-content: center;
-
-      .center-image {
-        height: 455px;
-        width: 451px;
-      }
+      width: 20.5vw;
     }
 
     .col-3 {
-      width: 486px;
-      margin: 0 72px 0 66px;
+      width: 25.3vw;
 
       .description-card-content {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 27px 25px 47px 25px;
+        padding: 2.7rem 2.5rem calc(1.22vw + 0.35rem) 2.5rem;
         position: relative;
 
         .typo-title {
           color: #066d92;
         }
+        .service-body {
+          line-height: 175%;
+          letter-spacing: 0.08em;
+          font-weight: 400;
+          font-family: var(--par-typo);
+          /* meta font size 14px */
+          font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+        }
+
+        .meeting {
+          display: block;
+          margin: 0 auto;
+          height: 11.45vw;
+        }
+
+        .button-wrapper {
+          display: flex;
+          justify-content: center;
+          position: absolute;
+          width: 12.8vw;
+          align-self: center;
+          top: 96%;
+
+          .button-card-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            //META height 58px
+            height: 3vw;
+          }
+        }
       }
-    }
-  }
-
-  .service-body {
-    margin-top: 1px;
-    margin-bottom: 29px;
-    font-size: 14px;
-    height: 240px;
-    line-height: 175%;
-    letter-spacing: 0.08em;
-  }
-
-  .meeting {
-    display: block;
-    margin: 0 auto;
-    height: 220px;
-  }
-
-  .button-wrapper {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    width: 246px;
-    align-self: center;
-    top: 570px;
-
-    .button-card-content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 246px;
-      height: 58px;
     }
   }
 </style>
@@ -129,13 +136,18 @@
   <div class="wrapper-section">
     <!--  SERVICE ABSTRACT SUB-SECTION -->
     <div class="col-1">
-      <h2 class="title">{productsData.title}</h2>
-      <p class="abstract typo-paragraph">{productsData.abstract}</p>
-      {#each productsData.productItems as serviceItem}
-        <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
-          <div class="button-item" on:click={getContent}>{serviceItem}</div>
-        </Button>
-      {/each}
+      <div class="concept">
+        <h2 class="title">{productsData.title}</h2>
+        <p class="abstract">{productsData.abstract}</p>
+      </div>
+
+      <div class="wrapper-button">
+        {#each productsData.productItems as serviceItem}
+          <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
+            <div class="button-item" on:click={getContent}>{serviceItem}</div>
+          </Button>
+        {/each}
+      </div>
     </div>
     <!--  SERVICE CENTER IMAGE SUB-SECTION -->
     <div class="col-2">
@@ -150,7 +162,7 @@
       <Card>
         <div class="description-card-content">
           <h3 class="typo-title">{bodyContent}</h3>
-          <p class="service-body typo-paragraph">
+          <p class="service-body">
             {@html productsData[bodyContent]}
           </p>
           <img src="./images/meeting.png" alt="" class="meeting" />
