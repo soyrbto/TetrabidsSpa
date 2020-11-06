@@ -56,15 +56,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-.typo-paragraph{
- font-weight: 400;
- margin-top: 28px;
- font-family: var(--par-typo);
- /* meta font size 14px */
-  font-size: clamp(11px, 0.6vw + 0.448rem, 20px);
-
-}
-
 .typo-title{
    font-family: 'Josefin Sans', sans-serif;
     font-size: 25px;

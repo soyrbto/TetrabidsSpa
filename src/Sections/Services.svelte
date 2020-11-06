@@ -38,15 +38,10 @@
     background-repeat: no-repeat;
     background-size: 70vw 1200px;
     border-radius: 20px;
-    padding: 9.6rem 7rem 8.5rem 7rem;
+    //META PADDING 96px 70px 85px 70px
+    padding: 5vw 3.6vw 4.4vw 3.6vw;
     //  META WIDTH 1511PX
     width: 78.65vw;
-
-    @media only screen and (max-height: 845px) {
-      & {
-        padding-top: 3rem;
-      }
-    }
 
     .col-1 {
       display: flex;
@@ -56,9 +51,19 @@
       width: 18.65vw;
       padding-bottom: 35px;
 
-      .title {
-        font-family: var(--display-typo);
-        font-size: 32px;
+      .concept {
+        .title {
+          font-family: var(--display-typo);
+          font-size: 32px;
+        }
+
+        .abstract {
+          font-weight: 400;
+          margin-top: 28px;
+          font-family: var(--par-typo);
+          /* meta font size 14px */
+          font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+        }
       }
     }
 
@@ -89,12 +94,7 @@
 
     .col-3 {
       width: 25.31vw;
-      @media only screen and (max-height: 845px) {
-        & {
-          padding-top: 3rem;
-          height: 60.908vh;
-        }
-      }
+
       .description-card-content {
         display: flex;
         flex-direction: column;
@@ -108,11 +108,12 @@
         }
 
         .service-body {
-          margin-top: 1px;
-          //META margin 29px
-          margin-bottom: 1.51vw;
           line-height: 175%;
           letter-spacing: 0.08em;
+          font-weight: 400;
+          font-family: var(--par-typo);
+          /* meta font size 14px */
+          font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
         }
 
         .meeting {
@@ -141,10 +142,6 @@
       }
     }
   }
-
-  // .team-image {
-  //   height: 15.625vw;
-  // }
 </style>
 
 <!--  SERVICES SECTION -->
@@ -154,13 +151,12 @@
     <div class="col-1">
       <div class="concept">
         <h2 class="title">{servicesData.title}</h2>
-        <p class="abstract typo-paragraph">{servicesData.abstract}</p>
+        <p class="abstract">{servicesData.abstract}</p>
       </div>
 
       <img
         src="./images/team.svg"
         alt="3 workers behind a desk waving at you"
-        class="team-image"
       />
     </div>
     <!--  SERVICE ITEMS SUB-SECTION -->
@@ -178,7 +174,7 @@
       <Card>
         <div class="description-card-content">
           <h3 class="typo-title">{bodyContent}</h3>
-          <p class="service-body typo-paragraph">
+          <p class="service-body">
             {@html servicesData[bodyContent]}
           </p>
           <img src="./images/meeting.png" alt="" class="meeting" />
