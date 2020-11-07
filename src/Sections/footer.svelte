@@ -4,16 +4,15 @@
 <style>
   footer {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 85px;
-    background: rgba(0, 0, 0, 0);
-    font-family: var(--display-typo);
-    color: #666666;
-    font-size: 24px;
     justify-content: space-between;
-    padding: 0 30px;
-    line-height: 25px;
+    align-items: center;
+    height: 8vh;
+    padding: 0 5.2vw 0 1.56vw;
+    background: rgba(0, 0, 0, 0);
+    color: #666666;
+    font-family: var(--display-typo);
+    /* META font size 24px*/
+    font-size: 2.22vh;
   }
 
   span {
@@ -23,21 +22,30 @@
   ul {
     display: flex;
     justify-content: space-between;
-    margin: 0px;
+    height: 3.26vh;
+    width: 100%;
+    margin: 0;
   }
 
   li {
     list-style: none;
   }
 
+  img {
+    height: 3.26vh;
+  }
+
   .icons {
-    width: 141px;
+    display: flex;
+    align-items: center;
+    width: 7.34vw;
+    height: 100%;
   }
 
   .underFooter {
     position: absolute;
     bottom: 0px;
-    height: 170px;
+    height: 15.75vh;
     width: 100%;
     z-index: -1;
     background-color: black;
@@ -51,7 +59,7 @@
   <div class="icons">
     <ul>
       <li>
-        <a href="www.change.com">
+        <a href="https://www.facebook.com/tetrabids" target="_blank">
           <img src="./images/facebook.svg" alt="facebook icon" /></a>
       </li>
       <li>
@@ -59,7 +67,7 @@
           <img src="./images/instagram.svg" alt="instagram icon" /></a>
       </li>
       <li>
-        <a href="www.change.com">
+        <a href="https://wa.me/584125457790" target="_blank">
           <img src="./images/whatsapp.svg" alt="instagram icon" /></a>
       </li>
     </ul>

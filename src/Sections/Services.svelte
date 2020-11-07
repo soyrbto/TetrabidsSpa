@@ -39,22 +39,23 @@
     background-size: 70vw 1200px;
     border-radius: 20px;
     //META PADDING 96px 70px 85px 70px
-    padding: 5vw 3.6vw 4.4vw 3.6vw;
+    padding: 3% 4.5% 3% 4.5%;
     //  META WIDTH 1511PX
     width: 78.65vw;
+    height: 71.4vh;
 
     .col-1 {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-evenly;
       // META WIDTH 358PX
       width: 18.65vw;
-      padding-bottom: 35px;
 
       .concept {
         .title {
           font-family: var(--display-typo);
-          font-size: 32px;
+          //META font-size 32px
+          font-size: 3vh;
         }
 
         .abstract {
@@ -63,6 +64,7 @@
           font-family: var(--par-typo);
           /* meta font size 14px */
           font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+          line-height: 3vh;
         }
       }
     }
@@ -93,6 +95,9 @@
     }
 
     .col-3 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       width: 25.31vw;
 
       .description-card-content {
@@ -100,7 +105,8 @@
         flex-direction: column;
         justify-content: center;
         //META padding bottom 47px
-        padding: 2.7rem 2.5rem calc(1.22vw + 0.35rem) 2.5rem;
+        //padding: 2.7rem 2.5rem calc(1.22vw + 0.35rem) 2.5rem;
+        padding: 4% 5% 0 5%;
         position: relative;
 
         .typo-title {
@@ -114,6 +120,10 @@
           font-family: var(--par-typo);
           /* meta font size 14px */
           font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+          //META height 300px
+          height: 27.8vh;
+          overflow: hidden;
+          margin-top: 28px;
         }
 
         .meeting {
@@ -173,10 +183,12 @@
     <div class="col-3">
       <Card>
         <div class="description-card-content">
-          <h3 class="typo-title">{bodyContent}</h3>
-          <p class="service-body">
-            {@html servicesData[bodyContent]}
-          </p>
+          <div class="wrapper-text-descripction">
+            <h3 class="typo-title">{bodyContent}</h3>
+            <p class="service-body">
+              {@html servicesData[bodyContent]}
+            </p>
+          </div>
           <img src="./images/meeting.png" alt="" class="meeting" />
           <div class="button-wrapper">
             <Button color="purple">

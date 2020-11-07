@@ -8,8 +8,9 @@
   .wrapper-section {
     display: flex;
     justify-content: space-between;
+    padding: 5%;
     width: 78.65vw;
-    padding: 2.5vw 3.6vw 3vw 3.6vw;
+    height: 71.4vh;
   }
 
   .col-1 {
@@ -17,7 +18,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 26.25vw;
+    width: 27.25vw;
 
     .concept {
       .title {
@@ -28,8 +29,8 @@
         font-family: Josefin Sans;
         font-style: normal;
         font-weight: normal;
-        font-size: 32px;
-        line-height: 40px;
+        font-size: 3vh;
+        line-height: 3.5vh;
         letter-spacing: 0.05em;
       }
 
@@ -37,8 +38,9 @@
         color: white;
         font-family: Josefin Sans;
         font-weight: normal;
-        font-size: 18px;
-        line-height: 20px;
+        font-size: 1.7vh;
+        line-height: 2.5vh;
+        margin-top: 0.5vh;
       }
     }
 
@@ -49,7 +51,7 @@
     .wrapper-info {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-evenly;
       align-items: center;
       height: 20%;
     }
@@ -59,8 +61,8 @@
       font-family: Josefin Sans;
       font-style: normal;
       font-weight: 600;
-      font-size: 16px;
-      line-height: 150%;
+      font-size: 1.5vh;
+      margin-top: 1vh;
     }
 
     .location {
@@ -72,13 +74,13 @@
         font-family: Josefin Sans;
         font-style: normal;
         font-weight: 600;
-        font-size: 16px;
-        line-height: 150%;
+        font-size: 1.5vh;
         align-items: center;
       }
       img {
-        display: inline;
+        display: inline-block;
         margin-right: 10px;
+        height: 2.77vh !important;
       }
     }
   }
@@ -93,9 +95,10 @@
       font-family: josefin Sans;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       width: 100%;
-      padding: 1.6vw 2.4vw 0 2.4vw;
+      height: 55vh;
+      padding: 5% 5% 0 5%;
       position: relative;
 
       .form-wrapper {
@@ -105,11 +108,8 @@
       }
 
       .button-wrapper {
-        width: 153px;
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 35px;
         position: absolute;
         top: 96%;
 
@@ -117,8 +117,9 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 58px;
-          font-size: calc(0.65vw + 1.25rem);
+          width: 8vw;
+          height: 5.37vh;
+          //font-size: calc(0.65vw + 1.25rem);
         }
       }
     }
@@ -126,14 +127,15 @@
 
   .group {
     position: relative;
-    font-size: 18px;
+    //META font zise 18px
+    font-size: 1.6vh;
     line-height: 50%;
     color: #838383;
-    margin-bottom: 37px;
+    margin-bottom: 3.42vh;
   }
 
   .group textarea {
-    height: 300px;
+    height: 27.8vh;
     border-style: none;
     padding-left: 15px;
     padding-top: 15px;
@@ -150,7 +152,7 @@
   }
 
   .group textarea + label {
-    top: 6%;
+    top: 2.31vh;
   }
 
   .fields {
@@ -167,7 +169,7 @@
   input:valid ~ label,
   textarea:focus ~ label,
   textarea:valid ~ label {
-    top: -6px;
+    top: -0.5vh;
     background: white;
   }
 </style>

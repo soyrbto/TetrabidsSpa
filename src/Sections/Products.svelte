@@ -33,29 +33,32 @@
     display: flex;
     justify-content: space-between;
     //META PADDING 96px 70px 85px 70px
-    padding: 2.5vw 3.6vw 3vw 3.6vw;
+    padding: 5% 2% 5% 5%;
     //  META WIDTH 1511PX
     width: 78.65vw;
+    height: 71.4vh;
 
     .col-1 {
       display: flex;
       flex-direction: column;
+      justify-content: space-around;
       // META WIDTH 358px
       width: 18.65vw;
 
       .concept {
         .title {
           font-family: var(--display-typo);
-          font-size: 32px;
+          font-size: 3vh;
         }
 
         .abstract {
           display: block;
           font-weight: 400;
-          margin: 28px 0 50px 0;
+          margin: 28px 0 0 0;
           font-family: var(--par-typo);
           /* meta font size 14px */
           font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+          line-height: 3vh;
         }
       }
 
@@ -65,12 +68,13 @@
         justify-content: space-between;
         height: 50%;
         width: 100%;
+        padding-bottom: 20%;
 
         .button-item {
           display: flex;
           justify-content: center;
           align-items: center;
-          height: 60px;
+          height: 5.55vh;
         }
       }
     }
@@ -83,6 +87,9 @@
     }
 
     .col-3 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       width: 25.3vw;
 
       .description-card-content {
@@ -102,6 +109,8 @@
           font-family: var(--par-typo);
           /* meta font size 14px */
           font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+          height: 21.8vh;
+          overflow: hidden;
         }
 
         .meeting {

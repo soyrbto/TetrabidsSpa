@@ -60,9 +60,12 @@
   }
 
   .secnavbar-wrapper {
-    width: 118px;
-    margin-right: 110px;
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    //META 118px
+    width: 6.14vw;
+    //META 110PX
+    margin-right: 5.72vw;
   }
 </style>
 

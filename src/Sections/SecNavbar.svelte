@@ -16,11 +16,12 @@
 
 <style>
   .item {
-    font-size: 25px;
+    /* META font size 25px 2.31vh*/
+    font-size: 2.31vh;
     font-family: "Josefin Sans", sans-serif;
     color: #11a7dd;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 1.85vh;
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
     user-select: none;
   }
@@ -31,9 +32,8 @@
   }
 
   img {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 1.85vh;
+    height: 5.46vh;
   }
 
   img:hover {
@@ -41,10 +41,10 @@
   }
 
   .active {
-    margin: 20px 0;
+    margin: 0 0 1.85vh 0;
     width: 120%;
-    border-bottom: 3px solid white;
-    animation: slide 0.2s ease-in-out;
+    border-bottom: 2px solid white;
+    animation: slide 0.3s ease-in-out;
     letter-spacing: 0.15em;
   }
 
@@ -55,6 +55,7 @@
 
     to {
       width: 100%;
+      border-bottom: 2px solid white;
     }
   }
 </style>
