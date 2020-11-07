@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import Navbar from "../Component/NavBar.svelte";
   import TitleSubtitle from "../Component/TitleSubtitle.svelte";
   import { createEventDispatcher } from "svelte";
@@ -11,9 +12,24 @@
   const dispatch = createEventDispatcher();
 
   let active = true;
+  let wrapper;
+
+  // onMount(() => {
+  //   wrapper.addEventListener("wheel", movement);
+  //   console.log(wrapper);
+  // });
+  // //movement that creates the scroll movement
+
+  // const movement = (e) => {
+  //   e.preventDefault();
+  //   let targetWheel = e.currentTarget.getAttribute("class");
+  //   console.log(targetWheel);
+  //   scrollTo(0, 1920);
+  // };
+
   // INDEX OF SECTIONS AND POSITION
   let sectionMove = {
-    home: function () {
+    toHome: function () {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     },
     servicios: function () {
@@ -38,27 +54,13 @@
     if (e.deltaY > 0 && active) {
       movement("servicios", 400);
     } else if (e.deltaY < 0 && active) {
-      movement("home", 400);
+      movement("toHome", 400);
     }
   };
 
   window.addEventListener("wheel", wheelNextSection, { passive: false });
 
   //FUNCTION THAT SCROLLS WHEN A NAVBAR ITEM IS CLICKED
-
-  const navbarNextSection = (e) => {
-    if (e.detail === navbarItems[0]) {
-      movement("servicios", 400);
-      setTimeout(() => {
-        dispatch("navbarClicked", e.detail);
-      }, 600);
-    } else {
-      movement("servicios", 400);
-      setTimeout(() => {
-        dispatch("navbarClicked", e.detail);
-      }, 600);
-    }
-  };
 
   const contactButton = (info) => {
     console.log(info);
@@ -151,9 +153,9 @@
 
 <Textures />
 <div class="navbar">
-  <Navbar on:itemLink={navbarNextSection} />
+  <Navbar />
 </div>
-<div class="wrapper">
+<div class="wrapper" bind:this={wrapper}>
   <div class="col-1">
     <TitleSubtitle />
     <div class="accordion">

@@ -1,16 +1,26 @@
 <script>
-  import { createEventDispatcher } from "svelte";
   import { secNavbarItems } from "../StaticStore";
-  import { displayedSection } from "../Stores";
-  const dispatch = createEventDispatcher();
+  import { displayedSection, displayedState } from "../Stores";
 
-  let sectionMove = {
-    home: function () {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    },
-    servicios: function () {
-      window.scrollTo({ top: 1920, left: 0, behavior: "smooth" });
-    },
+  // Function  that changes the section from the secnavbar
+  const changeSection = (e) => {
+    let target = e.currentTarget.innerText;
+    console.log(target);
+    if (target != $displayedSection) {
+      displayedState.update(
+        (value) =>
+          (value = { ...value, [$displayedSection]: true, [target]: false })
+      );
+      console.log($displayedState);
+
+      setTimeout(() => {
+        displayedSection.set(`${target}`);
+      }, 600);
+    }
+  };
+
+  let sectionMove = function () {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 </script>
 
@@ -61,7 +71,7 @@
 </style>
 
 <img
-  on:click={sectionMove.home}
+  on:click={sectionMove}
   src="./images/home-button.svg"
   alt="blue home button"
 />
@@ -69,9 +79,7 @@
   <div
     class="item"
     class:active={item === $displayedSection}
-    on:click={() => {
-      dispatch('secNavbarClicked', `${item}`);
-    }}
+    on:click={changeSection}
   >
     {item}
   </div>
