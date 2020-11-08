@@ -27,50 +27,23 @@ const changeSection = (target) => {
   }
 };
 
+function easeInOutCubic(t, b, c, d) {
+  t /= d / 2;
+  if (t < 1) return (c / 2) * t * t * t + b;
+  t -= 2;
+  return (c / 2) * (t * t * t + 2) + b;
+}
+
+function linear(t, b, c, d) {
+  return (c * t) / d + b;
+}
+
 export {
   stateStore,
   colorButtonStore,
   displayedSection,
   displayedState,
   changeSection,
+  easeInOutCubic,
+  linear,
 };
-
-/*
-
-DE CADA UNO PUEDO OBTENER LA CLASE DE CADA UNO "HOME" ETC
-
-HOME
-SERVICIOS
-PRODUCTOS
-CONTACTO
-
-FUNCION(DONDE ESTOY) {
-
-IF DELTA > 0
-BUSCA EL INDICE ARREGLO + 1
-SE OBTIENE EL NOMBRE DE LA SECCION SIGUIENTE
-FUNCION MOVIMIENTO(HACIA A DONDE VA){}
-
-IF DELTA < 0 
-BUSCARLO EN EL ARREGLO - 1
-SE OBTIENE EL NOMBRE DE LA SECCION ANTERIOR}
-FUNCION MOVIMIENTO(HACIA A DONDE VA){}
-*/
-
-/*
-
-I need 4 things:
-- where am I
-- where am I going
-- how much time will I last
-- tiempo actual
-
-FUNCION MOVIMIENTO(DONDE ESTOY){
-  DELTA>0? ADondeVoy = ARRAY.TARGET+1 : ADondeVoy ARRAY.TARGET-1;
-  DondeEstoy = e.target (clean the slide-out class) 
-  window.requestFrameAnimation(4 arg.)
-  if progress is < duration  call it again 
-
-}
-
-*/

@@ -9,39 +9,6 @@
 
   let active = true;
   let wrapper;
-
-  // INDEX OF SECTIONS AND POSITION
-  let sectionMove = {
-    toHome: function () {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    },
-    servicios: function () {
-      window.scrollTo({
-        top: window.innerHeight * 1.1526,
-        left: 0,
-        behavior: "smooth",
-      });
-    },
-  };
-  // FUNCTION THAT SCROLLS UP TO CERTAIN SECTION DURING A CERTAIN TIME
-  function movement(section, time) {
-    active = false;
-    sectionMove[section]();
-    setTimeout(() => {
-      active = true;
-    }, time);
-  }
-  // FUNCTION THAT CALL THE SCROLLS ON WHEEL EVENT
-  const wheelNextSection = (e) => {
-    e.preventDefault();
-    if (e.deltaY > 0 && active) {
-      movement("servicios", 400);
-    } else if (e.deltaY < 0 && active) {
-      movement("toHome", 400);
-    }
-  };
-
-  window.addEventListener("wheel", wheelNextSection, { passive: false });
 </script>
 
 <style>
