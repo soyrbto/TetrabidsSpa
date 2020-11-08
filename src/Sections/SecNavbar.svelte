@@ -1,23 +1,6 @@
 <script>
   import { secNavbarItems } from "../StaticStore";
-  import { displayedSection, displayedState } from "../Stores";
-
-  // Function  that changes the section from the secnavbar
-  const changeSection = (e) => {
-    let target = e.currentTarget.innerText;
-    console.log(target);
-    if (target != $displayedSection) {
-      displayedState.update(
-        (value) =>
-          (value = { ...value, [$displayedSection]: true, [target]: false })
-      );
-      console.log($displayedState);
-
-      setTimeout(() => {
-        displayedSection.set(`${target}`);
-      }, 600);
-    }
-  };
+  import { displayedSection, changeSection } from "../Stores";
 
   let sectionMove = function () {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
@@ -79,7 +62,10 @@
   <div
     class="item"
     class:active={item === $displayedSection}
-    on:click={changeSection}
+    on:click={(e) => {
+      let target = e.currentTarget.innerText;
+      changeSection(target);
+    }}
   >
     {item}
   </div>

@@ -1,5 +1,6 @@
 const navbarItems = ["Servicios", "Blog", "Productos", "FAQ"];
 const secNavbarItems = ["Servicios", "Productos", "Contacto"];
+const visibleSections = ["Home", "Servicios", "Productos", "Contacto"];
 
 const accordionData = [
   {
@@ -70,4 +71,5 @@ export {
   productsData,
   secNavbarItems,
   contactData,
+  visibleSections,
 };
