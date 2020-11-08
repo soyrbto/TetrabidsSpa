@@ -9,4 +9,7 @@ const displayedState = writable({
   [secNavbarItems[1]]: false,
   [secNavbarItems[2]]: false,
 });
+
+// const changeSection = writable;
+
 export { stateStore, colorButtonStore, displayedSection, displayedState };
