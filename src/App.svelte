@@ -48,7 +48,7 @@
       if (nextIndex <= 0) {
         nextIndex = 1;
         let start = null;
-        const duration = 50;
+        const duration = 1000;
         const startPosition = window.pageYOffset;
         const targetPosition = 0;
         const distance = targetPosition - startPosition;

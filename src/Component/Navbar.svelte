@@ -61,7 +61,7 @@
 <nav>
   <ul>
     {#each navbarItems as item}
-      <ul on:click={(e) => navbarMove(e)}>{item}</ul>
+      <li on:click={(e) => navbarMove(e)}>{item}</li>
     {/each}
   </ul>
 </nav>

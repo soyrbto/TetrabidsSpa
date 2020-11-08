@@ -20,15 +20,17 @@
     font-size: clamp(2.8rem, 4.16vh, 5rem);
     font-weight: 400;
   }
-  /* 
+
   @media only screen and (max-height: 1024px) {
     h1 {
       font-size: clamp(3rem, 5.48vh, 7.5rem);
     }
     span {
       font-size: clamp(1.8rem, 3.16vh, 5rem);
+      /* META -12px*/
+      margin-top: clamp(-1.3rem, -1.11vh, -1.1rem);
     }
-  } */
+  }
 </style>
 
 <h1>Tetrabids <span> Desarrollo web contigo</span></h1>

@@ -33,6 +33,16 @@
     height: 100%;
   }
 
+  @media screen and (max-width: 768px) {
+    .col-1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      justify-content: flex-start;
+      padding-top: 8vh;
+    }
+  }
+
   .col-2 {
     display: flex;
     align-items: center;
