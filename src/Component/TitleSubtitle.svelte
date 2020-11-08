@@ -7,29 +7,28 @@
     font-family: "Josefin Sans", sans-serif;
     color: white;
     /* meta font size 70px */
-    font-size: clamp(40px, 2.1vw + 3rem, 7rem);
+    font-size: clamp(4rem, 6.48vh, 7.5rem);
+    /* font-size: 6.48vh; */
     font-weight: 700;
   }
 
-  @media screen and (max-height: 845px) {
-    h1 {
-      /* META FONT-SIZE 40PX */
-      font-size: calc(2.16vh + 2rem);
-    }
-
-    span {
-      font-size: 25px !important;
-    }
-  }
-
   span {
-    /* META margin-top -20px  */
-    margin-top: calc(0.5vw - 2rem);
     display: block;
+    /* META margin-top -25px  */
+    margin-top: clamp(-2.5rem, -2.3vh, -1.5rem);
     /* meta font size 45px*/
-    font-size: clamp(28px, 1.46vw + 17px, 50px);
+    font-size: clamp(2.8rem, 4.16vh, 5rem);
     font-weight: 400;
   }
+  /* 
+  @media only screen and (max-height: 1024px) {
+    h1 {
+      font-size: clamp(3rem, 5.48vh, 7.5rem);
+    }
+    span {
+      font-size: clamp(1.8rem, 3.16vh, 5rem);
+    }
+  } */
 </style>
 
 <h1>Tetrabids <span> Desarrollo web contigo</span></h1>

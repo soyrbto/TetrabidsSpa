@@ -73,39 +73,36 @@
 
 <style>
   .navbar {
-    /* META MARGIN 95PX */
-    margin-bottom: 3vw;
+    display: flex;
+    justify-content: center;
+    height: 11.57vh;
   }
 
-  @media only screen and (max-height: 845px) {
-    .navbar {
-      margin-bottom: 0;
-    }
-  }
   .wrapper {
     display: flex;
-    /* Meta HEIGHT 577PX */
-    height: vh;
+    justify-content: space-around;
+    align-items: center;
+    height: 88.43vh;
   }
+
   .col-1 {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     position: relative;
-    /*  meta margin 210 px */
-    margin-left: calc(9vw - 45px);
+    height: 100%;
   }
+
   .col-2 {
     display: flex;
-    /*  15.625 is the meta measure */
-    margin-left: calc(26.83vw - 20rem);
-    z-index: 1;
     align-items: center;
+    height: 100%;
+    z-index: 1;
   }
 
   img {
-    /* meta width 587px */
-    width: calc(18vw + 24rem);
-    padding-top: 2.5vw;
+    /* meta width 565px */
+    width: 29.5vw;
   }
 
   @media only screen and (max-width: 1000px) {
@@ -119,31 +116,26 @@
   }
 
   .button {
-    /*  meta width 150px */
-    width: calc(0.5vw + 13rem);
     display: flex;
     justify-content: center;
-    position: absolute;
-    /* meta top 580px */
-    top: calc(8vw + 44rem);
     align-self: center;
+    top: 90%;
   }
 
-  @media screen and (max-height: 845px) {
-    .button {
-      /* META top 475px */
-      top: calc(39.7vh + 20rem);
+  .button-contact {
+    padding: 1.85vh 1.45vw;
+    font-size: calc(0.65vw + 1.15vh);
+  }
+
+  @media screen and (max-width: 1000px) {
+    .button-contact {
+      padding: 1.85vh 3.45vw;
+      font-size: calc(0.6vw + 2vh);
     }
   }
 
   .accordion {
     margin-top: 2rem;
-  }
-  .button-contact {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 6rem;
   }
 
   p {

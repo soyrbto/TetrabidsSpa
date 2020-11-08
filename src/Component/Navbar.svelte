@@ -34,33 +34,33 @@
 <style>
   nav {
     /* META font-size 22px */
-    font-size: clamp(22px, 1.2vw, 35px);
+    /*font-size: clamp(22px, 1.2vw, 35px);*/
+    font-size: 2.04vh;
     font-weight: 400px;
     font-family: "Josefin Sans", sans-serif;
     color: white;
+    /* META width 580px */
+    width: 30.2vw;
   }
 
-  li {
+  ul {
     /* META HEIGH 125PX */
-    height: 12.5rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    height: 100%;
+    margin: 0;
   }
 
-  li > ul:not(:last-child) {
-    /* meta margin-right 40px */
-    margin-right: clamp(40px, 12.08vw - 20rem, 200px);
-  }
-
-  li > ul {
+  ul > li {
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
     /* background-color: yellowgreen; */
     width: 15rem;
     text-align: center;
+    list-style: none;
   }
 
-  ul:hover {
+  li:hover {
     cursor: pointer;
     letter-spacing: 0.15em;
   }
@@ -73,9 +73,9 @@
 </style>
 
 <nav>
-  <li>
+  <ul>
     {#each navbarItems as item}
-      <ul on:click={changeSection}>{item}</ul>
+      <li on:click={changeSection}>{item}</li>
     {/each}
-  </li>
+  </ul>
 </nav>

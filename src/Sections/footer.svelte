@@ -38,7 +38,8 @@
   .icons {
     display: flex;
     align-items: center;
-    width: 7.34vw;
+    /* META 141px */
+    width: clamp(10.5rem, 7.34vw, 18.5rem);
     height: 100%;
   }
 
