@@ -2,30 +2,13 @@
   import { onMount } from "svelte";
   import Navbar from "../Component/NavBar.svelte";
   import TitleSubtitle from "../Component/TitleSubtitle.svelte";
-  import { createEventDispatcher } from "svelte";
-  import { accordionData } from "../StaticStore";
   import Accordion from "../Component/Accordion.svelte";
   import Button from "../Component/SharedComponents/button.svelte";
   import Textures from "../Component/Textures.svelte";
-  import { navbarItems, secNavbarItems } from "../StaticStore";
-
-  const dispatch = createEventDispatcher();
+  import { accordionData, secNavbarItems } from "../StaticStore";
 
   let active = true;
   let wrapper;
-
-  // onMount(() => {
-  //   wrapper.addEventListener("wheel", movement);
-  //   console.log(wrapper);
-  // });
-  // //movement that creates the scroll movement
-
-  // const movement = (e) => {
-  //   e.preventDefault();
-  //   let targetWheel = e.currentTarget.getAttribute("class");
-  //   console.log(targetWheel);
-  //   scrollTo(0, 1920);
-  // };
 
   // INDEX OF SECTIONS AND POSITION
   let sectionMove = {
@@ -59,16 +42,6 @@
   };
 
   window.addEventListener("wheel", wheelNextSection, { passive: false });
-
-  //FUNCTION THAT SCROLLS WHEN A NAVBAR ITEM IS CLICKED
-
-  const contactButton = (info) => {
-    console.log(info);
-    movement("servicios", 400);
-    setTimeout(() => {
-      dispatch("navbarClicked", info);
-    }, 600);
-  };
 </script>
 
 <style>
@@ -166,12 +139,7 @@
         </Accordion>
       {/each}
     </div>
-    <div
-      on:click={() => {
-        contactButton(`${secNavbarItems[2]}`);
-      }}
-      class="button"
-    >
+    <div class="button">
       <Button>
         <div class="button-contact">{secNavbarItems[2]}</div>
       </Button>

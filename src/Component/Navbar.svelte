@@ -1,11 +1,8 @@
 <script>
   import { navbarItems } from "../StaticStore";
   import { secNavbarItems } from "../StaticStore.js";
-  import { changeSection, testOut } from "../Stores.js";
+  import { changeSection } from "../Stores.js";
 
-  const test2 = (testvariable) => {
-    console.log(testvariable);
-  };
   const navbarMove = (e) => {
     let target = e.currentTarget.innerText;
     if (secNavbarItems.includes(target)) {

@@ -3,12 +3,17 @@
   import Services from "./Sections/Services.svelte";
   import SecNavbar from "./Sections/SecNavbar.svelte";
   import Products from "./Sections/Products.svelte";
-  import { secNavbarItems } from "./StaticStore.js";
+  import { secNavbarItems, visibleSections } from "./StaticStore.js";
   import Footer from "./Sections/Footer.svelte";
   import Contact from "./Sections/Contact.svelte";
   import { displayedSection, displayedState } from "./Stores";
 
   let windowsWidth;
+  const testing = () => {
+    console.log(document.querySelector("#home"));
+  };
+
+  testing();
 </script>
 
 <style type="text/scss">
@@ -59,7 +64,7 @@
 
 <div class="page-container">
   <main>
-    <div class="home-wrapper">
+    <div class="home-wrapper" id={visibleSections[0]}>
       <Home />
     </div>
 
@@ -74,6 +79,7 @@
         <div
           class:slide-out-right={$displayedState[secNavbarItems[0]]}
           class="slide-in-right {secNavbarItems[0]}"
+          id={visibleSections[0]}
         >
           <Services />
         </div>
@@ -81,6 +87,7 @@
         <div
           class:slide-out-right={$displayedState['Productos']}
           class="slide-in-right {secNavbarItems[1]}"
+          id={visibleSections[1]}
         >
           <Products />
         </div>
@@ -88,6 +95,7 @@
         <div
           class:slide-out-right={$displayedState[secNavbarItems[2]]}
           class="slide-in-right {secNavbarItems[2]}"
+          id={visibleSections[2]}
         >
           <Contact />
         </div>
