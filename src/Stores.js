@@ -26,6 +26,29 @@ const changeSection = (target) => {
     }, 600);
   }
 };
+//function that moves the screen to the target section from a start position
+const screenDisplacer = (startPosition, targetPosition) => {
+  const distance = targetPosition - startPosition;
+  let start = null;
+  const duration = 1000;
+  window.requestAnimationFrame(step);
+  function step(timestamp) {
+    console.log(distance);
+    if (!start) {
+      start = timestamp;
+    }
+    const progress = timestamp - start;
+    // console.log(`${timestamp}  ${progress}`);
+
+    window.scrollTo(
+      0,
+      easeInOutCubic(progress, startPosition, distance, duration)
+    );
+    if (progress < duration) {
+      window.requestAnimationFrame(step);
+    }
+  }
+};
 
 function easeInOutCubic(t, b, c, d) {
   t /= d / 2;
@@ -46,4 +69,5 @@ export {
   changeSection,
   easeInOutCubic,
   linear,
+  screenDisplacer,
 };
