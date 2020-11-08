@@ -6,14 +6,84 @@
   import { secNavbarItems, visibleSections } from "./StaticStore.js";
   import Footer from "./Sections/Footer.svelte";
   import Contact from "./Sections/Contact.svelte";
-  import { displayedSection, displayedState } from "./Stores";
+  import {
+    displayedSection,
+    displayedState,
+    changeSection,
+    easeInOutCubic,
+    linear,
+  } from "./Stores";
 
   let windowsWidth;
-  const testing = () => {
-    console.log(document.querySelector("#home"));
-  };
 
-  testing();
+  const sectionDriver = (e) => {
+    e.preventDefault();
+
+    let target = e.currentTarget.getAttribute("id");
+
+    //consigo quien es mi target
+    if (windowsWidth > 980) {
+      // console.log("la pantalla es mayor a 980");
+      target == "section-container"
+        ? (target = $displayedSection)
+        : (target = target);
+      // console.log(`${target} es el target que sale de pantalla mayor a 980`);
+    }
+    //consigo el indice de mi target
+    let currentIndex = visibleSections.findIndex((elmnt) => elmnt == target);
+    // console.log(currentIndex);
+
+    let nextIndex;
+    let nextPosition;
+
+    //consigo quien el next target
+    if (windowsWidth > 980 && target != visibleSections[0]) {
+      //si esta en el arreglo suma o resta
+      e.deltaY > 0
+        ? (nextIndex = currentIndex + 1)
+        : (nextIndex = currentIndex - 1);
+      if (nextIndex >= 3) {
+        nextIndex = 3;
+      }
+      if (nextIndex <= 0) {
+        nextIndex = 1;
+        let start = null;
+        const duration = 50;
+        const startPosition = window.pageYOffset;
+        const targetPosition = 0;
+        const distance = targetPosition - startPosition;
+
+        window.requestAnimationFrame(step);
+        function step(timestamp) {
+          if (!start) {
+            console.log(start);
+            start = timestamp;
+            console.log(start);
+          }
+          const progress = timestamp - start;
+          // console.log(`${timestamp}  ${progress}`);
+
+          window.scrollTo(
+            0,
+            easeInOutCubic(progress, startPosition, distance, duration)
+          );
+          if (progress < duration) window.requestAnimationFrame(step);
+        }
+      }
+
+      changeSection(visibleSections[nextIndex]);
+    } else {
+      nextPosition = document.querySelector("#section-container");
+      console.log(
+        `pantalla mayor a 980 y seccion visible es home proxima  seccion es ${nextPosition}`
+      );
+    }
+
+    let currentPosition = document.querySelector(
+      `#${visibleSections[currentIndex]}`
+      //aqui debo colocar la funcion que baja a la seccion
+    );
+  };
 </script>
 
 <style type="text/scss">
@@ -64,11 +134,19 @@
 
 <div class="page-container">
   <main>
-    <div class="home-wrapper" id={visibleSections[0]}>
+    <div
+      on:mousewheel={sectionDriver}
+      class="home-wrapper"
+      id={visibleSections[0]}
+    >
       <Home />
     </div>
 
-    <div class="section-wrapper">
+    <div
+      on:mousewheel={sectionDriver}
+      id="section-container"
+      class="section-wrapper"
+    >
       {#if windowsWidth > 1160}
         <div class="secnavbar-wrapper">
           <SecNavbar />
