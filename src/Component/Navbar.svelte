@@ -1,12 +1,12 @@
 <script>
   import { navbarItems } from "../StaticStore";
-  import { createEventDispatcher } from "svelte";
   import { secNavbarItems } from "../StaticStore.js";
-  import { displayedSection, displayedState } from "../Stores.js";
+  import { changeSection, testOut } from "../Stores.js";
 
-  const dispatch = createEventDispatcher();
-
-  const changeSection = (e) => {
+  const test2 = (testvariable) => {
+    console.log(testvariable);
+  };
+  const navbarMove = (e) => {
     let target = e.currentTarget.innerText;
     if (secNavbarItems.includes(target)) {
       window.scrollTo({
@@ -15,18 +15,7 @@
         behavior: "smooth",
       });
 
-      setTimeout(() => {
-        if (target != $displayedSection) {
-          displayedState.update(
-            (value) =>
-              (value = { ...value, [$displayedSection]: true, [target]: false })
-          );
-          console.log($displayedState);
-          setTimeout(() => {
-            displayedSection.set(target);
-          }, 600);
-        }
-      }, 400);
+      setTimeout(() => changeSection(target), 400);
     }
   };
 </script>
@@ -75,7 +64,7 @@
 <nav>
   <li>
     {#each navbarItems as item}
-      <ul on:click={changeSection}>{item}</ul>
+      <ul on:click={(e) => navbarMove(e)}>{item}</ul>
     {/each}
   </li>
 </nav>

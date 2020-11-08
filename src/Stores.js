@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable, get } from "svelte/store";
 import { secNavbarItems } from "./StaticStore";
 
 const stateStore = writable({});
@@ -10,6 +10,29 @@ const displayedState = writable({
   [secNavbarItems[2]]: false,
 });
 
-// const changeSection = writable;
+// functionality, study readables or put it in an object
 
-export { stateStore, colorButtonStore, displayedSection, displayedState };
+const changeSection = (target) => {
+  if (target != get(displayedSection)) {
+    displayedState.update(
+      (value) =>
+        (value = { ...value, [get(displayedSection)]: true, [target]: false })
+    );
+
+    setTimeout(() => {
+      displayedSection.set(`${target}`);
+    }, 600);
+  }
+};
+
+const testOut = (testOutVar) => {
+  console.log(testOutVar);
+};
+export {
+  stateStore,
+  colorButtonStore,
+  displayedSection,
+  displayedState,
+  changeSection,
+  testOut,
+};

@@ -53,10 +53,6 @@
     //META 110PX
     margin-right: 5.72vw;
   }
-
-  .active {
-    background: red;
-  }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
