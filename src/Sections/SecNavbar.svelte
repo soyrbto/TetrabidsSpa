@@ -1,11 +1,10 @@
 <script>
   import { secNavbarItems } from "../StaticStore";
-  import { displayedSection, changeSection, screenDisplacer } from "../Stores";
+  import { displayedSection, screenDisplacer, changeSection } from "../Stores";
 
-  let sectionMove = function (e) {
-    let startPosition = e.currentTarget.offsetTop;
-    let targetPosition = document.querySelector("#section-container").offsetTop;
-    screenDisplacer(startPosition, targetPosition, 750);
+  const sectionMove = () => {
+    let startPosition = document.querySelector("#section-container").offsetTop;
+    screenDisplacer(startPosition, 0, 750);
   };
 </script>
 
