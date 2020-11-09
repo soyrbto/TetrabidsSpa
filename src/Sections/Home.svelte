@@ -43,6 +43,11 @@
     }
   }
 
+  p {
+    /* META 20px*/
+    padding-bottom: 1.85vh;
+  }
+
   .col-2 {
     display: flex;
     align-items: center;

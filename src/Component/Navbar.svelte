@@ -23,7 +23,7 @@
     font-family: "Josefin Sans", sans-serif;
     color: white;
     /* META width 580px */
-    width: 30.2vw;
+    width: 33.2vw;
   }
 
   ul {
@@ -37,10 +37,9 @@
 
   ul > li {
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
-    /* background-color: yellowgreen; */
-    width: 15rem;
     text-align: center;
     list-style: none;
+    width: 15rem;
   }
 
   li:hover {

@@ -12,12 +12,12 @@ const accordionData = [
   {
     title: "Ve como tu proyecto se hace realidad",
     body:
-      "Nuestro ambiente de desarrollo permite que veas en tiempo real los cambios, con herramientas especiales que te permitan interactuar con tu desarrollo.",
+      "Durante el desarrollo de tu pagina, aplicacion o plataforma estamos disponibles para ti, o tu equipo en todo momento. Creemos que una buena comunicacion es clave, asi que siempre podras estar al dia con los avances.",
   },
   {
     title: "Optimizacion y desarrollo",
     body:
-      "Nuestro ambiente de desarrollo permite que veas en tiempo real los cambios, con herramientas especiales que te permitan interactuar con tu desarrollo.",
+      "Durante el desarrollo de tu pagina, aplicacion o plataforma estamos disponibles para ti, o tu equipo en todo momento. Creemos que una buena comunicacion es clave, asi que siempre podras estar al dia con los avances.",
   },
 ];
 

@@ -49,14 +49,14 @@
     /* width: clamp(100px, 15.625vw + 29rem, 1000px); */
     width: 31vw;
     /* META 64px*/
-    height: calc(0.5vw + 5.4rem);
+    max-height: calc(0.5vw + 5.4rem);
     /* META 30px*/
     margin-bottom: 2.77vh;
     border-radius: 1rem;
     box-shadow: 9px 12px 31px rgba(0, 0, 0, 0.45);
     overflow: hidden;
     background-color: white;
-    transition: height ease-in-out 0.7s;
+    transition: max-height ease-in-out 0.7s;
   }
 
   @media screen and (max-width: 1000px) {
@@ -70,8 +70,8 @@
 
   .container-open {
     /* meta height 190px */
-    /* height: clamp(16rem, 6.2vw + 9rem, 240px); */
-    height: auto;
+    max-height: 190px;
+    transition: max-height ease-in-out 0.7s;
   }
 
   .container-open > .title,
