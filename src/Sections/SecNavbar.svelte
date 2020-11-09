@@ -1,9 +1,11 @@
 <script>
   import { secNavbarItems } from "../StaticStore";
-  import { displayedSection, changeSection } from "../Stores";
+  import { displayedSection, changeSection, screenDisplacer } from "../Stores";
 
-  let sectionMove = function () {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  let sectionMove = function (e) {
+    let startPosition = e.currentTarget.offsetTop;
+    let targetPosition = document.querySelector("#section-container").offsetTop;
+    screenDisplacer(startPosition, targetPosition, 750);
   };
 </script>
 

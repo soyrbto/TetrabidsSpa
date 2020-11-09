@@ -1,14 +1,23 @@
 <script>
-  import { onMount } from "svelte";
   import Navbar from "../Component/NavBar.svelte";
   import TitleSubtitle from "../Component/TitleSubtitle.svelte";
   import Accordion from "../Component/Accordion.svelte";
   import Button from "../Component/SharedComponents/button.svelte";
   import Textures from "../Component/Textures.svelte";
+  import { screenDisplacer, changeSection } from "../Stores";
   import { accordionData, secNavbarItems } from "../StaticStore";
 
-  let active = true;
-  let wrapper;
+  let windowsWidth;
+
+  const contactMove = (e) => {
+    let target = e.currentTarget.innerText;
+    if (windowsWidth > 980) {
+      let targetPosition = document.querySelector("#section-container")
+        .offsetTop;
+      screenDisplacer(0, targetPosition, 750);
+      setTimeout(() => changeSection(target), 400);
+    }
+  };
 </script>
 
 <style>
@@ -88,11 +97,12 @@
   }
 </style>
 
+<svelte:window bind:innerWidth={windowsWidth} />
 <Textures />
 <div class="navbar">
   <Navbar />
 </div>
-<div class="wrapper" bind:this={wrapper}>
+<div class="wrapper">
   <div class="col-1">
     <TitleSubtitle />
     <div class="accordion">
@@ -103,7 +113,7 @@
         </Accordion>
       {/each}
     </div>
-    <div class="button">
+    <div on:click={contactMove} class="button">
       <Button>
         <div class="button-contact">{secNavbarItems[2]}</div>
       </Button>
