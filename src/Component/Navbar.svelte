@@ -1,17 +1,14 @@
 <script>
   import { navbarItems } from "../StaticStore";
-  import { secNavbarItems } from "../StaticStore.js";
-  import { changeSection } from "../Stores.js";
+  import { changeSection, screenDisplacer } from "../Stores.js";
 
+  let windowsWidth;
   const navbarMove = (e) => {
     let target = e.currentTarget.innerText;
-    if (secNavbarItems.includes(target)) {
-      window.scrollTo({
-        top: window.innerHeight * 1.1526,
-        left: 0,
-        behavior: "smooth",
-      });
-
+    if (windowsWidth > 980) {
+      let targetPosition = document.querySelector("#section-container")
+        .offsetTop;
+      screenDisplacer(0, targetPosition, 750);
       setTimeout(() => changeSection(target), 400);
     }
   };
@@ -57,6 +54,8 @@
     }
   }
 </style>
+
+<svelte:window bind:innerWidth={windowsWidth} />
 
 <nav>
   <li>
