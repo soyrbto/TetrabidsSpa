@@ -23,22 +23,20 @@ const changeSection = (target) => {
 
     setTimeout(() => {
       displayedSection.set(`${target}`);
-    }, 600);
+    }, 450);
   }
 };
+
 //function that moves the screen to the target section from a start position
-const screenDisplacer = (startPosition, targetPosition) => {
+const screenDisplacer = (startPosition, targetPosition, duration) => {
   const distance = targetPosition - startPosition;
   let start = null;
-  const duration = 1000;
   window.requestAnimationFrame(step);
   function step(timestamp) {
-    console.log(distance);
     if (!start) {
       start = timestamp;
     }
     const progress = timestamp - start;
-    // console.log(`${timestamp}  ${progress}`);
 
     window.scrollTo(
       0,
