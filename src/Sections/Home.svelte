@@ -69,7 +69,6 @@
     display: flex;
     justify-content: center;
     align-self: center;
-    top: 90%;
   }
 
   .button-contact {
@@ -85,11 +84,7 @@
   }
 
   .accordion {
-    margin-top: 2rem;
-  }
-
-  p {
-    height: 90px;
+    margin-top: 1.85vh;
   }
 </style>
 

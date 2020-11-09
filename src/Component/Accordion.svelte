@@ -59,10 +59,19 @@
     transition: height ease-in-out 0.7s;
   }
 
+  @media screen and (max-width: 1000px) {
+    .container {
+      width: 70vw;
+    }
+    .body {
+      width: 60vw !important;
+    }
+  }
+
   .container-open {
     /* meta height 190px */
     /* height: clamp(16rem, 6.2vw + 9rem, 240px); */
-    height: 18vh;
+    height: auto;
   }
 
   .container-open > .title,
@@ -76,33 +85,40 @@
   } */
 
   .title {
+    display: flex;
     margin: 22px 0 17px 11px;
     margin-bottom: clamp(12px, 0.52vw + 7px, 18px);
     font-weight: 600;
     font-family: "Josefin Sans", sans-serif;
     /* meta font size 18px */
     font-size: clamp(14px, 0.52vw + 8px, 22px);
-    display: flex;
     line-height: 22px;
     cursor: pointer;
     user-select: none;
+  }
+
+  @media screen and (max-height: 768px) {
+    .title {
+      font-size: clamp(10px, 1.7vh, 18px) !important;
+    }
+    .body {
+      font-size: clamp(11px, 1.2vh, 13px) !important;
+    }
   }
 
   .body {
     overflow: hidden;
     font-family: montserrat;
     /* meta font size 15px */
-    font-size: clamp(10px, 0.4vw + 0.7rem, 20px);
+    font-size: clamp(13px, 0.6vw + 0.7rem, 16px);
     /* meta line height 28px */
     line-height: clamp(18px, 0.94vw + 10px, 32px);
-    transition: all 0.5s;
     letter-spacing: 0.05em;
     /* meta width 515px */
     /* width: clamp(100px, 15.625vw + 21.5rem, 1000px); */
     width: 26.82vw;
     /* meta height 112px  */
     /* height: clamp(9rem, 4.16vw + 32rem, 13rem); */
-    height: 10.37vh;
     margin-left: 4.3rem;
   }
 

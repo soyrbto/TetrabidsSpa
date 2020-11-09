@@ -10,79 +10,51 @@
     displayedSection,
     displayedState,
     changeSection,
-    easeInOutCubic,
-    linear,
+    screenDisplacer,
   } from "./Stores";
 
   let windowsWidth;
 
   const sectionDriver = (e) => {
     e.preventDefault();
-
-    let target = e.currentTarget.getAttribute("id");
-
-    //consigo quien es mi target
     if (windowsWidth > 980) {
-      // console.log("la pantalla es mayor a 980");
+      // identifico target como el id del elemento donde wheeled
+      let target = e.currentTarget.getAttribute("id");
+      //reidentifico el target por la seccion que se esta mostrando si sucede en el
+      //container de la seccion
       target == "section-container"
         ? (target = $displayedSection)
         : (target = target);
-      // console.log(`${target} es el target que sale de pantalla mayor a 980`);
-    }
-    //consigo el indice de mi target
-    let currentIndex = visibleSections.findIndex((elmnt) => elmnt == target);
-    // console.log(currentIndex);
+      //consigo el indice de mi target
+      let currentIndex = visibleSections.findIndex((elmnt) => elmnt == target);
 
-    let nextIndex;
-    let nextPosition;
-
-    //consigo quien el next target
-    if (windowsWidth > 980 && target != visibleSections[0]) {
       //si esta en el arreglo suma o resta
+      let nextIndex;
       e.deltaY > 0
         ? (nextIndex = currentIndex + 1)
         : (nextIndex = currentIndex - 1);
+
+      // si se escrollea hacia arriba desde la seccion de servicios
+      if (nextIndex <= 0) {
+        nextIndex = 1;
+        let startPosition = document.querySelector("#section-container")
+          .offsetTop;
+        let targetPosition = document.querySelector("#Home").offsetTop;
+        console.log(`${startPosition} ${targetPosition}`);
+        screenDisplacer(startPosition, targetPosition);
+      }
+      // si se hace scroll hacia abajo de contacto
       if (nextIndex >= 3) {
         nextIndex = 3;
       }
-      if (nextIndex <= 0) {
-        nextIndex = 1;
-        let start = null;
-        const duration = 1000;
-        const startPosition = window.pageYOffset;
-        const targetPosition = 0;
-        const distance = targetPosition - startPosition;
-
-        window.requestAnimationFrame(step);
-        function step(timestamp) {
-          if (!start) {
-            console.log(start);
-            start = timestamp;
-            console.log(start);
-          }
-          const progress = timestamp - start;
-          // console.log(`${timestamp}  ${progress}`);
-
-          window.scrollTo(
-            0,
-            easeInOutCubic(progress, startPosition, distance, duration)
-          );
-          if (progress < duration) window.requestAnimationFrame(step);
-        }
-      }
-
+      // si se mueve la rueda hacia abajo desde servicios o hacia arriba desde contacto
       changeSection(visibleSections[nextIndex]);
-    } else {
-      nextPosition = document.querySelector("#section-container");
-      console.log(
-        `pantalla mayor a 980 y seccion visible es home proxima  seccion es ${nextPosition}`
-      );
-    }
 
-    let currentPosition = document.querySelector(
-      `#${visibleSections[currentIndex]}`
-      //aqui debo colocar la funcion que baja a la seccion
-    );
+      //si se mueve la rueda hacia abajo desde el home
+      if (target == "Home" && nextIndex == 1) {
+        screenDisplacer(0, 1080);
+      }
+    }
   };
 </script>
 
