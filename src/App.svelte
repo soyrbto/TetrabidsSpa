@@ -3,7 +3,11 @@
   import Services from "./Sections/Services.svelte";
   import SecNavbar from "./Sections/SecNavbar.svelte";
   import Products from "./Sections/Products.svelte";
-  import { secNavbarItems, visibleSections } from "./StaticStore.js";
+  import {
+    secNavbarItems,
+    visibleSections,
+    desktopSection,
+  } from "./StaticStore.js";
   import Footer from "./Sections/Footer.svelte";
   import Contact from "./Sections/Contact.svelte";
   import {
@@ -14,45 +18,49 @@
   } from "./Stores";
 
   let windowsWidth;
+  let active = true;
+  let query = document.querySelector.bind(document);
 
+  //funcion que hace la traslacion si el ancho de pantalla es mayor a 980
   const sectionDriver = (e) => {
     e.preventDefault();
     if (windowsWidth > 980) {
-      // identifico target como el id del elemento donde wheeled
-      let target = e.currentTarget.getAttribute("id");
-      //reidentifico el target por la seccion que se esta mostrando si sucede en el
-      //container de la seccion
-      target == "section-container"
-        ? (target = $displayedSection)
-        : (target = target);
-      //consigo el indice de mi target
-      let currentIndex = visibleSections.findIndex((elmnt) => elmnt == target);
+      if (active == true) {
+        let target = e.currentTarget.getAttribute("id");
+        let currentIndex = desktopSection.findIndex((el) => el === target);
+        let nextIndex = e.deltaY > 0 ? currentIndex + 1 : currentIndex - 1;
 
-      //si esta en el arreglo suma o resta
-      let nextIndex;
-      e.deltaY > 0
-        ? (nextIndex = currentIndex + 1)
-        : (nextIndex = currentIndex - 1);
+        //evita que siga debajo de section container o antes de home
+        if (nextIndex < 0) nextIndex = 0;
+        if (target !== "Home") {
+          nextIndex = 1;
+          let currentIndex = secNavbarItems.findIndex(
+            (el) => el === $displayedSection
+          );
+          e.deltaY > 0
+            ? (nextIndex = currentIndex + 1)
+            : (nextIndex = currentIndex - 1);
+          console.log(nextIndex);
 
-      // si se escrollea hacia arriba desde la seccion de servicios
-      if (nextIndex <= 0) {
-        nextIndex = 1;
-        let startPosition = document.querySelector("#section-container")
-          .offsetTop;
-        let targetPosition = document.querySelector("#Home").offsetTop;
-        console.log(`${startPosition} ${targetPosition}`);
-        screenDisplacer(startPosition, targetPosition);
-      }
-      // si se hace scroll hacia abajo de contacto
-      if (nextIndex >= 3) {
-        nextIndex = 3;
-      }
-      // si se mueve la rueda hacia abajo desde servicios o hacia arriba desde contacto
-      changeSection(visibleSections[nextIndex]);
+          if (nextIndex > 2) nextIndex = 2;
+          if (nextIndex < 0) nextIndex = 0;
+          changeSection(secNavbarItems[nextIndex]);
+        }
 
-      //si se mueve la rueda hacia abajo desde el home
-      if (target == "Home" && nextIndex == 1) {
-        screenDisplacer(0, 1080);
+        if (
+          $displayedSection == secNavbarItems[0] ||
+          target == desktopSection[0]
+        ) {
+          let startPosition, targetPosition;
+          // se llama el movimiento en base a la ubicacion de la pantalla y 750ms despues se habilita de nuevo
+          active = false;
+          startPosition = query(`#${desktopSection[currentIndex]}`).offsetTop;
+          targetPosition = query(`#${desktopSection[nextIndex]}`).offsetTop;
+          screenDisplacer(startPosition, targetPosition, 750);
+          setTimeout(() => {
+            active = true;
+          }, 500);
+        }
       }
     }
   };
