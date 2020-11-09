@@ -40,10 +40,10 @@
           e.deltaY > 0
             ? (nextIndex = currentIndex + 1)
             : (nextIndex = currentIndex - 1);
-          console.log(nextIndex);
 
-          if (nextIndex > 2) nextIndex = 2;
+          if (nextIndex >= 2) nextIndex = 2;
           if (nextIndex < 0) nextIndex = 0;
+          console.log(secNavbarItems[nextIndex]);
           changeSection(secNavbarItems[nextIndex]);
         }
 
@@ -53,13 +53,9 @@
         ) {
           let startPosition, targetPosition;
           // se llama el movimiento en base a la ubicacion de la pantalla y 750ms despues se habilita de nuevo
-          active = false;
           startPosition = query(`#${desktopSection[currentIndex]}`).offsetTop;
           targetPosition = query(`#${desktopSection[nextIndex]}`).offsetTop;
           screenDisplacer(startPosition, targetPosition, 750);
-          setTimeout(() => {
-            active = true;
-          }, 500);
         }
       }
     }

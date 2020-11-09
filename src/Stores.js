@@ -13,38 +13,51 @@ const displayedState = writable({
 });
 
 // functionality, study readables or put it in an object
-
+let activeChangeSection = true;
 const changeSection = (target) => {
-  if (target != get(displayedSection)) {
-    displayedState.update(
-      (value) =>
-        (value = { ...value, [get(displayedSection)]: true, [target]: false })
-    );
+  if (activeChangeSection) {
+    activeChangeSection = false;
+    if (target != get(displayedSection)) {
+      displayedState.update(
+        (value) =>
+          (value = { ...value, [get(displayedSection)]: true, [target]: false })
+      );
 
+      setTimeout(() => {
+        displayedSection.set(`${target}`);
+      }, 450);
+    }
     setTimeout(() => {
-      displayedSection.set(`${target}`);
-    }, 450);
+      activeChangeSection = true;
+    }, 900);
   }
 };
 
 //function that moves the screen to the target section from a start position
+let activeScreenDisplacer = true;
 const screenDisplacer = (startPosition, targetPosition, duration) => {
-  const distance = targetPosition - startPosition;
-  let start = null;
-  window.requestAnimationFrame(step);
-  function step(timestamp) {
-    if (!start) {
-      start = timestamp;
-    }
-    const progress = timestamp - start;
+  if (activeScreenDisplacer) {
+    activeScreenDisplacer = false;
+    const distance = targetPosition - startPosition;
+    let start = null;
+    window.requestAnimationFrame(step);
+    function step(timestamp) {
+      if (!start) {
+        start = timestamp;
+      }
+      const progress = timestamp - start;
 
-    window.scrollTo(
-      0,
-      easeInOutCubic(progress, startPosition, distance, duration)
-    );
-    if (progress < duration) {
-      window.requestAnimationFrame(step);
+      window.scrollTo(
+        0,
+        easeInOutCubic(progress, startPosition, distance, duration)
+      );
+      if (progress < duration) {
+        window.requestAnimationFrame(step);
+      }
     }
+    setTimeout(() => {
+      activeScreenDisplacer = true;
+    }, 500);
   }
 };
 
