@@ -79,10 +79,10 @@
     cursor: auto;
   }
 
-  /* .container-open svg path {
+  .container-open svg path {
     d: path("M2 7H12 M7 7L7 7");
     transition: 0.6s;
-  } */
+  }
 
   .title {
     display: flex;

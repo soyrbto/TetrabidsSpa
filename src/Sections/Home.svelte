@@ -1,4 +1,6 @@
 <script>
+  import { fade } from "svelte/transition";
+  import { onMount } from "svelte";
   import Navbar from "../Component/NavBar.svelte";
   import TitleSubtitle from "../Component/TitleSubtitle.svelte";
   import Accordion from "../Component/Accordion.svelte";
@@ -6,7 +8,6 @@
   import Textures from "../Component/Textures.svelte";
   import { screenDisplacer, changeSection } from "../Stores";
   import { accordionData, secNavbarItems } from "../StaticStore";
-
   let windowsWidth;
 
   const contactMove = (e) => {
@@ -66,6 +67,7 @@
 
   img {
     /* meta width 565px */
+    visibility: none;
     width: 29.5vw;
   }
 
@@ -124,7 +126,12 @@
       </Button>
     </div>
   </div>
+
   <div class="col-2">
-    <img src="./images/laptop.svg" alt="Laptop with code on the screen" />
+    <img
+      class="slide-in-right"
+      src="./images/laptop.svg"
+      alt="Laptop with code on the screen"
+    />
   </div>
 </div>

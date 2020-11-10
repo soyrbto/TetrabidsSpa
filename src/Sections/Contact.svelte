@@ -181,7 +181,7 @@
         <div class="title">{contactData.title}</div>
         <div class="subtitle">{contactData.subtitle}</div>
       </div>
-      <img src="./images/contact.svg" alt="" class="main-image" />
+      <img src="./images/contact.svg" alt="" class="main-image fade-in-bck" />
       <div class="wrapper-info">
         <div class="email">{contactData.email}</div>
         <div class="location">

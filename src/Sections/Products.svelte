@@ -163,7 +163,7 @@
       <img
         src="./images/tecnologias.svg"
         alt="3 workers behind a desk waving at you"
-        class="center-image"
+        class="center-image fade-in-bck"
       />
     </div>
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
@@ -174,7 +174,7 @@
           <p class="service-body">
             {@html productsData[bodyContent]}
           </p>
-          <img src="./images/meeting.png" alt="" class="meeting" />
+          <img src="./images/meeting.png" alt="" class="meeting fade-in-bck" />
           <div class="button-wrapper">
             <Button color="purple">
               <div class="button-card-content">Sigue Leyendo</div>
