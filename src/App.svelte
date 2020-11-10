@@ -24,7 +24,7 @@
   //funcion que hace la traslacion si el ancho de pantalla es mayor a 980
   const sectionDriver = (e) => {
     e.preventDefault();
-    if (windowsWidth > 980) {
+    if (windowsWidth > 200) {
       if (active == true) {
         let target = e.currentTarget.getAttribute("id");
         let currentIndex = desktopSection.findIndex((el) => el === target);
@@ -43,7 +43,6 @@
 
           if (nextIndex >= 2) nextIndex = 2;
           if (nextIndex < 0) nextIndex = 0;
-          console.log(secNavbarItems[nextIndex]);
           changeSection(secNavbarItems[nextIndex]);
         }
 

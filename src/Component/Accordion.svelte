@@ -5,7 +5,6 @@
   export let accordionId = "Math.random()";
   accordionId = Math.random();
   let active = false;
-  let buttonStatus = "plus";
 
   // WHEN EVERY ELEMENT IS MOUNTED
   onMount(() => {
