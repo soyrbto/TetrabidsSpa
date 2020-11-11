@@ -1,10 +1,10 @@
 <script>
-  import Home from "./sections/Home.svelte";
-  import Services from "./sections/Services.svelte";
-  import SecNavbar from "./sections/SecNavbar.svelte";
-  import Footer from "./sections/Footer.svelte";
-  import Products from "./sections/Products.svelte";
-  import Contact from "./sections/Contact.svelte";
+  import Home from "./change/Home.svelte";
+  import Services from "./change/Services.svelte";
+  import SecNavbar from "./change/SecNavbar.svelte";
+  import Footer from "./change/Footer.svelte";
+  import Products from "./change/Products.svelte";
+  import Contact from "./change/Contact.svelte";
   import {
     secNavbarItems,
     visibleSections,
