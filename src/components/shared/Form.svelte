@@ -28,7 +28,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: calc(4vw + 8rem);
+        width: calc(3vw + 10rem);
         height: 5.37vh;
         //font-size: calc(0.65vw + 1.25rem);
       }

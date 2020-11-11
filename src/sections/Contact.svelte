@@ -12,7 +12,7 @@
     justify-content: space-between;
     padding: 5%;
     width: 78.65vw;
-    height: 71.4vh;
+    height: clamp(69rem, 78.65vw, 80rem);
   }
 
   @media screen and (max-width: 1280px) {
@@ -80,6 +80,12 @@
       justify-content: space-evenly;
       align-items: center;
       height: 20%;
+    }
+
+    @media screen and (max-width: 700px) {
+      .wrapper-info {
+        visibility: hidden;
+      }
     }
 
     .email {
