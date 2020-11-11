@@ -1,0 +1,137 @@
+<script>
+  import { fade } from "svelte/transition";
+  import { onMount } from "svelte";
+  import Navbar from "../Component/NavBar.svelte";
+  import TitleSubtitle from "../Component/TitleSubtitle.svelte";
+  import Accordion from "../Component/Accordion.svelte";
+  import Button from "../Component/SharedComponents/button.svelte";
+  import Textures from "../Component/Textures.svelte";
+  import { screenDisplacer, changeSection } from "../Stores";
+  import { accordionData, secNavbarItems } from "../StaticStore";
+  let windowsWidth;
+
+  const contactMove = (e) => {
+    let target = e.currentTarget.innerText;
+    if (windowsWidth > 980) {
+      let targetPosition = document.querySelector("#section-container")
+        .offsetTop;
+      screenDisplacer(0, targetPosition, 750);
+      setTimeout(() => changeSection(target), 400);
+    }
+  };
+</script>
+
+<style>
+  .navbar {
+    display: flex;
+    justify-content: center;
+    height: 11.57vh;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 88.43vh;
+  }
+
+  .col-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .col-1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      justify-content: flex-start;
+      padding-top: 8vh;
+    }
+  }
+
+  p {
+    /* META 20px*/
+    padding-bottom: 1.85vh;
+  }
+
+  .col-2 {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    z-index: 1;
+  }
+
+  img {
+    /* meta width 565px */
+    visibility: none;
+    width: 29.5vw;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .col-2 {
+      display: none;
+    }
+
+    .wrapper {
+      justify-content: center;
+    }
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+  }
+
+  .button-contact {
+    padding: 1.85vh 1.45vw;
+    font-size: calc(0.65vw + 1.15vh);
+  }
+
+  @media screen and (max-width: 1000px) {
+    .button-contact {
+      padding: 1.85vh 3.45vw;
+      font-size: calc(0.6vw + 2vh);
+    }
+  }
+
+  .accordion {
+    margin-top: 1.85vh;
+  }
+</style>
+
+<svelte:window bind:innerWidth={windowsWidth} />
+<Textures />
+<div class="navbar">
+  <Navbar />
+</div>
+<div class="wrapper">
+  <div class="col-1">
+    <TitleSubtitle />
+    <div class="accordion">
+      {#each accordionData as accordion}
+        <Accordion>
+          <h3 slot="header">{accordion.title}</h3>
+          <p slot="body">{accordion.body}</p>
+        </Accordion>
+      {/each}
+    </div>
+    <div on:click={contactMove} class="button">
+      <Button>
+        <div class="button-contact">{secNavbarItems[2]}</div>
+      </Button>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <img
+      class="slide-in-right"
+      src="./images/laptop.svg"
+      alt="Laptop with code on the screen"
+    />
+  </div>
+</div>
