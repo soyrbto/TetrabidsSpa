@@ -1,11 +1,12 @@
 <script>
-  import { navbarItems } from "../StaticStore";
+  import { navbarItems, secNavbarItems } from "../StaticStore";
   import { changeSection, screenDisplacer } from "../Stores.js";
 
   let windowsWidth;
   const navbarMove = (e) => {
     let target = e.currentTarget.innerText;
-    if (windowsWidth > 980) {
+    let currentIndex = secNavbarItems.findIndex((el) => el === target);
+    if (windowsWidth > 980 && currentIndex !== -1) {
       let targetPosition = document.querySelector("#section-container")
         .offsetTop;
       screenDisplacer(0, targetPosition, 750);

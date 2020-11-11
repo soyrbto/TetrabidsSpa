@@ -1,15 +1,15 @@
 <script>
-  import Home from "./Sections/Home.svelte";
-  import Services from "./Sections/Services.svelte";
-  import SecNavbar from "./Sections/SecNavbar.svelte";
-  import Products from "./Sections/Products.svelte";
+  import Home from "./sections/Home.svelte";
+  import Services from "./sections/Services.svelte";
+  import SecNavbar from "./sections/SecNavbar.svelte";
+  import Footer from "./sections/Footer.svelte";
+  import Products from "./sections/Products.svelte";
+  import Contact from "./sections/Contact.svelte";
   import {
     secNavbarItems,
     visibleSections,
     desktopSection,
   } from "./StaticStore.js";
-  import Footer from "./Sections/Footer.svelte";
-  import Contact from "./Sections/Contact.svelte";
   import {
     displayedSection,
     displayedState,
@@ -24,7 +24,7 @@
   //funcion que hace la traslacion si el ancho de pantalla es mayor a 980
   const sectionDriver = (e) => {
     e.preventDefault();
-    if (windowsWidth > 980) {
+    if (windowsWidth > 200) {
       if (active == true) {
         let target = e.currentTarget.getAttribute("id");
         let currentIndex = desktopSection.findIndex((el) => el === target);
@@ -43,7 +43,6 @@
 
           if (nextIndex >= 2) nextIndex = 2;
           if (nextIndex < 0) nextIndex = 0;
-          console.log(secNavbarItems[nextIndex]);
           changeSection(secNavbarItems[nextIndex]);
         }
 
@@ -110,16 +109,12 @@
 
 <div class="page-container">
   <main>
-    <div
-      on:mousewheel={sectionDriver}
-      class="home-wrapper"
-      id={visibleSections[0]}
-    >
+    <div on:wheel={sectionDriver} class="home-wrapper" id={visibleSections[0]}>
       <Home />
     </div>
 
     <div
-      on:mousewheel={sectionDriver}
+      on:wheel={sectionDriver}
       id="section-container"
       class="section-wrapper"
     >
