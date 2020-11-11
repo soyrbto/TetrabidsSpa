@@ -6,6 +6,7 @@
   import { servicesData } from "../StaticStore";
   let bodyContent = servicesData.serviceItems[0];
   let buttonColor = {};
+  let windowsWidth;
 
   // WHEN MOUNTED
   onMount(() => {
@@ -153,6 +154,8 @@
   }
 </style>
 
+<svelte:window bind:innerWidth={windowsWidth} />
+
 <!--  SERVICES SECTION -->
 <Card>
   <div class="wrapper-section">
@@ -170,15 +173,18 @@
       />
     </div>
     <!--  SERVICE ITEMS SUB-SECTION -->
-    <div class="col-2">
-      <div class="buttons-wrapper">
-        {#each servicesData.serviceItems as serviceItem}
-          <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
-            <div class="button-item" on:click={getContent}>{serviceItem}</div>
-          </Button>
-        {/each}
+    {#if windowsWidth > 1000}
+      <div class="col-2">
+        <div class="buttons-wrapper">
+          {#each servicesData.serviceItems as serviceItem}
+            <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
+              <div class="button-item" on:click={getContent}>{serviceItem}</div>
+            </Button>
+          {/each}
+        </div>
       </div>
-    </div>
+    {/if}
+
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
     <div class="col-3">
       <Card>

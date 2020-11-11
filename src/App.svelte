@@ -80,6 +80,7 @@
       #23074b 47.19%,
       #23074b 57.34%
     );
+    // background-image: url(/images/background-white-shape.svg);
     border-radius: 0 0 50px 50px;
   }
 
@@ -93,6 +94,10 @@
     justify-content: center;
     transition: all;
     height: 92vh;
+    background-image: url(/images/background-white-shape.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100%;
   }
 
   .secnavbar-wrapper {
