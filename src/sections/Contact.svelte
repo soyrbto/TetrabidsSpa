@@ -1,7 +1,9 @@
 <script>
   import Card from "../components/shared/Card.svelte";
-  import Button from "../components/shared/Button.svelte";
   import { contactData } from "../StaticStore";
+  import Form from "../components/shared/Form.svelte";
+  import { maxWidthTablet } from "../Stores";
+  let windowsWidth;
 </script>
 
 <style type="text/scss">
@@ -13,12 +15,30 @@
     height: 71.4vh;
   }
 
+  @media screen and (max-width: 1280px) {
+    .col-1 {
+      flex-grow: 1;
+    }
+
+    .wrapper-info {
+      margin-top: 30px;
+    }
+
+    div.title {
+      width: 100% !important;
+    }
+
+    .concept {
+      margin-bottom: 25px;
+    }
+  }
+
   .col-1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 27.25vw;
+    //meta width 523px
 
     .concept {
       .title {
@@ -29,7 +49,7 @@
         font-family: Josefin Sans;
         font-style: normal;
         font-weight: normal;
-        font-size: 3vh;
+        font-size: clamp(18px, 1.5vw, 32px);
         line-height: 3.5vh;
         letter-spacing: 0.05em;
       }
@@ -38,7 +58,7 @@
         color: white;
         font-family: Josefin Sans;
         font-weight: normal;
-        font-size: 1.7vh;
+        font-size: clamp(14px, 1.1vw, 25px);
         line-height: 2.5vh;
         margin-top: 0.5vh;
       }
@@ -90,131 +110,43 @@
     flex-direction: column;
     justify-content: center;
     width: 37vw;
-
-    .column-wrapper {
-      font-family: josefin Sans;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      width: 100%;
-      height: 55vh;
-      padding: 5% 5% 0 5%;
-      position: relative;
-
-      .form-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .button-wrapper {
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        top: 96%;
-
-        .button-content {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 8vw;
-          height: 5.37vh;
-          //font-size: calc(0.65vw + 1.25rem);
-        }
-      }
-    }
-  }
-
-  .group {
-    position: relative;
-    //META font zise 18px
-    font-size: 1.6vh;
-    line-height: 50%;
-    color: #838383;
-    margin-bottom: 3.42vh;
-  }
-
-  .group textarea {
-    height: 27.8vh;
-    border-style: none;
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-bottom: 0.4em;
-    padding-right: 0.4em;
-  }
-
-  .group > label {
-    position: absolute;
-    top: 40%;
-    left: 15px;
-    transition: all 0.35s;
-    user-select: none;
-  }
-
-  .group textarea + label {
-    top: 2.31vh;
-  }
-
-  .fields {
-    width: 32vw;
-    height: 3.3vw;
-    background-color: #f3f3f3;
-    font-size: 16px;
-    line-height: 150%;
-    padding: 0px 0 0 20px;
-    border-radius: 5px;
-  }
-
-  input:focus ~ label,
-  input:valid ~ label,
-  textarea:focus ~ label,
-  textarea:valid ~ label {
-    top: -0.5vh;
-    background: white;
   }
 </style>
+
+<svelte:window bind:innerWidth={windowsWidth} />
 
 <Card backgroundColor={'#0B5771'}>
   <div class="wrapper-section">
     <div class="col-1">
       <div class="concept">
         <div class="title">{contactData.title}</div>
-        <div class="subtitle">{contactData.subtitle}</div>
+        {#if windowsWidth >= 500}
+          <div class="subtitle">{contactData.subtitle}</div>
+        {/if}
       </div>
-      <img src="./images/contact.svg" alt="" class="main-image fade-in-bck" />
+      {#if windowsWidth >= maxWidthTablet}
+        <img src="./images/contact.svg" alt="" class="main-image fade-in-bck" />
+      {/if}
+
+      <!-- FORM COMPONENT -->
+
+      {#if windowsWidth < maxWidthTablet}
+        <Form />
+      {/if}
+
       <div class="wrapper-info">
         <div class="email">{contactData.email}</div>
         <div class="location">
-          <img src="./images/location.svg" alt="" />
+          <img src="./images/location.svg" alt="location pinpoint" />
           <div class="location-text">{contactData.location}</div>
         </div>
       </div>
     </div>
 
-    <div class="col-2">
-      <Card>
-        <div class="column-wrapper">
-          <form action="" autocomplete="off" class="form-wrapper">
-            <div class="group">
-              <input required name="hidden" class="fields" id="name" />
-              <label for="name">nombre</label>
-            </div>
-            <div class="group">
-              <input required class="fields" id="email" />
-              <label for="email">email</label>
-            </div>
-            <div class="group">
-              <textarea required class="fields" id="message" />
-              <label for="message">mensaje</label>
-            </div>
-            <div class="button-wrapper">
-              <Button>
-                <div class="button-content">Enviar</div>
-              </Button>
-            </div>
-          </form>
-        </div>
-      </Card>
-    </div>
+    {#if windowsWidth >= maxWidthTablet}
+      <div class="col-2">
+        <Form />
+      </div>
+    {/if}
   </div>
 </Card>

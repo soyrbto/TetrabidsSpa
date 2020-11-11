@@ -123,7 +123,8 @@
           //META height 300px
           height: 27.8vh;
           overflow: hidden;
-          margin-top: 28px;
+          //meta margintop 28px
+          margin-top: 1.1vw;
         }
 
         .meeting {

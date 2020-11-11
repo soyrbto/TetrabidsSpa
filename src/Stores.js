@@ -5,7 +5,7 @@ import { secNavbarItems } from "./StaticStore";
 
 const stateStore = writable({});
 const colorButtonStore = writable({});
-const displayedSection = writable(secNavbarItems[0]);
+const displayedSection = writable(secNavbarItems[2]);
 const displayedState = writable({
   [secNavbarItems[0]]: false,
   [secNavbarItems[1]]: false,
@@ -72,6 +72,8 @@ function linear(t, b, c, d) {
   return (c * t) / d + b;
 }
 
+let maxWidthTablet = 1280;
+
 export {
   stateStore,
   colorButtonStore,
@@ -81,4 +83,5 @@ export {
   easeInOutCubic,
   linear,
   screenDisplacer,
+  maxWidthTablet,
 };
