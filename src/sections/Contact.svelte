@@ -17,7 +17,11 @@
 
   @media screen and (max-width: 1280px) {
     .col-1 {
-      flex-grow: 1;
+      width: 100%;
+    }
+
+    .wrapper-section {
+      width: 100vw;
     }
 
     .wrapper-info {
@@ -26,10 +30,12 @@
 
     div.title {
       width: 100% !important;
+      text-align: left;
     }
 
     .concept {
       margin-bottom: 25px;
+      align-self: center;
     }
   }
 
@@ -49,7 +55,7 @@
         font-family: Josefin Sans;
         font-style: normal;
         font-weight: normal;
-        font-size: clamp(18px, 1.5vw, 32px);
+        font-size: clamp(30px, 1.5vw, 32px);
         line-height: 3.5vh;
         letter-spacing: 0.05em;
       }
@@ -115,12 +121,15 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 
-<Card backgroundColor={'#0B5771'}>
+<Card
+  backgroundColor={'#0B5771'}
+  borderRadius={windowsWidth >= 1280 ? '20px' : '0px'}
+>
   <div class="wrapper-section">
     <div class="col-1">
       <div class="concept">
         <div class="title">{contactData.title}</div>
-        {#if windowsWidth >= 500}
+        {#if windowsWidth >= 750}
           <div class="subtitle">{contactData.subtitle}</div>
         {/if}
       </div>

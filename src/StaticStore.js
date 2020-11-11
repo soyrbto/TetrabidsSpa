@@ -59,7 +59,7 @@ const productsData = {
 };
 
 const contactData = {
-  title: "Conoce mas de nuestros servicios",
+  title: "¿Quieres conocer mas de nuestros servicios?",
   subtitle: "Escribenos y nos contactaremos contigo a la brevedad posible.",
   email: "contacto@tetrabids",
   location: "Agencia totalmente remota",

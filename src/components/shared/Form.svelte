@@ -45,7 +45,7 @@
   }
 
   .group textarea {
-    height: 21.8vh;
+    height: 19vw;
     border-style: none;
     padding-left: 15px;
     padding-top: 15px;
@@ -77,7 +77,12 @@
 
   @media screen and (max-width: 1280px) {
     .fields {
-      width: 60vw;
+      width: 80vw;
+      height: calc(1.2vw + 4.5rem);
+    }
+
+    .group textarea {
+      height: calc(3.125vw + 28rem) !important;
     }
   }
 
