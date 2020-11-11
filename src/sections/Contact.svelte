@@ -1,6 +1,6 @@
 <script>
-  import Card from "../Component/SharedComponents/Card.svelte";
-  import Button from "../Component/SharedComponents/button.svelte";
+  import Card from "../components/shared/Card.svelte";
+  import Button from "../components/shared/button.svelte";
   import { contactData } from "../StaticStore";
 </script>
 

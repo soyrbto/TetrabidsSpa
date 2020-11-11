@@ -1,11 +1,11 @@
 <script>
   import { fade } from "svelte/transition";
   import { onMount } from "svelte";
-  import Navbar from "../Component/NavBar.svelte";
-  import TitleSubtitle from "../Component/TitleSubtitle.svelte";
-  import Accordion from "../Component/Accordion.svelte";
-  import Button from "../Component/SharedComponents/button.svelte";
-  import Textures from "../Component/Textures.svelte";
+  import Navbar from "../components/NavBar.svelte";
+  import TitleSubtitle from "../components/TitleSubtitle.svelte";
+  import Accordion from "../components/Accordion.svelte";
+  import Button from "../components/shared/Button.svelte";
+  import Textures from "../components/Textures.svelte";
   import { screenDisplacer, changeSection } from "../Stores";
   import { accordionData, secNavbarItems } from "../StaticStore";
   let windowsWidth;

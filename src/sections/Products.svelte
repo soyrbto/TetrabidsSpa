@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import Card from "../Component/SharedComponents/Card.svelte";
-  import Button from "../Component/SharedComponents/button.svelte";
+  import Card from "../components/shared/Card.svelte";
+  import Button from "../components/shared/Button.svelte";
   import { colorButtonStore } from "../Stores";
   import { servicesData, productsData } from "../StaticStore";
   let bodyContent = productsData.productItems[0];

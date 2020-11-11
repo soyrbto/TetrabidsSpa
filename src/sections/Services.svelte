@@ -1,8 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import SecNavbar from "./SecNavbar.svelte";
-  import Card from "../Component/SharedComponents/Card.svelte";
-  import Button from "../Component/SharedComponents/button.svelte";
+  import Card from "../components/shared/Card.svelte";
+  import Button from "../components/shared/Button.svelte";
   import { colorButtonStore } from "../Stores";
   import { servicesData } from "../StaticStore";
   let bodyContent = servicesData.serviceItems[0];

@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <style>
   h1 {
     display: inline-block;
