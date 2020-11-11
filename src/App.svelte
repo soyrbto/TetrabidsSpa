@@ -109,16 +109,12 @@
 
 <div class="page-container">
   <main>
-    <div
-      on:mousewheel={sectionDriver}
-      class="home-wrapper"
-      id={visibleSections[0]}
-    >
+    <div on:wheel={sectionDriver} class="home-wrapper" id={visibleSections[0]}>
       <Home />
     </div>
 
     <div
-      on:mousewheel={sectionDriver}
+      on:wheel={sectionDriver}
       id="section-container"
       class="section-wrapper"
     >
