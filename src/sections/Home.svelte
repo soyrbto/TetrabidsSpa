@@ -1,7 +1,5 @@
 <script>
-  import { fade } from "svelte/transition";
-  import { onMount } from "svelte";
-  import Navbar from "../components/NavBar.svelte";
+  import Navbar from "../components/Navbar.svelte";
   import TitleSubtitle from "../components/TitleSubtitle.svelte";
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/shared/Button.svelte";
