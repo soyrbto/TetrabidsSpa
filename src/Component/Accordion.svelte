@@ -46,32 +46,20 @@
     display: flex;
     flex-direction: column;
     /* META width 590px */
-    /* width: clamp(100px, 15.625vw + 29rem, 1000px); */
-    width: 31vw;
-    /* META 64px*/
-    max-height: calc(0.5vw + 5.4rem);
+    width: clamp(calc(20vw + 26rem), 30.72vw, 750px);
+    /* META 66px*/
+    height: clamp(52px, 3.43vw, 90px);
     /* META 30px*/
     margin-bottom: 2.77vh;
     border-radius: 1rem;
     box-shadow: 9px 12px 31px rgba(0, 0, 0, 0.45);
     overflow: hidden;
     background-color: white;
-    transition: max-height ease-in-out 0.7s;
-  }
-
-  @media screen and (max-width: 1000px) {
-    .container {
-      width: 70vw;
-    }
-    .body {
-      width: 60vw !important;
-    }
+    transition: height ease-in-out 0.7s;
   }
 
   .container-open {
-    /* meta height 190px */
-    max-height: 190px;
-    transition: max-height ease-in-out 0.7s;
+    height: auto;
   }
 
   .container-open > .title,
@@ -86,40 +74,29 @@
 
   .title {
     display: flex;
-    margin: 22px 0 17px 11px;
-    margin-bottom: clamp(12px, 0.52vw + 7px, 18px);
-    font-weight: 600;
+    align-items: center;
     font-family: "Josefin Sans", sans-serif;
-    /* meta font size 18px */
-    font-size: clamp(14px, 0.52vw + 8px, 22px);
-    line-height: 22px;
+    font-weight: 600;
+    margin-top: clamp(16px, 1.14vw, 30px);
+    margin-bottom: clamp(16px, 1.14vw, 30px);
+    margin-left: clamp(11px, 0.57vw, 12px);
     cursor: pointer;
     user-select: none;
-  }
-
-  @media screen and (max-height: 768px) {
-    .title {
-      font-size: clamp(10px, 1.7vh, 18px) !important;
-    }
-    .body {
-      font-size: clamp(11px, 1.2vh, 13px) !important;
-    }
   }
 
   .body {
     overflow: hidden;
     font-family: montserrat;
     /* meta font size 15px */
-    font-size: clamp(13px, 0.6vw + 0.7rem, 16px);
+    /* font-size: clamp(13px, 0.6vw + 0.7rem, 16px); */
+    font-size: clamp(11px, 0.78vw, 20px);
     /* meta line height 28px */
     line-height: clamp(18px, 0.94vw + 10px, 32px);
     letter-spacing: 0.05em;
-    /* meta width 515px */
-    /* width: clamp(100px, 15.625vw + 21.5rem, 1000px); */
-    width: 26.82vw;
-    /* meta height 112px  */
-    /* height: clamp(9rem, 4.16vw + 32rem, 13rem); */
-    margin-left: 4.3rem;
+    width: 100%;
+    /* padding: 0 3% 0 6%; */
+    padding: 0 4% 0 clamp(44.5px, 2.395vw, 47px);
+    padding-bottom: clamp(16px, 1.14vw, 30px);
   }
 
   .button {
@@ -128,7 +105,8 @@
     color: white;
     font-weight: 700;
     cursor: pointer;
-    margin-right: 12.77px;
+    /** META 12.77px*/
+    margin-right: clamp(11px, 0.66vw, 13px);
     background-color: #11a7dd;
     border-radius: 50%;
     outline: none;

@@ -46,15 +46,15 @@
     .col-1 {
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
       justify-content: flex-start;
       padding-top: 8vh;
     }
   }
 
-  p {
-    /* META 20px*/
-    padding-bottom: 1.85vh;
+  .title-accordion {
+    /** META 22px */
+    font-size: clamp(clamp(12px, 0.25vw + 1.2rem, 16px), 1.14vw, 30px);
+    line-height: 0;
   }
 
   .col-2 {
@@ -113,7 +113,7 @@
     <div class="accordion">
       {#each accordionData as accordion}
         <Accordion>
-          <h3 slot="header">{accordion.title}</h3>
+          <h3 class="title-accordion" slot="header">{accordion.title}</h3>
           <p slot="body">{accordion.body}</p>
         </Accordion>
       {/each}

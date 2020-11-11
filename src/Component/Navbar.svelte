@@ -17,13 +17,13 @@
 <style>
   nav {
     /* META font-size 22px */
-    /*font-size: clamp(22px, 1.2vw, 35px);*/
-    font-size: 2.04vh;
+    font-size: clamp(16px, 1.2vw, 31px);
     font-weight: 400px;
     font-family: "Josefin Sans", sans-serif;
     color: white;
     /* META width 580px */
-    width: 33.2vw;
+    /* width: 33.2vw; */
+    width: clamp(450px, 33.2vw, 700px);
   }
 
   ul {
@@ -39,6 +39,7 @@
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
     text-align: center;
     list-style: none;
+    /* META 150px*/
     width: 15rem;
   }
 
