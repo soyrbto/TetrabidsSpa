@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <style>
   footer {
     display: flex;

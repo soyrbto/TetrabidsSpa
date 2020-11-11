@@ -1,15 +1,15 @@
 <script>
-  import Home from "./Sections/Home.svelte";
-  import Services from "./Sections/Services.svelte";
-  import SecNavbar from "./Sections/SecNavbar.svelte";
-  import Products from "./Sections/Products.svelte";
+  import Home from "./sections/Home.svelte";
+  import Services from "./sections/Services.svelte";
+  import SecNavbar from "./sections/SecNavbar.svelte";
+  import Footer from "./sections/Footer.svelte";
+  import Products from "./sections/Products.svelte";
+  import Contact from "./sections/Contact.svelte";
   import {
     secNavbarItems,
     visibleSections,
     desktopSection,
   } from "./StaticStore.js";
-  import Footer from "./Sections/Footer.svelte";
-  import Contact from "./Sections/Contact.svelte";
   import {
     displayedSection,
     displayedState,
