@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import ServiceDescription from "../components/ServiceDescription.svelte";
+  import ServiceDescription from "../components/DescriptionCard.svelte";
   import Card from "../components/shared/Card.svelte";
   import Button from "../components/shared/Button.svelte";
   import { colorButtonStore, maxWidthTablet, bodyContent } from "../Stores";
