@@ -4,7 +4,7 @@
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/shared/Button.svelte";
   import Textures from "../components/Textures.svelte";
-  import { screenDisplacer, changeSection } from "../Stores";
+  import { screenDisplacer, changeSection, maxWidthTablet } from "../Stores";
   import { accordionData, secNavbarItems } from "../StaticStore";
   let windowsWidth;
 
@@ -69,10 +69,6 @@
   }
 
   @media only screen and (max-width: 1280px) {
-    .col-2 {
-      display: none;
-    }
-
     .wrapper {
       justify-content: center;
     }
@@ -118,11 +114,13 @@
     </div>
   </div>
 
-  <div class="col-2">
-    <img
-      class="slide-in-right"
-      src="./images/laptop.svg"
-      alt="Laptop with code on the screen"
-    />
-  </div>
+  {#if windowsWidth > maxWidthTablet}
+    <div class="col-2">
+      <img
+        class="slide-in-right"
+        src="./images/laptop.svg"
+        alt="Laptop with code on the screen"
+      />
+    </div>
+  {/if}
 </div>
