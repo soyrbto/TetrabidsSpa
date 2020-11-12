@@ -102,39 +102,16 @@
       align-items: center;
       width: 100% !important;
     }
+  }
 
-    // .wrapper-section {
-    //   width: 100vw;
-    //   padding: 5% !important;
-    // }
-
-    // .concept {
-    //   display: flex;
-    //   flex-direction: column;
-    //   align-items: center;
-    // }
-
-    // .description-card-content {
-    //   display: flex;
-    //   flex-direction: column;
-    //   align-items: center;
-    //   padding: 5% 5% 0 5%;
-    // }
-
-    // .wrapper-text-descripction {
-    //   display: flex;
-    //   flex-direction: column;
-    //   align-items: center;
-    // }
-
-    // .abstract {
-    //   margin-top: 0px !important;
-    // }
+  .description-card-container {
+    display: flex;
+    width: 500vw;
+    justify-content: space-around;
   }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
-
 <!--  SERVICES SECTION -->
 <Card>
   <div class="wrapper-section">
@@ -153,7 +130,18 @@
       {/if}
 
       {#if windowsWidth <= maxWidthTablet}
-        <ServiceDescription />
+        <div class="description-card-container">
+          {#each servicesData.serviceItems as service}
+            <ServiceDescription>
+              <div class="title" slot="service-title">
+                {@html service}
+              </div>
+              <div class="title" slot="service-body">
+                {@html servicesData[service]}
+              </div>
+            </ServiceDescription>
+          {/each}
+        </div>
       {/if}
     </div>
     <!--  SERVICE ITEMS SUB-SECTION -->
@@ -169,7 +157,7 @@
       </div>
     {/if}
 
-    <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
+    <!--  SERVICES DESCRIPTIONS SUB-SECTION FOR WHEN THE WIDTH IS BIGGER THAN 1280PX -->
     {#if windowsWidth > maxWidthTablet}
       <ServiceDescription />
     {/if}

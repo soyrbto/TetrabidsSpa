@@ -2,7 +2,9 @@
   import Button from "../components/shared/Button.svelte";
   import Card from "../components/shared/Card.svelte";
   import { servicesData } from "../StaticStore";
-  import { bodyContent } from "../Stores";
+  import { bodyContent, maxWidthTablet } from "../Stores";
+
+  let windowsWidth;
 </script>
 
 <style type="text/scss">
@@ -66,14 +68,34 @@
   }
 </style>
 
+<svelte:window bind:innerWidth={windowsWidth} />
+
 <div class="col-3">
   <Card>
     <div class="description-card-content">
       <div class="wrapper-text-descripction">
-        <h3 class="typo-title">{$bodyContent}</h3>
-        <p class="service-body">
-          {@html servicesData[$bodyContent]}
-        </p>
+        {#if windowsWidth > maxWidthTablet}
+          <h3 class="typo-title">{$bodyContent}</h3>
+        {/if}
+
+        {#if windowsWidth <= maxWidthTablet}
+          <h3 class="typo-title">
+            <slot name="service-title">there is no service-title</slot>
+          </h3>
+        {/if}
+
+        <!-- if the windowswidth is tablet or less it does not consume the store -->
+        {#if windowsWidth > maxWidthTablet}
+          <p class="service-body">
+            {@html servicesData[$bodyContent]}
+          </p>
+        {/if}
+        <!-- if the windowswidth is tablet or less i renders a exported prop for body content -->
+        {#if windowsWidth <= maxWidthTablet}
+          <p class="service-body">
+            <slot name="service-body">there is no service-body</slot>
+          </p>
+        {/if}
       </div>
       <img src="./images/meeting.png" alt="" class="meeting fade-in-bck" />
       <div class="button-wrapper">
