@@ -19,11 +19,9 @@
   nav {
     /* META font-size 22px */
     font-size: clamp(16px, 1.2vw, 31px);
-    font-weight: 400px;
     font-family: "Josefin Sans", sans-serif;
     color: white;
     /* META width 580px */
-    /* width: 33.2vw; */
     width: clamp(450px, 33.2vw, 700px);
   }
 

@@ -65,14 +65,8 @@
           font-family: var(--par-typo);
           /* meta font size 14px */
           font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
-          line-height: 3vh;
+          line-height: clamp(22px, 1.69vw, 32.5px);
         }
-      }
-    }
-
-    @media screen and (max-width: 1280px) {
-      .col-1 {
-        width: 100vw !important;
       }
     }
 
@@ -161,10 +155,40 @@
     }
   }
 
-  @media screen and (max-width: 1280) {
+  @media screen and (max-width: 1280px) {
     .col-1 {
-      width: 100%;
+      display: flex;
+      align-items: center;
+      width: 100% !important;
     }
+
+    // .wrapper-section {
+    //   width: 100vw;
+    //   padding: 5% !important;
+    // }
+
+    // .concept {
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    // }
+
+    // .description-card-content {
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    //   padding: 5% 5% 0 5%;
+    // }
+
+    // .wrapper-text-descripction {
+    //   display: flex;
+    //   flex-direction: column;
+    //   align-items: center;
+    // }
+
+    // .abstract {
+    //   margin-top: 0px !important;
+    // }
   }
 </style>
 
@@ -179,7 +203,7 @@
         <h2 class="title">{servicesData.title}</h2>
         <p class="abstract">{servicesData.abstract}</p>
       </div>
-      {#if windowsWidth >= maxWidthTablet}
+      {#if windowsWidth > maxWidthTablet}
         <img
           class="fade-in-bck"
           src="./images/team.svg"
@@ -187,7 +211,7 @@
         />
       {/if}
 
-      {#if windowsWidth < maxWidthTablet}
+      {#if windowsWidth <= maxWidthTablet}
         <Card>
           <div class="description-card-content">
             <div class="wrapper-text-descripction">
@@ -211,7 +235,7 @@
       {/if}
     </div>
     <!--  SERVICE ITEMS SUB-SECTION -->
-    {#if windowsWidth >= maxWidthTablet}
+    {#if windowsWidth > maxWidthTablet}
       <div class="col-2">
         <div class="buttons-wrapper">
           {#each servicesData.serviceItems as serviceItem}
@@ -224,7 +248,7 @@
     {/if}
 
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
-    {#if windowsWidth >= maxWidthTablet}
+    {#if windowsWidth > maxWidthTablet}
       <div class="col-3">
         <Card>
           <div class="description-card-content">

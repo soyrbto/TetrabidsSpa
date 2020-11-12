@@ -65,11 +65,10 @@
 
   img {
     /* meta width 565px */
-    visibility: none;
     width: 29.5vw;
   }
 
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 1280px) {
     .col-2 {
       display: none;
     }
@@ -86,8 +85,9 @@
   }
 
   .button-contact {
-    padding: 1.85vh 1.45vw;
-    font-size: calc(0.65vw + 1.15vh);
+    padding: 1.04vw 1.45vw;
+    /* META 25px */
+    font-size: calc(0.65vw + 1.25rem);
   }
 
   @media screen and (max-width: 1000px) {
