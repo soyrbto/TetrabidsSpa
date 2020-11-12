@@ -123,7 +123,7 @@
       id="section-container"
       class="section-wrapper"
     >
-      {#if windowsWidth > 1160}
+      {#if windowsWidth > 1280}
         <div class="secnavbar-wrapper">
           <SecNavbar />
         </div>

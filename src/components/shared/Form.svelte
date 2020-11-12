@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 20px;
+    padding: calc(0.6vw + 1.2rem);
     position: relative;
 
     .form-wrapper {
@@ -29,19 +29,18 @@
         justify-content: center;
         align-items: center;
         width: calc(3vw + 10rem);
-        height: 5.37vh;
-        //font-size: calc(0.65vw + 1.25rem);
+        height: calc(1vw + 4rem);
       }
     }
   }
 
   .group {
     position: relative;
-    //META font zise 18px
-    font-size: 1.6vh;
+    //META font size 18px
+    font-size: clamp(16px, 0.95vw, 22px);
     line-height: 50%;
     color: #838383;
-    margin-bottom: 3.42vh;
+    margin-bottom: calc(0.5vw + 1rem);
   }
 
   .group textarea {
@@ -77,12 +76,12 @@
 
   @media screen and (max-width: 1280px) {
     .fields {
+      height: calc(1.2vw + 2.5rem);
       width: 80vw;
-      height: calc(1.2vw + 4.5rem);
     }
 
     .group textarea {
-      height: calc(3.125vw + 28rem) !important;
+      height: calc(3.125vw + 20rem) !important;
     }
   }
 
@@ -90,7 +89,7 @@
   input:valid ~ label,
   textarea:focus ~ label,
   textarea:valid ~ label {
-    top: -0.5vh;
+    top: calc(-0.3vw - 0.5rem);
     background: white;
   }
 </style>
