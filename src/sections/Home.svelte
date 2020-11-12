@@ -46,7 +46,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      padding-top: 8vh;
+      padding-top: min(17.14vw, max(10.67vw, 76.5px));
     }
   }
 
@@ -85,20 +85,13 @@
   }
 
   .button-contact {
-    padding: 1.04vw 1.45vw;
+    padding: clamp(15px, 1.04vw, 23px) clamp(26px, 1.45vw, 37px);
     /* META 25px */
-    font-size: calc(0.65vw + 1.25rem);
-  }
-
-  @media screen and (max-width: 1000px) {
-    .button-contact {
-      padding: 1.85vh 3.45vw;
-      font-size: calc(0.6vw + 2vh);
-    }
+    font-size: clamp(21px, calc(0.65vw + 1.25rem), 29px);
   }
 
   .accordion {
-    margin-top: 1.85vh;
+    margin-top: clamp(19px, 1.04vw, 27px);
   }
 </style>
 

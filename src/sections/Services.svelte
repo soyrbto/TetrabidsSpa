@@ -152,7 +152,7 @@
         />
       {/if}
 
-      {#if windowsWidth < maxWidthTablet}
+      {#if windowsWidth <= maxWidthTablet}
         <ServiceDescription />
       {/if}
     </div>
@@ -170,7 +170,7 @@
     {/if}
 
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
-    {#if windowsWidth >= maxWidthTablet}
+    {#if windowsWidth > maxWidthTablet}
       <ServiceDescription />
     {/if}
   </div>
