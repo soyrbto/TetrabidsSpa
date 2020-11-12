@@ -2,8 +2,9 @@
   import { onMount } from "svelte";
   import Card from "../components/shared/Card.svelte";
   import Button from "../components/shared/Button.svelte";
-  import { colorButtonStore } from "../Stores";
+  import { colorButtonStore, maxWidthTablet } from "../Stores";
   import { servicesData } from "../StaticStore";
+
   let bodyContent = servicesData.serviceItems[0];
   let buttonColor = {};
   let windowsWidth;
@@ -66,6 +67,12 @@
           font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
           line-height: 3vh;
         }
+      }
+    }
+
+    @media screen and (max-width: 1280px) {
+      .col-1 {
+        width: 100vw !important;
       }
     }
 
@@ -153,6 +160,12 @@
       }
     }
   }
+
+  @media screen and (max-width: 1280) {
+    .col-1 {
+      width: 100%;
+    }
+  }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
@@ -166,15 +179,39 @@
         <h2 class="title">{servicesData.title}</h2>
         <p class="abstract">{servicesData.abstract}</p>
       </div>
+      {#if windowsWidth >= maxWidthTablet}
+        <img
+          class="fade-in-bck"
+          src="./images/team.svg"
+          alt="3 workers behind a desk waving at you"
+        />
+      {/if}
 
-      <img
-        class="fade-in-bck"
-        src="./images/team.svg"
-        alt="3 workers behind a desk waving at you"
-      />
+      {#if windowsWidth < maxWidthTablet}
+        <Card>
+          <div class="description-card-content">
+            <div class="wrapper-text-descripction">
+              <h3 class="typo-title">{bodyContent}</h3>
+              <p class="service-body">
+                {@html servicesData[bodyContent]}
+              </p>
+            </div>
+            <img
+              src="./images/meeting.png"
+              alt=""
+              class="meeting fade-in-bck"
+            />
+            <div class="button-wrapper">
+              <Button color="purple">
+                <div class="button-card-content">Sigue Leyendo</div>
+              </Button>
+            </div>
+          </div>
+        </Card>
+      {/if}
     </div>
     <!--  SERVICE ITEMS SUB-SECTION -->
-    {#if windowsWidth > 1000}
+    {#if windowsWidth >= maxWidthTablet}
       <div class="col-2">
         <div class="buttons-wrapper">
           {#each servicesData.serviceItems as serviceItem}
@@ -187,23 +224,29 @@
     {/if}
 
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
-    <div class="col-3">
-      <Card>
-        <div class="description-card-content">
-          <div class="wrapper-text-descripction">
-            <h3 class="typo-title">{bodyContent}</h3>
-            <p class="service-body">
-              {@html servicesData[bodyContent]}
-            </p>
+    {#if windowsWidth >= maxWidthTablet}
+      <div class="col-3">
+        <Card>
+          <div class="description-card-content">
+            <div class="wrapper-text-descripction">
+              <h3 class="typo-title">{bodyContent}</h3>
+              <p class="service-body">
+                {@html servicesData[bodyContent]}
+              </p>
+            </div>
+            <img
+              src="./images/meeting.png"
+              alt=""
+              class="meeting fade-in-bck"
+            />
+            <div class="button-wrapper">
+              <Button color="purple">
+                <div class="button-card-content">Sigue Leyendo</div>
+              </Button>
+            </div>
           </div>
-          <img src="./images/meeting.png" alt="" class="meeting fade-in-bck" />
-          <div class="button-wrapper">
-            <Button color="purple">
-              <div class="button-card-content">Sigue Leyendo</div>
-            </Button>
-          </div>
-        </div>
-      </Card>
-    </div>
+        </Card>
+      </div>
+    {/if}
   </div>
 </Card>

@@ -15,6 +15,7 @@
     displayedState,
     changeSection,
     screenDisplacer,
+    maxWidthTablet,
   } from "./Stores";
 
   let windowsWidth;
@@ -123,7 +124,7 @@
       id="section-container"
       class="section-wrapper"
     >
-      {#if windowsWidth > 1160}
+      {#if windowsWidth > maxWidthTablet}
         <div class="secnavbar-wrapper">
           <SecNavbar />
         </div>
