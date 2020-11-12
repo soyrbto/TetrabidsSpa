@@ -3,7 +3,7 @@
   import ServiceDescription from "../components/DescriptionCard.svelte";
   import Card from "../components/shared/Card.svelte";
   import Button from "../components/shared/Button.svelte";
-  import { colorButtonStore, maxWidthTablet, bodyContent } from "../Stores";
+  import { colorButtonStore, maxWidthTablet, servBodyContent } from "../Stores";
   import { servicesData } from "../StaticStore";
 
   let buttonColor = {};
@@ -25,7 +25,7 @@
     colorButtonStore.set({ ...buttonColor });
     // SET THE ELEMENT CLICKED COLOR TO WHITE
     colorButtonStore.update(
-      (value) => (value = { ...value, [$bodyContent]: "white" })
+      (value) => (value = { ...value, [$servBodyContent]: "white" })
     );
   };
 </script>
@@ -133,10 +133,10 @@
         <div class="description-card-container">
           {#each servicesData.serviceItems as service}
             <ServiceDescription>
-              <div class="title" slot="service-title">
+              <div class="title" slot="title">
                 {@html service}
               </div>
-              <div class="title" slot="service-body">
+              <div class="title" slot="body">
                 {@html servicesData[service]}
               </div>
             </ServiceDescription>
@@ -159,7 +159,12 @@
 
     <!--  SERVICES DESCRIPTIONS SUB-SECTION FOR WHEN THE WIDTH IS BIGGER THAN 1280PX -->
     {#if windowsWidth > maxWidthTablet}
-      <ServiceDescription />
+      <ServiceDescription>
+        <div class="title" slot="title">
+          {@html servicesData[$servBodyContent]}
+        </div>
+        <div class="body" slot="body">{$servBodyContent}</div>
+      </ServiceDescription>
     {/if}
   </div>
 </Card>

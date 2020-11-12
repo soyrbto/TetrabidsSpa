@@ -2,9 +2,9 @@
   import { onMount } from "svelte";
   import Card from "../components/shared/Card.svelte";
   import Button from "../components/shared/Button.svelte";
-  import { colorButtonStore } from "../Stores";
-  import { servicesData, productsData } from "../StaticStore";
-  let bodyContent = productsData.productItems[0];
+  import DescriptionCard from "../components/DescriptionCard.svelte";
+  import { colorButtonStore, prodBodyContent } from "../Stores";
+  import { productsData } from "../StaticStore";
   let buttonColor = {};
 
   // WHEN MOUNTED
@@ -18,12 +18,12 @@
   });
   // WHEN CLICK AN ITEM TAKES THE CLICKED TARGET
   const getContent = (e) => {
-    bodyContent = e.target.innerText;
+    prodBodyContent.set(e.target.innerText);
     //SET THE STORE TO ALL ELEMENTS BLUE
     colorButtonStore.set({ ...buttonColor });
     // SET THE ELEMENT CLICKED COLOR TO WHITE
     colorButtonStore.update(
-      (value) => (value = { ...value, [bodyContent]: "white" })
+      (value) => (value = { ...value, [$prodBodyContent]: "white" })
     );
   };
 </script>
@@ -85,58 +85,6 @@
       justify-content: center;
       width: 20.5vw;
     }
-
-    .col-3 {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 25.3vw;
-
-      .description-card-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 2.7rem 2.5rem calc(1.22vw + 0.35rem) 2.5rem;
-        position: relative;
-
-        .typo-title {
-          color: #066d92;
-        }
-        .service-body {
-          line-height: 175%;
-          letter-spacing: 0.08em;
-          font-weight: 400;
-          font-family: var(--par-typo);
-          /* meta font size 14px */
-          font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
-          height: 21.8vh;
-          overflow: hidden;
-        }
-
-        .meeting {
-          display: block;
-          margin: 0 auto;
-          height: 11.45vw;
-        }
-
-        .button-wrapper {
-          display: flex;
-          justify-content: center;
-          position: absolute;
-          width: 12.8vw;
-          align-self: center;
-          top: 96%;
-
-          .button-card-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            //META height 58px
-            height: 3vw;
-          }
-        }
-      }
-    }
   }
 </style>
 
@@ -167,21 +115,12 @@
       />
     </div>
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
-    <div class="col-3">
-      <Card>
-        <div class="description-card-content">
-          <h3 class="typo-title">{bodyContent}</h3>
-          <p class="service-body">
-            {@html productsData[bodyContent]}
-          </p>
-          <img src="./images/meeting.png" alt="" class="meeting fade-in-bck" />
-          <div class="button-wrapper">
-            <Button color="purple">
-              <div class="button-card-content">Sigue Leyendo</div>
-            </Button>
-          </div>
-        </div>
-      </Card>
-    </div>
+
+    <DescriptionCard>
+      <div class="title" slot="title">{$prodBodyContent}</div>
+      <div class="body" slot="body">
+        {@html productsData[$prodBodyContent]}
+      </div>
+    </DescriptionCard>
   </div>
 </Card>

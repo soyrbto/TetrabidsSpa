@@ -1,11 +1,11 @@
 import { writable, get } from "svelte/store";
-import { secNavbarItems, servicesData } from "./StaticStore";
+import { secNavbarItems, servicesData, productsData } from "./StaticStore";
 
 // stores used for components as states
 
 const stateStore = writable({});
 const colorButtonStore = writable({});
-const displayedSection = writable(secNavbarItems[0]);
+const displayedSection = writable(secNavbarItems[1]);
 const displayedState = writable({
   [secNavbarItems[0]]: false,
   [secNavbarItems[1]]: false,
@@ -13,8 +13,10 @@ const displayedState = writable({
 });
 
 //state of serviceDescription content
-const bodyContent = writable(servicesData.serviceItems[0]);
+const servBodyContent = writable(servicesData.serviceItems[0]);
 
+//state of productDescription content
+const prodBodyContent = writable(productsData.productItems[0]);
 // functionality, study readables or put it in an object
 let activeChangeSection = true;
 const changeSection = (target) => {
@@ -87,5 +89,6 @@ export {
   linear,
   screenDisplacer,
   maxWidthTablet,
-  bodyContent,
+  servBodyContent,
+  prodBodyContent,
 };
