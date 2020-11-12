@@ -1,5 +1,5 @@
 import { writable, get } from "svelte/store";
-import { secNavbarItems } from "./StaticStore";
+import { secNavbarItems, servicesData } from "./StaticStore";
 
 // stores used for components as states
 
@@ -11,6 +11,9 @@ const displayedState = writable({
   [secNavbarItems[1]]: false,
   [secNavbarItems[2]]: false,
 });
+
+//state of serviceDescription content
+const bodyContent = writable(servicesData.serviceItems[0]);
 
 // functionality, study readables or put it in an object
 let activeChangeSection = true;
@@ -84,4 +87,5 @@ export {
   linear,
   screenDisplacer,
   maxWidthTablet,
+  bodyContent,
 };
