@@ -20,7 +20,7 @@
   });
   // WHEN CLICK AN ITEM TAKES THE CLICKED TARGET
   const getContent = (e) => {
-    bodyContent.set(e.target.innerText);
+    servBodyContent.set(e.target.innerText);
     //SET THE STORE TO ALL ELEMENTS BLUE
     colorButtonStore.set({ ...buttonColor });
     // SET THE ELEMENT CLICKED COLOR TO WHITE
