@@ -22,17 +22,18 @@
   }
 
   .menu {
-    display: block;
+up    display: flex;
     position: absolute;
-    bottom: 60px;
-    right: 60px;
+    bottom: 12%;
+    right: 12%;
     background-color: #0580b9;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     z-index: 20;
     box-shadow: 0px 3px 8px #333;
     cursor: pointer;
+    flex-direction: column;
   }
 
   .menu__line {
@@ -51,7 +52,7 @@
     top: 14px;
   }
   .menu__line:nth-child(2) {
-    top: 23px;
+    top: 28px;
   }
   .menu__line:nth-child(3) {
     bottom: 14px;
