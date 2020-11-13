@@ -46,12 +46,6 @@
     cursor: pointer;
     letter-spacing: 0.15em;
   }
-
-  @media only screen and (max-width: 768px) {
-    nav {
-      visibility: hidden;
-    }
-  }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />

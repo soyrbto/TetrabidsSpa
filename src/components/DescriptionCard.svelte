@@ -1,9 +1,6 @@
 <script>
   import Button from "./shared/Button.svelte";
   import Card from "./shared/Card.svelte";
-  import { servicesData } from "../StaticStore";
-  import { servBodyContent, maxWidthTablet } from "../Stores";
-
   let windowsWidth;
 </script>
 

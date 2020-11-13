@@ -1,5 +1,5 @@
 <script>
-  import Navbar from "../components/Navbar.svelte";
+  import Navbar from "../components/NavbarDesktop.svelte";
   import TitleSubtitle from "../components/TitleSubtitle.svelte";
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/shared/Button.svelte";
@@ -91,9 +91,12 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 <Textures />
-<div class="navbar">
-  <Navbar />
-</div>
+{#if windowsWidth > 768}
+  <div class="navbar">
+    <Navbar />
+  </div>
+{/if}
+
 <div class="wrapper">
   <div class="col-1">
     <TitleSubtitle />
