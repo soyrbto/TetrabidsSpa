@@ -56,7 +56,7 @@
         .title {
           font-family: var(--display-typo);
           //META font-size 32px
-          font-size: 3vh;
+          font-size: clamp(23px, 1.66vw, 43px);
         }
 
         .abstract {
@@ -74,7 +74,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      width: unquote($string: "clamp(150px, 12.65vw, 243px)");
+      width: unquote($string: "clamp(150px, 12.65vw, 350px)");
 
       .buttons-wrapper {
         display: flex;

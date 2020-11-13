@@ -12,7 +12,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 25.31vw;
+    // META 486px
+    width: clamp(345px, 25.31vw, 648px);
 
     .description-card-content {
       display: flex;
@@ -25,6 +26,7 @@
 
       .typo-title {
         color: #066d92;
+        font-size: clamp(18px, 1.3vw, 33px);
       }
 
       .service-body {
@@ -58,10 +60,12 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          // Meta 25px
+          font-size: clamp(18px, 1.3vw, 33px);
           //Meta width 246px
-          width: 12.81vw;
+          width: clamp(174px, 12.81vw, 328px);
           //META height 58px
-          height: 3vw;
+          height: clamp(41px, 2.96vw, 77px);
         }
       }
     }
