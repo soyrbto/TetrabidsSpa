@@ -22,7 +22,7 @@
   }
 
   .menu {
-up    display: flex;
+    display: flex;
     position: absolute;
     bottom: 12%;
     right: 12%;
