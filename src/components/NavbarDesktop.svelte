@@ -46,20 +46,16 @@
     cursor: pointer;
     letter-spacing: 0.15em;
   }
-
-  @media only screen and (max-width: 768px) {
-    nav {
-      visibility: hidden;
-    }
-  }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
 
-<nav>
-  <ul>
-    {#each navbarItems as item}
-      <li on:click={(e) => navbarMove(e)}>{item}</li>
-    {/each}
-  </ul>
-</nav>
+{#if windowsWidth > 768}
+  <nav>
+    <ul>
+      {#each navbarItems as item}
+        <li on:click={(e) => navbarMove(e)}>{item}</li>
+      {/each}
+    </ul>
+  </nav>
+{/if}

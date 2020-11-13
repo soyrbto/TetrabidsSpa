@@ -5,6 +5,7 @@
   import Footer from "./sections/Footer.svelte";
   import Products from "./sections/Products.svelte";
   import Contact from "./sections/Contact.svelte";
+  import NavbarMob from "./components/NavbarMob.svelte";
   import {
     secNavbarItems,
     visibleSections,
@@ -87,6 +88,7 @@
 
   .home-wrapper {
     height: 100vh;
+    position: relative;
   }
 
   .section-wrapper {
@@ -117,6 +119,7 @@
   <main>
     <div on:wheel={sectionDriver} class="home-wrapper" id={visibleSections[0]}>
       <Home />
+      <NavbarMob />
     </div>
 
     <div
