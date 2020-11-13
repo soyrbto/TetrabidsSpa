@@ -10,12 +10,10 @@
 
   const contactMove = (e) => {
     let target = e.currentTarget.innerText;
-    if (windowsWidth > 980) {
-      let targetPosition = document.querySelector("#section-container")
-        .offsetTop;
-      screenDisplacer(0, targetPosition, 750);
-      setTimeout(() => changeSection(target), 400);
-    }
+
+    let targetPosition = document.querySelector("#section-container").offsetTop;
+    screenDisplacer(0, targetPosition, 750);
+    setTimeout(() => changeSection(target), 400);
   };
 </script>
 
