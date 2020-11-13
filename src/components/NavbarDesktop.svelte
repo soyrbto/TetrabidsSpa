@@ -50,12 +50,10 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 
-{#if windowsWidth > 768}
-  <nav>
-    <ul>
-      {#each navbarItems as item}
-        <li on:click={(e) => navbarMove(e)}>{item}</li>
-      {/each}
-    </ul>
-  </nav>
-{/if}
+<nav>
+  <ul>
+    {#each navbarItems as item}
+      <li on:click={(e) => navbarMove(e)}>{item}</li>
+    {/each}
+  </ul>
+</nav>

@@ -91,9 +91,12 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 <Textures />
-<div class="navbar">
-  <Navbar />
-</div>
+{#if windowsWidth > 768}
+  <div class="navbar">
+    <Navbar />
+  </div>
+{/if}
+
 <div class="wrapper">
   <div class="col-1">
     <TitleSubtitle />
