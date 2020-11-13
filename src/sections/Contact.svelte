@@ -12,30 +12,32 @@
     justify-content: space-between;
     padding: 5%;
     width: 78.65vw;
-    height: calc(14vw + 40rem);
+    height: 71.4vh;
   }
 
   @media screen and (max-width: 1280px) {
     .col-1 {
+      justify-content: space-around !important;
       width: 100%;
     }
 
     .wrapper-section {
       width: 100vw;
-      height: auto;
+      height: 92vh;
     }
 
     .wrapper-info {
       margin-top: 30px;
     }
 
-    div.title {
-      width: 100% !important;
-    }
-
     .concept {
       margin-bottom: 25px;
-      align-self: center;
+      text-align: center;
+
+      .title {
+        width: 100% !important;
+        font-size: clamp(23px, 4.7vw, 32px) !important;
+      }
 
       .subtitle {
         text-align: center;
@@ -86,18 +88,12 @@
       height: 12%;
     }
 
-    @media screen and (max-width: 700px) {
-      .wrapper-info {
-        visibility: hidden;
-      }
-    }
-
     .email {
       color: white;
       font-family: Josefin Sans;
       font-style: normal;
       font-weight: 600;
-      font-size: clamp(14vw, 0.9vw, 18);
+      font-size: clamp(11px, 0.83vw, 22px);
       margin-top: 0.56vw;
     }
 
@@ -111,7 +107,7 @@
         font-style: normal;
         font-weight: 600;
         align-items: center;
-        font-size: clamp(14vw, 0.9vw, 18);
+        font-size: clamp(11px, 0.83vw, 22px);
       }
       img {
         display: inline-block;
@@ -133,14 +129,15 @@
 
 <Card
   backgroundColor={'#0B5771'}
-  borderRadius={windowsWidth > maxWidthTablet ? '20px' : '0px'}
+  borderRadius={windowsWidth > maxWidthTablet ? '20px' : '0px 0px 10px 10px'}
 >
   <div class="wrapper-section">
     <div class="col-1">
       <div class="concept">
         <div class="title">{contactData.title}</div>
-
-        <div class="subtitle">{contactData.subtitle}</div>
+        {#if windowsWidth > 700}
+          <div class="subtitle">{contactData.subtitle}</div>
+        {/if}
       </div>
       {#if windowsWidth > maxWidthTablet}
         <img src="./images/contact.svg" alt="" class="main-image fade-in-bck" />
@@ -152,13 +149,15 @@
         <Form />
       {/if}
 
-      <div class="wrapper-info">
-        <div class="email">{contactData.email}</div>
-        <div class="location">
-          <img src="./images/location.svg" alt="location pinpoint" />
-          <div class="location-text">{contactData.location}</div>
+      {#if windowsWidth > 700}
+        <div class="wrapper-info">
+          <div class="email">{contactData.email}</div>
+          <div class="location">
+            <img src="./images/location.svg" alt="location pinpoint" />
+            <div class="location-text">{contactData.location}</div>
+          </div>
         </div>
-      </div>
+      {/if}
     </div>
 
     {#if windowsWidth > maxWidthTablet}

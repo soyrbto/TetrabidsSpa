@@ -40,7 +40,7 @@
     background-size: 70vw 1200px;
     border-radius: 20px;
     //META PADDING 96px 70px 85px 70px
-    padding: 3% 4.5% 3% 4.5%;
+    padding: 3% 4.5%;
     //  META WIDTH 1511PX
     width: 78.65vw;
     height: 71.4vh;
@@ -99,21 +99,35 @@
   @media screen and (max-width: 1280px) {
     .col-1 {
       display: flex;
+      justify-content: space-around !important;
       align-items: center;
       width: 100% !important;
+    }
+
+    .wrapper-section {
+      width: 100vw;
+      height: 92vh;
+      border-radius: 0;
+      background-image: url(../images/background-service-mobile.svg);
+      background-size: cover;
+      background-position: inherit;
+    }
+
+    .title {
+      text-align: center;
     }
   }
 
   .description-card-container {
     display: flex;
-    width: 500vw;
     justify-content: space-around;
+    width: 500vw;
   }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
 <!--  SERVICES SECTION -->
-<Card>
+<Card borderRadius={windowsWidth < 1280 ? '0px' : '20px'}>
   <div class="wrapper-section">
     <!--  SERVICE ABSTRACT SUB-SECTION -->
     <div class="col-1">
