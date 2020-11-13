@@ -59,7 +59,7 @@
   }
 
   .nav.open {
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.98);
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -138,7 +138,7 @@
       <span class="menu__line" />
       <span class="menu__line" />
     </div>
-    <nav class:open={navShow} class="nav js-nav">
+    <nav on:click={clicked} class:open={navShow} class="nav js-nav">
       <ul class:show={navShow} class="nav__list js-nav__list">
         {#each navbarItems as navbarItem}
           <li class="nav__item">

@@ -70,6 +70,12 @@
     overflow: hidden;
   }
 
+  // @media screen and (max-width: 1280px) {
+  //   .page-container {
+  //     height: 708vh;
+  //   }
+  // }
+
   main {
     display: flex;
     flex-direction: column;
