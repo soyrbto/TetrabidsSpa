@@ -1,16 +1,25 @@
 <style>
   .ellipse-1 {
     position: absolute;
-    width: 20.83vw;
-    height: 21.875vw;
+    width: clamp(146px, 20.83vw, 533px);
+    height: clamp(146px, 21.875vw, 560px);
     border-radius: 50%;
     left: 84vw;
     top: 6.72vw;
 
     background: #ffffff;
     mix-blend-mode: multiply;
-    box-shadow: -88px 38px 48px 6px rgba(0, 0, 0, 0.25);
+    /** META -88px 38px 48px 6px */
+    box-shadow: -4.58vw 1.97vw 2.5vw 0.31vw rgba(0, 0, 0, 0.25);
+
     z-index: 0;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .ellipse-1 {
+      box-shadow: -4.58vw 1.97vw 2.5vw 0.31vw rgba(0, 0, 0, 0.1);
+      top: clamp(20rem, 19vw, 39rem);
+    }
   }
 
   .ellipse-2 {

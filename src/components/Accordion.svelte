@@ -57,6 +57,12 @@
     transition: height ease-in-out 0.7s;
   }
 
+  @media screen and (max-width: 768px) {
+    .container {
+      width: clamp(332px, 80vw, 538px);
+    }
+  }
+
   .container-open {
     height: auto;
   }

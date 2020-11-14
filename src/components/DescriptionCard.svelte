@@ -9,7 +9,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 25.31vw;
+    // META 486px
+    width: clamp(345px, 25.31vw, 648px);
 
     .description-card-content {
       display: flex;
@@ -22,6 +23,7 @@
 
       .typo-title {
         color: #066d92;
+        font-size: clamp(18px, 1.3vw, 33px);
       }
 
       .service-body {
@@ -32,7 +34,7 @@
         /* meta font size 14px */
         font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
         //META height 300px
-        height: 27.8vh;
+        height: clamp(217px, 15.625vw, 400px);
         overflow: hidden;
         //meta margintop 28px
         margin-top: 1.1vw;
@@ -41,7 +43,7 @@
       .meeting {
         display: block;
         margin: 0 auto;
-        height: 11.45vw;
+        width: 13.75vw;
       }
 
       .button-wrapper {
@@ -55,12 +57,30 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          // Meta 25px
+          font-size: clamp(18px, 1.3vw, 33px);
           //Meta width 246px
-          width: 12.81vw;
+          width: clamp(174px, 12.81vw, 328px);
           //META height 58px
-          height: 3vw;
+          height: clamp(41px, 2.96vw, 77px);
         }
       }
+    }
+  }
+
+  @media screen and (max-width: 414px) {
+    .meeting {
+      width: 198px !important;
+    }
+    .col-3 {
+      width: 280px;
+    }
+  }
+
+  @media screen and (max-width: 375px) {
+    .service-body {
+      height: 165px !important;
+      font-size: 10px;
     }
   }
 </style>
