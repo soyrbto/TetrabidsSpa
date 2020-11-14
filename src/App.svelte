@@ -5,6 +5,7 @@
   import Footer from "./sections/Footer.svelte";
   import Products from "./sections/Products.svelte";
   import Contact from "./sections/Contact.svelte";
+  import NavButton from "./components/NavButton.svelte";
   import NavbarMob from "./components/NavbarMob.svelte";
   import {
     secNavbarItems,
