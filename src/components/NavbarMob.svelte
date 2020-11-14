@@ -1,7 +1,6 @@
 <script>
-  import { each } from "svelte/internal";
-
   import { navbarItems } from "../StaticStore";
+  import NavButton from "./NavButton.svelte";
   let navShow = false;
 
   const clicked = () => {
@@ -26,36 +25,14 @@
     position: absolute;
     bottom: 12%;
     right: 12%;
-    background-color: #0580b9;
-    height: 60px;
-    width: 60px;
+    background-color: white;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     z-index: 20;
     box-shadow: 0px 3px 8px #333;
     cursor: pointer;
     flex-direction: column;
-  }
-
-  .menu__line {
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 4px;
-    background-color: white;
-    border-radius: 13px;
-    transition-duration: 0.4s;
-  }
-
-  .menu__line:nth-child(1) {
-    top: 14px;
-  }
-  .menu__line:nth-child(2) {
-    top: 28px;
-  }
-  .menu__line:nth-child(3) {
-    bottom: 14px;
   }
 
   .nav.open {
@@ -134,9 +111,9 @@
 {#if windowsWidth <= 768}
   <nav>
     <div on:click={clicked} class:active={navShow} class="menu js-menu">
-      <span class="menu__line" />
-      <span class="menu__line" />
-      <span class="menu__line" />
+      <div class="button">
+        <NavButton />
+      </div>
     </div>
     <nav on:click={clicked} class:open={navShow} class="nav js-nav">
       <ul class:show={navShow} class="nav__list js-nav__list">
