@@ -16,6 +16,51 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      .group {
+        position: relative;
+        //META font size 18px
+        font-size: clamp(12px, 0.95vw, 22px);
+        line-height: 50%;
+        color: #838383;
+        margin-bottom: calc(0.5vw + 1rem);
+
+        & .fields {
+          width: 32vw;
+          height: clamp(40px, 3.22vw, 75px);
+          background-color: #f3f3f3;
+          line-height: 150%;
+          padding: 0px 0 0 20px;
+          border-radius: 5px;
+        }
+
+        input:focus ~ label,
+        input:valid ~ label,
+        textarea:focus ~ label,
+        textarea:valid ~ label {
+          top: calc(-0.3vw - 0.5rem);
+          background: white;
+        }
+
+        & textarea.fields {
+          height: 19vw;
+          border-style: none;
+          padding: 15px 0.4em 0.4em 15px;
+        }
+
+        & > label {
+          position: absolute;
+          top: 40%;
+          left: 15px;
+          transition: all 0.35s;
+          user-select: none;
+        }
+
+        & textarea + label {
+          // top: 2.31vh;
+          top: 5%;
+        }
+      }
     }
 
     .button-wrapper {
@@ -28,69 +73,25 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: calc(3vw + 10rem);
-        height: calc(1vw + 4rem);
+        padding: clamp(10px, 0.7vw, 20px) clamp(23px, 1.8vw, 40px);
+        font-size: clamp(15px, 1.3vw, 29px);
       }
     }
   }
 
-  .group {
-    position: relative;
-    //META font size 18px
-    font-size: clamp(16px, 0.95vw, 22px);
-    line-height: 50%;
-    color: #838383;
-    margin-bottom: calc(0.5vw + 1rem);
-  }
-
-  .group textarea {
-    height: 19vw;
-    border-style: none;
-    padding-left: 15px;
-    padding-top: 15px;
-    padding-bottom: 0.4em;
-    padding-right: 0.4em;
-  }
-
-  .group > label {
-    position: absolute;
-    top: 40%;
-    left: 15px;
-    transition: all 0.35s;
-    user-select: none;
-  }
-
-  .group textarea + label {
-    top: 2.31vh;
-  }
-
-  .fields {
-    width: 32vw;
-    height: calc(1.2vw + 2rem);
-    background-color: #f3f3f3;
-    font-size: 16px;
-    line-height: 150%;
-    padding: 0px 0 0 20px;
-    border-radius: 5px;
-  }
-
   @media screen and (max-width: 1280px) {
+    .group {
+      margin-bottom: 20px !important;
+
+      & textarea {
+        height: calc(3.125vw + 20rem) !important;
+      }
+    }
+
     .fields {
-      height: calc(1.2vw + 2.5rem);
-      width: 80vw;
+      width: 80vw !important;
+      // height: clamp(50px,,60px)
     }
-
-    .group textarea {
-      height: calc(3.125vw + 20rem) !important;
-    }
-  }
-
-  input:focus ~ label,
-  input:valid ~ label,
-  textarea:focus ~ label,
-  textarea:valid ~ label {
-    top: calc(-0.3vw - 0.5rem);
-    background: white;
   }
 </style>
 

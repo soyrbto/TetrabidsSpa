@@ -13,115 +13,95 @@
     padding: 5%;
     width: 78.65vw;
     height: 71.4vh;
-  }
 
-  @media screen and (max-width: 1280px) {
     .col-1 {
-      justify-content: space-around !important;
-      width: 100%;
-    }
-
-    .wrapper-section {
-      width: 100vw;
-      height: 92vh;
-    }
-
-    .wrapper-info {
-      margin-top: 30px;
-    }
-
-    .concept {
-      margin-bottom: 25px;
-      text-align: center;
-
-      .title {
-        width: 100% !important;
-        font-size: clamp(23px, 4.7vw, 32px) !important;
-      }
-
-      .subtitle {
-        text-align: center;
-      }
-    }
-  }
-
-  .col-1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    //meta width 523px
-
-    .concept {
-      .title {
-        align-self: flex-start;
-        color: white;
-        display: inline-block;
-        width: 25.7vw;
-        font-family: Josefin Sans;
-        font-style: normal;
-        font-weight: normal;
-        font-size: clamp(18px, 1vw, 32px);
-        line-height: 3.78rem;
-        letter-spacing: 0.05em;
-      }
-
-      .subtitle {
-        color: white;
-        font-family: Josefin Sans;
-        font-weight: normal;
-        font-size: clamp(11px, 0.8vw, 25px);
-        line-height: 1.4vw;
-        margin-top: 0.28vw;
-      }
-    }
-
-    .main-image {
-      width: 26vw;
-    }
-
-    .wrapper-info {
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-      height: 12%;
-    }
+      //meta width 523px
 
-    .email {
-      color: white;
-      font-family: Josefin Sans;
-      font-style: normal;
-      font-weight: 600;
-      font-size: clamp(11px, 0.83vw, 22px);
-      margin-top: 0.56vw;
-    }
+      .concept {
+        .title {
+          align-self: flex-start;
+          color: white;
+          display: inline-block;
+          width: 25.7vw;
+          font-family: Josefin Sans;
+          font-style: normal;
+          font-weight: normal;
+          font-size: clamp(18px, 1.66vw, 32px);
+          line-height: 3.78rem;
+          letter-spacing: 0.05em;
+        }
 
-    .location {
-      display: flex;
+        .subtitle {
+          color: white;
+          font-family: Josefin Sans;
+          font-weight: normal;
+          font-size: clamp(13px, 0.93vw, 25px);
+          line-height: 1.4vw;
+          margin-top: 0.28vw;
+        }
+      }
 
-      .location-text {
-        display: inline;
+      .main-image {
+        width: 26vw;
+      }
+
+      .wrapper-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: clamp(53px, 3.85vw, 99px);
         color: white;
         font-family: Josefin Sans;
         font-style: normal;
         font-weight: 600;
-        align-items: center;
-        font-size: clamp(11px, 0.83vw, 22px);
+        font-size: clamp(13px, 0.83vw, 22px);
       }
-      img {
-        display: inline-block;
-        margin-right: 10px;
-        height: 1.56vw !important;
-      }
+    }
+
+    .col-2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 37vw;
     }
   }
 
-  .col-2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 37vw;
+  @media screen and (max-width: 1280px) {
+    .wrapper-section {
+      width: 100vw;
+      height: 92vh;
+
+      .col-1 {
+        justify-content: center !important;
+        width: 100%;
+
+        .concept {
+          margin-bottom: 50px;
+          text-align: center;
+
+          .title {
+            width: 100% !important;
+            font-size: clamp(23px, 4.7vw, 32px) !important;
+          }
+
+          .subtitle {
+            text-align: center;
+            font-size: 16px !important;
+            margin-top: 7px !important;
+          }
+        }
+
+        .wrapper-info {
+          margin-top: 60px;
+          font-size: 16px !important;
+        }
+      }
+    }
   }
 </style>
 
@@ -152,10 +132,7 @@
       {#if windowsWidth > 700}
         <div class="wrapper-info">
           <div class="email">{contactData.email}</div>
-          <div class="location">
-            <img src="./images/location.svg" alt="location pinpoint" />
-            <div class="location-text">{contactData.location}</div>
-          </div>
+          <div class="location-text">{contactData.location}</div>
         </div>
       {/if}
     </div>

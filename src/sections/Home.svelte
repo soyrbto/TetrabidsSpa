@@ -81,7 +81,7 @@
   .button-contact {
     padding: clamp(15px, 1.04vw, 23px) clamp(26px, 1.45vw, 37px);
     /* META 25px */
-    font-size: clamp(21px, calc(0.65vw + 1.25rem), 29px);
+    font-size: clamp(15px, 1.3vw, 29px);
   }
 
   .accordion {
