@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: calc(0.6vw + 1.2rem);
+    padding: clamp(30px, 2.08vw, 45px) calc(0.6vw + 1.2rem);
     position: relative;
 
     .form-wrapper {
@@ -23,7 +23,8 @@
         font-size: clamp(12px, 0.95vw, 22px);
         line-height: 50%;
         color: #838383;
-        margin-bottom: calc(0.5vw + 1rem);
+        // margin-bottom: calc(0.5vw + 1rem);
+        margin-bottom: 1.98vw;
 
         & .fields {
           width: 32vw;
@@ -38,12 +39,13 @@
         input:valid ~ label,
         textarea:focus ~ label,
         textarea:valid ~ label {
-          top: calc(-0.3vw - 0.5rem);
+          // top: calc(-0.3vw - 0.5rem);
+          top: -0.95vw;
           background: white;
         }
 
         & textarea.fields {
-          height: 19vw;
+          height: 16vw;
           border-style: none;
           padding: 15px 0.4em 0.4em 15px;
         }
@@ -90,7 +92,6 @@
 
     .fields {
       width: 80vw !important;
-      // height: clamp(50px,,60px)
     }
   }
 </style>
@@ -107,7 +108,7 @@
         <label for="email">email</label>
       </div>
       <div class="group">
-        <textarea required class="fields" id="message" />
+        <textarea required style="resize:none" class="fields" id="message" />
         <label for="message">mensaje</label>
       </div>
       <div class="button-wrapper">

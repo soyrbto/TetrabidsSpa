@@ -99,9 +99,6 @@
 
   @media screen and (max-width: 1280px) {
     .col-1 {
-      display: flex;
-      justify-content: space-around !important;
-      align-items: center;
       width: 100% !important;
     }
 
@@ -122,7 +119,7 @@
   .description-card-container {
     display: flex;
     justify-content: space-around;
-    width: 500vw;
+    width: 290vw;
   }
 </style>
 

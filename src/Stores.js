@@ -5,7 +5,7 @@ import { secNavbarItems, servicesData, productsData } from "./StaticStore";
 
 const stateStore = writable({});
 const colorButtonStore = writable({});
-const displayedSection = writable(secNavbarItems[2]);
+const displayedSection = writable(secNavbarItems[1]);
 const displayedState = writable({
   [secNavbarItems[0]]: false,
   [secNavbarItems[1]]: false,
