@@ -73,7 +73,7 @@
 
   @media screen and (max-width: 1280px) {
     .page-container {
-      height: 409vh;
+      min-height: 409vh;
     }
     main {
       height: 400vh !important;
