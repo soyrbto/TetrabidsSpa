@@ -132,14 +132,18 @@
 
 <div class="page-container">
   <main>
-    <div on:wheel={sectionDriver} class="home-wrapper" id={visibleSections[0]}>
+    <div
+      on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ''}
+      class="home-wrapper"
+      id={visibleSections[0]}
+    >
       <Home />
       <NavbarMob />
     </div>
 
     {#if windowsWidth > maxWidthTablet}
       <div
-        on:wheel={sectionDriver}
+        on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ''}
         id="section-container"
         class="section-wrapper"
       >
@@ -179,7 +183,7 @@
 
     {#if windowsWidth <= maxWidthTablet}
       <div
-        on:wheel={sectionDriver}
+        on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ''}
         id="section-container"
         class="section-wrapper"
       >
