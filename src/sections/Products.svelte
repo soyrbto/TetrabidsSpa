@@ -119,7 +119,6 @@
 
   .description-card-container {
     display: flex;
-    // justify-content: space-around;
     width: 280vw;
   }
 </style>
