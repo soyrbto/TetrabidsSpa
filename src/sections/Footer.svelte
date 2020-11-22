@@ -9,7 +9,7 @@
     color: #666666;
     font-family: var(--display-typo);
     /* META font size 24px*/
-    font-size: 2.22vh;
+    font-size: clamp(15px, 1.25vw, 32px);
   }
 
   span {
@@ -29,7 +29,8 @@
   }
 
   img {
-    height: 3.26vh;
+    /** META 35px */
+    height: 1.82vw;
   }
 
   .icons {
@@ -37,7 +38,6 @@
     align-items: center;
     /* META 141px */
     width: clamp(10.5rem, 7.34vw, 18.5rem);
-    height: 100%;
   }
 
   .underFooter {
@@ -47,6 +47,23 @@
     width: 100%;
     z-index: -1;
     background-color: black;
+  }
+
+  @media screen and (max-width: 1280px) {
+    footer {
+      flex-direction: column-reverse;
+      justify-content: center;
+      height: 9vh;
+      font-size: clamp(12px, 1.3vw, 15px);
+    }
+
+    .icons {
+      width: max(15%, 125px);
+    }
+
+    img {
+      height: clamp(18px, 5vw, 25px);
+    }
   }
 </style>
 

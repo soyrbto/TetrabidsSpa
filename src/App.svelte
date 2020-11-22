@@ -71,11 +71,19 @@
     overflow: hidden;
   }
 
-  // @media screen and (max-width: 1280px) {
-  //   .page-container {
-  //     height: 708vh;
-  //   }
-  // }
+  @media screen and (max-width: 1280px) {
+    .page-container {
+      height: 409vh;
+    }
+    main {
+      height: 400vh !important;
+    }
+    .section-wrapper {
+      flex-direction: column;
+      justify-content: flex-end !important;
+      height: 100vh;
+    }
+  }
 
   main {
     display: flex;
@@ -129,43 +137,65 @@
       <NavbarMob />
     </div>
 
-    <div
-      on:wheel={sectionDriver}
-      id="section-container"
-      class="section-wrapper"
-    >
-      {#if windowsWidth > maxWidthTablet}
-        <div class="secnavbar-wrapper">
-          <SecNavbar />
-        </div>
-      {/if}
+    {#if windowsWidth > maxWidthTablet}
+      <div
+        on:wheel={sectionDriver}
+        id="section-container"
+        class="section-wrapper"
+      >
+        {#if windowsWidth > maxWidthTablet}
+          <div class="secnavbar-wrapper">
+            <SecNavbar />
+          </div>
+        {/if}
 
-      {#if $displayedSection === secNavbarItems[0]}
-        <div
-          class:slide-out-right={$displayedState[secNavbarItems[0]]}
-          class="slide-in-right {secNavbarItems[0]}"
-          id={visibleSections[0]}
-        >
+        {#if $displayedSection === secNavbarItems[0]}
+          <div
+            class:slide-out-right={$displayedState[secNavbarItems[0]]}
+            class="slide-in-right {secNavbarItems[0]}"
+            id={visibleSections[0]}
+          >
+            <Services />
+          </div>
+        {:else if $displayedSection === secNavbarItems[1]}
+          <div
+            class:slide-out-right={$displayedState['Productos']}
+            class="slide-in-right {secNavbarItems[1]}"
+            id={visibleSections[1]}
+          >
+            <Products />
+          </div>
+        {:else if $displayedSection === secNavbarItems[2]}
+          <div
+            class:slide-out-right={$displayedState[secNavbarItems[2]]}
+            class="slide-in-right {secNavbarItems[2]}"
+            id={visibleSections[2]}
+          >
+            <Contact />
+          </div>
+        {/if}
+      </div>
+    {/if}
+
+    {#if windowsWidth <= maxWidthTablet}
+      <div
+        on:wheel={sectionDriver}
+        id="section-container"
+        class="section-wrapper"
+      >
+        <div class="slide-in-right {secNavbarItems[0]}" id={visibleSections[0]}>
           <Services />
         </div>
-      {:else if $displayedSection === secNavbarItems[1]}
-        <div
-          class:slide-out-right={$displayedState['Productos']}
-          class="slide-in-right {secNavbarItems[1]}"
-          id={visibleSections[1]}
-        >
+
+        <div class="slide-in-right {secNavbarItems[1]}" id={visibleSections[1]}>
           <Products />
         </div>
-      {:else if $displayedSection === secNavbarItems[2]}
-        <div
-          class:slide-out-right={$displayedState[secNavbarItems[2]]}
-          class="slide-in-right {secNavbarItems[2]}"
-          id={visibleSections[2]}
-        >
+
+        <div class="slide-in-right {secNavbarItems[2]}" id={visibleSections[2]}>
           <Contact />
         </div>
-      {/if}
-    </div>
+      </div>
+    {/if}
   </main>
   <Footer />
 </div>

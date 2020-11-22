@@ -22,7 +22,7 @@
     font-family: "Josefin Sans", sans-serif;
     color: white;
     /* META width 580px */
-    width: clamp(450px, 33.2vw, 700px);
+    width: clamp(450px, 33.2vw, 750px);
   }
 
   ul {
@@ -39,12 +39,12 @@
     text-align: center;
     list-style: none;
     /* META 150px*/
-    width: 15rem;
+    width: 17rem;
   }
 
   li:hover {
     cursor: pointer;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
   }
 </style>
 
