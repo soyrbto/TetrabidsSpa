@@ -72,12 +72,13 @@
     .col-3 {
       margin-right: 25px;
     }
-  }
 
-  @media screen and (max-width: 414px) {
     .meeting {
       width: 198px !important;
     }
+  }
+
+  @media screen and (max-width: 414px) {
     .col-3 {
       width: 280px;
     }
