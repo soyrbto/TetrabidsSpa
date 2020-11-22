@@ -1,9 +1,9 @@
 <script>
   import { onMount } from "svelte";
+  import { fade } from "svelte/transition";
   import ServiceDescription from "../components/DescriptionCard.svelte";
   import Card from "../components/shared/Card.svelte";
   import Button from "../components/shared/Button.svelte";
-  import NavButton from "../components/NavButton.svelte";
   import { colorButtonStore, maxWidthTablet, servBodyContent } from "../Stores";
   import { servicesData } from "../StaticStore";
 
@@ -131,7 +131,10 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 <!--  SERVICES SECTION -->
-<Card borderRadius={windowsWidth < 1280 ? '0px' : '20px'}>
+<Card
+  borderRadius={windowsWidth < maxWidthTablet ? '0px' : '20px'}
+  boxShadow={windowsWidth < maxWidthTablet ? 'none' : '9px 12px 31px rgba(0, 0, 0, 0.5)'}
+>
   <div class="wrapper-section">
     <!--  SERVICE ABSTRACT SUB-SECTION -->
     <div class="col-1">
