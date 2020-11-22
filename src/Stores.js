@@ -1,5 +1,7 @@
 import { writable, get } from "svelte/store";
 import { secNavbarItems, servicesData, productsData } from "./StaticStore";
+const WindowsWidth = window.innerWidth;
+const maxWidthTablet = 1280;
 
 // stores used for components as states
 
@@ -41,28 +43,30 @@ const changeSection = (target) => {
 //function that moves the screen to the target section from a start position
 let activeScreenDisplacer = true;
 const screenDisplacer = (startPosition, targetPosition, duration) => {
-  if (activeScreenDisplacer) {
-    activeScreenDisplacer = false;
-    const distance = targetPosition - startPosition;
-    let start = null;
-    window.requestAnimationFrame(step);
-    function step(timestamp) {
-      if (!start) {
-        start = timestamp;
-      }
-      const progress = timestamp - start;
+  if (WindowsWidth > maxWidthTablet) {
+    if (activeScreenDisplacer) {
+      activeScreenDisplacer = false;
+      const distance = targetPosition - startPosition;
+      let start = null;
+      window.requestAnimationFrame(step);
+      function step(timestamp) {
+        if (!start) {
+          start = timestamp;
+        }
+        const progress = timestamp - start;
 
-      window.scrollTo(
-        0,
-        easeInOutCubic(progress, startPosition, distance, duration)
-      );
-      if (progress < duration) {
-        window.requestAnimationFrame(step);
+        window.scrollTo(
+          0,
+          easeInOutCubic(progress, startPosition, distance, duration)
+        );
+        if (progress < duration) {
+          window.requestAnimationFrame(step);
+        }
       }
+      setTimeout(() => {
+        activeScreenDisplacer = true;
+      }, 500);
     }
-    setTimeout(() => {
-      activeScreenDisplacer = true;
-    }, 500);
   }
 };
 
@@ -76,8 +80,6 @@ function easeInOutCubic(t, b, c, d) {
 function linear(t, b, c, d) {
   return (c * t) / d + b;
 }
-
-let maxWidthTablet = 1280;
 
 export {
   stateStore,
