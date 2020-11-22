@@ -53,6 +53,8 @@
     footer {
       flex-direction: column-reverse;
       justify-content: center;
+      height: 9vh;
+      font-size: clamp(12px, 1.3vw, 15px);
     }
 
     .icons {

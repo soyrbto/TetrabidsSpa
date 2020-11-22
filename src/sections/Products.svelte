@@ -99,20 +99,28 @@
 
     .wrapper-section {
       width: 100vw;
-      height: 92vh;
-      background-image: url(../images/background-product-mobile.svg);
+      height: 100vh;
+      background-image: url(../images/background-product-mob.svg);
       background-size: cover;
+      background-position: center;
     }
 
     .title {
       text-align: center;
+      font-size: clamp(23px, 4.7vw, 32px) !important;
+    }
+
+    .abstract {
+      text-align: center;
+      margin-top: 0 !important;
+      font-size: clamp(11px, 1.95vw, 15px) !important;
     }
   }
 
   .description-card-container {
     display: flex;
-    justify-content: space-around;
-    width: 143vw;
+    // justify-content: space-around;
+    width: 280vw;
   }
 </style>
 

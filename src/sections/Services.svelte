@@ -104,22 +104,29 @@
 
     .wrapper-section {
       width: 100vw;
-      height: 92vh;
+      height: 100vh !important;
       border-radius: 0;
-      background-image: url(../images/background-service-mobile.svg);
+      background-image: url(../images/background-service-mob.svg);
       background-size: cover;
-      background-position: inherit;
+      background-position: center;
     }
 
     .title {
       text-align: center;
+      font-size: clamp(23px, 4.7vw, 32px) !important;
+    }
+
+    .abstract {
+      text-align: center;
+      margin-top: 0 !important;
+      font-size: clamp(11px, 1.95vw, 15px) !important;
     }
   }
 
   .description-card-container {
     display: flex;
-    justify-content: space-around;
-    width: 290vw;
+    // justify-content: space-around;
+    width: 550vw;
   }
 </style>
 
