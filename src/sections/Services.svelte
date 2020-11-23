@@ -1,11 +1,11 @@
 <script>
   import { onMount } from "svelte";
-  import { fade } from "svelte/transition";
   import ServiceDescription from "../components/DescriptionCard.svelte";
   import Card from "../components/shared/Card.svelte";
   import Button from "../components/shared/Button.svelte";
   import { colorButtonStore, maxWidthTablet, servBodyContent } from "../Stores";
   import { servicesData } from "../StaticStore";
+  import Carousel from "@beyonk/svelte-carousel";
 
   let buttonColor = {};
   let windowsWidth;
@@ -153,16 +153,20 @@
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= maxWidthTablet}
         <div class="description-card-container">
-          {#each servicesData.serviceItems as service}
-            <ServiceDescription>
-              <div class="title" slot="title">
-                {@html service}
+          <Carousel perPage={1}>
+            {#each servicesData.serviceItems as service}
+              <div class="slide-content">
+                <ServiceDescription>
+                  <div class="title" slot="title">
+                    {@html service}
+                  </div>
+                  <div class="body" slot="body">
+                    {@html servicesData[service]}
+                  </div>
+                </ServiceDescription>
               </div>
-              <div class="body" slot="body">
-                {@html servicesData[service]}
-              </div>
-            </ServiceDescription>
-          {/each}
+            {/each}
+          </Carousel>
         </div>
       {/if}
     </div>
