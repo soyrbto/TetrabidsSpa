@@ -152,7 +152,7 @@
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= maxWidthTablet}
         <div class="description-card-container">
-          <Carousel threshold={2}>
+          <Carousel threshold={20}>
             {#each productsData.productItems as product}
               <div class="slide-content">
                 <DescriptionCard>
