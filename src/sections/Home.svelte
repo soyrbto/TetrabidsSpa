@@ -46,6 +46,10 @@
       justify-content: flex-start;
       padding-top: 22vw;
     }
+
+    .wrapper {
+      height: 100vh !important;
+    }
   }
 
   .title-accordion {
