@@ -104,7 +104,7 @@
 
     .wrapper-section {
       width: 100vw;
-      height: 100vh !important;
+      height: 800px;
       border-radius: 0;
       background-image: url(../images/background-service-mob.svg);
       background-size: cover;

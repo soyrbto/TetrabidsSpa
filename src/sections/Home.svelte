@@ -39,19 +39,6 @@
     height: 100%;
   }
 
-  @media screen and (max-width: 768px) {
-    .col-1 {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding-top: 22vw;
-    }
-
-    .wrapper {
-      height: 100vh !important;
-    }
-  }
-
   .title-accordion {
     /** META 22px */
     font-size: clamp(clamp(12px, 0.25vw + 1.2rem, 16px), 1.14vw, 30px);
@@ -70,9 +57,20 @@
     width: 29.5vw;
   }
 
+  @media screen and (max-width: 768px) {
+    .col-1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 22vw;
+      height: auto;
+    }
+  }
+
   @media only screen and (max-width: 1280px) {
     .wrapper {
       justify-content: center;
+      height: 800px !important;
     }
   }
 

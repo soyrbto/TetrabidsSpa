@@ -26,13 +26,14 @@
     top: 50%;
     left: 50%;
 
-    width: 50px;
+    // width: 50px;
+    width: 40px;
     height: 30px;
     padding: 0;
 
     border: none;
     background-color: transparent;
-    box-shadow: inset 0 -4px 0 0 black;
+    box-shadow: inset 0 -4px 0 0 white;
 
     transform: translate(-50%, -50%);
 
@@ -43,7 +44,7 @@
       display: block;
       height: 4px;
 
-      background-color: black;
+      background-color: white;
     }
 
     &::before {
@@ -117,7 +118,7 @@
 
   @keyframes burgerOpen {
     0% {
-      box-shadow: inset 0 -4px 0 0 black;
+      box-shadow: inset 0 -4px 0 0 white;
     }
 
     100% {
@@ -199,7 +200,7 @@
 
   @keyframes burgerClose {
     0% {
-      box-shadow: inset 0 -4px 0 0 black;
+      box-shadow: inset 0 -4px 0 0 white;
     }
 
     100% {

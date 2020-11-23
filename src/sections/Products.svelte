@@ -100,7 +100,7 @@
 
     .wrapper-section {
       width: 100vw;
-      height: 100vh;
+      height: 800px;
       background-image: url(../images/background-product-mob.svg);
       background-size: cover;
       background-position: center;
@@ -154,16 +154,14 @@
         <div class="description-card-container">
           <Carousel perPage={1}>
             {#each productsData.productItems as product}
-              <div class="slide-content">
-                <DescriptionCard>
-                  <div class="title" slot="title">
-                    {@html product}
-                  </div>
-                  <div class="body" slot="body">
-                    {@html productsData[product]}
-                  </div>
-                </DescriptionCard>
-              </div>
+              <DescriptionCard>
+                <div class="title" slot="title">
+                  {@html product}
+                </div>
+                <div class="body" slot="body">
+                  {@html productsData[product]}
+                </div>
+              </DescriptionCard>
             {/each}
           </Carousel>
         </div>

@@ -23,14 +23,14 @@
   .menu {
     display: flex;
     position: absolute;
-    bottom: 12%;
-    right: 12%;
-    background-color: white;
+    top: 3%;
+    right: 5%;
+    background-color: transparent;
     height: 70px;
     width: 70px;
     border-radius: 50%;
     z-index: 20;
-    box-shadow: 0px 3px 8px #333;
+    /* box-shadow: 0px 3px 8px #333; */
     cursor: pointer;
     flex-direction: column;
   }
@@ -38,10 +38,10 @@
   .nav.open {
     background-color: rgba(0, 0, 0, 0.98);
     width: 100vw;
-    height: 100vh;
+    height: 800px;
     position: absolute;
     right: 0px;
-    bottom: 0px;
+    top: 0px;
     border-radius: 0;
     display: flex;
     justify-content: center;

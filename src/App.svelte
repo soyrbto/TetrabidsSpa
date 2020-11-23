@@ -74,11 +74,12 @@
   }
 
   @media screen and (max-width: 1280px) {
+    // HEIGHT 800PX PER SECTION
     .page-container {
-      height: 409vh;
+      height: 3272px;
     }
     main {
-      height: 400vh !important;
+      height: 3200px !important;
     }
     .section-wrapper {
       flex-direction: column;

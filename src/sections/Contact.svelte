@@ -74,8 +74,7 @@
   @media screen and (max-width: 1280px) {
     .wrapper-section {
       width: 100vw;
-      // height: 667px;
-      height: 100vh;
+      height: 800px;
 
       .col-1 {
         justify-content: center !important;

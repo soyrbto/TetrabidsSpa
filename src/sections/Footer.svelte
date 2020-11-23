@@ -53,7 +53,8 @@
     footer {
       flex-direction: column-reverse;
       justify-content: center;
-      height: 9vh;
+      /* height: 9vh; */
+      height: 72px;
       font-size: clamp(12px, 1.3vw, 15px);
     }
 
