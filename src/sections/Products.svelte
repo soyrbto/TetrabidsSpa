@@ -5,6 +5,7 @@
   import DescriptionCard from "../components/DescriptionCard.svelte";
   import { colorButtonStore, maxWidthTablet, prodBodyContent } from "../Stores";
   import { productsData } from "../StaticStore";
+  import Carousel from "@beyonk/svelte-carousel";
 
   let buttonColor = {};
   let windowsWidth;
@@ -151,16 +152,20 @@
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= maxWidthTablet}
         <div class="description-card-container">
-          {#each productsData.productItems as product}
-            <DescriptionCard>
-              <div class="title" slot="title">
-                {@html product}
+          <Carousel perPage={1}>
+            {#each productsData.productItems as product}
+              <div class="slide-content">
+                <DescriptionCard>
+                  <div class="title" slot="title">
+                    {@html product}
+                  </div>
+                  <div class="body" slot="body">
+                    {@html productsData[product]}
+                  </div>
+                </DescriptionCard>
               </div>
-              <div class="body" slot="body">
-                {@html productsData[product]}
-              </div>
-            </DescriptionCard>
-          {/each}
+            {/each}
+          </Carousel>
         </div>
       {/if}
     </div>

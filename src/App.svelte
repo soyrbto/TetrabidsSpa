@@ -3,15 +3,17 @@
   import Services from "./sections/Services.svelte";
   import SecNavbar from "./sections/SecNavbar.svelte";
   import Footer from "./sections/Footer.svelte";
+  import NavbarMob from "./components/NavbarMob.svelte";
   import Products from "./sections/Products.svelte";
   import Contact from "./sections/Contact.svelte";
   import NavButton from "./components/NavButton.svelte";
-  import NavbarMob from "./components/NavbarMob.svelte";
+
   import {
     secNavbarItems,
     visibleSections,
     desktopSection,
   } from "./StaticStore.js";
+
   import {
     displayedSection,
     displayedState,
