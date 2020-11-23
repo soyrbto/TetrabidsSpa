@@ -68,19 +68,21 @@
     }
   }
 
+  @media screen and (max-width: 768px) {
+    .col-3 {
+      width: 100%;
+      padding: 0 3% !important;
+    }
+  }
+
   @media screen and (max-width: 1280px) {
     .col-3 {
-      margin-right: 25px;
+      width: 100%;
+      padding: 0 15%;
     }
 
     .meeting {
       width: 198px !important;
-    }
-  }
-
-  @media screen and (max-width: 414px) {
-    .col-3 {
-      width: 280px;
     }
   }
 

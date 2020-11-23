@@ -123,10 +123,10 @@
     }
   }
 
-  .description-card-container {
-    display: flex;
-    width: 550vw;
-  }
+  // .description-card-container {
+  //   display: flex;
+  //   width: 550vw;
+  // }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
@@ -153,7 +153,7 @@
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= maxWidthTablet}
         <div class="description-card-container">
-          <Carousel perPage={1}>
+          <Carousel perPage={1} controls={false}>
             {#each servicesData.serviceItems as service}
               <div class="slide-content">
                 <ServiceDescription>

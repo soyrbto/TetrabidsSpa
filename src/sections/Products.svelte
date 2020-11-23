@@ -118,10 +118,10 @@
     }
   }
 
-  .description-card-container {
-    display: flex;
-    width: 280vw;
-  }
+  // .description-card-container {
+  //   display: flex;
+  //   width: 280vw;
+  // }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
