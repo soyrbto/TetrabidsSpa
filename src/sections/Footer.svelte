@@ -43,7 +43,8 @@
   .underFooter {
     position: absolute;
     bottom: 0px;
-    height: 15.75vh;
+    /* height: 15.75vh; */
+    height: 200px;
     width: 100%;
     z-index: -1;
     background-color: black;
@@ -56,6 +57,10 @@
       /* height: 9vh; */
       height: 72px;
       font-size: clamp(12px, 1.3vw, 15px);
+    }
+
+    ul {
+      height: 30px;
     }
 
     .icons {
