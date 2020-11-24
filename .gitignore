@@ -1,4 +1,11 @@
-/node_modules/
-/public/build/
+/node_modules/*
+
+!/node_modules/@beyonk
+/node_modules/@beyonk/*
+!/node_modules/@beyonk/svelte-carousel
+/node_modules/@beyonk/svelte-carousel/*
+!/node_modules/@beyonk/svelte-carousel/src
+
 
 .DS_Store
+/public/build/
