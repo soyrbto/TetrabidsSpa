@@ -7,13 +7,14 @@
     navShow.update((el) => !el);
   };
 
-  const moveTo = () => {};
+  // const moveTo = () => {};
 
   let windowsWidth;
 </script>
 
 <style>
   nav {
+    position: sticky;
     height: 100%;
     margin: 0;
     font-family: "Roboto", sans-serif;
