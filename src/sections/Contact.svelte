@@ -12,7 +12,8 @@
     justify-content: space-between;
     padding: 5%;
     width: 78.65vw;
-    height: 71.4vh;
+    height: clamp(620px, 40.15vw, 1140px);
+    // height: 71.4vh;
 
     .col-1 {
       display: flex;
