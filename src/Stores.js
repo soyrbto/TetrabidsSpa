@@ -44,6 +44,7 @@ const changeSection = (target) => {
 //function that moves the screen to the target section from a start position
 let activeScreenDisplacer = true;
 const screenDisplacer = (startPosition, targetPosition, duration) => {
+  console.log("hola");
   if (activeScreenDisplacer) {
     activeScreenDisplacer = false;
     const distance = targetPosition - startPosition;

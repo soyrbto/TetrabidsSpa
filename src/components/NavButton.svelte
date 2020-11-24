@@ -4,8 +4,6 @@
   const clicked = () => {
     open.update((n) => !n);
   };
-
-  console.log($open);
 </script>
 
 <style type="text/scss">
