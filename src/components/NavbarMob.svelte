@@ -28,11 +28,11 @@
   .menu {
     display: flex;
     position: absolute;
-    top: 3%;
-    right: 5%;
+    top: 4%;
+    right: 10%;
     background-color: transparent;
-    height: 70px;
-    width: 70px;
+    /* height: 70px; */
+    /* width: 70px; */
     border-radius: 50%;
     z-index: 20;
     /* box-shadow: 0px 3px 8px #333; */

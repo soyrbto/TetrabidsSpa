@@ -22,59 +22,39 @@
   // burger
 
   .burger {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    // width: 50px;
-    width: 40px;
-    height: 30px;
+    position: relative;
+    width: clamp(30px, 5.2vw, 40px);
+    height: clamp(20px, 3.9vw, 25px);
     padding: 0;
-
     border: none;
     background-color: transparent;
-    box-shadow: inset 0 -4px 0 0 white;
 
-    transform: translate(-50%, -50%);
-
-    &::after,
-    &::before {
-      position: absolute;
-      content: "";
-      display: block;
-      height: 4px;
-
-      background-color: white;
-    }
-
-    &::before {
-      top: 0;
-      left: 0;
-
+    .bar {
       width: 100%;
+      height: 2px;
+      background-color: white;
+      border-radius: 1px;
+      position: absolute;
     }
 
-    &::after {
-      top: 50%;
-      right: 0;
+    #bar-1 {
+      top: 0;
+    }
 
+    #bar-2 {
       width: 50%;
-
       transform: translate(0, -50%);
+      top: 50%;
     }
 
-    &:hover {
-      cursor: pointer;
+    #bar-3 {
+      top: 90%;
+      width: 80%;
     }
   }
 
   .open {
-    animation-name: burgerOpen;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in-out;
-
-    &::after {
+    #bar-2 {
       animation-name: burgerAfterOpen;
       animation-duration: 0.5s;
       animation-delay: 0.5s;
@@ -82,24 +62,24 @@
       animation-timing-function: ease-in-out;
     }
 
-    &::before {
+    #bar-1 {
       animation-name: burgerBeforeOpen;
       animation-duration: 1s;
       animation-delay: 0.5s;
       animation-fill-mode: forwards;
       animation-timing-function: ease-in-out;
     }
+
+    #bar-3 {
+      animation-name: burgerOpen;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+    }
   }
 
   .close {
-    animation-name: burgerClose;
-    animation-duration: 0.5s;
-    animation-delay: 1s;
-    animation-direction: reverse;
-    animation-fill-mode: backwards;
-    animation-timing-function: ease-in-out;
-
-    &::after {
+    #bar-2 {
       animation-name: burgerAfterClose;
       animation-duration: 1s;
       animation-direction: reverse;
@@ -107,9 +87,18 @@
       animation-timing-function: ease-in-out;
     }
 
-    &::before {
+    #bar-1 {
       animation-name: burgerBeforeClose;
       animation-duration: 1s;
+      animation-direction: reverse;
+      animation-fill-mode: backwards;
+      animation-timing-function: ease-in-out;
+    }
+
+    #bar-3 {
+      animation-name: burgerClose;
+      animation-duration: 0.5s;
+      animation-delay: 1s;
       animation-direction: reverse;
       animation-fill-mode: backwards;
       animation-timing-function: ease-in-out;
@@ -118,11 +107,11 @@
 
   @keyframes burgerOpen {
     0% {
-      box-shadow: inset 0 -4px 0 0 white;
+      background-color: white;
     }
 
     100% {
-      box-shadow: inset 0 -4px 0 0 transparent;
+      background-color: transparent;
     }
   }
 
@@ -200,11 +189,11 @@
 
   @keyframes burgerClose {
     0% {
-      box-shadow: inset 0 -4px 0 0 white;
+      background-color: white;
     }
 
     100% {
-      box-shadow: inset 0 -4px 0 0 transparent;
+      background-color: transparent;
     }
   }
 
@@ -287,4 +276,8 @@
   class:close={!$open}
   class="burger"
   type="button"
-/>
+>
+  <div class="bar" id="bar-1" />
+  <div class="bar" id="bar-2" />
+  <div class="bar" id="bar-3" />
+</button>
