@@ -12,8 +12,10 @@
 
 <style>
   nav {
-    position: sticky;
+    position: absolute;
+    top: 0;
     height: 100%;
+    width: 100%;
     margin: 0;
     font-family: "Roboto", sans-serif;
     display: flex;
