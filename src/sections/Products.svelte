@@ -40,7 +40,8 @@
     padding: 5%;
     //  META WIDTH 1511PX
     width: 78.65vw;
-    height: 71.4vh;
+    // height: 71.4vh;
+    height: clamp(620px, 40.15vw, 1025px);
 
     .col-1 {
       display: flex;

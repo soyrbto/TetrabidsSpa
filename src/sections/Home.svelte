@@ -58,19 +58,23 @@
   }
 
   @media screen and (max-width: 768px) {
+    .wrapper {
+      height: 800px !important;
+    }
+
     .col-1 {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      padding-top: 22vw;
-      height: auto;
+      padding-top: clamp(160px, 22vw, 424px);
+      /* height: auto; */
     }
   }
 
   @media only screen and (max-width: 1280px) {
     .wrapper {
       justify-content: center;
-      height: 800px !important;
+      height: 680px;
     }
   }
 
