@@ -3,11 +3,6 @@
   import Button from "../shared/Button.svelte";
 
   let contactForm;
-
-  function handleForm(e) {
-    e.preventDefault();
-  }
-  contactForm.addEventListener("submit", handleForm);
 </script>
 
 <style type="text/scss">
