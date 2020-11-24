@@ -4,7 +4,9 @@
   import { navbarState as navShow } from "../Stores";
 
   const clicked = () => {
-    navShow.update((el) => !el);
+    if ($navShow == true) {
+      navShow.update((el) => !el);
+    }
   };
 
   let windowsWidth;
@@ -21,6 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
   }
 
   .menu {
@@ -50,6 +53,8 @@
     justify-content: center;
     align-items: center;
     transition: all 200ms ease-in-out;
+    z-index: 0;
+    pointer-events: visible;
   }
 
   .nav__list {
@@ -107,6 +112,9 @@
     100% {
       opacity: 1;
     }
+  }
+  .button {
+    pointer-events: visible;
   }
 </style>
 
