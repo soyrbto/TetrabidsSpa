@@ -1,7 +1,7 @@
 <script>
   import { navbarItems } from "../StaticStore";
   import NavButton from "./NavButton.svelte";
-  import { navbarState as navShow, activScreenDisplacer } from "../Stores";
+  import { navbarState as navShow } from "../Stores";
 
   const clicked = () => {
     navShow.update((el) => !el);
@@ -14,8 +14,10 @@
 
 <style>
   nav {
-    position: sticky;
+    position: absolute;
+    top: 0;
     height: 100%;
+    width: 100%;
     margin: 0;
     font-family: "Roboto", sans-serif;
     display: flex;
