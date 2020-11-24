@@ -1,6 +1,13 @@
 <script>
   import Card from "../shared/Card.svelte";
   import Button from "../shared/Button.svelte";
+
+  let contactForm;
+
+  function handleForm(e) {
+    e.preventDefault();
+  }
+  contactForm.addEventListener("submit", handleForm);
 </script>
 
 <style type="text/scss">
@@ -98,17 +105,42 @@
 
 <Card>
   <div class="column-wrapper">
-    <form action="" autocomplete="off" class="form-wrapper">
+    <form
+      action="https://gmail.us20.list-manage.com/subscribe/post"
+      method="POST"
+      autocomplete="off"
+      class="form-wrapper"
+      bind:this={contactForm}
+    >
+      <!-- inputs required by mailchimp -->
+      <input type="hidden" name="u" value="eb9c1122d296246ef41758af5" />
+      <input type="hidden" name="id" value="9828761d8d" />
+
       <div class="group">
-        <input required name="hidden" class="fields" id="name" />
+        <input required type="text" name="MERGE1" class="fields" id="name" />
         <label for="name">nombre</label>
       </div>
       <div class="group">
-        <input required class="fields" id="email" />
+        <input
+          required
+          type="email"
+          autocapitalize="off"
+          autocorrect="off"
+          name="MERGE0"
+          class="fields"
+          id="email"
+        />
         <label for="email">email</label>
       </div>
       <div class="group">
-        <textarea required style="resize:none" class="fields" id="message" />
+        <textarea
+          required
+          type="text"
+          name="MERGE6"
+          style="resize:none"
+          class="fields"
+          id="message"
+        />
         <label for="message">mensaje</label>
       </div>
       <div class="button-wrapper">

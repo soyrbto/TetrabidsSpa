@@ -14,6 +14,8 @@ const displayedState = writable({
   [secNavbarItems[2]]: false,
 });
 
+const nodeSections = writable([]);
+
 //state of serviceDescription content
 const servBodyContent = writable(servicesData.serviceItems[0]);
 
@@ -97,4 +99,5 @@ export {
   servBodyContent,
   prodBodyContent,
   navbarState,
+  nodeSections,
 };

@@ -4,16 +4,31 @@
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/shared/Button.svelte";
   import Textures from "../components/Textures.svelte";
-  import { screenDisplacer, changeSection, maxWidthTablet } from "../Stores";
+  import {
+    screenDisplacer,
+    changeSection,
+    maxWidthTablet,
+    nodeSections,
+  } from "../Stores";
   import { accordionData, secNavbarItems } from "../StaticStore";
+
   let windowsWidth;
+  let ContactButton;
 
   const contactMove = (e) => {
-    let target = e.currentTarget.innerText;
+    if (windowsWidth > maxWidthTablet) {
+      let target = e.currentTarget.innerText;
 
-    let targetPosition = document.querySelector("#section-container").offsetTop;
-    screenDisplacer(0, targetPosition, 750);
-    setTimeout(() => changeSection(target), 400);
+      let targetPosition = document.querySelector("#section-container")
+        .offsetTop;
+      screenDisplacer(0, targetPosition, 750);
+      setTimeout(() => changeSection(target), 400);
+    } else {
+      let target = $nodeSections[2].offsetTop;
+      let startPos = ContactButton.offsetTop;
+
+      screenDisplacer(startPos, target, 800);
+    }
   };
 </script>
 
@@ -114,7 +129,7 @@
         </Accordion>
       {/each}
     </div>
-    <div on:click={contactMove} class="button">
+    <div on:click={contactMove} class="button" bind:this={ContactButton}>
       <Button>
         <div class="button-contact">{secNavbarItems[2]}</div>
       </Button>

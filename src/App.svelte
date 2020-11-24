@@ -19,8 +19,18 @@
     displayedState,
     changeSection,
     screenDisplacer,
+    nodeSections,
     maxWidthTablet,
   } from "./Stores";
+
+  // binding nodes of the sections when windowsWidth
+  let contact, product, service;
+
+  // set the nodes on nodeSections to a writable in store
+  setTimeout(() => {
+    let nodes = [service, product, contact];
+    nodeSections.set(nodes);
+  }, 200);
 
   let windowsWidth;
   let active = true;
@@ -186,21 +196,27 @@
 
     {#if windowsWidth <= maxWidthTablet}
       <div
-        on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ''}
-        id="section-container"
-        class="section-wrapper"
+        class="slide-in-right {secNavbarItems[0]}"
+        id={visibleSections[0]}
+        bind:this={service}
       >
-        <div class="slide-in-right {secNavbarItems[0]}" id={visibleSections[0]}>
-          <Services />
-        </div>
+        <Services />
+      </div>
 
-        <div class="slide-in-right {secNavbarItems[1]}" id={visibleSections[1]}>
-          <Products />
-        </div>
+      <div
+        class="slide-in-right {secNavbarItems[1]}"
+        id={visibleSections[1]}
+        bind:this={product}
+      >
+        <Products />
+      </div>
 
-        <div class="slide-in-right {secNavbarItems[2]}" id={visibleSections[2]}>
-          <Contact />
-        </div>
+      <div
+        class="slide-in-right {secNavbarItems[2]}"
+        id={visibleSections[2]}
+        bind:this={contact}
+      >
+        <Contact />
       </div>
     {/if}
   </main>

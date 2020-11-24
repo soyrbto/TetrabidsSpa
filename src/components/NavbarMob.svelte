@@ -1,13 +1,35 @@
 <script>
-  import { navbarItems } from "../StaticStore";
+  import { navbarItems, secNavbarItems } from "../StaticStore";
   import NavButton from "./NavButton.svelte";
-  import { navbarState as navShow } from "../Stores";
+  import {
+    maxWidthTablet,
+    navbarState as navShow,
+    nodeSections,
+    screenDisplacer,
+  } from "../Stores";
 
   const clicked = () => {
-    navShow.update((el) => !el);
+    if ($navShow == true) {
+      navShow.update((el) => !el);
+    }
   };
 
-  // const moveTo = () => {};
+  const clickedItem = (e) => {
+    let target;
+    let targetclicked = e.currentTarget.innerText;
+    let targetPos;
+    if (targetclicked === secNavbarItems[0]) {
+      target = $nodeSections[0];
+      targetPos = target.offsetTop;
+    } else {
+      targetclicked === secNavbarItems[1]
+        ? (target = $nodeSections[1])
+        : (target = $nodeSections[2]);
+      targetPos = target.offsetTop;
+    }
+
+    screenDisplacer(0, targetPos, 1000);
+  };
 
   let windowsWidth;
 </script>
@@ -23,6 +45,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
   }
 
   .menu {
@@ -52,6 +75,8 @@
     justify-content: center;
     align-items: center;
     transition: all 200ms ease-in-out;
+    z-index: 0;
+    pointer-events: visible;
   }
 
   .nav__list {
@@ -99,6 +124,7 @@
     letter-spacing: 0.1em;
     text-decoration: none;
     color: white;
+    cursor: pointer;
   }
 
   @keyframes fadein {
@@ -109,6 +135,9 @@
     100% {
       opacity: 1;
     }
+  }
+  .button {
+    pointer-events: visible;
   }
 </style>
 
@@ -124,7 +153,7 @@
       <ul class:show={$navShow} class="nav__list js-nav__list">
         {#each navbarItems as navbarItem}
           <li class="nav__item">
-            <a class="nav__link" href="algo">{navbarItem}</a>
+            <div on:click={clickedItem} class="nav__link">{navbarItem}</div>
           </li>
         {/each}
       </ul>
