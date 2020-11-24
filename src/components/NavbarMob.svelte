@@ -1,11 +1,13 @@
 <script>
   import { navbarItems } from "../StaticStore";
   import NavButton from "./NavButton.svelte";
-  let navShow = false;
+  import { navbarState as navShow, activScreenDisplacer } from "../Stores";
 
   const clicked = () => {
-    navShow = !navShow;
+    navShow.update((el) => !el);
   };
+
+  const moveTo = () => {};
 
   let windowsWidth;
 </script>
@@ -110,13 +112,13 @@
 <svelte:window bind:innerWidth={windowsWidth} />
 {#if windowsWidth <= 768}
   <nav>
-    <div on:click={clicked} class:active={navShow} class="menu js-menu">
+    <div class:active={$navShow} class="menu js-menu">
       <div class="button">
         <NavButton />
       </div>
     </div>
-    <nav on:click={clicked} class:open={navShow} class="nav js-nav">
-      <ul class:show={navShow} class="nav__list js-nav__list">
+    <nav on:click={clicked} class:open={$navShow} class="nav js-nav">
+      <ul class:show={$navShow} class="nav__list js-nav__list">
         {#each navbarItems as navbarItem}
           <li class="nav__item">
             <a class="nav__link" href="algo">{navbarItem}</a>

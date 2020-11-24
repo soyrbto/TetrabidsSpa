@@ -1,11 +1,11 @@
 <script>
-  "use strict";
-
-  let open = false;
+  import { navbarState as open } from "../Stores";
 
   const clicked = () => {
-    open = !open;
+    open.update((n) => !n);
   };
+
+  console.log($open);
 </script>
 
 <style type="text/scss">
@@ -283,8 +283,8 @@
 
 <button
   on:click={clicked}
-  class:open
-  class:close={!open}
+  class:open={$open}
+  class:close={!$open}
   class="burger"
   type="button"
 />

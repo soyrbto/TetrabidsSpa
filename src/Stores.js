@@ -19,7 +19,8 @@ const servBodyContent = writable(servicesData.serviceItems[0]);
 
 //state of productDescription content
 const prodBodyContent = writable(productsData.productItems[0]);
-// functionality, study readables or put it in an object
+
+// Functions that changes the section displayed on deskptop screens (<1280px)
 let activeChangeSection = true;
 const changeSection = (target) => {
   if (activeChangeSection) {
@@ -43,33 +44,31 @@ const changeSection = (target) => {
 //function that moves the screen to the target section from a start position
 let activeScreenDisplacer = true;
 const screenDisplacer = (startPosition, targetPosition, duration) => {
-  if (WindowsWidth > maxWidthTablet) {
-    if (activeScreenDisplacer) {
-      activeScreenDisplacer = false;
-      const distance = targetPosition - startPosition;
-      let start = null;
-      window.requestAnimationFrame(step);
-      function step(timestamp) {
-        if (!start) {
-          start = timestamp;
-        }
-        const progress = timestamp - start;
-
-        window.scrollTo(
-          0,
-          easeInOutCubic(progress, startPosition, distance, duration)
-        );
-        if (progress < duration) {
-          window.requestAnimationFrame(step);
-        }
+  if (activeScreenDisplacer) {
+    activeScreenDisplacer = false;
+    const distance = targetPosition - startPosition;
+    let start = null;
+    window.requestAnimationFrame(step);
+    function step(timestamp) {
+      if (!start) {
+        start = timestamp;
       }
-      setTimeout(() => {
-        activeScreenDisplacer = true;
-      }, 500);
+      const progress = timestamp - start;
+
+      window.scrollTo(
+        0,
+        easeInOutCubic(progress, startPosition, distance, duration)
+      );
+      if (progress < duration) {
+        window.requestAnimationFrame(step);
+      }
     }
+    setTimeout(() => {
+      activeScreenDisplacer = true;
+    }, 500);
   }
 };
-
+// timing function for the movement used in screen displacer
 function easeInOutCubic(t, b, c, d) {
   t /= d / 2;
   if (t < 1) return (c / 2) * t * t * t + b;
@@ -80,6 +79,10 @@ function easeInOutCubic(t, b, c, d) {
 function linear(t, b, c, d) {
   return (c * t) / d + b;
 }
+
+// navbarState is used for controlling the button state and the navbar state
+
+let navbarState = writable(false);
 
 export {
   stateStore,
@@ -93,4 +96,5 @@ export {
   maxWidthTablet,
   servBodyContent,
   prodBodyContent,
+  navbarState,
 };
