@@ -23,7 +23,15 @@
     maxWidthTablet,
   } from "./Stores";
 
-  let contactNode;
+  // binding nodes of the sections when windowsWidth
+  let contact, product, service;
+
+  // set the nodes on nodeSections to a writable in store
+  setTimeout(() => {
+    let nodes = [service, product, contact];
+    nodeSections.set(nodes);
+  }, 200);
+
   let windowsWidth;
   let active = true;
   let query = document.querySelector.bind(document);
@@ -187,15 +195,27 @@
     {/if}
 
     {#if windowsWidth <= maxWidthTablet}
-      <div class="slide-in-right {secNavbarItems[0]}" id={visibleSections[0]}>
+      <div
+        class="slide-in-right {secNavbarItems[0]}"
+        id={visibleSections[0]}
+        bind:this={service}
+      >
         <Services />
       </div>
 
-      <div class="slide-in-right {secNavbarItems[1]}" id={visibleSections[1]}>
+      <div
+        class="slide-in-right {secNavbarItems[1]}"
+        id={visibleSections[1]}
+        bind:this={product}
+      >
         <Products />
       </div>
 
-      <div class="slide-in-right {secNavbarItems[2]}" id={visibleSections[2]}>
+      <div
+        class="slide-in-right {secNavbarItems[2]}"
+        id={visibleSections[2]}
+        bind:this={contact}
+      >
         <Contact />
       </div>
     {/if}

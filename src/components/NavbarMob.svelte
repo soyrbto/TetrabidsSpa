@@ -1,12 +1,34 @@
 <script>
-  import { navbarItems } from "../StaticStore";
+  import { navbarItems, secNavbarItems } from "../StaticStore";
   import NavButton from "./NavButton.svelte";
-  import { navbarState as navShow } from "../Stores";
+  import {
+    maxWidthTablet,
+    navbarState as navShow,
+    nodeSections,
+    screenDisplacer,
+  } from "../Stores";
 
   const clicked = () => {
     if ($navShow == true) {
       navShow.update((el) => !el);
     }
+  };
+
+  const clickedItem = (e) => {
+    let target;
+    let targetclicked = e.currentTarget.innerText;
+    let targetPos;
+    if (targetclicked === secNavbarItems[0]) {
+      target = $nodeSections[0];
+      targetPos = target.offsetTop;
+    } else {
+      targetclicked === secNavbarItems[1]
+        ? (target = $nodeSections[1])
+        : (target = $nodeSections[2]);
+      targetPos = target.offsetTop;
+    }
+
+    screenDisplacer(0, targetPos, 400);
   };
 
   let windowsWidth;
@@ -102,6 +124,7 @@
     letter-spacing: 0.1em;
     text-decoration: none;
     color: white;
+    cursor: pointer;
   }
 
   @keyframes fadein {
@@ -130,7 +153,7 @@
       <ul class:show={$navShow} class="nav__list js-nav__list">
         {#each navbarItems as navbarItem}
           <li class="nav__item">
-            <a class="nav__link" href="algo">{navbarItem}</a>
+            <div on:click={clickedItem} class="nav__link">{navbarItem}</div>
           </li>
         {/each}
       </ul>

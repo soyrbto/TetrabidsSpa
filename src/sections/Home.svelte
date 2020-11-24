@@ -1,15 +1,19 @@
 <script>
   import Navbar from "../components/NavbarDesktop.svelte";
-  import { createEventDispatcher } from "svelte";
   import TitleSubtitle from "../components/TitleSubtitle.svelte";
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/shared/Button.svelte";
   import Textures from "../components/Textures.svelte";
-  import { screenDisplacer, changeSection, maxWidthTablet } from "../Stores";
+  import {
+    screenDisplacer,
+    changeSection,
+    maxWidthTablet,
+    nodeSections,
+  } from "../Stores";
   import { accordionData, secNavbarItems } from "../StaticStore";
 
-  const dispatch = createEventDispatcher();
   let windowsWidth;
+  let ContactButton;
 
   const contactMove = (e) => {
     if (windowsWidth > maxWidthTablet) {
@@ -20,7 +24,10 @@
       screenDisplacer(0, targetPosition, 750);
       setTimeout(() => changeSection(target), 400);
     } else {
-      dispatch("contactClicked", "testing");
+      let target = $nodeSections[2].offsetTop;
+      let startPos = ContactButton.offsetTop;
+
+      screenDisplacer(startPos, target, 800);
     }
   };
 </script>
@@ -122,7 +129,7 @@
         </Accordion>
       {/each}
     </div>
-    <div on:click={contactMove} class="button">
+    <div on:click={contactMove} class="button" bind:this={ContactButton}>
       <Button>
         <div class="button-contact">{secNavbarItems[2]}</div>
       </Button>
