@@ -1,19 +1,27 @@
 <script>
   import Navbar from "../components/NavbarDesktop.svelte";
+  import { createEventDispatcher } from "svelte";
   import TitleSubtitle from "../components/TitleSubtitle.svelte";
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/shared/Button.svelte";
   import Textures from "../components/Textures.svelte";
   import { screenDisplacer, changeSection, maxWidthTablet } from "../Stores";
   import { accordionData, secNavbarItems } from "../StaticStore";
+
+  const dispatch = createEventDispatcher();
   let windowsWidth;
 
   const contactMove = (e) => {
-    let target = e.currentTarget.innerText;
+    if (windowsWidth > maxWidthTablet) {
+      let target = e.currentTarget.innerText;
 
-    let targetPosition = document.querySelector("#section-container").offsetTop;
-    screenDisplacer(0, targetPosition, 750);
-    setTimeout(() => changeSection(target), 400);
+      let targetPosition = document.querySelector("#section-container")
+        .offsetTop;
+      screenDisplacer(0, targetPosition, 750);
+      setTimeout(() => changeSection(target), 400);
+    } else {
+      dispatch("contactClicked", "testing");
+    }
   };
 </script>
 

@@ -14,6 +14,8 @@ const displayedState = writable({
   [secNavbarItems[2]]: false,
 });
 
+const nodeSections = writable([]);
+
 //state of serviceDescription content
 const servBodyContent = writable(servicesData.serviceItems[0]);
 
@@ -44,7 +46,6 @@ const changeSection = (target) => {
 //function that moves the screen to the target section from a start position
 let activeScreenDisplacer = true;
 const screenDisplacer = (startPosition, targetPosition, duration) => {
-  console.log("hola");
   if (activeScreenDisplacer) {
     activeScreenDisplacer = false;
     const distance = targetPosition - startPosition;
@@ -98,4 +99,5 @@ export {
   servBodyContent,
   prodBodyContent,
   navbarState,
+  nodeSections,
 };

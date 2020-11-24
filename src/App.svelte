@@ -19,9 +19,11 @@
     displayedState,
     changeSection,
     screenDisplacer,
+    nodeSections,
     maxWidthTablet,
   } from "./Stores";
 
+  let contactNode;
   let windowsWidth;
   let active = true;
   let query = document.querySelector.bind(document);
@@ -185,22 +187,16 @@
     {/if}
 
     {#if windowsWidth <= maxWidthTablet}
-      <div
-        on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ''}
-        id="section-container"
-        class="section-wrapper"
-      >
-        <div class="slide-in-right {secNavbarItems[0]}" id={visibleSections[0]}>
-          <Services />
-        </div>
+      <div class="slide-in-right {secNavbarItems[0]}" id={visibleSections[0]}>
+        <Services />
+      </div>
 
-        <div class="slide-in-right {secNavbarItems[1]}" id={visibleSections[1]}>
-          <Products />
-        </div>
+      <div class="slide-in-right {secNavbarItems[1]}" id={visibleSections[1]}>
+        <Products />
+      </div>
 
-        <div class="slide-in-right {secNavbarItems[2]}" id={visibleSections[2]}>
-          <Contact />
-        </div>
+      <div class="slide-in-right {secNavbarItems[2]}" id={visibleSections[2]}>
+        <Contact />
       </div>
     {/if}
   </main>
