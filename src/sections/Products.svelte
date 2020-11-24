@@ -5,7 +5,7 @@
   import DescriptionCard from "../components/DescriptionCard.svelte";
   import { colorButtonStore, maxWidthTablet, prodBodyContent } from "../Stores";
   import { productsData } from "../StaticStore";
-  import Carousel from "@beyonk/svelte-carousel";
+  import Carousel from "../components/shared/Carousel.svelte";
 
   let buttonColor = {};
   let windowsWidth;
