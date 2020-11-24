@@ -28,7 +28,7 @@
       targetPos = target.offsetTop;
     }
 
-    screenDisplacer(0, targetPos, 400);
+    screenDisplacer(0, targetPos, 1000);
   };
 
   let windowsWidth;
