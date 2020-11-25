@@ -88,11 +88,18 @@
   @media screen and (max-width: 1280px) {
     // HEIGHT 800PX PER SECTION
     .page-container {
-      height: 3272px;
+      // height: 3272px;
+      height: auto;
     }
     main {
-      height: 3200px !important;
+      // height: 3200px !important;
+      height: auto !important;
     }
+
+    .home-wrapper {
+      height: 800px !important;
+    }
+
     .section-wrapper {
       flex-direction: column;
       justify-content: flex-end !important;

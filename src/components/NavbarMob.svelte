@@ -51,7 +51,7 @@
   .menu {
     display: flex;
     position: absolute;
-    top: 4%;
+    top: 7%;
     right: 10%;
     background-color: transparent;
     /* height: 70px; */
