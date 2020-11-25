@@ -134,7 +134,6 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    /* margin-top: -30px; */
     padding: 0;
     top: 523px;
   }
@@ -142,14 +141,12 @@
   ul li {
     margin: 6px;
     border-radius: 100%;
-    /* background-color: rgba(255, 255, 255, 0.5); */
-    background-color: rgba(95, 63, 99, 0.5);
+    background-color: rgba(97, 99, 63, 0.5);
     height: 8px;
     width: 8px;
   }
 
   ul li.active {
-    /* background-color: rgba(255, 255, 255, 1); */
     background-color: rgba(86, 77, 87, 0.8);
   }
 

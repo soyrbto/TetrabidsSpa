@@ -42,8 +42,8 @@
 
       .meeting {
         display: block;
-        // margin: 0 auto;
-        width: 13.75vw;
+        // width: 13.75vw;
+        width: 15.75vw;
         align-self: center;
       }
 
@@ -69,6 +69,12 @@
     }
   }
 
+  @media screen and (max-width: 375px) {
+    .service-body {
+      font-size: 10px;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     .col-3 {
       width: 100%;
@@ -91,9 +97,9 @@
     }
   }
 
-  @media screen and (max-width: 375px) {
-    .service-body {
-      font-size: 10px;
+  @media screen and (min-width: 1281px) {
+    .meeting {
+      margin-bottom: 3%;
     }
   }
 </style>
