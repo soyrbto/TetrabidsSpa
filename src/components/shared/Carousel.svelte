@@ -144,18 +144,20 @@
     margin: 6px;
     border-radius: 100%;
     /* background-color: rgba(255, 255, 255, 0.5); */
-    background-color: rgba(156, 45, 45, 0.85);
+    background-color: rgba(95, 63, 99, 0.5);
     height: 8px;
     width: 8px;
   }
 
-  /* ul li:hover {
-    background-color: rgba(156, 45, 45, 0.85);
-  } */
-
   ul li.active {
     /* background-color: rgba(255, 255, 255, 1); */
-    background-color: rgba(156, 45, 45, 0.5);
+    background-color: rgba(86, 77, 87, 0.8);
+  }
+
+  @media only screen and (max-width: 414px) {
+    ul {
+      top: 453px;
+    }
   }
 </style>
 
