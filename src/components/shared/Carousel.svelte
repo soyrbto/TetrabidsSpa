@@ -135,7 +135,7 @@
     justify-content: center;
     width: 100%;
     padding: 0;
-    top: 523px;
+    top: 517px;
   }
 
   ul li {
@@ -152,7 +152,7 @@
 
   @media only screen and (max-width: 414px) {
     ul {
-      top: 462px;
+      top: 485px;
     }
   }
 </style>

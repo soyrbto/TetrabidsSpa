@@ -93,13 +93,16 @@
     }
 
     .meeting {
+      height: 206px;
       width: clamp(270px, 40.36vw, 310px) !important;
+      margin-bottom: 25px;
     }
   }
 
   @media screen and (min-width: 1281px) {
     .meeting {
-      margin-bottom: 3%;
+      height: 11.66vw;
+      margin-bottom: 10%;
     }
   }
 </style>
@@ -117,7 +120,7 @@
           <slot name="body">there is no service-body</slot>
         </p>
       </div>
-      <img src="./images/meeting.png" alt="" class="meeting fade-in-bck" />
+      <img src="./images/page.svg" alt="" class="meeting fade-in-bck" />
       <div class="button-wrapper">
         <Button color="purple">
           <div class="button-card-content">Sigue Leyendo</div>
