@@ -38,6 +38,7 @@
 
   //funcion que hace la traslacion si el ancho de pantalla es mayor a 980
   const sectionDriver = (e) => {
+    console.log("1");
     if (windowsWidth > maxWidthTablet) {
       e.preventDefault();
       if (windowsWidth > 200) {
