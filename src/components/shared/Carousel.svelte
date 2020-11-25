@@ -136,7 +136,7 @@
     width: 100%;
     /* margin-top: -30px; */
     padding: 0;
-    top: 480px;
+    top: 523px;
   }
 
   ul li {
@@ -155,7 +155,7 @@
 
   @media only screen and (max-width: 414px) {
     ul {
-      top: 453px;
+      top: 462px;
     }
   }
 </style>

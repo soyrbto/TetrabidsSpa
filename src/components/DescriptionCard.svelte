@@ -42,8 +42,9 @@
 
       .meeting {
         display: block;
-        margin: 0 auto;
+        // margin: 0 auto;
         width: 13.75vw;
+        align-self: center;
       }
 
       .button-wrapper {
@@ -81,14 +82,17 @@
       padding: 0 15%;
     }
 
+    .service-body {
+      height: 170px !important;
+    }
+
     .meeting {
-      width: 198px !important;
+      width: clamp(270px, 40.36vw, 310px) !important;
     }
   }
 
   @media screen and (max-width: 375px) {
     .service-body {
-      // height: 165px !important;
       font-size: 10px;
     }
   }
