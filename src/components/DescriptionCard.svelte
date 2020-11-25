@@ -88,7 +88,7 @@
 
   @media screen and (max-width: 375px) {
     .service-body {
-      height: 165px !important;
+      // height: 165px !important;
       font-size: 10px;
     }
   }
