@@ -25,6 +25,7 @@ const prodBodyContent = writable(productsData.productItems[0]);
 // Functions that changes the section displayed on deskptop screens (<1280px)
 let activeChangeSection = true;
 const changeSection = (target) => {
+  console.log("2");
   if (activeChangeSection) {
     activeChangeSection = false;
     if (target != get(displayedSection)) {
@@ -46,6 +47,7 @@ const changeSection = (target) => {
 //function that moves the screen to the target section from a start position
 let activeScreenDisplacer = true;
 const screenDisplacer = (startPosition, targetPosition, duration) => {
+  console.log("3");
   if (activeScreenDisplacer) {
     activeScreenDisplacer = false;
     const distance = targetPosition - startPosition;
