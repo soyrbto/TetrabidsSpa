@@ -7,6 +7,7 @@
 <style>
   .card {
     background-color: #fff;
+    display: inline-block;
   }
 </style>
 

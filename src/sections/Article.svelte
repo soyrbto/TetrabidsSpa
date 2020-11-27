@@ -1,11 +1,14 @@
 <script>
-  import Footer from "./Footer.svelte";
+  import Footer from "../sections/Footer.svelte";
+  import ArticuleCard from "../components/ArticuleCard.svelte";
 </script>
 
 <style type="text/scss">
   .page-content {
-    background-color: #ccc;
+    background-color: #e5e5e5;
     width: 100%;
+    font-family: "Josefin Sans", sans-serif;
+    position: relative;
 
     .header {
       display: flex;
@@ -28,11 +31,12 @@
       flex-direction: column;
       height: 869px;
       margin: 0 10%;
-      padding-top: 77px;
+      padding: 77px 3% 0 3%;
       background: white;
+      // font-family: "Josefin Sans", sans-serif;
 
       .title-home-wrapper {
-        margin-left: 3%;
+        // margin-left: 3%;
 
         .title-home {
           font-size: 48px;
@@ -55,12 +59,12 @@
         background-position: center;
 
         height: 400px;
-        margin: 40px 3%;
+        margin: 40px 0;
       }
 
       .wrapper-icons {
         display: flex;
-        padding: 0 3%;
+        padding: 0;
 
         .social-network {
           width: 405px;
@@ -70,6 +74,8 @@
             display: flex;
             justify-content: space-between;
             list-style: none;
+            height: 40px;
+            margin: 0;
 
             & > li > img {
               height: 40px;
@@ -104,6 +110,12 @@
           }
         }
       }
+
+      .tldr-title {
+        font-size: 24px;
+        margin: 128px 0 24px 0;
+        color: #c4c4c4;
+      }
     }
 
     .tldr-wrapper {
@@ -130,7 +142,7 @@
       padding: 118px 3% 61px 3%;
 
       .title-articule-wrapper {
-        height: 294px;
+        height: 176px;
 
         .title-articule {
           font-size: 48px;
@@ -167,6 +179,9 @@
     }
 
     .others-article {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 534px;
       background-color: #361081;
     }
@@ -198,6 +213,7 @@
         <p class="share-text">20 compartidos</p>
       </div>
     </div>
+    <div class="tldr-title">Tl;dr = Muy largo, no lo leere</div>
   </div>
   <div class="tldr-wrapper">
     <p class="tldr">
@@ -246,6 +262,8 @@
       </p>
     </div>
   </div>
-  <div class="others-article" />
+  <div class="others-article">
+    <ArticuleCard />
+  </div>
   <Footer />
 </main>

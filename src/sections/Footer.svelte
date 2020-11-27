@@ -5,7 +5,7 @@
     align-items: center;
     height: 8vh;
     padding: 0 5.2vw 0 1.56vw;
-    background: rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 1);
     color: #666666;
     font-family: var(--display-typo);
     /* META font size 24px*/
