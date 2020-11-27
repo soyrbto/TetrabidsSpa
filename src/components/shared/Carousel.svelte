@@ -40,6 +40,7 @@
       multipleDrag,
       threshold,
       rtl,
+      onChange: handleChange,
     });
 
     if (autoplay) {
