@@ -8,6 +8,8 @@
     screenDisplacer,
   } from "../Stores";
 
+  let target;
+
   const clicked = () => {
     if ($navShow == true) {
       navShow.update((el) => !el);
@@ -15,7 +17,6 @@
   };
 
   const clickedItem = (e) => {
-    let target;
     let targetclicked = e.currentTarget.innerText;
     let targetPos;
     if (targetclicked === secNavbarItems[0]) {

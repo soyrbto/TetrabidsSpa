@@ -17,7 +17,7 @@
       buttonColor[elt] = "blue";
     });
     // UPDATES THE STORE BUT THE FIRST ITEM IS REPLACED WITH WHITE
-    colorButtonStore.set({ ...buttonColor, Wordpress: "white" });
+    colorButtonStore.set({ ...buttonColor, [$prodBodyContent]: "white" });
   });
   // WHEN CLICK AN ITEM TAKES THE CLICKED TARGET
   const getContent = (e) => {
@@ -26,7 +26,8 @@
     colorButtonStore.set({ ...buttonColor });
     // SET THE ELEMENT CLICKED COLOR TO WHITE
     colorButtonStore.update(
-      (value) => (value = { ...value, [$prodBodyContent]: "white" })
+      (buttonColor) =>
+        (buttonColor = { ...buttonColor, [$prodBodyContent]: "white" })
     );
   };
 </script>
