@@ -151,7 +151,7 @@
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= maxWidthTablet}
         <div class="description-card-container">
-          <swiper>
+          <Swiper>
             {#each servicesData.serviceItems as service}
               <SwiperSlide spaceBetween={50} slidesPerView={1}>
                 <ServiceDescription>
@@ -164,7 +164,7 @@
                 </ServiceDescription>
               </SwiperSlide>
             {/each}
-          </swiper>
+          </Swiper>
         </div>
       {/if}
     </div>
