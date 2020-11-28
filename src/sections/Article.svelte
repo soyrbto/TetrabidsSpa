@@ -277,7 +277,7 @@
     <div class="tldr-title">Tl;dr = Muy largo, no lo leere</div>
   </div>
   <div class="tldr-wrapper">
-    <p class="tldr">{articleAsesoria.body}</p>
+    <p class="tldr">{articleAsesoria.TlDr}</p>
   </div>
   <div class="main-article-wrapper">
     <div class="title-articule-wrapper">
