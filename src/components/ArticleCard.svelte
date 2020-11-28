@@ -24,11 +24,21 @@
       width: 100%;
     }
   }
+
+  @media screen and (max-width: 768px) {
+    .wrapper-section {
+      width: 300px;
+    }
+  }
 </style>
 
 <Card>
   <div class="wrapper-section">
-    <img src="#" alt="image_articule" class="others-articule-image" />
+    <img
+      src="/images/home-image.svg"
+      alt="image_articule"
+      class="others-articule-image"
+    />
     <div class="summary">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl egestas
       dignissim cursus nunc at neque porttitor. Nibh egestas interdum mi

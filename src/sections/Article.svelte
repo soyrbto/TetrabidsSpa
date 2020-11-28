@@ -1,6 +1,6 @@
 <script>
   import Footer from "../sections/Footer.svelte";
-  import ArticuleCard from "../components/ArticuleCard.svelte";
+  import ArticleCard from "../components/ArticuleCard.svelte";
 </script>
 
 <style type="text/scss">
@@ -13,7 +13,7 @@
     .header {
       display: flex;
       align-items: center;
-      height: 151px;
+      height: clamp(120px, 7.81vw, 151px);
       background: #361081;
       padding: 0 40px;
 
@@ -21,15 +21,16 @@
         color: white;
         font-style: normal;
         font-weight: 600;
-        font-size: 70px;
+        font-size: clamp(50px, 2.6vw, 70px);
         line-height: 70px;
       }
     }
 
     .home-wrapper {
+      position: relative;
       display: flex;
       flex-direction: column;
-      height: 869px;
+      height: clamp(780px, 45vw, 869px);
       margin: 0 10%;
       padding: 77px 3% 0 3%;
       background: white;
@@ -39,16 +40,17 @@
         // margin-left: 3%;
 
         .title-home {
-          font-size: 48px;
-          line-height: 48px;
+          font-size: clamp(30px, 2.5vw, 48px);
+          line-height: clamp(30px, 2.5vw, 48px);
           font-style: normal;
           font-weight: bold;
         }
 
         .author {
-          font-size: 18px;
-          line-height: 18px;
+          font-size: clamp(12px, 0.9375vw, 18px);
+          line-height: clamp(12px, 0.9375vw, 18px);
           margin-top: 18px;
+          color: #c4c4c4;
         }
       }
 
@@ -67,18 +69,19 @@
         padding: 0;
 
         .social-network {
-          width: 405px;
-          height: 40px;
+          width: clamp(290px, 21vw, 405px);
+          height: clamp(30px, 2.08vw, 40px);
+          margin-left: 5%;
 
           ul {
             display: flex;
             justify-content: space-between;
             list-style: none;
-            height: 40px;
+            height: clamp(30px, 2.08vw, 40px);
             margin: 0;
 
             & > li > img {
-              height: 40px;
+              height: clamp(30px, 2.08vw, 40px);
               cursor: pointer;
             }
 
@@ -92,12 +95,12 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 190px;
-          height: 40px;
-          margin-left: 120px;
+          width: clamp(140px, 9.9vw, 190px);
+          height: clamp(30px, 2.08vw, 40px);
+          margin-left: clamp(70px, 6.25vw, 120px);
 
           & > img {
-            height: 40px;
+            height: clamp(30px, 2.08vw, 40px);
           }
 
           & > img:hover {
@@ -105,15 +108,17 @@
           }
 
           .share-text {
-            font-size: 18px;
+            font-size: clamp(12px, 0.9375vw, 18px);
             color: #bcbcbc;
           }
         }
       }
 
       .tldr-title {
-        font-size: 24px;
-        margin: 128px 0 24px 0;
+        position: absolute;
+        bottom: 2%;
+        font-size: clamp(18px, 1.25vw, 24px);
+        // margin: 128px 0 clamp(15px, 1.25vw, 24px) 0;
         color: #c4c4c4;
       }
     }
@@ -125,9 +130,10 @@
       background-color: #0082ba;
 
       .tldr {
-        font-size: 24px;
+        font-size: clamp(18px, 1.25vw, 24px);
         font-weight: 400;
-        line-height: 57px;
+        line-height: clamp(50px, 2.5vw, 57px);
+        text-align: justify;
         padding: 0 3%;
         color: white;
       }
@@ -137,33 +143,31 @@
       height: auto;
       margin: 0 10%;
       background: white;
-      // padding-top: 118px;
-
       padding: 118px 3% 61px 3%;
+      text-align: justify;
 
       .title-articule-wrapper {
-        height: 176px;
+        height: clamp(120px, 9.16vw, 176px);
 
         .title-articule {
-          font-size: 48px;
-          line-height: 48px;
+          font-size: clamp(30px, 2.5vw, 48px);
+          line-height: clamp(30px, 2.5vw, 48px);
           font-style: normal;
           font-weight: bold;
         }
 
         .reading-time {
-          font-size: 18px;
-          line-height: 18px;
+          font-size: clamp(12px, 0.9375vw, 18px);
+          line-height: clamp(12px, 0.9375vw, 18px);
           margin-top: 18px;
+          color: #c4c4c4;
         }
       }
 
       .body-article {
-        // padding-bottom: 61px;
-
-        font-size: 24px;
+        font-size: clamp(18px, 1.25vw, 24px);
         font-weight: 400;
-        line-height: 57px;
+        line-height: clamp(50px, 2.96vw, 57px);
         color: black;
 
         .image-articule-wrapper {
@@ -184,6 +188,51 @@
       align-items: center;
       height: 534px;
       background-color: #361081;
+    }
+  }
+
+  @media screen and (max-width: 1280px) {
+    .home-wrapper {
+      margin: 0 !important;
+      padding: 77px 5% 0 5% !important;
+    }
+
+    .tldr-wrapper {
+      margin: 0 !important;
+
+      .tldr {
+        padding: 0 5% !important;
+        font-size: clamp(14px, 2.34vw, 18px) !important;
+        line-height: clamp(33px, 6.51vw, 45px) !important;
+      }
+    }
+
+    .main-article-wrapper {
+      margin: 0 !important;
+      padding: 118px 5% 61px 5% !important;
+
+      .body-article {
+        font-size: clamp(14px, 2.34vw, 18px) !important;
+        line-height: clamp(33px, 6.51vw, 45px) !important;
+      }
+    }
+
+    .wrapper-icons {
+      flex-direction: column-reverse;
+      align-items: center;
+
+      .share {
+        margin-bottom: 20px;
+        width: 125px !important;
+
+        img {
+          height: 22px !important;
+        }
+      }
+    }
+    .social-network,
+    .share {
+      margin-left: 0px !important;
     }
   }
 </style>
