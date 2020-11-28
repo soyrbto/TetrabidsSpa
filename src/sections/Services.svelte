@@ -5,7 +5,8 @@
   import Button from "../components/shared/Button.svelte";
   import { colorButtonStore, maxWidthTablet, servBodyContent } from "../Stores";
   import { servicesData } from "../StaticStore";
-  import Carousel from "../components/shared/Carousel.svelte";
+  import { Swiper, SwiperSlide } from "swiper/svelte";
+  import "swiper/swiper.scss";
 
   let buttonColor = {};
   let windowsWidth;
@@ -150,9 +151,9 @@
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= maxWidthTablet}
         <div class="description-card-container">
-          <Carousel perPage={1} controls={false}>
+          <swiper>
             {#each servicesData.serviceItems as service}
-              <div class="slide-content">
+              <SwiperSlide spaceBetween={50} slidesPerView={1}>
                 <ServiceDescription>
                   <div class="title" slot="title">
                     {@html service}
@@ -161,9 +162,9 @@
                     {@html servicesData[service]}
                   </div>
                 </ServiceDescription>
-              </div>
+              </SwiperSlide>
             {/each}
-          </Carousel>
+          </swiper>
         </div>
       {/if}
     </div>
