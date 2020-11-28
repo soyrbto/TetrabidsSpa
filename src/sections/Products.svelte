@@ -1,5 +1,4 @@
 <script>
-  import { Swipe, SwipeItem } from "svelte-swipe";
   import { onMount } from "svelte";
   import Card from "../components/shared/Card.svelte";
   import Button from "../components/shared/Button.svelte";
@@ -7,6 +6,7 @@
   import { colorButtonStore, maxWidthTablet, prodBodyContent } from "../Stores";
   import { productsData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
+  import "swiper/swiper.scss";
 
   let buttonColor = {};
   let windowsWidth;
