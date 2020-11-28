@@ -1,14 +1,24 @@
 <script>
+  import { Swipe, SwipeItem } from "svelte-swipe";
   import { onMount } from "svelte";
   import Card from "../components/shared/Card.svelte";
   import Button from "../components/shared/Button.svelte";
   import DescriptionCard from "../components/DescriptionCard.svelte";
   import { colorButtonStore, maxWidthTablet, prodBodyContent } from "../Stores";
   import { productsData } from "../StaticStore";
-  import Carousel from "../components/shared/Carousel.svelte";
+  import { Swiper, SwiperSlide } from "swiper/svelte";
+  import "swiper/swiper.scss";
 
   let buttonColor = {};
   let windowsWidth;
+
+  const swipeConfig = {
+    autoplay: false,
+    delay: 2000,
+    showIndicators: true,
+    transitionDuration: 1000,
+    defaultIndex: 0,
+  };
 
   // WHEN MOUNTED
   onMount(() => {
@@ -154,18 +164,25 @@
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= maxWidthTablet}
         <div class="description-card-container">
-          <Carousel perPage={1}>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={1}
+            on:slideChange={() => console.log('slide change')}
+            on:swiper={(e) => console.log(e.detail[0])}
+          >
             {#each productsData.productItems as product}
-              <DescriptionCard>
-                <div class="title" slot="title">
-                  {@html product}
-                </div>
-                <div class="body" slot="body">
-                  {@html productsData[product]}
-                </div>
-              </DescriptionCard>
+              <SwiperSlide>
+                <DescriptionCard>
+                  <div class="title" slot="title">
+                    {@html product}
+                  </div>
+                  <div class="body" slot="body">
+                    {@html productsData[product]}
+                  </div>
+                </DescriptionCard>
+              </SwiperSlide>
             {/each}
-          </Carousel>
+          </Swiper>
         </div>
       {/if}
     </div>
