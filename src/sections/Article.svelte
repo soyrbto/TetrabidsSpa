@@ -312,7 +312,7 @@
     </div>
   </div>
   <div class="others-article">
-    <ArticuleCard />
+    <ArticleCard />
   </div>
   <Footer />
 </main>
