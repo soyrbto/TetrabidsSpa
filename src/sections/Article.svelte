@@ -43,7 +43,7 @@
 
         .title-home {
           font-size: clamp(30px, 2.5vw, 48px);
-          line-height: clamp(30px, 2.5vw, 48px);
+          line-height: clamp(35px, 2.5vw, 48px);
           font-style: normal;
           font-weight: bold;
         }
@@ -60,7 +60,7 @@
         background-image: url("/images/home-image.svg");
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: top;
 
         height: 400px;
         margin: 40px 0;
@@ -120,7 +120,6 @@
         position: absolute;
         bottom: 2%;
         font-size: clamp(18px, 1.25vw, 24px);
-        // margin: 128px 0 clamp(15px, 1.25vw, 24px) 0;
         color: #c4c4c4;
       }
     }
@@ -134,7 +133,7 @@
       .tldr {
         font-size: clamp(18px, 1.25vw, 24px);
         font-weight: 400;
-        line-height: clamp(50px, 2.5vw, 57px);
+        line-height: clamp(40px, 2.5vw, 57px);
         text-align: justify;
         padding: 0 3%;
         color: white;
@@ -146,14 +145,13 @@
       margin: 0 10%;
       background: white;
       padding: 118px 3% 61px 3%;
-      text-align: justify;
 
       .title-articule-wrapper {
-        height: clamp(120px, 9.16vw, 176px);
+        margin-bottom: 60px;
 
         .title-articule {
           font-size: clamp(30px, 2.5vw, 48px);
-          line-height: clamp(30px, 2.5vw, 48px);
+          line-height: clamp(35px, 2.5vw, 48px);
           font-style: normal;
           font-weight: bold;
         }
@@ -171,9 +169,10 @@
         font-weight: 400;
         line-height: clamp(50px, 2.96vw, 57px);
         color: black;
+        text-align: justify;
 
         .image-articule-wrapper {
-          height: 478px;
+          height: 600px;
           width: 70%;
           margin: 30px 15% 70px 15%;
           background-image: url("/images/home-image.svg");
@@ -195,8 +194,13 @@
 
   @media screen and (max-width: 1280px) {
     .home-wrapper {
+      height: 850px !important;
       margin: 0 !important;
       padding: 77px 5% 0 5% !important;
+
+      .tldr-title {
+        font-size: clamp(14px, 2.34vw, 18px) !important;
+      }
     }
 
     .tldr-wrapper {
@@ -205,7 +209,7 @@
       .tldr {
         padding: 0 5% !important;
         font-size: clamp(14px, 2.34vw, 18px) !important;
-        line-height: clamp(33px, 6.51vw, 45px) !important;
+        line-height: clamp(33px, 6.51vw, 40px) !important;
       }
     }
 
@@ -267,7 +271,7 @@
     <div class="tldr-title">Tl;dr = Muy largo, no lo leere</div>
   </div>
   <div class="tldr-wrapper">
-    <p class="tldr" />
+    <p class="tldr">{articleAsesoria.body}</p>
   </div>
   <div class="main-article-wrapper">
     <div class="title-articule-wrapper">

@@ -1,5 +1,5 @@
 const articleAsesoria = {
-  title: "whatever",
+  title: "¿Que necesitas para tener una página o aplicación web?",
   img: "whatever.png",
   author: "Roberto Traspalacio",
   date: "25 de noviembre del 2020",
