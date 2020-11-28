@@ -7,7 +7,6 @@
   import { colorButtonStore, maxWidthTablet, prodBodyContent } from "../Stores";
   import { productsData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
-  import "swiper/swiper.scss";
 
   let buttonColor = {};
   let windowsWidth;
