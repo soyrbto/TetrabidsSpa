@@ -3,6 +3,11 @@
   import ArticleCard from "../components/ArticleCard.svelte";
   import ArticleBody from "../components/shared/ArticleBody.svelte";
   import { articleAsesoria } from "../articles.js";
+  import { Swiper, SwiperSlide } from "swiper/svelte";
+  import "swiper/swiper.scss";
+
+  let windowsWidth;
+  $: slidesPerView = windowsWidth <= 414 ? 1 : windowsWidth >= 768 ? 3 : 2;
 </script>
 
 <style type="text/scss">
@@ -243,6 +248,7 @@
   }
 </style>
 
+<svelte:window bind:innerWidth={windowsWidth} />
 <main class="page-content">
   <div class="header">
     <div class="logo">Tetrabids</div>
@@ -285,7 +291,26 @@
     </div>
   </div>
   <div class="others-article">
-    <ArticleCard />
+    <Swiper spaceBetween={50} slidesPerView={slidesPerView}>
+      <SwiperSlide>
+        <ArticleCard />
+      </SwiperSlide>
+      <SwiperSlide>
+        <ArticleCard />
+      </SwiperSlide>
+      <SwiperSlide>
+        <ArticleCard />
+      </SwiperSlide>
+      <SwiperSlide>
+        <ArticleCard />
+      </SwiperSlide>
+      <SwiperSlide>
+        <ArticleCard />
+      </SwiperSlide>
+      <SwiperSlide>
+        <ArticleCard />
+      </SwiperSlide>
+    </Swiper>
   </div>
   <Footer />
 </main>
