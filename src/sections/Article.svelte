@@ -1,6 +1,8 @@
 <script>
   import Footer from "../sections/Footer.svelte";
-  import ArticuleCard from "../components/ArticuleCard.svelte";
+  import ArticleCard from "../components/ArticleCard.svelte";
+  import ArticleBody from "../components/shared/ArticleBody.svelte";
+  import { articleAsesoria } from "../articles.js";
 </script>
 
 <style type="text/scss">
@@ -194,8 +196,8 @@
   </div>
   <div class="home-wrapper">
     <div class="title-home-wrapper">
-      <h1 class="title-home">Nombre del articulo</h1>
-      <p class="author">Roberto Traspalacio, 25 de Noviembre del 2020</p>
+      <h1 class="title-home">{articleAsesoria.title}</h1>
+      <p class="author">{articleAsesoria.author}, {articleAsesoria.date}</p>
     </div>
     <div class="image-wrapper" />
     <div class="wrapper-icons">
@@ -216,54 +218,21 @@
     <div class="tldr-title">Tl;dr = Muy largo, no lo leere</div>
   </div>
   <div class="tldr-wrapper">
-    <p class="tldr">
-      Tl;dr consectetur adipiscing elit. Auctor vestibulum proin tempor eget
-      amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat
-      volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien
-      sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus
-      aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet
-      mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis
-      ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce
-      sit malesuada tempus fringilla.
-    </p>
+    <p class="tldr" />
   </div>
   <div class="main-article-wrapper">
     <div class="title-articule-wrapper">
-      <h2 class="title-articule">Nombre del articulo</h2>
+      <h2 class="title-articule">{articleAsesoria.title}</h2>
       <p class="reading-time">Tiempo de lectura 5 min</p>
     </div>
     <div class="body-article">
-      <p class="first-part">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-        vestibulum proin tempor eget amet volutpat tortor nunc. In tortor,
-        ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque
-        praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper
-        pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et.
-        Porttitor egestas nec bibendum amet mattis integer. Lectus turpis
-        aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus
-        blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus
-        fringilla. Ipsum quam massa praesent mattis egestas. Elit, ultrices
-        enim, ligula et massa vestibulum. Consequat vitae sed quis sit donec mi.
-        Eget orci, mauris nam sed luctus. Nibh consequat in convallis amet,
-        scelerisque consequat est mi. Sit volutpat tincidunt aliquet nullam
-        pulvinar. Fusce vitae consequat urna dapibus dui egestas. Urna donec
-        amet volutpat elit pharetra tincidunt eu tortor.
-      </p>
-      <div class="image-articule-wrapper" />
-      <p class="second-part">
-        At aenean eleifend enim lorem elementum. Ut a quam sed facilisi cursus
-        facilisis odio. Ultricies volutpat faucibus mauris quisque faucibus
-        varius maecenas. Integer vestibulum malesuada et aliquam ultrices at
-        tellus mauris mattis. Nunc id quis facilisi sit odio vel. Mattis augue
-        quis vel nisi massa. Dignissim fames diam id eu. Aliquam, convallis
-        interdum egestas nisi in. Nibh dolor, turpis nunc arcu non dignissim
-        quam. Nibh adipiscing cursus lectus commodo. Sed facilisis orci,
-        fermentum aliquet. Purus sed nunc a facilisi quam amet.
-      </p>
+      <ArticleBody>
+        <div class="image-articule-wrapper" />
+      </ArticleBody>
     </div>
   </div>
   <div class="others-article">
-    <ArticuleCard />
+    <ArticleCard />
   </div>
   <Footer />
 </main>

@@ -1,5 +1,5 @@
 <script>
-  import Card from "../components/shared/Card.svelte";
+  import Card from "./shared/Card.svelte";
 </script>
 
 <style type="text/scss">
