@@ -1,12 +1,8 @@
 <script>
   import Footer from "../sections/Footer.svelte";
-<<<<<<< HEAD
   import ArticleCard from "../components/ArticleCard.svelte";
   import ArticleBody from "../components/shared/ArticleBody.svelte";
   import { articleAsesoria } from "../articles.js";
-=======
-  import ArticleCard from "../components/ArticuleCard.svelte";
->>>>>>> 9b03f51852324effd32993c740943ad4083ae3ed
 </script>
 
 <style type="text/scss">

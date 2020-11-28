@@ -163,12 +163,7 @@
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= maxWidthTablet}
         <div class="description-card-container">
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={1}
-            on:slideChange={() => console.log('slide change')}
-            on:swiper={(e) => console.log(e.detail[0])}
-          >
+          <Swiper spaceBetween={50} slidesPerView={1}>
             {#each productsData.productItems as product}
               <SwiperSlide>
                 <DescriptionCard>
