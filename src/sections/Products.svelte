@@ -128,11 +128,6 @@
       font-size: clamp(11px, 1.95vw, 15px) !important;
     }
   }
-
-  // .description-card-container {
-  //   display: flex;
-  //   width: 280vw;
-  // }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
