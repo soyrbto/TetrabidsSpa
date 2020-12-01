@@ -49,7 +49,6 @@
         .title-home {
           font-size: clamp(30px, 2.5vw, 48px);
           line-height: clamp(35px, 2.5vw, 48px);
-          font-style: normal;
           font-weight: bold;
         }
 

@@ -11,7 +11,7 @@
 
 <style>
   button {
-    width: 100%;
+    /* width: 100%; */
     border-radius: 50px;
     padding: 0px;
     border-style: none;
@@ -19,7 +19,7 @@
     font-family: "Josefin Sans", sans-serif;
     font-weight: 600;
     /*  META font-size 25px */
-    font-size: 2.31vh;
+    /* font-size: 2.31vh; */
     outline: none;
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
