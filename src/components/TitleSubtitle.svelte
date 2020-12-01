@@ -7,9 +7,7 @@
 
   onMount(async () => {
     try {
-      const res = await axios.get(
-        "https://gentle-taiga-50463.herokuapp.com/titles"
-      );
+      const res = await axios.get("https://tetrabids-cms.herokuapp.com/titles");
       title = res.data[0].mainTitle;
       console.log(title);
     } catch (e) {
