@@ -1,3 +1,23 @@
+<script>
+  import { onMount } from "svelte";
+  import axios from "axios";
+
+  let title;
+  let error;
+
+  onMount(async () => {
+    try {
+      const res = await axios.get(
+        "https://gentle-taiga-50463.herokuapp.com/titles"
+      );
+      title = res.data[0].mainTitle;
+      console.log(title);
+    } catch (e) {
+      error = e;
+    }
+  });
+</script>
+
 <style>
   h1 {
     display: inline-block;
@@ -20,4 +40,4 @@
   }
 </style>
 
-<h1>Tetrabids <span> Desarrollo web contigo</span></h1>
+<h1>{title} <span> Desarrollo web contigo</span></h1>
