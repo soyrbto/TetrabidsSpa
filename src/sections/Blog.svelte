@@ -90,7 +90,7 @@
                 #ec35f8 0%,
                 #3c26ab 100%
               );
-              -webkit-background-clip: text;
+              //   -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
             }
           }
