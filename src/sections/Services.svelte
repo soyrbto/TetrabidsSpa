@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import ServiceDescription from "../components/DescriptionCard.svelte";
   import Card from "../components/shared/Card.svelte";
-  import Button from "../components/shared/Button.svelte";
+  import Button from "../components/shared/Butto.svelte";
   import { colorButtonStore, maxWidthTablet, servBodyContent } from "../Stores";
   import { servicesData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";

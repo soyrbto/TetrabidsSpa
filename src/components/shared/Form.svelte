@@ -1,6 +1,6 @@
 <script>
   import Card from "../shared/Card.svelte";
-  import Button from "../shared/Button.svelte";
+  import Button from "./Button.svelte";
 
   let contactForm;
 </script>

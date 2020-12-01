@@ -1,7 +1,7 @@
 <script>
   import Footer from "../sections/Footer.svelte";
   import BlogCard from "../components/blogCard.svelte";
-  import Button from "../components/shared/Button.svelte";
+  import Button from "../components/shared/Butto.svelte";
 </script>
 
 <style type="text/scss">
