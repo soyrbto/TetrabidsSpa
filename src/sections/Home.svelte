@@ -2,7 +2,7 @@
   import Navbar from "../components/NavbarDesktop.svelte";
   import TitleSubtitle from "../components/TitleSubtitle.svelte";
   import Accordion from "../components/Accordion.svelte";
-  import Button from "../components/shared/Butto.svelte";
+  import Button from "../components/shared/Button.svelte";
   import Textures from "../components/Textures.svelte";
   import {
     screenDisplacer,
