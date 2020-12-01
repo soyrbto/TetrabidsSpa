@@ -2,6 +2,7 @@
   import Footer from "../sections/Footer.svelte";
   import BlogCard from "../components/blogCard.svelte";
   import Button from "../components/shared/Button.svelte";
+  import ButtonOutline from "../components/shared/ButtonOutline.svelte";
 </script>
 
 <style type="text/scss">
@@ -43,61 +44,22 @@
         }
 
         .description {
-          font-size: clamp(18px, 1.56vw, 30px);
-          line-height: 50px;
+          font-size: clamp(18px, 1.56vw, 28px);
+          line-height: clamp(35px, 2.6vw, 50px);
           margin: 29px 0 104px 0;
           color: #a5a1a1;
         }
 
         .wrapper-buttons {
           display: flex;
-          justify-content: space-between;
-          width: 50%;
 
-          .fill,
-          .outline {
+          .fill {
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: clamp(15px, 1.3vw, 29px);
-            height: 55px;
-            width: 165px;
-          }
-
-          .outline {
-            font-family: "Josefin Sans", sans-serif;
-            font-weight: 700;
-            border-radius: 50px;
-            border: solid 2px transparent;
-            background-image: linear-gradient(
-                rgba(255, 255, 255, 0),
-                rgba(255, 255, 255, 0)
-              ),
-              linear-gradient(180deg, #ec35f8 0%, #3c26ab 100%);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
-            box-shadow: 2px 1000px 1px #fff inset;
-            cursor: pointer;
-            outline: none;
-
-            &:hover {
-              transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
-              transform: translateY(-0.15em);
-            }
-
-            &:active {
-              transform: translateY(-0.5px);
-            }
-
-            span {
-              background: -webkit-linear-gradient(
-                90deg,
-                #ec35f8 0%,
-                #3c26ab 100%
-              );
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-            }
+            height: clamp(43px, 2.86vw, 60px);
+            width: clamp(130px, 8.59vw, 170px);
           }
         }
       }
@@ -105,7 +67,7 @@
       .right-column {
         height: 718px;
         width: 45%;
-        background: grey;
+        background: #c4c4c4;
         border-radius: 20px;
       }
     }
@@ -162,7 +124,7 @@
         <Button color="purple">
           <div class="fill">FAQ</div>
         </Button>
-        <button class="outline"><span>Contacto</span></button>
+        <ButtonOutline />
       </div>
     </div>
     <div class="right-column" />
