@@ -46,6 +46,7 @@
           font-size: clamp(18px, 1.56vw, 30px);
           line-height: 50px;
           margin: 29px 0 104px 0;
+          color: #a5a1a1;
         }
 
         .wrapper-buttons {
@@ -84,13 +85,17 @@
               transform: translateY(-0.15em);
             }
 
+            &:active {
+              transform: translateY(-0.5px);
+            }
+
             span {
               background: -webkit-linear-gradient(
                 90deg,
                 #ec35f8 0%,
                 #3c26ab 100%
               );
-              //   -webkit-background-clip: text;
+              -webkit-background-clip: text;
               -webkit-text-fill-color: transparent;
             }
           }
