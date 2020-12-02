@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import Footer from "../sections/Footer.svelte";
   import ArticleCard from "../components/ArticleCard.svelte";
   import ArticleBody from "../components/shared/ArticleBody.svelte";
@@ -6,7 +7,12 @@
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import "swiper/swiper.scss";
 
+  // export let params;
+
   let windowsWidth;
+  export let params;
+  let apiURL = "https://tetrabids-cms.herokuapp.com/titles/";
+  let error;
   $: slidesPerView = windowsWidth <= 414 ? 1 : windowsWidth >= 768 ? 3 : 2;
 </script>
 
@@ -254,7 +260,7 @@
   </div>
   <div class="home-wrapper">
     <div class="title-home-wrapper">
-      <h1 class="title-home">{articleAsesoria.title}</h1>
+      <h1 class="title-home">{articleAsesoria.title} {params}</h1>
       <p class="author">{articleAsesoria.author}, {articleAsesoria.date}</p>
     </div>
     <div class="image-wrapper" />

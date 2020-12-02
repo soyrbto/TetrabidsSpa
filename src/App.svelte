@@ -5,10 +5,12 @@
   import Blog from "./pages/Blog.svelte";
 
   let current = MainPage;
+  let params;
+
   page("/", () => (current = MainPage));
   page("/article", () => (current = Article));
   page("/blog", () => (current = Blog));
   page.start();
 </script>
 
-<svelte:component this={current} />
+<svelte:component this={current} params={params} />
