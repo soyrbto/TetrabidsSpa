@@ -1,13 +1,15 @@
 <script>
   import page from "page";
-  import MainPage from "./sections/MainPage.svelte";
-  import Article from "./sections/Article.svelte";
+  import MainPage from "./pages/MainPage.svelte";
+  import Article from "./pages/Article.svelte";
+  import Blog from "./pages/Blog.svelte";
 
   let current = MainPage;
   let params;
 
   page("/", () => (current = MainPage));
   page("/article", () => (current = Article));
+  page("/blog", () => (current = Blog));
   page.start();
 </script>
 

@@ -2,14 +2,13 @@
   .post-wrapper {
     display: inline-block;
     background: white;
-    width: 569px;
+    width: clamp(400px, 29.63vw, 569px);
     margin-bottom: 100px;
 
     .date {
       display: flex;
 
       .time-icon {
-        height: 20px;
         width: 20px;
         margin: 0 15px 0 20px;
         background-image: url("/images/time-icon.svg");
@@ -17,7 +16,7 @@
       }
 
       .date-text {
-        font-size: 20px;
+        font-size: clamp(15px, 1.04vw, 20px);
         line-height: 20px;
         font-weight: 700;
         color: #a5a1a1;
@@ -25,16 +24,16 @@
     }
 
     .image-post {
-      width: 569px;
-      height: 345px;
-      margin: 13px 0 50px 0;
+      width: 100%;
+      height: clamp(300px, 17.96vw, 345px);
+      margin: 13px 0 clamp(34px, 2.6vw, 50px) 0;
       border-radius: 20px;
       background: grey;
     }
 
     .title-post {
       text-align: center;
-      font-size: 48px;
+      font-size: clamp(34px, 2.5vw, 48px);
       font-weight: 700;
 
       a {
