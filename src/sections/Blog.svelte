@@ -3,6 +3,10 @@
   import BlogCard from "../components/blogCard.svelte";
   import Button from "../components/shared/Button.svelte";
   import ButtonOutline from "../components/shared/ButtonOutline.svelte";
+  import CheckboxCategories from "../components/CheckboxCategories.svelte";
+  import { areaCategories, experienceCategories } from "../StaticStore";
+
+  let windowsWidth;
 </script>
 
 <style type="text/scss">
@@ -37,14 +41,14 @@
         padding-right: 132px;
 
         .title {
-          font-size: clamp(30px, 2.5vw, 48px);
+          font-size: clamp(30px, 2.5vw, 55px);
           line-height: clamp(30px, 2.5vw, 48px);
           font-weight: 700;
           margin-top: 86px;
         }
 
         .description {
-          font-size: clamp(18px, 1.56vw, 28px);
+          font-size: clamp(18px, 1.5vw, 33px);
           line-height: clamp(35px, 2.6vw, 50px);
           margin: 29px 0 104px 0;
           color: #a5a1a1;
@@ -65,34 +69,34 @@
       }
 
       .right-column {
-        height: 718px;
+        height: clamp(510px, 37.39vw, 718px);
         width: 45%;
         background: #c4c4c4;
         border-radius: 20px;
       }
     }
 
-    .navbar-categories {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 304px;
-      background: white;
-      font-weight: 600;
+    // .navbar-categories {
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   height: 304px;
+    //   background: white;
+    //   font-weight: 600;
 
-      ul {
-        display: flex;
-        justify-content: space-evenly;
-        font-size: 30px;
-        list-style: none;
-        width: 60%;
-        margin: 0;
+    //   ul {
+    //     display: flex;
+    //     justify-content: space-evenly;
+    //     font-size: clamp(25px, 1.56vw, 35px);
+    //     list-style: none;
+    //     width: 60%;
+    //     margin: 0;
 
-        li {
-          cursor: pointer;
-        }
-      }
-    }
+    //     li {
+    //       cursor: pointer;
+    //     }
+    //   }
+    // }
 
     .section-articles {
       padding: 0 2.5%;
@@ -107,6 +111,8 @@
     }
   }
 </style>
+
+<svelte:window bind:innerWidth={windowsWidth} />
 
 <main class="page-content">
   <div class="header">
@@ -129,14 +135,12 @@
     </div>
     <div class="right-column" />
   </div>
+
   <div class="navbar-categories">
-    <ul>
-      <li>Categoria 1</li>
-      <li>Categoria 2</li>
-      <li>Categoria 3</li>
-      <li>Categoria 4</li>
-    </ul>
+    <!-- <CheckboxCategories items={arreglo} /> -->
+    <CheckboxCategories items={areaCategories} />
   </div>
+
   <div class="section-articles">
     <div class="wrapper-articles">
       <BlogCard />

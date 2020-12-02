@@ -3,6 +3,7 @@
   import { contactData } from "../StaticStore";
   import Form from "../components/shared/Form.svelte";
   import { maxWidthTablet } from "../Stores";
+
   let windowsWidth;
 </script>
 
