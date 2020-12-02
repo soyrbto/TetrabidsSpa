@@ -1,8 +1,8 @@
 <script>
   import page from "page";
-  import MainPage from "./sections/MainPage.svelte";
-  import Article from "./sections/Article.svelte";
-  import Blog from "./sections/Blog.svelte";
+  import MainPage from "./pages/MainPage.svelte";
+  import Article from "./pages/Article.svelte";
+  import Blog from "./pages/Blog.svelte";
 
   let current = MainPage;
   page("/", () => (current = MainPage));
