@@ -5,7 +5,6 @@
   import ButtonOutline from "../components/shared/ButtonOutline.svelte";
   import CheckboxCategories from "../components/CheckboxCategories.svelte";
   import { areaCategories, experienceCategories } from "../StaticStore";
-
   let windowsWidth;
 </script>
 
@@ -20,7 +19,7 @@
       align-items: center;
       height: clamp(120px, 7.81vw, 151px);
       border-radius: 0 0 0 80px;
-      background: #ffbe0b;
+      background: #0082ba;
 
       .logo {
         padding: 0 40px;
@@ -50,8 +49,14 @@
         .description {
           font-size: clamp(18px, 1.5vw, 33px);
           line-height: clamp(35px, 2.6vw, 50px);
-          margin: 29px 0 104px 0;
+          margin: clamp(25px, 1.56vw, 30px) 0 clamp(60px, 4.16vw, 80px) 0;
           color: #a5a1a1;
+        }
+
+        @media screen and (max-width: 768px) {
+          .description {
+            margin: 20px 0 40px 0;
+          }
         }
 
         .wrapper-buttons {
@@ -68,35 +73,45 @@
         }
       }
 
+      @media screen and (max-width: 768px) {
+        .left-column {
+          width: 100%;
+          padding-right: 0;
+        }
+      }
+
       .right-column {
         height: clamp(510px, 37.39vw, 718px);
         width: 45%;
         background: #c4c4c4;
         border-radius: 20px;
       }
+
+      @media screen and (max-width: 768px) {
+        .right-column {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 414px) {
+        .right-column {
+          height: 350px;
+        }
+      }
     }
 
-    // .navbar-categories {
-    //   display: flex;
-    //   justify-content: center;
-    //   align-items: center;
-    //   height: 304px;
-    //   background: white;
-    //   font-weight: 600;
+    @media screen and (max-width: 768px) {
+      .section-start {
+        flex-direction: column-reverse;
+        padding-top: 10%;
+      }
+    }
 
-    //   ul {
-    //     display: flex;
-    //     justify-content: space-evenly;
-    //     font-size: clamp(25px, 1.56vw, 35px);
-    //     list-style: none;
-    //     width: 60%;
-    //     margin: 0;
-
-    //     li {
-    //       cursor: pointer;
-    //     }
-    //   }
-    // }
+    .categories-article {
+      display: flex;
+      flex-direction: column;
+      padding: 70px 10%;
+    }
 
     .section-articles {
       padding: 0 2.5%;
@@ -107,6 +122,12 @@
         justify-content: space-between;
         flex-wrap: wrap;
         height: 100%;
+      }
+
+      @media screen and (max-width: 768px) {
+        .wrapper-articles {
+          justify-content: space-around;
+        }
       }
     }
   }
@@ -136,9 +157,13 @@
     <div class="right-column" />
   </div>
 
-  <div class="navbar-categories">
-    <!-- <CheckboxCategories items={arreglo} /> -->
-    <CheckboxCategories items={areaCategories} />
+  <div class="categories-article">
+    <div class="area">
+      <CheckboxCategories categories={areaCategories} />
+    </div>
+    <div class="experience">
+      <CheckboxCategories categories={experienceCategories} />
+    </div>
   </div>
 
   <div class="section-articles">

@@ -2,7 +2,7 @@
   .post-wrapper {
     display: inline-block;
     background: white;
-    width: clamp(400px, 29.63vw, 569px);
+    width: clamp(315px, 29.63vw, 569px);
     margin-bottom: 100px;
 
     .date {
