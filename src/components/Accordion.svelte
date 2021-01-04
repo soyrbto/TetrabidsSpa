@@ -63,10 +63,6 @@
     }
   }
 
-  .container-open {
-    height: auto;
-  }
-
   .container-open > .title,
   .container-open button {
     cursor: auto;
