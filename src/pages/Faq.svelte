@@ -1,10 +1,7 @@
 <script>
   import Footer from "../sections/Footer.svelte";
-  import BlogCard from "../components/blogCard.svelte";
   import Button from "../components/shared/Button.svelte";
   import ButtonOutline from "../components/shared/ButtonOutline.svelte";
-  import CheckboxCategories from "../components/CheckboxCategories.svelte";
-  import { areaCategories, experienceCategories } from "../StaticStore";
   let windowsWidth;
 </script>
 
@@ -107,28 +104,9 @@
       }
     }
 
-    .categories-article {
-      display: flex;
-      flex-direction: column;
-      padding: 70px 10%;
-    }
-
-    .section-articles {
-      padding: 0 2.5%;
-      background-color: white;
-
-      .wrapper-articles {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        height: 100%;
-      }
-
-      @media screen and (max-width: 768px) {
-        .wrapper-articles {
-          justify-content: space-around;
-        }
-      }
+    .acordeon-wrapper {
+      height: 1000px;
+      background: white;
     }
   }
 </style>
@@ -141,7 +119,7 @@
   </div>
   <div class="section-start">
     <div class="left-column">
-      <div class="title">Blog</div>
+      <div class="title">FAQ</div>
       <div class="description">
         consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet
         volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat.
@@ -149,30 +127,13 @@
       </div>
       <div class="wrapper-buttons">
         <Button color="purple">
-          <div class="fill">FAQ</div>
+          <div class="fill">Blog</div>
         </Button>
         <ButtonOutline />
       </div>
     </div>
     <div class="right-column" />
   </div>
-
-  <div class="categories-article">
-    <div class="area">
-      <CheckboxCategories categories={areaCategories} />
-    </div>
-    <div class="experience">
-      <CheckboxCategories categories={experienceCategories} />
-    </div>
-  </div>
-
-  <div class="section-articles">
-    <div class="wrapper-articles">
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-    </div>
-  </div>
+  <div class="acordeon-wrapper" />
   <Footer />
 </main>

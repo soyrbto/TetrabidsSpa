@@ -1,16 +1,19 @@
+<script>
+  export let categories;
+</script>
+
 <style>
   .container {
-    max-width: 640px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 13px;
+    font-size: clamp(13px, 0.9375vw, 18px);
   }
 
   ul.ks-cboxtags {
     list-style: none;
-    padding: 20px;
   }
   ul.ks-cboxtags li {
     display: inline;
+    margin-right: 20px;
   }
   ul.ks-cboxtags li label {
     display: inline-block;
@@ -34,29 +37,9 @@
     cursor: pointer;
   }
 
-  ul.ks-cboxtags li label::before {
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 12px;
-    padding: 2px 6px 2px 2px;
-    content: "\f067";
-    transition: transform 0.3s ease-in-out;
-  }
-
-  ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
-    content: "\f00c";
-    transform: rotate(-360deg);
-    transition: transform 0.3s ease-in-out;
-  }
-
   ul.ks-cboxtags li input[type="checkbox"]:checked + label {
-    border: 2px solid #1bdbf8;
-    background-color: #12bbd4;
+    border: 2px solid #eeb20d;
+    background-color: #ffbe0b;
     color: #fff;
     transition: all 0.2s;
   }
@@ -68,17 +51,19 @@
     position: absolute;
     opacity: 0;
   }
-  ul.ks-cboxtags li input[type="checkbox"]:focus + label {
-    border: 2px solid #e9a1ff;
-  }
+  /* ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+    border: 2px solid rgba(139, 139, 139, 0.3);
+  } */
 </style>
 
 <div class="container">
   <ul class="ks-cboxtags">
-    <li>
-      <input type="checkbox" id="checkboxOne" value="Rainbow Dash" /><label
-        for="checkboxOne"
-      >Rainbow Dash</label>
-    </li>
+    {#each categories as area, i}
+      <li>
+        <input type="checkbox" id={area} value={area} /><label
+          for={area}
+        >{@html area}</label>
+      </li>
+    {/each}
   </ul>
 </div>
