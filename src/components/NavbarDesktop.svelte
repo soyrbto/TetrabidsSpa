@@ -52,8 +52,12 @@
 
 <nav>
   <ul>
-    {#each navbarItems as item}
-      <li on:click={(e) => navbarMove(e)}>{item}</li>
+    {#each navbarItems as item, i}
+      {#if i < 2}
+        <li on:click={(e) => navbarMove(e)}>{item}</li>
+      {:else}
+        <li><a href={'www.tetrabids.com/' + item}>{item}</a></li>
+      {/if}
     {/each}
   </ul>
 </nav>
