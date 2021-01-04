@@ -25,6 +25,11 @@
     width: clamp(450px, 33.2vw, 750px);
   }
 
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
   ul {
     /* META HEIGH 125PX */
     display: flex;
