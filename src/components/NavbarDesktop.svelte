@@ -56,7 +56,7 @@
       {#if i < 2}
         <li on:click={(e) => navbarMove(e)}>{item}</li>
       {:else}
-        <li><a href={'www.tetrabids.com/' + item}>{item}</a></li>
+        <li><a href={'/' + item}>{item}</a></li>
       {/if}
     {/each}
   </ul>
