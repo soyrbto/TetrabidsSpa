@@ -13,7 +13,7 @@
     justify-content: space-between;
     padding: 5%;
     width: 78.65vw;
-    height: clamp(620px, 40.15vw, 1025px);
+    height: clamp(450px, 40.15vw, 1025px);
     // height: 71.4vh;
 
     .col-1 {

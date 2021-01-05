@@ -47,7 +47,7 @@
     //  META WIDTH 1511PX
     width: 78.65vw;
     // height: 71.4vh;
-    height: clamp(620px, 40.15vw, 1025px);
+    height: clamp(450px, 40.15vw, 1025px);
 
     .col-1 {
       display: flex;
@@ -66,10 +66,12 @@
         .abstract {
           font-weight: 400;
           margin-top: 28px;
-          font-family: var(--par-typo);
+          font-family: "Josefin Sans", sans-serif;
           /* meta font size 14px */
-          font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+          // font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+          font-size: clamp(14px, 0.93vw, 25px);
           line-height: clamp(22px, 1.69vw, 32.5px);
+          text-align: justify;
         }
       }
     }
