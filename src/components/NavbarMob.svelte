@@ -68,7 +68,7 @@
   .nav.open {
     background-color: rgba(0, 0, 0, 0.98);
     width: 100vw;
-    height: 800px;
+    height: 100vh; /** 800px*/
     position: absolute;
     right: 0px;
     top: 0px;
