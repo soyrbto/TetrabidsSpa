@@ -81,6 +81,12 @@
     pointer-events: visible;
   }
 
+  @media only screen and (min-width: 768px) {
+    .nav.open {
+      height: 800px;
+    }
+  }
+
   .nav__list {
     display: none;
   }
