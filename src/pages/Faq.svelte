@@ -23,6 +23,11 @@
         color: white;
         font-size: clamp(50px, 2.6vw, 70px);
         font-weight: 700;
+
+        .logo-title {
+          text-decoration: none;
+          color: white;
+        }
       }
     }
 
@@ -66,6 +71,11 @@
             font-size: clamp(15px, 1.3vw, 29px);
             height: clamp(43px, 2.86vw, 60px);
             width: clamp(130px, 8.59vw, 170px);
+
+            .button-faq {
+              text-decoration: none;
+              color: white;
+            }
           }
         }
       }
@@ -115,7 +125,7 @@
 
 <main class="page-content">
   <div class="header">
-    <div class="logo">Tetrabids</div>
+    <div class="logo"><a class="logo-title" href="/">Tetrabids</a></div>
   </div>
   <div class="section-start">
     <div class="left-column">
@@ -127,7 +137,7 @@
       </div>
       <div class="wrapper-buttons">
         <Button color="purple">
-          <div class="fill">Blog</div>
+          <div class="fill"><a class="button-faq" href="/blog">Blog</a></div>
         </Button>
         <ButtonOutline />
       </div>
