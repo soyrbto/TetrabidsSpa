@@ -71,6 +71,11 @@
             font-size: clamp(15px, 1.3vw, 29px);
             height: clamp(43px, 2.86vw, 60px);
             width: clamp(130px, 8.59vw, 170px);
+
+            .button-faq {
+              text-decoration: none;
+              color: white;
+            }
           }
         }
       }
@@ -132,7 +137,7 @@
       </div>
       <div class="wrapper-buttons">
         <Button color="purple">
-          <div class="fill">Blog</div>
+          <div class="fill"><a class="button-faq" href="/blog">Blog</a></div>
         </Button>
         <ButtonOutline />
       </div>
