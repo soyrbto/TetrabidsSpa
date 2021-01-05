@@ -3,7 +3,12 @@
   import ServiceDescription from "../components/DescriptionCard.svelte";
   import Card from "../components/shared/Card.svelte";
   import Button from "../components/shared/Button.svelte";
-  import { colorButtonStore, maxWidthTablet, servBodyContent } from "../Stores";
+  import {
+    colorButtonStore,
+    maxWidthTablet,
+    servBodyContent,
+    shortener,
+  } from "../Stores";
   import { servicesData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import "swiper/swiper.scss";
@@ -186,7 +191,7 @@
       <ServiceDescription>
         <div class="title" slot="title">{$servBodyContent}</div>
         <div class="body" slot="body">
-          {@html servicesData[$servBodyContent]}
+          {@html shortener(servicesData[$servBodyContent], 280)}
         </div>
       </ServiceDescription>
     {/if}
