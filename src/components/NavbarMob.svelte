@@ -47,6 +47,7 @@
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    transition: all 500ms ease-in-out;
   }
 
   .menu {
