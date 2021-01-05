@@ -105,6 +105,13 @@
     animation-fill-mode: forwards;
   }
 
+  a {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+  }
+
   .nav__item:nth-child(1) {
     animation-delay: 0.2s;
   }
@@ -153,9 +160,13 @@
     </div>
     <nav on:click={clicked} class:open={$navShow} class="nav js-nav">
       <ul class:show={$navShow} class="nav__list js-nav__list">
-        {#each navbarItems as navbarItem}
+        {#each navbarItems as navbarItem, i}
           <li class="nav__item">
-            <div on:click={clickedItem} class="nav__link">{navbarItem}</div>
+            {#if i < 2}
+              <div on:click={clickedItem} class="nav__link">{navbarItem}</div>
+            {:else}
+              <div><a href={'/' + navbarItem}>{navbarItem}</a></div>
+            {/if}
           </li>
         {/each}
       </ul>
