@@ -115,7 +115,7 @@
   }
 </style>
 
-<Card>
+<!-- <Card>
   <div class="column-wrapper">
     <form
       name="contact"
@@ -167,4 +167,14 @@
       </div>
     </form>
   </div>
+</Card> -->
+
+<Card>
+  <form class="svelte-1j5unvj" method="POST" name="contact" data-netlify="true">
+    <p><label>Name<input name="name" /></label></p>
+    <p><label>Email<input name="email" /></label></p>
+    <p><label>Telephone<input name="telephone" /></label></p>
+    <input name="form-name" type="hidden" value="contact" />
+    <button type="submit">Reach out</button>
+  </form>
 </Card>
