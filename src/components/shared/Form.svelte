@@ -120,7 +120,7 @@
     <form
       name="contact"
       method="POST"
-      netlify
+      data-netlify="true"
       autocomplete="off"
       class="form-wrapper"
       bind:this={contactForm}
@@ -159,6 +159,7 @@
         />
         <label for="message">mensaje</label>
       </div>
+      <input name="form-name" type="hidden" value="contact" />
       <div class="button-wrapper">
         <Button>
           <div class="button-content">Enviar</div>
