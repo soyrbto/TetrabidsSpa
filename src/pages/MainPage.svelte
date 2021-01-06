@@ -38,42 +38,36 @@
 
   //funcion que hace la traslacion si el ancho de pantalla es mayor a 980
   const sectionDriver = (e) => {
-    console.log("1");
-    if (windowsWidth > maxWidthTablet) {
-      e.preventDefault();
-      if (windowsWidth > 200) {
-        if (active == true) {
-          let target = e.currentTarget.getAttribute("id");
-          let currentIndex = desktopSection.findIndex((el) => el === target);
-          let nextIndex = e.deltaY > 0 ? currentIndex + 1 : currentIndex - 1;
+    e.preventDefault();
+    if (active == true) {
+      let target = e.currentTarget.getAttribute("id");
+      let currentIndex = desktopSection.findIndex((el) => el === target);
+      let nextIndex = e.deltaY > 0 ? currentIndex + 1 : currentIndex - 1;
 
-          //evita que siga debajo de section container o antes de home
-          if (nextIndex < 0) nextIndex = 0;
-          if (target !== "Home") {
-            nextIndex = 1;
-            let currentIndex = secNavbarItems.findIndex(
-              (el) => el === $displayedSection
-            );
-            e.deltaY > 0
-              ? (nextIndex = currentIndex + 1)
-              : (nextIndex = currentIndex - 1);
+      //evita que siga debajo de section container o antes de home
+      if (nextIndex < 0) nextIndex = 0;
+      if (target !== "Home") {
+        nextIndex = 1;
+        let currentIndex = secNavbarItems.findIndex(
+          (el) => el === $displayedSection
+        );
+        e.deltaY > 0
+          ? (nextIndex = currentIndex + 1)
+          : (nextIndex = currentIndex - 1);
+        if (nextIndex >= 2) nextIndex = 2;
+        if (nextIndex < 0) nextIndex = 0;
+        changeSection(secNavbarItems[nextIndex]);
+      }
 
-            if (nextIndex >= 2) nextIndex = 2;
-            if (nextIndex < 0) nextIndex = 0;
-            changeSection(secNavbarItems[nextIndex]);
-          }
-
-          if (
-            $displayedSection == secNavbarItems[0] ||
-            target == desktopSection[0]
-          ) {
-            let startPosition, targetPosition;
-            // se llama el movimiento en base a la ubicacion de la pantalla y 750ms despues se habilita de nuevo
-            startPosition = query(`#${desktopSection[currentIndex]}`).offsetTop;
-            targetPosition = query(`#${desktopSection[nextIndex]}`).offsetTop;
-            screenDisplacer(startPosition, targetPosition, 750);
-          }
-        }
+      if (
+        $displayedSection == secNavbarItems[0] ||
+        target == desktopSection[0]
+      ) {
+        let startPosition, targetPosition;
+        // se llama el movimiento en base a la ubicacion de la pantalla y 750ms despues se habilita de nuevo
+        startPosition = query(`#${desktopSection[currentIndex]}`).offsetTop;
+        targetPosition = query(`#${desktopSection[nextIndex]}`).offsetTop;
+        screenDisplacer(startPosition, targetPosition, 750);
       }
     }
   };

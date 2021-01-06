@@ -1,18 +1,13 @@
 <script>
   import { navbarItems, secNavbarItems } from "../StaticStore";
   import NavButton from "./NavButton.svelte";
-  import {
-    maxWidthTablet,
-    navbarState as navShow,
-    nodeSections,
-    screenDisplacer,
-  } from "../Stores";
+  import { navbarState, nodeSections, screenDisplacer } from "../Stores";
 
   let target;
 
   const clicked = () => {
-    if ($navShow == true) {
-      navShow.update((el) => !el);
+    if ($navbarState == true) {
+      navbarState.update((el) => !el);
     }
   };
 
@@ -33,6 +28,10 @@
   };
 
   let windowsWidth;
+
+  const toCreate = (e) => {
+    e.preventDefault();
+  };
 </script>
 
 <style>
@@ -66,9 +65,10 @@
   }
 
   .nav.open {
+    touch-action: none;
     background-color: rgba(0, 0, 0, 0.98);
     width: 100vw;
-    height: 100vh; /** 800px*/
+    height: 120vh;
     position: absolute;
     right: 0px;
     top: 0px;
@@ -158,14 +158,14 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 {#if windowsWidth <= 768}
-  <nav>
-    <div class:active={$navShow} class="menu js-menu">
+  <nav on:wheel={toCreate}>
+    <div class:active={$navbarState} class="menu js-menu">
       <div class="button">
         <NavButton />
       </div>
     </div>
-    <nav on:click={clicked} class:open={$navShow} class="nav js-nav">
-      <ul class:show={$navShow} class="nav__list js-nav__list">
+    <nav on:click={clicked} class:open={$navbarState} class="nav js-nav">
+      <ul class:show={$navbarState} class="nav__list js-nav__list">
         {#each navbarItems as navbarItem, i}
           <li class="nav__item">
             {#if i < 2}
