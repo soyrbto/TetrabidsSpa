@@ -5,21 +5,21 @@
   let contactForm;
   let nameField, emailField, messageField;
 
-  const handleSubmit = () => {
-    let myForm = contactForm;
-    let formData = new FormData(myForm);
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => console.log("Form successfully submitted"))
-      .catch((error) => alert(error));
+  // const handleSubmit = () => {
+  //   let myForm = contactForm;
+  //   let formData = new FormData(myForm);
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: new URLSearchParams(formData).toString(),
+  //   })
+  //     .then(() => console.log("Form successfully submitted"))
+  //     .catch((error) => alert(error));
 
-    nameField.value = "";
-    emailField.value = "";
-    messageField.value = "";
-  };
+  //   nameField.value = "";
+  //   emailField.value = "";
+  //   messageField.value = "";
+  // };
 </script>
 
 <style type="text/scss">
@@ -118,23 +118,22 @@
 <Card>
   <div class="column-wrapper">
     <form
-      on:submit|preventDefault={handleSubmit}
+      action="POST"
       data-netlify="true"
       autocomplete="off"
       class="form-wrapper"
       bind:this={contactForm}
     >
       <!-- inputs required by mailchimp -->
-      <input type="hidden" />
-      <input type="hidden" />
 
       <div class="group">
         <input
           required
           type="text"
           class="fields"
-          id="name"
+          name="name"
           bind:this={nameField}
+          id="name"
         />
         <label for="name">nombre</label>
       </div>
@@ -143,6 +142,7 @@
           bind:this={emailField}
           required
           type="email"
+          name="email"
           autocapitalize="off"
           autocorrect="off"
           class="fields"
@@ -157,6 +157,7 @@
           type="text"
           style="resize:none"
           class="fields"
+          name="message"
           id="message"
         />
         <label for="message">mensaje</label>
