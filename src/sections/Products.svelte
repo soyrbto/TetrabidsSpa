@@ -5,8 +5,14 @@
   import DescriptionCard from "../components/DescriptionCard.svelte";
   import { colorButtonStore, maxWidthTablet, prodBodyContent } from "../Stores";
   import { productsData } from "../StaticStore";
+
   import { Swiper, SwiperSlide } from "swiper/svelte";
+  import SwiperCore, { Pagination } from "swiper";
+
   import "swiper/swiper.scss";
+  import "swiper/components/pagination/pagination.scss";
+
+  SwiperCore.use([Pagination]);
 
   let buttonColor = {};
   let windowsWidth;
@@ -122,7 +128,7 @@
 
     .title {
       text-align: center;
-      font-size: clamp(23px, 4.7vw, 32px) !important;
+      font-size: clamp(23px, 4vw, 32px) !important;
     }
 
     .abstract {
@@ -161,7 +167,12 @@
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= maxWidthTablet}
         <div class="description-card-container">
-          <Swiper spaceBetween={50} slidesPerView={1}>
+          <Swiper
+            pagination={{ clickable: true }}
+            spaceBetween={10}
+            breakpoints={{ 768: { slidesPerView: 2 } }}
+            style={'overflow:visible; position:initial'}
+          >
             {#each productsData.productItems as product}
               <SwiperSlide>
                 <DescriptionCard>
