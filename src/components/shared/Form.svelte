@@ -101,18 +101,18 @@
 <Card>
   <div class="column-wrapper">
     <form
-      action="https://gmail.us20.list-manage.com/subscribe/post"
+      data-netlify="true"
       method="POST"
       autocomplete="off"
       class="form-wrapper"
       bind:this={contactForm}
     >
       <!-- inputs required by mailchimp -->
-      <input type="hidden" name="u" value="eb9c1122d296246ef41758af5" />
-      <input type="hidden" name="id" value="9828761d8d" />
+      <input type="hidden" />
+      <input type="hidden" />
 
       <div class="group">
-        <input required type="text" name="MERGE1" class="fields" id="name" />
+        <input required type="text" class="fields" id="name" />
         <label for="name">nombre</label>
       </div>
       <div class="group">
@@ -121,7 +121,6 @@
           type="email"
           autocapitalize="off"
           autocorrect="off"
-          name="MERGE0"
           class="fields"
           id="email"
         />
@@ -131,7 +130,6 @@
         <textarea
           required
           type="text"
-          name="MERGE6"
           style="resize:none"
           class="fields"
           id="message"
