@@ -3,6 +3,13 @@
   import Button from "./Button.svelte";
 
   let contactForm;
+  let nameField, emailField, messageField;
+
+  const handleSubmit = () => {
+    nameField.value = "";
+    emailField.value = "";
+    messageField.value = "";
+  };
 </script>
 
 <style type="text/scss">
@@ -101,6 +108,7 @@
 <Card>
   <div class="column-wrapper">
     <form
+      on:submit|preventDefault={handleSubmit}
       data-netlify="true"
       method="POST"
       autocomplete="off"
@@ -112,11 +120,18 @@
       <input type="hidden" />
 
       <div class="group">
-        <input required type="text" class="fields" id="name" />
+        <input
+          required
+          type="text"
+          class="fields"
+          id="name"
+          bind:this={nameField}
+        />
         <label for="name">nombre</label>
       </div>
       <div class="group">
         <input
+          bind:this={emailField}
           required
           type="email"
           autocapitalize="off"
@@ -129,6 +144,7 @@
       <div class="group">
         <textarea
           required
+          bind:this={messageField}
           type="text"
           style="resize:none"
           class="fields"
