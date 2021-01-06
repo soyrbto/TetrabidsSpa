@@ -28,17 +28,17 @@ const servicesData = {
   abstract:
     "Tambien suelen ser las fases de desarrollo de una aplicacion movil o web, en el caso de paginas institucionales o landing page, algunas fases son muy simples aunque igual estan presentes.",
   serviceItems: [
-    "asesoria",
-    "seudocódigo",
+    "Asesoria",
+    "Seudocódigo",
     "UI UX",
     "Desarrollo",
     "Optimizacion",
     "Mantenimiento",
   ],
-  asesoria: `En la actualidad hay muchas maneras diferentes de desarrollar una pagina o aplicacion, cada una con sus distintos pro y contras. <br>
+  Asesoria: `En la actualidad hay muchas maneras diferentes de desarrollar una pagina o aplicacion, cada una con sus distintos pro y contras. <br>
    <br>
    Elegir desde el principio el camino que deseas, y conocer los costos asociados de los diferentes acercamientos, es el primer paso para evitar gastos innecesarios a futuro, y perdidas de tiempo...`,
-  seudocódigo: `El seudocódigo es la estructura lógica sin escribir código realmente. Tenerlo desde fases tempranas, ayuda a tener una idea general del proyecto, crear una mejor arquitectura y tomar mejores decisiones. <br>
+  Seudocódigo: `El seudocódigo es la estructura lógica sin escribir código realmente. Tenerlo desde fases tempranas, ayuda a tener una idea general del proyecto, crear una mejor arquitectura y tomar mejores decisiones. <br>
    <br>
    además de que le permite al dueño del producto estar seguro que todas las características tienen su lugar y no tendrá que pasar por el proceso de agregar y buscarles lugar a mitad del desarrollo.`,
   "UI UX": `UI y UX o, interfaz de usuario y experiencia de usuario, es el diseño de los componentes visuales, e interactivos de cualquier página o aplicación.<br>

@@ -84,6 +84,24 @@ function linear(t, b, c, d) {
   return (c * t) / d + b;
 }
 
+// function that shorten a text in a variable and add the view more at the end
+
+let viewMore = "ver mas...";
+
+const shortener = (mText, numbWords) => {
+  let longitud = mText.length;
+  let position = mText.lastIndexOf(" ", numbWords);
+  mText = mText.slice(0, position);
+
+  if (numbWords < longitud) {
+    mText = mText + `<span> ${viewMore} </span>`;
+  }
+
+  console.log(longitud + " " + position);
+
+  return mText;
+};
+
 // navbarState is used for controlling the button state and the navbar state
 
 let navbarState = writable(false);
@@ -102,4 +120,5 @@ export {
   prodBodyContent,
   navbarState,
   nodeSections,
+  shortener,
 };

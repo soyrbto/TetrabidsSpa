@@ -27,12 +27,14 @@
       }
 
       .service-body {
-        line-height: 175%;
-        letter-spacing: 0.08em;
+        // line-height: 175%;
+        line-height: clamp(22px, 1.69vw, 32.5px);
+        //letter-spacing: 0.08em;
         font-weight: 400;
-        font-family: var(--par-typo);
+        font-family: "Josefin Sans", sans-serif;
         /* meta font size 14px */
-        font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+        // font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
+        font-size: clamp(14px, 0.93vw, 25px);
         //META height 300px
         height: clamp(217px, 15.625vw, 400px);
         overflow: hidden;
