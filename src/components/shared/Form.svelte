@@ -118,13 +118,14 @@
 <Card>
   <div class="column-wrapper">
     <form
-      data-netlify="true"
+      name="contact"
+      method="POST
+      "
+      netlify
       autocomplete="off"
       class="form-wrapper"
       bind:this={contactForm}
     >
-      <!-- inputs required by mailchimp -->
-
       <div class="group">
         <input
           required
