@@ -119,8 +119,7 @@
   <div class="column-wrapper">
     <form
       name="contact"
-      method="POST
-      "
+      method="POST"
       netlify
       autocomplete="off"
       class="form-wrapper"
