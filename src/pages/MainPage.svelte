@@ -89,6 +89,13 @@
     main {
       // height: 3200px !important;
       height: auto !important;
+      background: linear-gradient(
+        180deg,
+        #0082ba 0%,
+        #361081 31.36%,
+        #23074b 47.19%,
+        #fff 57.34%
+      ) !important;
     }
 
     .home-wrapper {
@@ -219,6 +226,7 @@
         class="slide-in-right {secNavbarItems[2]}"
         id={visibleSections[2]}
         bind:this={contact}
+        style="margin-top: 60px;"
       >
         <Contact />
       </div>
