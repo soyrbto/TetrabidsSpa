@@ -3,8 +3,6 @@
   import axios from "axios";
   import Footer from "../sections/Footer.svelte";
   import ArticleCard from "../components/ArticleCard.svelte";
-  import ArticleBody from "../components/shared/ArticleBody.svelte";
-  import { articleAsesoria } from "../articles.js";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import "swiper/swiper.scss";
 
@@ -12,17 +10,19 @@
 
   let windowsWidth;
   //export let params;
-  // let apiURL = "https://tetrabids-cms.herokuapp.com/titles/";
+
   $: slidesPerView = windowsWidth <= 414 ? 1 : windowsWidth >= 768 ? 3 : 2;
 
   let titleArticle;
   let authorArticle;
   let dateArticle;
   let imageArticle;
+  let tldrArticle;
   let bodyArticle;
 
   let error;
 
+  // connection with strapi
   onMount(async () => {
     try {
       const res = await axios.get(
@@ -32,12 +32,20 @@
       authorArticle = res.data[0].author;
       dateArticle = res.data[0].published_at;
       imageArticle = res.data[0].presentationImage[0].url;
+      tldrArticle = res.data[0].tldr;
       bodyArticle = res.data[0].body;
       console.log(res);
     } catch (e) {
       error = e;
     }
   });
+
+  // convert MARKDOWN to html
+  let md;
+
+  const initializeRemarkable = () => {
+    md = new window.remarkable.Remarkable();
+  };
 </script>
 
 <style type="text/scss">
@@ -60,6 +68,11 @@
         font-weight: 600;
         font-size: clamp(50px, 2.6vw, 70px);
         line-height: 70px;
+
+        .logo-title {
+          text-decoration: none;
+          color: white;
+        }
       }
     }
 
@@ -91,7 +104,6 @@
       }
 
       .image-wrapper {
-        // background-image: url("/images/home-image.svg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;
@@ -277,10 +289,16 @@
   }
 </style>
 
+<svelte:head>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/2.0.0/remarkable.min.js"
+    on:load={initializeRemarkable}>
+  </script>
+</svelte:head>
 <svelte:window bind:innerWidth={windowsWidth} />
 <main class="page-content">
   <div class="header">
-    <div class="logo">Tetrabids</div>
+    <div class="logo"><a class="logo-title" href="/">Tetrabids</a></div>
   </div>
   <div class="home-wrapper">
     <div class="title-home-wrapper">
@@ -309,23 +327,18 @@
     <div class="tldr-title">Tl;dr = Muy largo, no lo leere</div>
   </div>
   <div class="tldr-wrapper">
-    <p class="tldr">
-      Tl;dr consectetur adipiscing elit. Auctor vestibulum proin tempor eget
-      amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat
-      volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien
-      sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus
-      aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet
-      mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis
-      ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce
-      sit malesuada tempus fringilla.
-    </p>
+    <p class="tldr">{tldrArticle}</p>
   </div>
   <div class="main-article-wrapper">
     <div class="title-articule-wrapper">
       <h2 class="title-articule">{titleArticle}</h2>
       <p class="reading-time">Tiempo de lectura 5 min</p>
     </div>
-    <div class="body-article">{bodyArticle}</div>
+    <div class="body-article">
+      {#if md}
+        {@html md.render(bodyArticle)}
+      {/if}
+    </div>
   </div>
   <div class="others-article">
     <Swiper spaceBetween={50} slidesPerView={slidesPerView}>
