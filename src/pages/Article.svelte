@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import axios from "axios";
   import Footer from "../sections/Footer.svelte";
   import ArticleCard from "../components/ArticleCard.svelte";
   import ArticleBody from "../components/shared/ArticleBody.svelte";
@@ -10,10 +11,33 @@
   // export let params;
 
   let windowsWidth;
-  export let params;
-  let apiURL = "https://tetrabids-cms.herokuapp.com/titles/";
-  let error;
+  //export let params;
+  // let apiURL = "https://tetrabids-cms.herokuapp.com/titles/";
   $: slidesPerView = windowsWidth <= 414 ? 1 : windowsWidth >= 768 ? 3 : 2;
+
+  let titleArticle;
+  let authorArticle;
+  let dateArticle;
+  let imageArticle;
+  let bodyArticle;
+
+  let error;
+
+  onMount(async () => {
+    try {
+      const res = await axios.get(
+        "https://tetrabids-cms.herokuapp.com/articles"
+      );
+      titleArticle = res.data[0].title;
+      authorArticle = res.data[0].author;
+      dateArticle = res.data[0].published_at;
+      imageArticle = res.data[0].presentationImage[0].url;
+      bodyArticle = res.data[0].body;
+      console.log(res);
+    } catch (e) {
+      error = e;
+    }
+  });
 </script>
 
 <style type="text/scss">
@@ -67,7 +91,7 @@
       }
 
       .image-wrapper {
-        background-image: url("/images/home-image.svg");
+        // background-image: url("/images/home-image.svg");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: top;
@@ -260,10 +284,13 @@
   </div>
   <div class="home-wrapper">
     <div class="title-home-wrapper">
-      <h1 class="title-home">{articleAsesoria.title} {params}</h1>
-      <p class="author">{articleAsesoria.author}, {articleAsesoria.date}</p>
+      <h1 class="title-home">{titleArticle}</h1>
+      <p class="author">{authorArticle}, {dateArticle}</p>
     </div>
-    <div class="image-wrapper" />
+    <div
+      class="image-wrapper"
+      style="background-image: url('{imageArticle}');"
+    />
     <div class="wrapper-icons">
       <div class="social-network">
         <ul>
@@ -282,18 +309,23 @@
     <div class="tldr-title">Tl;dr = Muy largo, no lo leere</div>
   </div>
   <div class="tldr-wrapper">
-    <p class="tldr">{articleAsesoria.TlDr}</p>
+    <p class="tldr">
+      Tl;dr consectetur adipiscing elit. Auctor vestibulum proin tempor eget
+      amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat
+      volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien
+      sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus
+      aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet
+      mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis
+      ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce
+      sit malesuada tempus fringilla.
+    </p>
   </div>
   <div class="main-article-wrapper">
     <div class="title-articule-wrapper">
-      <h2 class="title-articule">{articleAsesoria.title}</h2>
+      <h2 class="title-articule">{titleArticle}</h2>
       <p class="reading-time">Tiempo de lectura 5 min</p>
     </div>
-    <div class="body-article">
-      <ArticleBody>
-        <div class="image-articule-wrapper" />
-      </ArticleBody>
-    </div>
+    <div class="body-article">{bodyArticle}</div>
   </div>
   <div class="others-article">
     <Swiper spaceBetween={50} slidesPerView={slidesPerView}>
