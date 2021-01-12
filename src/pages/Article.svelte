@@ -9,7 +9,6 @@
   // export let params;
 
   let windowsWidth;
-  //export let params;
 
   $: slidesPerView = windowsWidth <= 414 ? 1 : windowsWidth >= 768 ? 3 : 2;
 
@@ -19,10 +18,14 @@
   let imageArticle;
   let tldrArticle;
   let bodyArticle;
-
+  let rawDate;
   let error;
-  //coment
-  // connection with strapi
+
+  let wordsPerMinute;
+  let readingTime;
+
+  // CONNECTION WITH STRAPI
+
   onMount(async () => {
     try {
       const res = await axios.get(
@@ -30,11 +33,21 @@
       );
       titleArticle = res.data[0].title;
       authorArticle = res.data[0].author;
-      dateArticle = res.data[0].published_at;
+      rawDate = new Date(res.data[0].published_at);
+      dateArticle = rawDate.toLocaleDateString();
       imageArticle = res.data[0].presentationImage[0].url;
       tldrArticle = res.data[0].tldr;
       bodyArticle = res.data[0].body;
-      console.log(res);
+      console.log(titleArticle);
+
+      // READING TIME
+
+      wordsPerMinute = 200;
+      readingTime = Math.round(countWords(bodyArticle) / wordsPerMinute);
+
+      function countWords(textToCount) {
+        return textToCount.split(" ").length;
+      }
     } catch (e) {
       error = e;
     }
@@ -303,7 +316,7 @@
   <div class="home-wrapper">
     <div class="title-home-wrapper">
       <h1 class="title-home">{titleArticle}</h1>
-      <p class="author">{authorArticle}, {dateArticle}</p>
+      <p class="author">{authorArticle}, Publicado {dateArticle}</p>
     </div>
     <div
       class="image-wrapper"
@@ -332,7 +345,7 @@
   <div class="main-article-wrapper">
     <div class="title-articule-wrapper">
       <h2 class="title-articule">{titleArticle}</h2>
-      <p class="reading-time">Tiempo de lectura 5 min</p>
+      <p class="reading-time">Tiempo de lectura {readingTime} min</p>
     </div>
     <div class="body-article">
       {#if md}
