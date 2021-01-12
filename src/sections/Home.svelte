@@ -1,6 +1,5 @@
 <script>
   import Navbar from "../components/NavbarDesktop.svelte";
-  import TitleSubtitle from "../components/TitleSubtitle.svelte";
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/shared/Button.svelte";
   import Textures from "../components/Textures.svelte";
@@ -52,6 +51,24 @@
     justify-content: center;
     position: relative;
     height: 100%;
+  }
+
+  h1 {
+    display: inline-block;
+    font-family: "Josefin Sans", sans-serif;
+    color: white;
+    /* meta font size 70px */
+    font-size: clamp(clamp(40px, 3.25vw + 2.5rem, 50px), 3.65vw, 90px);
+    font-weight: 700;
+  }
+
+  span {
+    display: block;
+    /* META margin-top -25px  */
+    margin-top: clamp(-2.5rem, -1.3vw, -1.5rem);
+    /* meta font size 45px*/
+    font-size: clamp(clamp(26px, 2vw + 16px, 32px), 2.34vw, 55px);
+    font-weight: 400;
   }
 
   .title-accordion {
@@ -120,7 +137,7 @@
 
 <div class="wrapper">
   <div class="col-1">
-    <TitleSubtitle />
+    <h1>Tetrabids <span> Desarrollo web contigo</span></h1>
     <div class="accordion">
       {#each accordionData as accordion}
         <Accordion>
