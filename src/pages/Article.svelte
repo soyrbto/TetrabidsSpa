@@ -26,18 +26,20 @@
 
   // CONNECTION WITH STRAPI
 
+  let idArticle = 0;
+
   onMount(async () => {
     try {
       const res = await axios.get(
         "https://tetrabids-cms.herokuapp.com/articles"
       );
-      titleArticle = res.data[0].title;
-      authorArticle = res.data[0].author;
-      rawDate = new Date(res.data[0].published_at);
+      titleArticle = res.data[idArticle].title;
+      authorArticle = res.data[idArticle].author;
+      rawDate = new Date(res.data[idArticle].published_at);
       dateArticle = rawDate.toLocaleDateString();
-      imageArticle = res.data[0].presentationImage[0].url;
-      tldrArticle = res.data[0].tldr;
-      bodyArticle = res.data[0].body;
+      imageArticle = res.data[idArticle].presentationImage[idArticle].url;
+      tldrArticle = res.data[idArticle].tldr;
+      bodyArticle = res.data[idArticle].body;
       console.log(res);
 
       res.data.forEach((element) => {
