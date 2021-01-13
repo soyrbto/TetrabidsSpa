@@ -5,7 +5,31 @@
   import ButtonOutline from "../components/shared/ButtonOutline.svelte";
   import CheckboxCategories from "../components/CheckboxCategories.svelte";
   import { areaCategories, experienceCategories } from "../StaticStore";
+  import { onMount } from "svelte";
+  import axios from "axios";
+
   let windowsWidth;
+  let error;
+
+  export let items = [];
+
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  onMount(async () => {
+    try {
+      const res = await axios.get(
+        "https://tetrabids-cms.herokuapp.com/articles"
+      );
+      items = res.data;
+    } catch (e) {
+      error = e;
+    }
+  });
 </script>
 
 <style type="text/scss">
@@ -129,14 +153,23 @@
 
       .wrapper-articles {
         display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        // justify-content: space-between;
+        // flex-wrap: wrap;
         height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
       }
 
       @media screen and (max-width: 768px) {
         .wrapper-articles {
-          justify-content: space-around;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media screen and (max-width: 414px) {
+        .wrapper-articles {
+          grid-template-columns: repeat(1, 1fr);
         }
       }
     }
@@ -178,10 +211,19 @@
 
   <div class="section-articles">
     <div class="wrapper-articles">
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
-      <BlogCard />
+      {#each items as item}
+        <BlogCard imageUrl={item.presentationImage[0].url}>
+          <div slot="date-published">
+            {new Date(item.published_at).toLocaleDateString(undefined, options)}
+          </div>
+          <a
+            slot="title"
+            href="/article"
+            style="text-decoration: none; color: black;"
+            target="blank"
+          >{item.title}</a>
+        </BlogCard>
+      {/each}
     </div>
   </div>
   <Footer />

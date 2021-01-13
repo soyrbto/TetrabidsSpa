@@ -38,7 +38,11 @@
       imageArticle = res.data[0].presentationImage[0].url;
       tldrArticle = res.data[0].tldr;
       bodyArticle = res.data[0].body;
-      console.log(titleArticle);
+      console.log(res);
+
+      res.data.forEach((element) => {
+        console.log(element.id);
+      });
 
       // READING TIME
 
@@ -234,10 +238,10 @@
           height: 600px;
           width: 70%;
           margin: 30px 15% 70px 15%;
-          background-image: url("/images/home-image.svg");
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
+          // background-image: url("/images/home-image.svg");
+          // background-size: cover;
+          // background-repeat: no-repeat;
+          // background-position: center;
         }
       }
     }
