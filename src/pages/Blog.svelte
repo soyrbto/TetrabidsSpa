@@ -7,11 +7,14 @@
   import { areaCategories, experienceCategories } from "../StaticStore";
   import { onMount } from "svelte";
   import axios from "axios";
+  import { paramsList } from "swiper/cjs/svelte/params-list";
 
   let windowsWidth;
   let error;
 
-  export let items = [];
+  let items = [];
+  let params;
+  let articleId = 2;
 
   const options = {
     weekday: "long",
@@ -26,6 +29,7 @@
         "https://tetrabids-cms.herokuapp.com/articles"
       );
       items = res.data;
+      console.log(res);
     } catch (e) {
       error = e;
     }
@@ -218,10 +222,10 @@
           </div>
           <a
             slot="title"
-            href="/article"
+            href={`/article/${articleId}`}
             style="text-decoration: none; color: black;"
-            target="blank"
-          >{item.title}</a>
+            target="blank">{item.title}
+          </a>
         </BlogCard>
       {/each}
     </div>

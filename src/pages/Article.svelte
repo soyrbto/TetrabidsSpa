@@ -6,7 +6,7 @@
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import "swiper/swiper.scss";
 
-  // export let params;
+  export let params;
 
   let windowsWidth;
 
@@ -23,28 +23,24 @@
 
   let wordsPerMinute;
   let readingTime;
+  let articleId = params.id;
 
   // CONNECTION WITH STRAPI
-
-  let idArticle = 0;
 
   onMount(async () => {
     try {
       const res = await axios.get(
         "https://tetrabids-cms.herokuapp.com/articles"
       );
-      titleArticle = res.data[idArticle].title;
-      authorArticle = res.data[idArticle].author;
-      rawDate = new Date(res.data[idArticle].published_at);
+      titleArticle = res.data[articleId].title;
+      authorArticle = res.data[articleId].author;
+      rawDate = new Date(res.data[articleId].published_at);
       dateArticle = rawDate.toLocaleDateString();
-      imageArticle = res.data[idArticle].presentationImage[idArticle].url;
-      tldrArticle = res.data[idArticle].tldr;
-      bodyArticle = res.data[idArticle].body;
+      imageArticle = res.data[articleId].presentationImage[0].url;
+      tldrArticle = res.data[articleId].tldr;
+      bodyArticle = res.data[articleId].body;
       console.log(res);
-
-      res.data.forEach((element) => {
-        console.log(element.id);
-      });
+      console.log(params.id);
 
       // READING TIME
 
@@ -308,12 +304,12 @@
   }
 </style>
 
-<svelte:head>
-  <script
+<svelte:head
+  ><script
     src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/2.0.0/remarkable.min.js"
     on:load={initializeRemarkable}>
-  </script>
-</svelte:head>
+  </script></svelte:head
+>
 <svelte:window bind:innerWidth={windowsWidth} />
 <main class="page-content">
   <div class="header">

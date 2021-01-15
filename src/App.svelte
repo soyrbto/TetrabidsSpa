@@ -4,14 +4,22 @@
   import Article from "./pages/Article.svelte";
   import Blog from "./pages/Blog.svelte";
   import Faq from "./pages/Faq.svelte";
+  import { claim_text } from "svelte/internal";
 
-  let current = MainPage;
+  let current;
   let params;
 
   page("/", () => (current = MainPage));
-  page("/article", () => (current = Article));
   page("/blog", () => (current = Blog));
   page("/faq", () => (current = Faq));
+  page(
+    "/article/:id",
+    (ctx, next) => {
+      params = ctx.params;
+      next();
+    },
+    () => (current = Article)
+  );
 
   page.start();
 </script>

@@ -83,21 +83,22 @@
         <a
           href="https://www.facebook.com/tetrabids"
           target="_blank"
-          rel="noopener"
+          rel="noopener">
+          <img src="../images/facebook.svg" alt="facebook icon" /></a
         >
-          <img src="./images/facebook.svg" alt="facebook icon" /></a>
       </li>
       <li>
         <a
           href="https://www.instagram.com/tetrabids/"
           target="_blank"
-          rel="noopener"
+          rel="noopener">
+          <img src="../images/instagram.svg" alt="instagram icon" /></a
         >
-          <img src="./images/instagram.svg" alt="instagram icon" /></a>
       </li>
       <li>
         <a href="https://wa.me/584125457790" target="_blank" rel="noopener">
-          <img src="./images/whatsapp.svg" alt="instagram icon" /></a>
+          <img src="../images/whatsapp.svg" alt="instagram icon" /></a
+        >
       </li>
     </ul>
   </div>
