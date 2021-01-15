@@ -7,14 +7,10 @@
   import { areaCategories, experienceCategories } from "../StaticStore";
   import { onMount } from "svelte";
   import axios from "axios";
-  import { paramsList } from "swiper/cjs/svelte/params-list";
 
   let windowsWidth;
-  let error;
 
   let items = [];
-  let params;
-  let articleId = 2;
 
   const options = {
     weekday: "long",
@@ -32,6 +28,7 @@
       console.log(res);
     } catch (e) {
       error = e;
+      console.log(e);
     }
   });
 </script>
@@ -215,14 +212,14 @@
 
   <div class="section-articles">
     <div class="wrapper-articles">
-      {#each items as item}
+      {#each items as item, index}
         <BlogCard imageUrl={item.presentationImage[0].url}>
           <div slot="date-published">
             {new Date(item.published_at).toLocaleDateString(undefined, options)}
           </div>
           <a
             slot="title"
-            href={`/article/${articleId}`}
+            href={`/article/${index}`}
             style="text-decoration: none; color: black;"
             target="blank">{item.title}
           </a>
