@@ -1,7 +1,7 @@
 <script>
   import Footer from "../sections/Footer.svelte";
   import Button from "../components/Button.svelte";
-  import secNavbarItems from "../StaticStore";
+  import { secNavbarItems } from "../StaticStore";
   let windowsWidth;
 </script>
 

@@ -78,5 +78,4 @@ export {
   desktopSection,
   areaCategories,
   experienceCategories,
-  
 };
