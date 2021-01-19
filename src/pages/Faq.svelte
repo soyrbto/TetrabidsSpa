@@ -1,7 +1,6 @@
 <script>
   import Footer from "../sections/Footer.svelte";
   import Button from "../components/Button.svelte";
-  import ButtonOutline from "../components/shared/ButtonOutline.svelte";
   let windowsWidth;
 </script>
 
@@ -139,7 +138,7 @@
         <Button color="purple">
           <div class="fill"><a class="button-faq" href="/blog">Blog</a></div>
         </Button>
-        <ButtonOutline />
+        <Button />
       </div>
     </div>
     <div class="right-column" />
