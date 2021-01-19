@@ -3,8 +3,22 @@
   import { onMount } from "svelte";
   import { stateStore } from "../Stores";
   export let accordionId = "Math.random()";
-  accordionId = Math.random();
   let active = false;
+  let accordionIds = [];
+
+  function idFuncCreator() {
+    let idNumber = 0;
+
+    function funcIncrement() {
+      idNumber++;
+      accordionIds.push(`Accordion-${idNumber}`);
+      console.log(accordionIds);
+    }
+    return funcIncrement;
+  }
+
+  const accordionGenerator = idFuncCreator();
+  accordionGenerator();
 
   // WHEN EVERY ELEMENT IS MOUNTED
   onMount(() => {
@@ -127,20 +141,22 @@
   class:container-open={$stateStore[accordionId]}
   class="container container-smaller"
 >
-  <label for={accordionId} class="title"><button
+  <label for={accordionId} class="title"
+    ><button
       class:disabled={$stateStore[accordionId]}
       on:click={changeState}
       id={accordionId}
       type="button"
       class="button"
-    ><svg class="svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+      ><svg class="svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path
           d="M2 7H12 M7 2L7 12"
           stroke="white"
           stroke-width="4"
           stroke-linecap="round"
         />
-      </svg></button>
+      </svg></button
+    >
     <slot name="header" />
   </label>
 
