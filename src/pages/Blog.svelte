@@ -198,7 +198,7 @@
         <Button color="purple">
           <div class="fill"><a class="button-faq" href="/faq">FAQ</a></div>
         </Button>
-        <Button buttonType="outline">Contacto</Button>
+        <Button buttonType="outline">{secNavbarItems[2]}</Button>
       </div>
     </div>
     <div class="right-column" />
