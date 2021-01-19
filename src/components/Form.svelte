@@ -1,5 +1,5 @@
 <script>
-  import Card from "../shared/Card.svelte";
+  import Card from "./Card.svelte";
   import Button from "./Button.svelte";
 
   let contactForm;

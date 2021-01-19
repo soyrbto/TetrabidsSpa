@@ -3,7 +3,7 @@
   import Services from "../sections/Services.svelte";
   import SecNavbar from "../sections/SecNavbar.svelte";
   import Footer from "../sections/Footer.svelte";
-  import NavbarMob from "../components/NavbarMob.svelte";
+  import NavbarMob from "../sections/NavbarMob.svelte";
   import Products from "../sections/Products.svelte";
   import Contact from "../sections/Contact.svelte";
   import NavButton from "../components/NavButton.svelte";
@@ -157,7 +157,7 @@
 <div class="page-container">
   <main>
     <div
-      on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ''}
+      on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ""}
       class="home-wrapper"
       id={visibleSections[0]}
     >
@@ -167,7 +167,7 @@
 
     {#if windowsWidth > maxWidthTablet}
       <div
-        on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ''}
+        on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ""}
         id="section-container"
         class="section-wrapper"
       >
@@ -187,7 +187,7 @@
           </div>
         {:else if $displayedSection === secNavbarItems[1]}
           <div
-            class:slide-out-right={$displayedState['Productos']}
+            class:slide-out-right={$displayedState["Productos"]}
             class="slide-in-right {secNavbarItems[1]}"
             id={visibleSections[1]}
           >

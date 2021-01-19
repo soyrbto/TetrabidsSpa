@@ -1,6 +1,6 @@
 <script>
   import { navbarItems, secNavbarItems } from "../StaticStore";
-  import NavButton from "./NavButton.svelte";
+  import NavButton from "../components/NavButton.svelte";
   import { navbarState, nodeSections, screenDisplacer } from "../Stores";
 
   let target;
@@ -171,7 +171,7 @@
             {#if i < 2}
               <div on:click={clickedItem} class="nav__link">{navbarItem}</div>
             {:else}
-              <div><a href={'/' + navbarItem}>{navbarItem}</a></div>
+              <div><a href={"/" + navbarItem}>{navbarItem}</a></div>
             {/if}
           </li>
         {/each}

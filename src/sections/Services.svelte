@@ -1,8 +1,8 @@
 <script>
   import { onMount } from "svelte";
   import ServiceDescription from "../components/DescriptionCard.svelte";
-  import Card from "../components/shared/Card.svelte";
-  import Button from "../components/shared/Button.svelte";
+  import Card from "../components/Card.svelte";
+  import Button from "../components/Button.svelte";
   import {
     colorButtonStore,
     maxWidthTablet,
@@ -143,8 +143,10 @@
 <svelte:window bind:innerWidth={windowsWidth} />
 <!--  SERVICES SECTION -->
 <Card
-  borderRadius={windowsWidth < maxWidthTablet ? '0px' : '20px'}
-  boxShadow={windowsWidth < maxWidthTablet ? 'none' : '9px 12px 31px rgba(0, 0, 0, 0.5)'}
+  borderRadius={windowsWidth < maxWidthTablet ? "0px" : "20px"}
+  boxShadow={windowsWidth < maxWidthTablet
+    ? "none"
+    : "9px 12px 31px rgba(0, 0, 0, 0.5)"}
 >
   <div class="wrapper-section">
     <!--  SERVICE ABSTRACT SUB-SECTION -->
@@ -168,7 +170,7 @@
             pagination={{ clickable: true }}
             spaceBetween={10}
             breakpoints={{ 768: { slidesPerView: 2 } }}
-            style={'overflow:visible; position:initial'}
+            style={"overflow:visible; position:initial"}
           >
             {#each servicesData.serviceItems as service}
               <SwiperSlide>

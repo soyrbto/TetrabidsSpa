@@ -1,6 +1,6 @@
 <script>
   import Footer from "../sections/Footer.svelte";
-  import Button from "../components/shared/Button.svelte";
+  import Button from "../components/Button.svelte";
   import ButtonOutline from "../components/shared/ButtonOutline.svelte";
   let windowsWidth;
 </script>

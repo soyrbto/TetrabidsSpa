@@ -1,7 +1,7 @@
 <script>
   import Footer from "../sections/Footer.svelte";
   import BlogCard from "../components/blogCard.svelte";
-  import Button from "../components/shared/Button.svelte";
+  import Button from "../components/Button.svelte";
   import ButtonOutline from "../components/shared/ButtonOutline.svelte";
   import CheckboxCategories from "../components/CheckboxCategories.svelte";
   import { areaCategories, experienceCategories } from "../StaticStore";

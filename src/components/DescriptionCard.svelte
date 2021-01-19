@@ -1,6 +1,6 @@
 <script>
-  import Button from "./shared/Button.svelte";
-  import Card from "./shared/Card.svelte";
+  import Button from "./Button.svelte";
+  import Card from "./Card.svelte";
   let windowsWidth;
 </script>
 

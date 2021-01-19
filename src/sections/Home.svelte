@@ -1,7 +1,7 @@
 <script>
-  import Navbar from "../components/NavbarDesktop.svelte";
+  import Navbar from "./NavbarDesktop.svelte";
   import Accordion from "../components/Accordion.svelte";
-  import Button from "../components/shared/Button.svelte";
+  import Button from "../components/Button.svelte";
   import Textures from "../components/Textures.svelte";
   import {
     screenDisplacer,

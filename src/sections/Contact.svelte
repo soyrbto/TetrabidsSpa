@@ -1,7 +1,7 @@
 <script>
-  import Card from "../components/shared/Card.svelte";
+  import Card from "../components/Card.svelte";
   import { contactData } from "../StaticStore";
-  import Form from "../components/shared/Form.svelte";
+  import Form from "../components/Form.svelte";
   import { maxWidthTablet } from "../Stores";
 
   let windowsWidth;
@@ -110,9 +110,11 @@
 <svelte:window bind:innerWidth={windowsWidth} />
 
 <Card
-  backgroundColor={'#0B5771'}
-  borderRadius={windowsWidth > maxWidthTablet ? '20px' : '0px 0px 10px 10px'}
-  boxShadow={windowsWidth < maxWidthTablet ? 'none' : '9px 12px 31px rgba(0, 0, 0, 0.5)'}
+  backgroundColor={"#0B5771"}
+  borderRadius={windowsWidth > maxWidthTablet ? "20px" : "0px 0px 10px 10px"}
+  boxShadow={windowsWidth < maxWidthTablet
+    ? "none"
+    : "9px 12px 31px rgba(0, 0, 0, 0.5)"}
 >
   <div class="wrapper-section">
     <div class="col-1">
