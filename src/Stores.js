@@ -4,7 +4,7 @@ const WindowsWidth = window.innerWidth;
 const maxWidthTablet = 1280;
 
 // stores used for components as states
-
+const accordionId = writable({});
 const stateStore = writable({});
 const colorButtonStore = writable({});
 const displayedSection = writable(secNavbarItems[0]);
@@ -103,6 +103,7 @@ const shortener = (mText, numbWords) => {
 let navbarState = writable(false);
 
 export {
+  accordionId,
   stateStore,
   colorButtonStore,
   displayedSection,

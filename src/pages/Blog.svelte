@@ -198,11 +198,7 @@
         <Button color="purple">
           <div class="fill"><a class="button-faq" href="/faq">FAQ</a></div>
         </Button>
-<<<<<<< HEAD
-        <Button buttonType="outline">{secNavbarItems[2]}</Button>
-=======
         <Button color="purple" />
->>>>>>> 17e14857eb4f6519a9536f486645c9a7b9e804d2
       </div>
     </div>
     <div class="right-column" />

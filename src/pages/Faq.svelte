@@ -1,10 +1,6 @@
 <script>
   import Footer from "../sections/Footer.svelte";
   import Button from "../components/Button.svelte";
-<<<<<<< HEAD
-  import secNavbarItems from "../StaticStore";
-=======
->>>>>>> 17e14857eb4f6519a9536f486645c9a7b9e804d2
   let windowsWidth;
 </script>
 
@@ -142,11 +138,7 @@
         <Button color="purple">
           <div class="fill"><a class="button-faq" href="/blog">Blog</a></div>
         </Button>
-<<<<<<< HEAD
-        <Button buttonType="outline">{secNavbarItems[2]}</Button>
-=======
-        <Button />
->>>>>>> 17e14857eb4f6519a9536f486645c9a7b9e804d2
+        <Button buttonType="outline" />
       </div>
     </div>
     <div class="right-column" />

@@ -1,8 +1,8 @@
 <script>
   import { get } from "svelte/store";
   import { onMount } from "svelte";
-  import { stateStore } from "../Stores";
-  export let accordionId = "Math.random()";
+  import { stateStore, accordionId } from "../Stores";
+  // export let accordionId = "Math.random()";
   let active = false;
   let accordionIds = [];
 
@@ -12,6 +12,9 @@
     function funcIncrement() {
       idNumber++;
       accordionIds.push(`Accordion-${idNumber}`);
+      accordionId.update(
+        (value) => (value = { ...value, [`Accordion-${idNumber}`]: false })
+      );
       console.log(accordionIds);
     }
     return funcIncrement;
