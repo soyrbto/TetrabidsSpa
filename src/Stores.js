@@ -1,9 +1,7 @@
 import { writable, get } from "svelte/store";
-import { secNavbarItems, servicesData, productsData } from "./StaticStore";
-const WindowsWidth = window.innerWidth;
+import { secNavbarItems } from "./StaticStore";
 const maxWidthTablet = 1280;
 
-const colorButtonStore = writable({});
 const displayedSection = writable(secNavbarItems[0]);
 const displayedState = writable({
   [secNavbarItems[0]]: false,
@@ -12,12 +10,6 @@ const displayedState = writable({
 });
 
 const nodeSections = writable([]);
-
-//state of serviceDescription content
-const servBodyContent = writable(servicesData.items[0]);
-
-//state of productDescription content
-const prodBodyContent = writable(productsData.items[0]);
 
 // Functions that changes the section displayed on deskptop screens (<1280px)
 let activeChangeSection = true;

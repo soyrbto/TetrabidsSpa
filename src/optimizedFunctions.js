@@ -31,7 +31,7 @@ const accordionHandler = (function accordionFuntionality() {
 /******************************************************************/
 /******************************************************************/
 
-// controller for sevices and products list, create the state objects and updates the values
+// controller for sevices and products list, create the state objects and updates the values on -----> products.svelte & services.svelte
 const dynaListHandler = (function activeElement() {
   let initState = {};
   let ObjectStates = writable({});
@@ -57,6 +57,26 @@ const dynaListHandler = (function activeElement() {
 
 /******************************************************************/
 /******************************************************************/
+
+// function that shortens the text in function of how many words
+
+const textShortener = (function privateShortener() {
+  let viewMore = "ver mas...";
+
+  const shortener = (fullText, numbWords) => {
+    let longitud = mText.length;
+    let position = mText.lastIndexOf(" ", numbWords);
+    mText = mText.slice(0, position);
+
+    if (numbWords < longitud) {
+      mText = mText + `<span> ${viewMore} </span>`;
+    }
+    return mText;
+  };
+
+  return shortener;
+})();
+
 /******************************************************************/
 
-export { accordionHandler, dynaListHandler };
+export { accordionHandler, dynaListHandler, textShortener };
