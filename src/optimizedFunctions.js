@@ -1,22 +1,22 @@
-import { writable } from "svelte/store";
+import { writable, get } from "svelte/store";
 
 // function that creates the id and states for the accordion
 const accordionGenerator = (function idFuncCreator() {
   const accordionStates = writable({});
   let idNumber = 0;
-  let accordionIds = [];
-  let accordionState = {};
+  let idsArray = [];
+  let InitialStates = {};
 
   function addItem() {
     idNumber++;
-    accordionIds.push(idNumber);
-    accordionState[idNumber] = false;
-    accordionStates.set(accordionState);
+    idsArray.push(idNumber);
+    InitialStates[idNumber] = false;
+    accordionStates.set(InitialStates);
     return idNumber;
   }
 
   function updateState(accordionId) {
-    accordionStates.set(accordionState);
+    accordionStates.set(InitialStates);
     accordionStates.update(
       (value) => (value = { ...value, [accordionId]: !value[accordionId] })
     );

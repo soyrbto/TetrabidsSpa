@@ -1,4 +1,5 @@
 <script>
+  import { get } from "svelte/store";
   import { onMount } from "svelte";
   import { accordionGenerator } from "../optimizedFunctions";
   let accordionId;
@@ -10,6 +11,7 @@
 
   const changeState = () => {
     accordionGenerator.updateState(accordionId);
+    console.log(get(state));
   };
 </script>
 
