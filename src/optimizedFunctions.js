@@ -1,4 +1,4 @@
-import { writable, get } from "svelte/store";
+import { writable } from "svelte/store";
 
 /******************************************************************/
 /******************************************************************/
@@ -59,7 +59,6 @@ const dynaListHandler = (function activeElement() {
 /******************************************************************/
 
 // function that shortens the text in function of how many words
-
 const textShortener = (function privateShortener() {
   let viewMore = "ver mas...";
 
