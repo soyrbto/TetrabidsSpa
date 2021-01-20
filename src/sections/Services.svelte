@@ -3,44 +3,24 @@
   import ServiceDescription from "../components/DescriptionCard.svelte";
   import Card from "../components/Card.svelte";
   import Button from "../components/Button.svelte";
-  import {
-    colorButtonStore,
-    maxWidthTablet,
-    servBodyContent,
-    shortener,
-  } from "../Stores";
+  import { maxWidthTablet, servBodyContent, shortener } from "../Stores";
   import { servicesData } from "../StaticStore";
-
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";
-
-  import "swiper/swiper.scss";
-  import "swiper/components/pagination/pagination.scss";
-
+  import { dynaListHandler } from "../optimizedFunctions";
   SwiperCore.use([Pagination]);
-
-  let buttonColor = {};
+  let dynaList = servicesData.items;
+  let dynaObjectState;
   let windowsWidth;
 
-  // WHEN MOUNTED
   onMount(() => {
-    // FILLS 'buttonColor' OBJECT WITH A PROPERTY FOR EACH SERVICEITEM WITH THE DEFAULT "BLUE" PROPERTY
-    servicesData.serviceItems.forEach((elt) => {
-      buttonColor[elt] = "blue";
-    });
-    // UPDATES THE STORE BUT THE FIRST ITEM IS REPLACED WITH WHITE
-    colorButtonStore.set({ ...buttonColor, [$servBodyContent]: "white" });
+    dynaObjectState = dynaListHandler.createObjectStates(dynaList, "blue");
+    dynaListHandler.updateState(dynaList[0], "white");
   });
-  // WHEN CLICK AN ITEM TAKES THE CLICKED TARGET
-  const getContent = (e) => {
-    servBodyContent.set(e.target.innerText);
-    //SET THE STORE TO ALL ELEMENTS BLUE
-    colorButtonStore.set({ ...buttonColor });
-    // SET THE ELEMENT CLICKED COLOR TO WHITE
-    colorButtonStore.update(
-      (buttonColor) =>
-        (buttonColor = { ...buttonColor, [$servBodyContent]: "white" })
-    );
+
+  const updateState = (e) => {
+    let item = e.target.innerText;
+    dynaListHandler.updateState(item, "white");
   };
 </script>
 
@@ -172,7 +152,7 @@
             breakpoints={{ 768: { slidesPerView: 2 } }}
             style={"overflow:visible; position:initial"}
           >
-            {#each servicesData.serviceItems as service}
+            {#each servicesData.items as service}
               <SwiperSlide>
                 <ServiceDescription>
                   <div class="title" slot="title">
@@ -192,9 +172,11 @@
     {#if windowsWidth > maxWidthTablet}
       <div class="col-2">
         <div class="buttons-wrapper">
-          {#each servicesData.serviceItems as serviceItem}
-            <Button borderRadius="10px" color={$colorButtonStore[serviceItem]}>
-              <div class="button-item" on:click={getContent}>{serviceItem}</div>
+          {#each dynaList as serviceItem}
+            <Button borderRadius="10px" color={$dynaObjectState[serviceItem]}>
+              <div class="button-item" on:click={updateState}>
+                {serviceItem}
+              </div>
             </Button>
           {/each}
         </div>

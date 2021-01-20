@@ -27,7 +27,7 @@ const servicesData = {
   title: "Servicios",
   abstract:
     "Tambien suelen ser las fases de desarrollo de una aplicacion movil o web, en el caso de paginas institucionales o landing page, algunas fases son muy simples aunque igual estan presentes.",
-  serviceItems: [
+  items: [
     "Asesoria",
     "Seudocódigo",
     "UI UX",
@@ -54,7 +54,7 @@ const servicesData = {
 const productsData = {
   title: "Productos",
   abstract: `Productos simples para temas complejos, si quieres informacion mas detallada del alcance que podemos tener en un proyecto contactanos.`,
-  productItems: ["Wordpress", "Headless wordpress", "Paginas a medida"],
+  items: ["Wordpress", "Headless wordpress", "Paginas a medida"],
   Wordpress: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis, doloremque odio officia.`,
   "Headless wordpress": `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis, doloremque odio officia.`,
   "Paginas a medida": `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis, doloremque odio officia.`,

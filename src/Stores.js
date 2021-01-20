@@ -14,10 +14,10 @@ const displayedState = writable({
 const nodeSections = writable([]);
 
 //state of serviceDescription content
-const servBodyContent = writable(servicesData.serviceItems[0]);
+const servBodyContent = writable(servicesData.items[0]);
 
 //state of productDescription content
-const prodBodyContent = writable(productsData.productItems[0]);
+const prodBodyContent = writable(productsData.items[0]);
 
 // Functions that changes the section displayed on deskptop screens (<1280px)
 let activeChangeSection = true;

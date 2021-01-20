@@ -1,6 +1,9 @@
-import { writable } from "svelte/store";
+import { writable, get } from "svelte/store";
 
-// function that creates the id, states and update functions for the accordion
+/******************************************************************/
+/******************************************************************/
+
+// function that creates the id, states and update functions for the accordion  on ----> Accordion.svelte
 const accordionHandler = (function accordionFuntionality() {
   const states = writable({});
   let idNumber = 0;
@@ -25,4 +28,35 @@ const accordionHandler = (function accordionFuntionality() {
   return { addItem, updateState, states };
 })();
 
-export { accordionHandler };
+/******************************************************************/
+/******************************************************************/
+
+// controller for sevices and products list, create the state objects and updates the values
+const dynaListHandler = (function activeElement() {
+  let initState = {};
+  let ObjectStates = writable({});
+
+  function createObjectStates(arrayOfElems, initvalue) {
+    arrayOfElems.forEach((element) => {
+      initState[element] = initvalue;
+    });
+
+    ObjectStates.set(initState);
+    return ObjectStates;
+  }
+
+  function updateState(eleToUpdate, updateTo) {
+    ObjectStates.set(initState);
+    ObjectStates.update(
+      (value) => (value = { ...value, [eleToUpdate]: updateTo })
+    );
+  }
+
+  return { createObjectStates, updateState, ObjectStates };
+})();
+
+/******************************************************************/
+/******************************************************************/
+/******************************************************************/
+
+export { accordionHandler, dynaListHandler };
