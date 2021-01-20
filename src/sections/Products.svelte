@@ -3,7 +3,7 @@
   import Card from "../components/Card.svelte";
   import Button from "../components/Button.svelte";
   import DescriptionCard from "../components/DescriptionCard.svelte";
-  import { maxWidthTablet, prodBodyContent } from "../Stores";
+  import { maxWidthTablet } from "../Stores";
   import { productsData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";

@@ -3,11 +3,11 @@
   import ServiceDescription from "../components/DescriptionCard.svelte";
   import Card from "../components/Card.svelte";
   import Button from "../components/Button.svelte";
-  import { maxWidthTablet, servBodyContent, shortener } from "../Stores";
+  import { maxWidthTablet } from "../Stores";
   import { servicesData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";
-  import { dynaListHandler } from "../optimizedFunctions";
+  import { dynaListHandler, textShortener } from "../optimizedFunctions";
   SwiperCore.use([Pagination]);
   let dynaList = servicesData.items;
   let dynaObjectState;
@@ -188,7 +188,7 @@
       <ServiceDescription>
         <div class="title" slot="title">{$servBodyContent}</div>
         <div class="body" slot="body">
-          {@html shortener(servicesData[$servBodyContent], 280)}
+          {@html textShortener(servicesData[$servBodyContent], 280)}
         </div>
       </ServiceDescription>
     {/if}

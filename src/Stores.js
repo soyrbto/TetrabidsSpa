@@ -76,7 +76,6 @@ function linear(t, b, c, d) {
 let navbarState = writable(false);
 
 export {
-  colorButtonStore,
   displayedSection,
   displayedState,
   changeSection,
@@ -84,9 +83,6 @@ export {
   linear,
   screenDisplacer,
   maxWidthTablet,
-  servBodyContent,
-  prodBodyContent,
   navbarState,
   nodeSections,
-  shortener,
 };
