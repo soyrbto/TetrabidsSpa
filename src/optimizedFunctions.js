@@ -64,8 +64,8 @@ const textShortener = (function privateShortener() {
   let viewMore = "ver mas...";
 
   const shortener = (fullText, numbWords) => {
-    let longitud = mText.length;
-    let position = mText.lastIndexOf(" ", numbWords);
+    let longitud = fullText.length;
+    let position = fullText.lastIndexOf(" ", numbWords);
     mText = mText.slice(0, position);
 
     if (numbWords < longitud) {
