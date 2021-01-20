@@ -4,12 +4,10 @@
   let accordionId;
   let state = accordionGenerator.accordionStates;
 
-  // WHEN EVERY ELEMENT IS MOUNTED
   onMount(() => {
-    accordionId = accordionGenerator.funcIncrement();
+    accordionId = accordionGenerator.addItem();
   });
 
-  //WHEN CLICKED THE BUTTON OR THE TITLE
   const changeState = () => {
     accordionGenerator.updateState(accordionId);
   };
