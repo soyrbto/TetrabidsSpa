@@ -5,12 +5,8 @@
   import DescriptionCard from "../components/DescriptionCard.svelte";
   import { colorButtonStore, maxWidthTablet, prodBodyContent } from "../Stores";
   import { productsData } from "../StaticStore";
-
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";
-
-  import "swiper/swiper.scss";
-  import "swiper/components/pagination/pagination.scss";
 
   SwiperCore.use([Pagination]);
 

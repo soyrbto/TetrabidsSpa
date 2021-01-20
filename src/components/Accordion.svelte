@@ -1,17 +1,15 @@
 <script>
-  import { get } from "svelte/store";
   import { onMount } from "svelte";
-  import { accordionGenerator } from "../optimizedFunctions";
+  import { accordionHandler } from "../optimizedFunctions";
   let accordionId;
-  let state = accordionGenerator.accordionStates;
+  let states = accordionHandler.states;
 
   onMount(() => {
-    accordionId = accordionGenerator.addItem();
+    accordionId = accordionHandler.addItem();
   });
 
   const changeState = () => {
-    accordionGenerator.updateState(accordionId);
-    console.log(get(state));
+    accordionHandler.updateState(accordionId);
   };
 </script>
 
@@ -99,12 +97,12 @@
 </style>
 
 <div
-  class:container-open={$state[accordionId]}
+  class:container-open={$states[accordionId]}
   class="container container-smaller"
 >
   <label for={accordionId} class="title"
     ><button
-      class:disabled={$state[accordionId]}
+      class:disabled={$states[accordionId]}
       on:click={changeState}
       id={accordionId}
       type="button"
