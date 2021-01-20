@@ -100,8 +100,6 @@ const shortener = (mText, numbWords) => {
 let navbarState = writable(false);
 
 export {
-  accordionId,
-  stateStore,
   colorButtonStore,
   displayedSection,
   displayedState,
