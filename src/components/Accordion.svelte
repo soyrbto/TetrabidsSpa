@@ -1,59 +1,17 @@
 <script>
-  import { get } from "svelte/store";
   import { onMount } from "svelte";
-  import { stateStore, accordionId } from "../Stores";
-  // export let accordionId = "Math.random()";
-  let active = false;
-  let accordionIds = [];
-
-  function idFuncCreator() {
-    let idNumber = 0;
-
-    function funcIncrement() {
-      idNumber++;
-      accordionIds.push(`Accordion-${idNumber}`);
-      accordionId.update(
-        (value) => (value = { ...value, [`Accordion-${idNumber}`]: false })
-      );
-      console.log(accordionIds);
-    }
-    return funcIncrement;
-  }
-
-  const accordionGenerator = idFuncCreator();
-  accordionGenerator();
+  import { accordionGenerator } from "../optimizedFunctions";
+  let accordionId;
+  let state = accordionGenerator.accordionStates;
 
   // WHEN EVERY ELEMENT IS MOUNTED
   onMount(() => {
-    //IT WILL LOAD A OBJECT WITH THE ID AS A NAME PROPERTY AND FALSE AS ITS VALUE
-    stateStore.update((value) => (value = { ...value, [accordionId]: false }));
-
-    //AFTER A SECOND IT WILL UPDATE THE VALUE OF THE FIRST PROPERTY TO FALSE
-    setTimeout(function () {
-      let state = Object.keys(get(stateStore));
-      stateStore.update((value) => (value = { ...value, [state[0]]: true }));
-      active = true;
-    }, 1000);
+    accordionId = accordionGenerator.funcIncrement();
   });
 
   //WHEN CLICKED THE BUTTON OR THE TITLE
   const changeState = () => {
-    if (active && !get(stateStore)[accordionId]) {
-      //IT WILL UPDATE THE PROPERTY NAME OF THE COMPONENT ID ATO ITS OPPOSITE BOOLEAN VALUE
-      stateStore.update(
-        (value) => (value = { ...value, [accordionId]: !value[accordionId] })
-      );
-
-      //THEM IT WILL LOOP TROUGH ALL OF THE PROPERTY NAMES AND GIVE THEM FALSE EXCEPT THIS COMPONENT
-      let stateArray = Object.keys(get(stateStore));
-      stateArray.forEach((current) => {
-        if (accordionId != current) {
-          stateStore.update(
-            (value) => (value = { ...value, [current]: false })
-          );
-        }
-      });
-    }
+    accordionGenerator.updateState(accordionId);
   };
 </script>
 
@@ -85,10 +43,10 @@
     cursor: auto;
   }
 
-  /* .container-open svg path {
+  .container-open svg path {
     d: path("M2 7H12 M7 7L7 7");
     transition: 0.6s;
-  } */
+  }
 
   .title {
     display: flex;
@@ -141,12 +99,12 @@
 </style>
 
 <div
-  class:container-open={$stateStore[accordionId]}
+  class:container-open={$state[accordionId]}
   class="container container-smaller"
 >
   <label for={accordionId} class="title"
     ><button
-      class:disabled={$stateStore[accordionId]}
+      class:disabled={$state[accordionId]}
       on:click={changeState}
       id={accordionId}
       type="button"

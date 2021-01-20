@@ -72,6 +72,7 @@
 
     span {
       background: -webkit-linear-gradient(90deg, #ec35f8 0%, #3c26ab 100%);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
