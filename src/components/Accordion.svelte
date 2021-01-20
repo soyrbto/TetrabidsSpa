@@ -116,7 +116,7 @@
         />
       </svg></button
     >
-    <slot name="header" />
+    <slot name="title" />
   </label>
 
   <div class="body">

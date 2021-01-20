@@ -35,6 +35,7 @@ const accordionHandler = (function accordionFuntionality() {
 const dynaListHandler = (function activeElement() {
   let initState = {};
   let ObjectStates = writable({});
+  let activeItem;
 
   function createObjectStates(arrayOfElems, initvalue) {
     arrayOfElems.forEach((element) => {
@@ -50,6 +51,8 @@ const dynaListHandler = (function activeElement() {
     ObjectStates.update(
       (value) => (value = { ...value, [eleToUpdate]: updateTo })
     );
+    activeItem = eleToUpdate;
+    return activeItem;
   }
 
   return { createObjectStates, updateState, ObjectStates };

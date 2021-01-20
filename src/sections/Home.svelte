@@ -141,7 +141,7 @@
     <div class="accordion">
       {#each accordionData as accordion}
         <Accordion>
-          <h3 class="title-accordion" slot="header">{accordion.title}</h3>
+          <h3 class="title-accordion" slot="title">{accordion.title}</h3>
           <p slot="body">{accordion.body}</p>
         </Accordion>
       {/each}

@@ -13,15 +13,16 @@
   let dynaList = productsData.items;
   let dynaObjectState;
   let windowsWidth;
+  let activeItem;
 
   onMount(() => {
     dynaObjectState = dynaListHandler.createObjectStates(dynaList, "blue");
-    dynaListHandler.updateState(dynaList[0], "white");
+    activeItem = dynaListHandler.updateState(dynaList[0], "white");
   });
 
   const updateState = (e) => {
-    let item = e.target.innerText;
-    dynaListHandler.updateState(item, "white");
+    activeItem = e.target.innerText;
+    dynaListHandler.updateState(activeItem, "white");
   };
 </script>
 
@@ -186,8 +187,8 @@
 
     {#if windowsWidth > maxWidthTablet}
       <DescriptionCard>
-        <div class="title" slot="title" />
-        <div class="body" slot="body" />
+        <div class="title" slot="title">{activeItem}</div>
+        <div class="body" slot="body">{productsData[activeItem]}</div>
       </DescriptionCard>
     {/if}
   </div>

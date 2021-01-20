@@ -13,15 +13,16 @@
   let dynaList = servicesData.items;
   let dynaObjectState;
   let windowsWidth;
+  let activeItem;
 
   onMount(() => {
     dynaObjectState = dynaListHandler.createObjectStates(dynaList, "blue");
-    dynaListHandler.updateState(dynaList[0], "white");
+    activeItem = dynaListHandler.updateState(dynaList[0], "white");
   });
 
   const updateState = (e) => {
-    let item = e.target.innerText;
-    dynaListHandler.updateState(item, "white");
+    activeItem = e.target.innerText;
+    dynaListHandler.updateState(activeItem, "white");
   };
 </script>
 
@@ -187,8 +188,8 @@
     <!--  SERVICES DESCRIPTIONS SUB-SECTION FOR WHEN THE WIDTH IS BIGGER THAN 1280PX -->
     {#if windowsWidth > maxWidthTablet}
       <ServiceDescription>
-        <div class="title" slot="title" />
-        <div class="body" slot="body" />
+        <div class="title" slot="title">{activeItem}</div>
+        <div class="body" slot="body">{@html servicesData[activeItem]}</div>
       </ServiceDescription>
     {/if}
   </div>
