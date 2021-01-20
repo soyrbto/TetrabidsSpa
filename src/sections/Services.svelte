@@ -8,6 +8,7 @@
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";
   import { dynaListHandler, textShortener } from "../optimizedFunctions";
+
   SwiperCore.use([Pagination]);
   let dynaList = servicesData.items;
   let dynaObjectState;
@@ -186,10 +187,8 @@
     <!--  SERVICES DESCRIPTIONS SUB-SECTION FOR WHEN THE WIDTH IS BIGGER THAN 1280PX -->
     {#if windowsWidth > maxWidthTablet}
       <ServiceDescription>
-        <div class="title" slot="title">{$servBodyContent}</div>
-        <div class="body" slot="body">
-          {@html textShortener(servicesData[$servBodyContent], 280)}
-        </div>
+        <div class="title" slot="title" />
+        <div class="body" slot="body" />
       </ServiceDescription>
     {/if}
   </div>

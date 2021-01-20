@@ -186,10 +186,8 @@
 
     {#if windowsWidth > maxWidthTablet}
       <DescriptionCard>
-        <div class="title" slot="title">{$prodBodyContent}</div>
-        <div class="body" slot="body">
-          {@html productsData[$prodBodyContent]}
-        </div>
+        <div class="title" slot="title" />
+        <div class="body" slot="body" />
       </DescriptionCard>
     {/if}
   </div>
