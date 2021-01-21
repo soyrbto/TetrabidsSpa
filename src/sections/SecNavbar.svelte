@@ -1,6 +1,7 @@
 <script>
   import { secNavbarItems } from "../StaticStore";
-  import { displayedSection, screenDisplacer, changeSection } from "../Stores";
+  import { displayedSection, screenDisplacer } from "../Stores";
+  import { moveSectionHandler } from "../optimizedFunctions";
 
   const sectionMove = () => {
     let startPosition = document.querySelector("#section-container").offsetTop;
@@ -65,7 +66,7 @@
     class:active={item === $displayedSection}
     on:click={(e) => {
       let target = e.currentTarget.innerText;
-      changeSection(target);
+      moveSectionHandler.horizontal(target);
     }}
   >
     {item}

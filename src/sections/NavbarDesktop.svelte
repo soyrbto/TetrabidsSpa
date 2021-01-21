@@ -1,6 +1,7 @@
 <script>
   import { navbarItems, secNavbarItems } from "../StaticStore";
-  import { changeSection, screenDisplacer } from "../Stores.js";
+  import { screenDisplacer } from "../Stores.js";
+  import { moveSectionHandler } from "../optimizedFunctions";
 
   let windowsWidth;
   const navbarMove = (e) => {
@@ -10,7 +11,7 @@
       let targetPosition = document.querySelector("#section-container")
         .offsetTop;
       screenDisplacer(0, targetPosition, 750);
-      setTimeout(() => changeSection(target), 400);
+      setTimeout(() => moveSectionHandler.horizontalMove(target), 400);
     }
   };
 </script>
@@ -61,7 +62,7 @@
       {#if i < 2}
         <li on:click={(e) => navbarMove(e)}>{item}</li>
       {:else}
-        <li><a href={'/' + item}>{item}</a></li>
+        <li><a href={"/" + item}>{item}</a></li>
       {/if}
     {/each}
   </ul>

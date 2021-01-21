@@ -1,36 +1,10 @@
-import { writable, get } from "svelte/store";
-import { secNavbarItems } from "./StaticStore";
+import { writable } from "svelte/store";
+import { moveSectionHandler } from "./optimizedFunctions";
+
 const maxWidthTablet = 1280;
-
-const displayedSection = writable(secNavbarItems[0]);
-const displayedState = writable({
-  [secNavbarItems[0]]: false,
-  [secNavbarItems[1]]: false,
-  [secNavbarItems[2]]: false,
-});
-
+const displayedSection = moveSectionHandler.currentPos;
+const displayedState = moveSectionHandler.store;
 const nodeSections = writable([]);
-
-// Functions that changes the section displayed on deskptop screens (<1280px)
-let activeChangeSection = true;
-const changeSection = (target) => {
-  if (activeChangeSection) {
-    activeChangeSection = false;
-    if (target != get(displayedSection)) {
-      displayedState.update(
-        (value) =>
-          (value = { ...value, [get(displayedSection)]: true, [target]: false })
-      );
-
-      setTimeout(() => {
-        displayedSection.set(`${target}`);
-      }, 450);
-    }
-    setTimeout(() => {
-      activeChangeSection = true;
-    }, 900);
-  }
-};
 
 //function that moves the screen to the target section from a start position
 let activeScreenDisplacer = true;
@@ -78,7 +52,6 @@ let navbarState = writable(false);
 export {
   displayedSection,
   displayedState,
-  changeSection,
   easeInOutCubic,
   linear,
   screenDisplacer,

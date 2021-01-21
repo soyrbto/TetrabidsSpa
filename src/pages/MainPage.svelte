@@ -8,6 +8,8 @@
   import Contact from "../sections/Contact.svelte";
   import NavButton from "../components/NavButton.svelte";
 
+  import { moveSectionHandler } from "../optimizedFunctions";
+
   import {
     secNavbarItems,
     visibleSections,
@@ -17,7 +19,6 @@
   import {
     displayedSection,
     displayedState,
-    changeSection,
     screenDisplacer,
     nodeSections,
     maxWidthTablet,
@@ -56,7 +57,7 @@
           : (nextIndex = currentIndex - 1);
         if (nextIndex >= 2) nextIndex = 2;
         if (nextIndex < 0) nextIndex = 0;
-        changeSection(secNavbarItems[nextIndex]);
+        moveSectionHandler.horizontal(secNavbarItems[nextIndex]);
       }
 
       if (

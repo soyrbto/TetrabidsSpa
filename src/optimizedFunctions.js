@@ -1,4 +1,7 @@
-import { writable } from "svelte/store";
+import { writable, get } from "svelte/store";
+import { secNavbarItems } from "./StaticStore";
+
+let isDesktop = true;
 
 /******************************************************************/
 /******************************************************************/
@@ -68,17 +71,45 @@ const textShortener = (function privateShortener() {
   const shortener = (fullText, numbWords) => {
     let longitud = fullText.length;
     let position = fullText.lastIndexOf(" ", numbWords);
-    mText = mText.slice(0, position);
+    fullText = fullText.slice(0, position);
 
     if (numbWords < longitud) {
-      mText = mText + `<span> ${viewMore} </span>`;
+      fullText = fullText + `<span> ${viewMore} </span>`;
     }
-    return mText;
+    return fullText;
   };
 
   return shortener;
 })();
 
 /******************************************************************/
+/******************************************************************/
 
-export { accordionHandler, dynaListHandler, textShortener };
+let moveSectionHandler = (function moveSection(arrSections) {
+  let initState = {};
+  let store = writable(initState);
+  const currentPos = writable(arrSections[0]);
+
+  arrSections.forEach((element) => {
+    initState[element] = false;
+  });
+
+  store = writable(initState);
+
+  function horizontal(whereTo) {
+    if (isDesktop && whereTo != get(currentPos)) {
+      store.update(
+        (value) =>
+          (value = { ...value, [whereTo]: false, [get(currentPos)]: true })
+      );
+    }
+    setTimeout(() => {
+      currentPos.set(whereTo);
+    }, 450);
+  }
+  return { currentPos, store, horizontal };
+})(secNavbarItems);
+
+/******************************************************************/
+
+export { accordionHandler, dynaListHandler, textShortener, moveSectionHandler };

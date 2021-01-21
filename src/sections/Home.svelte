@@ -3,12 +3,8 @@
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/Button.svelte";
   import Textures from "../components/Textures.svelte";
-  import {
-    screenDisplacer,
-    changeSection,
-    maxWidthTablet,
-    nodeSections,
-  } from "../Stores";
+  import { moveSectionHandler } from "../optimizedFunctions";
+  import { screenDisplacer, maxWidthTablet, nodeSections } from "../Stores";
   import { accordionData, secNavbarItems } from "../StaticStore";
 
   let windowsWidth;
@@ -21,7 +17,7 @@
       let targetPosition = document.querySelector("#section-container")
         .offsetTop;
       screenDisplacer(0, targetPosition, 750);
-      setTimeout(() => changeSection(target), 400);
+      setTimeout(() => moveSectionHandler.horizontalMove(target), 400);
     } else {
       let target = $nodeSections[2].offsetTop;
       let startPos = ContactButton.offsetTop;
