@@ -1,6 +1,5 @@
 <script>
   import { navbarItems, secNavbarItems } from "../StaticStore";
-  import { screenDisplacer } from "../Stores.js";
   import { moveSectionHandler } from "../optimizedFunctions";
 
   let windowsWidth;
@@ -10,7 +9,7 @@
     if (windowsWidth > 980 && currentIndex !== -1) {
       let targetPosition = document.querySelector("#section-container")
         .offsetTop;
-      screenDisplacer(0, targetPosition, 750);
+      moveSectionHandler.vertical(0, targetPosition, 750);
       setTimeout(() => moveSectionHandler.horizontalMove(target), 400);
     }
   };

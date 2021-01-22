@@ -19,7 +19,6 @@
   import {
     displayedSection,
     displayedState,
-    screenDisplacer,
     nodeSections,
     maxWidthTablet,
   } from "../Stores.js";
@@ -68,7 +67,7 @@
         // se llama el movimiento en base a la ubicacion de la pantalla y 750ms despues se habilita de nuevo
         startPosition = query(`#${desktopSection[currentIndex]}`).offsetTop;
         targetPosition = query(`#${desktopSection[nextIndex]}`).offsetTop;
-        screenDisplacer(startPosition, targetPosition, 750);
+        moveSectionHandler.vertical(startPosition, targetPosition);
       }
     }
   };

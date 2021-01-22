@@ -1,7 +1,8 @@
 <script>
   import { navbarItems, secNavbarItems } from "../StaticStore";
   import NavButton from "../components/NavButton.svelte";
-  import { navbarState, nodeSections, screenDisplacer } from "../Stores";
+  import { navbarState, nodeSections } from "../Stores";
+  import { moveSectionHandler } from "../optimizedFunctions";
 
   let target;
 
@@ -24,7 +25,7 @@
       targetPos = target.offsetTop;
     }
 
-    screenDisplacer(0, targetPos, 1000);
+    moveSectionHandler.vertical(0, targetPos, 1000);
   };
 
   let windowsWidth;

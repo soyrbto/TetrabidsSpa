@@ -6,7 +6,7 @@ let isDesktop = true;
 /******************************************************************/
 /******************************************************************/
 
-// function that creates the id, states and update functions for the accordion  on ----> Accordion.svelte
+// function that creates the id, states and update functions for the accordion
 const accordionHandler = (function accordionFuntionality() {
   const states = writable({});
   let idNumber = 0;
@@ -34,7 +34,7 @@ const accordionHandler = (function accordionFuntionality() {
 /******************************************************************/
 /******************************************************************/
 
-// controller for sevices and products list, create the state objects and updates the values on -----> products.svelte & services.svelte
+// controller for sevices and products list, create the state objects and updates the values
 const dynaListHandler = (function activeElement() {
   let initState = {};
   let ObjectStates = writable({});
@@ -85,6 +85,7 @@ const textShortener = (function privateShortener() {
 /******************************************************************/
 /******************************************************************/
 
+// handles the horizontal movement of the sections
 let moveSectionHandler = (function moveSection(arrSections) {
   let initState = {};
   let store = writable(initState);
@@ -97,19 +98,45 @@ let moveSectionHandler = (function moveSection(arrSections) {
   store = writable(initState);
 
   function horizontal(whereTo) {
-    if (isDesktop && whereTo != get(currentPos)) {
+    if ((whereTo != get(currentPos)) & isDesktop) {
       store.update(
         (value) =>
           (value = { ...value, [whereTo]: false, [get(currentPos)]: true })
       );
+
+      setTimeout(() => {
+        currentPos.set(whereTo);
+      }, 450);
     }
-    setTimeout(() => {
-      currentPos.set(whereTo);
-    }, 450);
   }
-  return { currentPos, store, horizontal };
+
+  function vertical(whereFrom, whereTo, howLong = 750) {
+    let start = null;
+    let distance = whereTo - whereFrom;
+    window.requestAnimationFrame(step);
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      let progress = timestamp - start;
+      window.scrollTo(
+        0,
+        easeInOutCubic(progress, whereFrom, distance, howLong)
+      );
+      if (progress < howLong) window.requestAnimationFrame(step);
+    }
+  }
+
+  function easeInOutCubic(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t * t + b;
+    t -= 2;
+    console.log("hola");
+    return (c / 2) * (t * t * t + 2) + b;
+  }
+  return { currentPos, store, horizontal, vertical };
 })(secNavbarItems);
 
+/******************************************************************/
 /******************************************************************/
 
 export { accordionHandler, dynaListHandler, textShortener, moveSectionHandler };
