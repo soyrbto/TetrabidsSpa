@@ -10,7 +10,7 @@
       let targetPosition = document.querySelector("#section-container")
         .offsetTop;
       moveSectionHandler.vertical(targetPosition);
-      setTimeout(() => moveSectionHandler.horizontalMove(target), 400);
+      setTimeout(() => moveSectionHandler.horizontal(target), 400);
     }
   };
 </script>
