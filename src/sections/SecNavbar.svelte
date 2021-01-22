@@ -4,8 +4,7 @@
   import { moveSectionHandler } from "../optimizedFunctions";
 
   const sectionMove = () => {
-    let startPosition = document.querySelector("#section-container").offsetTop;
-    moveSectionHandler.vertical(startPosition, 0, 750);
+    moveSectionHandler.vertical(0);
   };
 </script>
 

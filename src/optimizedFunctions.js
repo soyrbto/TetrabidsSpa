@@ -85,12 +85,6 @@ const textShortener = (function privateShortener() {
 /******************************************************************/
 /******************************************************************/
 
-// takes nodes and provide an array for positions of such nodes
-const nodePosition = (function () {})();
-
-/******************************************************************/
-/******************************************************************/
-
 // handles the horizontal movement of the sections
 let moveSectionHandler = (function moveSection(arrSections) {
   let initState = {};

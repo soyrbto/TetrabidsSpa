@@ -9,7 +9,7 @@
     if (windowsWidth > 980 && currentIndex !== -1) {
       let targetPosition = document.querySelector("#section-container")
         .offsetTop;
-      moveSectionHandler.vertical(0, targetPosition, 750);
+      moveSectionHandler.vertical(targetPosition);
       setTimeout(() => moveSectionHandler.horizontalMove(target), 400);
     }
   };
