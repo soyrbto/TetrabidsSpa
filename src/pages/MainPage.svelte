@@ -67,7 +67,7 @@
         // se llama el movimiento en base a la ubicacion de la pantalla y 750ms despues se habilita de nuevo
         startPosition = query(`#${desktopSection[currentIndex]}`).offsetTop;
         targetPosition = query(`#${desktopSection[nextIndex]}`).offsetTop;
-        moveSectionHandler.vertical(startPosition, targetPosition);
+        moveSectionHandler.vertical(targetPosition);
       }
     }
   };

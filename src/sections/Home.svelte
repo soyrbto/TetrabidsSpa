@@ -11,18 +11,18 @@
   let ContactButton;
 
   const contactMove = (e) => {
+    console.log(window.pageYOffset);
     if (windowsWidth > maxWidthTablet) {
       let target = e.currentTarget.innerText;
 
       let targetPosition = document.querySelector("#section-container")
         .offsetTop;
       moveSectionHandler.vertical(0, targetPosition, 750);
-      setTimeout(() => moveSectionHandler.horizontalMove(target), 400);
+      setTimeout(() => moveSectionHandler.horizontal(target), 400);
     } else {
       let target = $nodeSections[2].offsetTop;
-      let startPos = ContactButton.offsetTop;
 
-      screenDisplacer(startPos, target, 800);
+      moveSectionHandler.vertical(target);
     }
   };
 </script>

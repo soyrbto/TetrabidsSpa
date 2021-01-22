@@ -1,13 +1,8 @@
 <script>
-  import { createEventDispatcher } from "svelte";
   export let borderRadius = "50px";
   export let color = "orange";
   export let animation = "";
   export let buttonType = "";
-
-  const dispatch = createEventDispatcher();
-  let eventName = "contactClicked";
-  let evDetail = "Contacto";
 </script>
 
 <style type="text/scss">

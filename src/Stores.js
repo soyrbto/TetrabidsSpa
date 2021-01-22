@@ -5,8 +5,7 @@ const maxWidthTablet = 1280;
 const displayedSection = moveSectionHandler.currentPos;
 const displayedState = moveSectionHandler.store;
 const nodeSections = writable([]);
-
-let navbarState = writable(false);
+const navbarState = writable(false);
 
 export {
   displayedSection,

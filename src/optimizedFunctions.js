@@ -85,6 +85,12 @@ const textShortener = (function privateShortener() {
 /******************************************************************/
 /******************************************************************/
 
+// takes nodes and provide an array for positions of such nodes
+const nodePosition = (function () {})();
+
+/******************************************************************/
+/******************************************************************/
+
 // handles the horizontal movement of the sections
 let moveSectionHandler = (function moveSection(arrSections) {
   let initState = {};
@@ -110,7 +116,7 @@ let moveSectionHandler = (function moveSection(arrSections) {
     }
   }
 
-  function vertical(whereFrom, whereTo, howLong = 750) {
+  function vertical(whereTo, whereFrom = window.pageYOffset, howLong = 750) {
     let start = null;
     let distance = whereTo - whereFrom;
     window.requestAnimationFrame(step);
@@ -130,7 +136,6 @@ let moveSectionHandler = (function moveSection(arrSections) {
     t /= d / 2;
     if (t < 1) return (c / 2) * t * t * t + b;
     t -= 2;
-    console.log("hola");
     return (c / 2) * (t * t * t + 2) + b;
   }
   return { currentPos, store, horizontal, vertical };
