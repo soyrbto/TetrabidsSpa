@@ -4,7 +4,6 @@
   import Article from "./pages/Article.svelte";
   import Blog from "./pages/Blog.svelte";
   import Faq from "./pages/Faq.svelte";
-  import { claim_text } from "svelte/internal";
 
   let current;
   let params;

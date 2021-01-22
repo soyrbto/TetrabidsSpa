@@ -25,7 +25,7 @@
       targetPos = target.offsetTop;
     }
 
-    moveSectionHandler.vertical(0, targetPos, 1000);
+    moveSectionHandler.vertical(targetPos);
   };
 
   let windowsWidth;
