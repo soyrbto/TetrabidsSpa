@@ -112,7 +112,7 @@ let moveSectionHandler = (function moveSection(arrSections) {
 
   function vertical(whereTo, whereFrom = window.pageYOffset, howLong = 750) {
     let start = null;
-    let distance = whereTo - whereFrom;
+    let distance = whereTo.offsetTop - whereFrom;
     window.requestAnimationFrame(step);
 
     function step(timestamp) {

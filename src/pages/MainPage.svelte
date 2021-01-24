@@ -1,6 +1,7 @@
 <script>
-  import Home from "../sections/Home.svelte";
+  import { afterUpdate, onMount } from "svelte";
   import Services from "../sections/Services.svelte";
+  import Home from "../sections/Home.svelte";
   import SecNavbar from "../sections/SecNavbar.svelte";
   import Footer from "../sections/Footer.svelte";
   import NavbarMob from "../sections/NavbarMob.svelte";
@@ -9,6 +10,7 @@
   import NavButton from "../components/NavButton.svelte";
 
   import { moveSectionHandler } from "../optimizedFunctions";
+  import { pageSections } from "../StaticStore.js";
 
   import {
     secNavbarItems,
@@ -23,14 +25,19 @@
     maxWidthTablet,
   } from "../Stores.js";
 
-  // binding nodes of the sections when windowsWidth
-  let contact, product, service;
+  var contact, product, service, home, sections;
 
-  // set the nodes on nodeSections to a writable in store
-  setTimeout(() => {
-    let nodes = [service, product, contact];
+  afterUpdate(() => {
+    let nodes = {
+      [pageSections[0]]: contact,
+      [pageSections[1]]: service,
+      [pageSections[2]]: product,
+      [pageSections[5]]: home,
+      [pageSections[6]]: sections,
+    };
     nodeSections.set(nodes);
-  }, 200);
+    console.log("fui actualizado ", nodes);
+  });
 
   let windowsWidth;
   let active = true;
@@ -63,10 +70,9 @@
         $displayedSection == secNavbarItems[0] ||
         target == desktopSection[0]
       ) {
-        let startPosition, targetPosition;
+        let targetPosition;
         // se llama el movimiento en base a la ubicacion de la pantalla y 750ms despues se habilita de nuevo
-        startPosition = query(`#${desktopSection[currentIndex]}`).offsetTop;
-        targetPosition = query(`#${desktopSection[nextIndex]}`).offsetTop;
+        targetPosition = query(`#${desktopSection[nextIndex]}`);
         moveSectionHandler.vertical(targetPosition);
       }
     }
@@ -155,7 +161,7 @@
 <svelte:window bind:innerWidth={windowsWidth} />
 
 <div class="page-container">
-  <main>
+  <main bind:this={home}>
     <div
       on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ""}
       class="home-wrapper"
@@ -165,45 +171,47 @@
       <NavbarMob />
     </div>
 
-    {#if windowsWidth > maxWidthTablet}
-      <div
-        on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ""}
-        id="section-container"
-        class="section-wrapper"
-      >
-        {#if windowsWidth > maxWidthTablet}
-          <div class="secnavbar-wrapper">
-            <SecNavbar />
-          </div>
-        {/if}
+    <div bind:this={sections}>
+      {#if windowsWidth > maxWidthTablet}
+        <div
+          on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ""}
+          id="section-container"
+          class="section-wrapper"
+        >
+          {#if windowsWidth > maxWidthTablet}
+            <div class="secnavbar-wrapper">
+              <SecNavbar />
+            </div>
+          {/if}
 
-        {#if $displayedSection === secNavbarItems[0]}
-          <div
-            class:slide-out-right={$displayedState[secNavbarItems[0]]}
-            class="slide-in-right {secNavbarItems[0]}"
-            id={visibleSections[0]}
-          >
-            <Services />
-          </div>
-        {:else if $displayedSection === secNavbarItems[1]}
-          <div
-            class:slide-out-right={$displayedState["Productos"]}
-            class="slide-in-right {secNavbarItems[1]}"
-            id={visibleSections[1]}
-          >
-            <Products />
-          </div>
-        {:else if $displayedSection === secNavbarItems[2]}
-          <div
-            class:slide-out-right={$displayedState[secNavbarItems[2]]}
-            class="slide-in-right {secNavbarItems[2]}"
-            id={visibleSections[2]}
-          >
-            <Contact />
-          </div>
-        {/if}
-      </div>
-    {/if}
+          {#if $displayedSection === secNavbarItems[0]}
+            <div
+              class:slide-out-right={$displayedState[secNavbarItems[0]]}
+              class="slide-in-right {secNavbarItems[0]}"
+              id={visibleSections[0]}
+            >
+              <Services />
+            </div>
+          {:else if $displayedSection === secNavbarItems[1]}
+            <div
+              class:slide-out-right={$displayedState["Productos"]}
+              class="slide-in-right {secNavbarItems[1]}"
+              id={visibleSections[1]}
+            >
+              <Products />
+            </div>
+          {:else if $displayedSection === secNavbarItems[2]}
+            <div
+              class:slide-out-right={$displayedState[secNavbarItems[2]]}
+              class="slide-in-right {secNavbarItems[2]}"
+              id={visibleSections[2]}
+            >
+              <Contact />
+            </div>
+          {/if}
+        </div>
+      {/if}
+    </div>
 
     {#if windowsWidth <= maxWidthTablet}
       <div

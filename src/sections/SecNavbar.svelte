@@ -1,10 +1,10 @@
 <script>
   import { secNavbarItems } from "../StaticStore";
-  import { displayedSection } from "../Stores";
+  import { displayedSection, nodeSections } from "../Stores";
   import { moveSectionHandler } from "../optimizedFunctions";
 
   const sectionMove = () => {
-    moveSectionHandler.vertical(0);
+    moveSectionHandler.vertical($nodeSections.home);
   };
 </script>
 

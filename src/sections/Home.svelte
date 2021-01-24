@@ -14,8 +14,7 @@
     if (windowsWidth > maxWidthTablet) {
       let target = e.currentTarget.innerText;
 
-      let targetPosition = document.querySelector("#section-container")
-        .offsetTop;
+      let targetPosition = document.querySelector("#section-container");
       moveSectionHandler.vertical(targetPosition);
       setTimeout(() => moveSectionHandler.horizontal(target), 400);
     } else {

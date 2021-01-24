@@ -1,38 +1,16 @@
 <script>
-  import { navbarItems, secNavbarItems } from "../StaticStore";
+  import { sectionItems, nodeSections } from "../Stores";
   import NavButton from "../components/NavButton.svelte";
-  import { navbarState, nodeSections } from "../Stores";
+  import { navbarState } from "../Stores";
   import { moveSectionHandler } from "../optimizedFunctions";
 
-  let target;
-
-  const clicked = () => {
-    if ($navbarState == true) {
-      navbarState.update((el) => !el);
-    }
-  };
-
   const clickedItem = (e) => {
-    let targetclicked = e.currentTarget.innerText;
-    let targetPos;
-    if (targetclicked === secNavbarItems[0]) {
-      target = $nodeSections[0];
-      targetPos = target.offsetTop;
-    } else {
-      targetclicked === secNavbarItems[1]
-        ? (target = $nodeSections[1])
-        : (target = $nodeSections[2]);
-      targetPos = target.offsetTop;
-    }
-
-    moveSectionHandler.vertical(targetPos);
+    var whereTo = $nodeSections["targetText"];
+    console.log(whereTo);
+    moveSectionHandler.vertical(whereTo);
   };
 
   let windowsWidth;
-
-  const toCreate = (e) => {
-    e.preventDefault();
-  };
 </script>
 
 <style>
@@ -112,13 +90,6 @@
     animation-fill-mode: forwards;
   }
 
-  a {
-    font-family: "Roboto", sans-serif;
-    font-size: 24px;
-    color: white;
-    text-decoration: none;
-  }
-
   .nav__item:nth-child(1) {
     animation-delay: 0.2s;
   }
@@ -159,21 +130,21 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 {#if windowsWidth <= 768}
-  <nav on:wheel={toCreate}>
+  <nav on:wheel|preventDefault>
     <div class:active={$navbarState} class="menu js-menu">
       <div class="button">
         <NavButton />
       </div>
     </div>
-    <nav on:click={clicked} class:open={$navbarState} class="nav js-nav">
+    <nav
+      on:click={() => navbarState.update((el) => !el)}
+      class:open={$navbarState}
+      class="nav js-nav"
+    >
       <ul class:show={$navbarState} class="nav__list js-nav__list">
-        {#each navbarItems as navbarItem, i}
+        {#each $sectionItems.navbarMob as item}
           <li class="nav__item">
-            {#if i < 2}
-              <div on:click={clickedItem} class="nav__link">{navbarItem}</div>
-            {:else}
-              <div><a href={"/" + navbarItem}>{navbarItem}</a></div>
-            {/if}
+            <div on:click={clickedItem} class="nav__link">{item}</div>
           </li>
         {/each}
       </ul>

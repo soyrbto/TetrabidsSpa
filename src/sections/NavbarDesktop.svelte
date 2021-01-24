@@ -1,17 +1,13 @@
 <script>
-  import { navbarItems, secNavbarItems } from "../StaticStore";
+  import { sectionItems, nodeSections } from "../Stores";
   import { moveSectionHandler } from "../optimizedFunctions";
 
   let windowsWidth;
   const navbarMove = (e) => {
-    let target = e.currentTarget.innerText;
-    let currentIndex = secNavbarItems.findIndex((el) => el === target);
-    if (windowsWidth > 980 && currentIndex !== -1) {
-      let targetPosition = document.querySelector("#section-container")
-        .offsetTop;
-      moveSectionHandler.vertical(targetPosition);
-      setTimeout(() => moveSectionHandler.horizontal(target), 400);
-    }
+    var target = e.currentTarget.innerText;
+    var whereTo = "sections";
+    moveSectionHandler.vertical($nodeSections[whereTo]);
+    setTimeout(() => moveSectionHandler.horizontal(target), 400);
   };
 </script>
 
@@ -57,7 +53,7 @@
 
 <nav>
   <ul>
-    {#each navbarItems as item, i}
+    {#each $sectionItems.navbarDesktop as item, i}
       {#if i < 2}
         <li on:click={(e) => navbarMove(e)}>{item}</li>
       {:else}
