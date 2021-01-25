@@ -1,5 +1,6 @@
 <script>
-  import { afterUpdate, onMount } from "svelte";
+  import { tick } from "svelte";
+  import { onMount } from "svelte";
   import Services from "../sections/Services.svelte";
   import Home from "../sections/Home.svelte";
   import SecNavbar from "../sections/SecNavbar.svelte";
@@ -25,30 +26,23 @@
     maxWidthTablet,
   } from "../Stores.js";
 
-  var contact, product, service, home, sections;
-
-  afterUpdate(() => {
-    let nodes = {
-      [pageSections[0]]: contact,
-      [pageSections[1]]: service,
-      [pageSections[2]]: product,
-      [pageSections[5]]: home,
-      [pageSections[6]]: sections,
-    };
-    nodeSections.set(nodes);
-    console.log("fui actualizado ", nodes);
-  });
+  var contact, product, home, sections, service;
 
   onMount(() => {
-    let nodes = {
-      [pageSections[0]]: contact,
-      [pageSections[1]]: service,
-      [pageSections[2]]: product,
-      [pageSections[5]]: home,
-      [pageSections[6]]: sections,
-    };
-    nodeSections.set(nodes);
-    console.log("fui actualizado ", nodes);
+    async function initNodes() {
+      let nodes = {
+        [pageSections[0]]: contact,
+        [pageSections[1]]: service,
+        [pageSections[2]]: product,
+        [pageSections[5]]: home,
+        [pageSections[6]]: sections,
+      };
+      tick();
+      nodeSections.set(nodes);
+      console.log("fui montado ", nodes);
+    }
+
+    initNodes();
   });
 
   let windowsWidth;
