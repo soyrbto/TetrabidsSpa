@@ -125,8 +125,8 @@
 <svelte:window bind:innerWidth={windowsWidth} />
 <!--  SERVICES SECTION -->
 <Card
-  borderRadius={windowsWidth < maxWidthTablet ? "0px" : "20px"}
-  boxShadow={windowsWidth < maxWidthTablet
+  borderRadius={windowsWidth < $maxWidthTablet ? "0px" : "20px"}
+  boxShadow={windowsWidth < $maxWidthTablet
     ? "none"
     : "9px 12px 31px rgba(0, 0, 0, 0.5)"}
 >
@@ -137,7 +137,7 @@
         <h2 class="title">{servicesData.title}</h2>
         <p class="abstract">{servicesData.abstract}</p>
       </div>
-      {#if windowsWidth > maxWidthTablet}
+      {#if windowsWidth > $maxWidthTablet}
         <img
           class="fade-in-bck"
           src="./images/team.svg"
@@ -146,7 +146,7 @@
       {/if}
 
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
-      {#if windowsWidth <= maxWidthTablet}
+      {#if windowsWidth <= $maxWidthTablet}
         <div class="description-card-container">
           <Swiper
             pagination={{ clickable: true }}
@@ -171,7 +171,7 @@
       {/if}
     </div>
     <!--  SERVICE ITEMS SUB-SECTION -->
-    {#if windowsWidth > maxWidthTablet}
+    {#if windowsWidth > $maxWidthTablet}
       <div class="col-2">
         <div class="buttons-wrapper">
           {#each dynaList as serviceItem}
@@ -186,7 +186,7 @@
     {/if}
 
     <!--  SERVICES DESCRIPTIONS SUB-SECTION FOR WHEN THE WIDTH IS BIGGER THAN 1280PX -->
-    {#if windowsWidth > maxWidthTablet}
+    {#if windowsWidth > $maxWidthTablet}
       <ServiceDescription>
         <div class="title" slot="title">{activeItem}</div>
         <div class="body" slot="body">{@html servicesData[activeItem]}</div>

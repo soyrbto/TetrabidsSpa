@@ -11,16 +11,17 @@
   let ContactButton;
 
   const contactMove = (e) => {
-    if (windowsWidth > maxWidthTablet) {
-      let target = e.currentTarget.innerText;
+    var target = e.currentTarget.innerText;
 
-      let targetPosition = document.querySelector("#section-container");
-      moveSectionHandler.vertical(targetPosition);
+    if (windowsWidth > $maxWidthTablet) {
+      let whereTo = $nodeSections["sections"];
+      moveSectionHandler.vertical(whereTo);
       setTimeout(() => moveSectionHandler.horizontal(target), 400);
     } else {
-      let target = $nodeSections[2].offsetTop;
-
-      moveSectionHandler.vertical(target);
+      console.log(target);
+      let whereTo = $nodeSections[target];
+      console.log(whereTo);
+      moveSectionHandler.vertical(whereTo);
     }
   };
 </script>
@@ -147,7 +148,7 @@
     </div>
   </div>
 
-  {#if windowsWidth > maxWidthTablet}
+  {#if windowsWidth > $maxWidthTablet}
     <div class="col-2">
       <img
         class="slide-in-right"

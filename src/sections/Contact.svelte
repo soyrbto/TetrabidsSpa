@@ -111,8 +111,8 @@
 
 <Card
   backgroundColor={"#0B5771"}
-  borderRadius={windowsWidth > maxWidthTablet ? "20px" : "0px 0px 10px 10px"}
-  boxShadow={windowsWidth < maxWidthTablet
+  borderRadius={windowsWidth > $maxWidthTablet ? "20px" : "0px 0px 10px 10px"}
+  boxShadow={windowsWidth < $maxWidthTablet
     ? "none"
     : "9px 12px 31px rgba(0, 0, 0, 0.5)"}
 >
@@ -124,13 +124,13 @@
           <div class="subtitle">{contactData.subtitle}</div>
         {/if}
       </div>
-      {#if windowsWidth > maxWidthTablet}
+      {#if windowsWidth > $maxWidthTablet}
         <img src="./images/contact.svg" alt="" class="main-image fade-in-bck" />
       {/if}
 
       <!-- FORM COMPONENT -->
 
-      {#if windowsWidth <= maxWidthTablet}
+      {#if windowsWidth <= $maxWidthTablet}
         <Form />
       {/if}
 
@@ -142,7 +142,7 @@
       {/if}
     </div>
 
-    {#if windowsWidth > maxWidthTablet}
+    {#if windowsWidth > $maxWidthTablet}
       <div class="col-2">
         <Form />
       </div>

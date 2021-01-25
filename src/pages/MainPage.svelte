@@ -39,6 +39,18 @@
     console.log("fui actualizado ", nodes);
   });
 
+  onMount(() => {
+    let nodes = {
+      [pageSections[0]]: contact,
+      [pageSections[1]]: service,
+      [pageSections[2]]: product,
+      [pageSections[5]]: home,
+      [pageSections[6]]: sections,
+    };
+    nodeSections.set(nodes);
+    console.log("fui actualizado ", nodes);
+  });
+
   let windowsWidth;
   let active = true;
   let query = document.querySelector.bind(document);
@@ -163,7 +175,7 @@
 <div class="page-container">
   <main bind:this={home}>
     <div
-      on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ""}
+      on:wheel={windowsWidth > $maxWidthTablet ? sectionDriver : ""}
       class="home-wrapper"
       id={visibleSections[0]}
     >
@@ -172,13 +184,13 @@
     </div>
 
     <div bind:this={sections}>
-      {#if windowsWidth > maxWidthTablet}
+      {#if windowsWidth > $maxWidthTablet}
         <div
-          on:wheel={windowsWidth > maxWidthTablet ? sectionDriver : ""}
+          on:wheel={windowsWidth > $maxWidthTablet ? sectionDriver : ""}
           id="section-container"
           class="section-wrapper"
         >
-          {#if windowsWidth > maxWidthTablet}
+          {#if windowsWidth > $maxWidthTablet}
             <div class="secnavbar-wrapper">
               <SecNavbar />
             </div>
@@ -213,7 +225,7 @@
       {/if}
     </div>
 
-    {#if windowsWidth <= maxWidthTablet}
+    {#if windowsWidth <= $maxWidthTablet}
       <div
         class="slide-in-right {secNavbarItems[0]}"
         id={visibleSections[0]}

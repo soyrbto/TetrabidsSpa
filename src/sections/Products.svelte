@@ -122,8 +122,8 @@
 
 <!--  SERVICES SECTION -->
 <Card
-  borderRadius={windowsWidth < maxWidthTablet ? "0px" : "20px"}
-  boxShadow={windowsWidth < maxWidthTablet
+  borderRadius={windowsWidth < $maxWidthTablet ? "0px" : "20px"}
+  boxShadow={windowsWidth < $maxWidthTablet
     ? "none"
     : "9px 12px 31px rgba(0, 0, 0, 0.5)"}
 >
@@ -135,7 +135,7 @@
         <p class="abstract">{productsData.abstract}</p>
       </div>
 
-      {#if windowsWidth > maxWidthTablet}
+      {#if windowsWidth > $maxWidthTablet}
         <div class="wrapper-button">
           {#each dynaList as item}
             <Button borderRadius="10px" color={$dynaObjectState[item]}>
@@ -148,7 +148,7 @@
       {/if}
 
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
-      {#if windowsWidth <= maxWidthTablet}
+      {#if windowsWidth <= $maxWidthTablet}
         <div class="description-card-container">
           <Swiper
             pagination={{ clickable: true }}
@@ -174,7 +174,7 @@
     </div>
 
     <!--  SERVICE CENTER IMAGE SUB-SECTION -->
-    {#if windowsWidth > maxWidthTablet}
+    {#if windowsWidth > $maxWidthTablet}
       <div class="col-2">
         <img
           src="./images/tecnologias.svg"
@@ -185,7 +185,7 @@
     {/if}
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
 
-    {#if windowsWidth > maxWidthTablet}
+    {#if windowsWidth > $maxWidthTablet}
       <DescriptionCard>
         <div class="title" slot="title">{activeItem}</div>
         <div class="body" slot="body">{productsData[activeItem]}</div>
