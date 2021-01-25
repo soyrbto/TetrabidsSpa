@@ -147,3 +147,4 @@ export { accordionHandler, dynaListHandler, textShortener, moveSectionHandler };
 // agregar lazyLoad a las imagenes (en la pantalla principal) y textos en el blog
 // agregar movimiento vertical si se hace en el footer
 // bajar un poco el navbar
+// importar correctamente en main secnavbarItems a la nueva variable

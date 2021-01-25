@@ -24,6 +24,7 @@
     displayedState,
     nodeSections,
     maxWidthTablet,
+    sectionItems,
   } from "../Stores.js";
 
   var contact, product, home, sections, service;

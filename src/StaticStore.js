@@ -1,5 +1,3 @@
-const navbarItems = ["Servicios", "Productos", "Blog", "FAQ"];
-const secNavbarItems = ["Servicios", "Productos", "Contacto"];
 const visibleSections = ["Home", "Servicios", "Productos", "Contacto"];
 const desktopSection = ["Home", "section-container"];
 
@@ -80,11 +78,9 @@ const contactData = {
 
 export {
   pageSections,
-  navbarItems,
   accordionData,
   servicesData,
   productsData,
-  secNavbarItems,
   contactData,
   visibleSections,
   desktopSection,

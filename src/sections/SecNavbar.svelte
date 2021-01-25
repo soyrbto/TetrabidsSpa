@@ -1,6 +1,5 @@
 <script>
-  import { secNavbarItems } from "../StaticStore";
-  import { displayedSection, nodeSections } from "../Stores";
+  import { displayedSection, nodeSections, sectionItems } from "../Stores";
   import { moveSectionHandler } from "../optimizedFunctions";
 
   const sectionMove = () => {
@@ -59,7 +58,7 @@
   src="./images/home-button.svg"
   alt="blue home button"
 />
-{#each secNavbarItems as item}
+{#each $sectionItems.navbarSec as item}
   <div
     class="item"
     class:active={item === $displayedSection}
