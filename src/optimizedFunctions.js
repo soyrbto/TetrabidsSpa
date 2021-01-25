@@ -104,9 +104,7 @@ let moveSectionHandler = (function moveSection(arrSections) {
           (value = { ...value, [whereTo]: false, [get(currentPos)]: true })
       );
 
-      setTimeout(() => {
-        currentPos.set(whereTo);
-      }, 450);
+      setTimeout(() => currentPos.set(whereTo), 450);
     }
   }
 
@@ -139,3 +137,13 @@ let moveSectionHandler = (function moveSection(arrSections) {
 /******************************************************************/
 
 export { accordionHandler, dynaListHandler, textShortener, moveSectionHandler };
+
+//resolver el problema de los nodos en la mainpage, agregar la funcionalidad vertical en la horizontal, (nunca se llamara por separado)
+// crear estados de isDesktop, Language
+// evitar que la animacion del boton se lance al cargarse
+// terminar el accordion
+// evitar que se relancen funciones de movimiento
+// configurar el formulario con netlify
+// agregar lazyLoad a las imagenes (en la pantalla principal) y textos en el blog
+// agregar movimiento vertical si se hace en el footer
+// bajar un poco el navbar
