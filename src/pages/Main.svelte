@@ -1,28 +1,14 @@
 <script>
-  import { onMount } from "svelte";
-  import Services from "../sections/Services.svelte";
   import Home from "../sections/Home.svelte";
   import SecNavbar from "../sections/SecNavbar.svelte";
   import Footer from "../sections/Footer.svelte";
   import NavbarMob from "../sections/NavbarMob.svelte";
-  import Products from "../sections/Products.svelte";
-  import Contact from "../sections/Contact.svelte";
-  import NavButton from "../components/NavButton.svelte";
   import SectionsMob from "../sections/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
 
   import { moveSectionHandler } from "../optimizedFunctions";
-  import { pageSections } from "../StaticStore.js";
-
   import { visibleSections, desktopSection } from "../StaticStore";
-
-  import {
-    sectionItems,
-    displayedSection,
-    displayedState,
-    nodeSections,
-    maxWidthTablet,
-  } from "../Stores.js";
+  import { sectionItems, displayedSection, maxWidthTablet } from "../Stores.js";
 
   let home, sections;
 
@@ -158,21 +144,20 @@
       <NavbarMob />
     </div>
 
-    <div bind:this={sections}>
-      {#if windowsWidth > $maxWidthTablet}
-        <div
-          on:wheel={windowsWidth > $maxWidthTablet ? sectionDriver : ""}
-          id="section-container"
-          class="section-wrapper"
-        >
-          <div class="secnavbar-wrapper">
-            <SecNavbar />
-          </div>
-
-          <SectionsDesktop />
+    {#if windowsWidth > $maxWidthTablet}
+      <div
+        on:wheel={windowsWidth > $maxWidthTablet ? sectionDriver : ""}
+        id="section-container"
+        class="section-wrapper"
+        bind:this={sections}
+      >
+        <div class="secnavbar-wrapper">
+          <SecNavbar />
         </div>
-      {/if}
-    </div>
+
+        <SectionsDesktop />
+      </div>
+    {/if}
 
     {#if windowsWidth <= $maxWidthTablet}
       <SectionsMob />
