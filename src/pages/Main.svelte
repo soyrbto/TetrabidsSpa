@@ -10,11 +10,14 @@
   import { visibleSections, desktopSection } from "../StaticStore";
   import { sectionItems, displayedSection, maxWidthTablet } from "../Stores.js";
 
-  let home, sections;
+  let homeNode, sectionsNode;
 
   let windowsWidth;
   let active = true;
   let query = document.querySelector.bind(document);
+
+  $: componentSections =
+    windowsWidth > $maxWidthTablet ? SectionsDesktop : SectionsMob;
 
   //funcion que hace la traslacion si el ancho de pantalla es mayor a 980
   const sectionDriver = (e) => {
@@ -134,7 +137,7 @@
 <svelte:window bind:innerWidth={windowsWidth} />
 
 <div class="page-container">
-  <main bind:this={home}>
+  <main bind:this={homeNode}>
     <div
       on:wheel={windowsWidth > $maxWidthTablet ? sectionDriver : ""}
       class="home-wrapper"
@@ -144,24 +147,17 @@
       <NavbarMob />
     </div>
 
-    {#if windowsWidth > $maxWidthTablet}
-      <div
-        on:wheel={windowsWidth > $maxWidthTablet ? sectionDriver : ""}
-        id="section-container"
-        class="section-wrapper"
-        bind:this={sections}
-      >
-        <div class="secnavbar-wrapper">
-          <SecNavbar />
-        </div>
-
-        <SectionsDesktop />
+    <div
+      on:wheel={windowsWidth > $maxWidthTablet ? sectionDriver : ""}
+      id="section-container"
+      class="section-wrapper"
+      bind:this={sectionsNode}
+    >
+      <div class="secnavbar-wrapper">
+        <SecNavbar />
       </div>
-    {/if}
-
-    {#if windowsWidth <= $maxWidthTablet}
-      <SectionsMob />
-    {/if}
+      <svelte:component this={componentSections} />
+    </div>
   </main>
   <Footer />
 </div>
