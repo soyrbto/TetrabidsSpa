@@ -1,5 +1,5 @@
 import { writable, get } from "svelte/store";
-import { secNavbarItems } from "./StaticStore";
+import { pageSections } from "./StaticStore" ;
 
 let isDesktop = true;
 
@@ -131,7 +131,7 @@ let moveSectionHandler = (function moveSection(arrSections) {
     return (c / 2) * (t * t * t + 2) + b;
   }
   return { currentPos, store, horizontal, vertical };
-})(secNavbarItems);
+})(pageSections.slice(0, 3));
 
 /******************************************************************/
 /******************************************************************/

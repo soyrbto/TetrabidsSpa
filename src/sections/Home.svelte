@@ -4,8 +4,8 @@
   import Button from "../components/Button.svelte";
   import Textures from "../components/Textures.svelte";
   import { moveSectionHandler } from "../optimizedFunctions";
-  import { maxWidthTablet, nodeSections } from "../Stores";
-  import { accordionData, secNavbarItems } from "../StaticStore";
+  import { maxWidthTablet, nodeSections, sectionItems } from "../Stores";
+  import { accordionData } from "../StaticStore";
 
   let windowsWidth;
   let ContactButton;
@@ -143,7 +143,7 @@
     </div>
     <div on:click={contactMove} class="button" bind:this={ContactButton}>
       <Button>
-        <div class="button-contact">{secNavbarItems[2]}</div>
+        <div class="button-contact">{$sectionItems.navbarSec[2]}</div>
       </Button>
     </div>
   </div>

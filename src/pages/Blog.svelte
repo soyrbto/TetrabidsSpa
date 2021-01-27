@@ -5,9 +5,9 @@
   import CheckboxCategories from "../components/CheckboxCategories.svelte";
   import {
     areaCategories,
-    experienceCategories,
-    secNavbarItems,
+    experienceCategories
   } from "../StaticStore";
+  import { sectionItems } from "../Stores"
   import { onMount } from "svelte";
   import axios from "axios";
 
@@ -198,7 +198,7 @@
         <Button color="purple">
           <div class="fill"><a class="button-faq" href="/faq">FAQ</a></div>
         </Button>
-        <Button buttonType="outline">{secNavbarItems[2]}</Button>
+        <Button buttonType="outline">{$sectionItems.navbarSec[2]}</Button>
       </div>
     </div>
     <div class="right-column" />

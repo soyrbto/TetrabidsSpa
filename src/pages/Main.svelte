@@ -1,5 +1,4 @@
 <script>
-  import { tick } from "svelte";
   import { onMount } from "svelte";
   import Services from "../sections/Services.svelte";
   import Home from "../sections/Home.svelte";
@@ -9,42 +8,23 @@
   import Products from "../sections/Products.svelte";
   import Contact from "../sections/Contact.svelte";
   import NavButton from "../components/NavButton.svelte";
+  import SectionsMob from "../sections/SectionsMob.svelte";
+  import SectionsDesktop from "../sections/SectionsDesktop.svelte";
 
   import { moveSectionHandler } from "../optimizedFunctions";
   import { pageSections } from "../StaticStore.js";
 
-  import {
-    secNavbarItems,
-    visibleSections,
-    desktopSection,
-  } from "../StaticStore";
+  import { visibleSections, desktopSection } from "../StaticStore";
 
   import {
+    sectionItems,
     displayedSection,
     displayedState,
     nodeSections,
     maxWidthTablet,
-    sectionItems,
   } from "../Stores.js";
 
-  var contact, product, home, sections, service;
-
-  onMount(() => {
-    async function initNodes() {
-      let nodes = {
-        [pageSections[0]]: contact,
-        [pageSections[1]]: service,
-        [pageSections[2]]: product,
-        [pageSections[5]]: home,
-        [pageSections[6]]: sections,
-      };
-      tick();
-      nodeSections.set(nodes);
-      console.log("fui montado ", nodes);
-    }
-
-    initNodes();
-  });
+  let home, sections;
 
   let windowsWidth;
   let active = true;
@@ -62,7 +42,7 @@
       if (nextIndex < 0) nextIndex = 0;
       if (target !== "Home") {
         nextIndex = 1;
-        let currentIndex = secNavbarItems.findIndex(
+        let currentIndex = $sectionItems.navbarSec.findIndex(
           (el) => el === $displayedSection
         );
         e.deltaY > 0
@@ -70,11 +50,11 @@
           : (nextIndex = currentIndex - 1);
         if (nextIndex >= 2) nextIndex = 2;
         if (nextIndex < 0) nextIndex = 0;
-        moveSectionHandler.horizontal(secNavbarItems[nextIndex]);
+        moveSectionHandler.horizontal($sectionItems.navbarSec[nextIndex]);
       }
 
       if (
-        $displayedSection == secNavbarItems[0] ||
+        $displayedSection == $sectionItems.navbarSec[0] ||
         target == desktopSection[0]
       ) {
         let targetPosition;
@@ -185,66 +165,17 @@
           id="section-container"
           class="section-wrapper"
         >
-          {#if windowsWidth > $maxWidthTablet}
-            <div class="secnavbar-wrapper">
-              <SecNavbar />
-            </div>
-          {/if}
+          <div class="secnavbar-wrapper">
+            <SecNavbar />
+          </div>
 
-          {#if $displayedSection === secNavbarItems[0]}
-            <div
-              class:slide-out-right={$displayedState[secNavbarItems[0]]}
-              class="slide-in-right {secNavbarItems[0]}"
-              id={visibleSections[0]}
-            >
-              <Services />
-            </div>
-          {:else if $displayedSection === secNavbarItems[1]}
-            <div
-              class:slide-out-right={$displayedState["Productos"]}
-              class="slide-in-right {secNavbarItems[1]}"
-              id={visibleSections[1]}
-            >
-              <Products />
-            </div>
-          {:else if $displayedSection === secNavbarItems[2]}
-            <div
-              class:slide-out-right={$displayedState[secNavbarItems[2]]}
-              class="slide-in-right {secNavbarItems[2]}"
-              id={visibleSections[2]}
-            >
-              <Contact />
-            </div>
-          {/if}
+          <SectionsDesktop />
         </div>
       {/if}
     </div>
 
     {#if windowsWidth <= $maxWidthTablet}
-      <div
-        class="slide-in-right {secNavbarItems[0]}"
-        id={visibleSections[0]}
-        bind:this={service}
-      >
-        <Services />
-      </div>
-
-      <div
-        class="slide-in-right {secNavbarItems[1]}"
-        id={visibleSections[1]}
-        bind:this={product}
-      >
-        <Products />
-      </div>
-
-      <div
-        class="slide-in-right {secNavbarItems[2]}"
-        id={visibleSections[2]}
-        bind:this={contact}
-        style="margin-top: 60px;"
-      >
-        <Contact />
-      </div>
+      <SectionsMob />
     {/if}
   </main>
   <Footer />
