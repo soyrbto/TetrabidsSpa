@@ -87,7 +87,7 @@
     .section-wrapper {
       flex-direction: column;
       justify-content: flex-end !important;
-      height: 100vh;
+      height: auto !important;
     }
   }
 
