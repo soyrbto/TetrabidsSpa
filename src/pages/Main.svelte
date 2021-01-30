@@ -164,9 +164,11 @@
       class="section-wrapper"
       bind:this={sectionsNode}
     >
-      <div class="secnavbar-wrapper">
-        <SecNavbar />
-      </div>
+      {#if windowsWidth > maxWidthTablet}
+        <div class="secnavbar-wrapper">
+          <SecNavbar />
+        </div>
+      {/if}
       <svelte:component this={componentSections} />
     </div>
   </main>
