@@ -98,7 +98,6 @@ let moveSectionHandler = (function moveSection(arrSections) {
   store = writable(initState);
 
   function horizontal(whereTo) {
-    console.log(whereTo);
     if (whereTo != get(currentPos) && !onMotion) {
       onMotion = true;
       currentPos.set(false);
