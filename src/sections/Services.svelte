@@ -3,7 +3,7 @@
   import ServiceDescription from "../components/DescriptionCard.svelte";
   import Card from "../components/Card.svelte";
   import Button from "../components/Button.svelte";
-  import { maxWidthTablet } from "../Stores";
+  import { maxWidthTablet, animationRange } from "../Stores";
   import { servicesData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";
@@ -125,6 +125,7 @@
 <svelte:window bind:innerWidth={windowsWidth} />
 <!--  SERVICES SECTION -->
 <Card
+  animateFly={animationRange}
   borderRadius={windowsWidth < $maxWidthTablet ? "0px" : "20px"}
   boxShadow={windowsWidth < $maxWidthTablet
     ? "none"

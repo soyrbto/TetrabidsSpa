@@ -1,9 +1,8 @@
 <script>
-  import { fly } from "svelte/transition";
   import Card from "../components/Card.svelte";
   import { contactData } from "../StaticStore";
   import Form from "../components/Form.svelte";
-  import { maxWidthTablet } from "../Stores";
+  import { maxWidthTablet, animationRange } from "../Stores";
 
   let windowsWidth;
 </script>
@@ -110,6 +109,7 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 <Card
+  animateFly={animationRange}
   backgroundColor={"#0B5771"}
   borderRadius={windowsWidth > $maxWidthTablet ? "20px" : "0px 0px 10px 10px"}
   boxShadow={windowsWidth < $maxWidthTablet

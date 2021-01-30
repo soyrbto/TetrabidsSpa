@@ -7,6 +7,7 @@ const displayedSection = moveSectionHandler.currentPos;
 const displayedState = moveSectionHandler.store;
 const nodeSections = writable([]);
 const navbarState = writable(false);
+const animationRange = 2200;
 
 // 4 arrays used as list for different use cases:
 // Contacto, Servicios, Productos, Blog, FAQ, home, sections
@@ -18,6 +19,7 @@ const sectionItems = writable({
 });
 
 export {
+  animationRange,
   sectionItems,
   displayedSection,
   displayedState,

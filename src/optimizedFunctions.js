@@ -1,8 +1,6 @@
 import { writable, get } from "svelte/store";
 import { pageSections } from "./StaticStore";
 
-let isDesktop = true;
-
 /******************************************************************/
 /******************************************************************/
 
@@ -89,6 +87,7 @@ const textShortener = (function privateShortener() {
 let moveSectionHandler = (function moveSection(arrSections) {
   let initState = {};
   let store = writable(initState);
+  let onMotion = false;
   const currentPos = writable(arrSections[0]);
 
   arrSections.forEach((element) => {
@@ -98,13 +97,13 @@ let moveSectionHandler = (function moveSection(arrSections) {
   store = writable(initState);
 
   function horizontal(whereTo) {
-    if ((whereTo != get(currentPos)) & isDesktop) {
-      store.update(
-        (value) =>
-          (value = { ...value, [whereTo]: false, [get(currentPos)]: true })
-      );
-
-      currentPos.set(whereTo);
+    if (whereTo != get(currentPos) && !onMotion) {
+      onMotion = true;
+      currentPos.set(false);
+      setTimeout(() => {
+        currentPos.set(whereTo);
+        onMotion = false;
+      }, 500);
     }
   }
 
@@ -139,7 +138,6 @@ let moveSectionHandler = (function moveSection(arrSections) {
 export { accordionHandler, dynaListHandler, textShortener, moveSectionHandler };
 
 //resolver el problema de los nodos en la mainpage, agregar la funcionalidad vertical en la horizontal, (nunca se llamara por separado)
-// crear estados de isDesktop, Language
 // evitar que la animacion del boton se lance al cargarse
 // terminar el accordion
 // evitar que se relancen funciones de movimiento
@@ -148,3 +146,6 @@ export { accordionHandler, dynaListHandler, textShortener, moveSectionHandler };
 // agregar movimiento vertical si se hace en el footer
 // bajar un poco el navbar
 // importar correctamente en main secnavbarItems a la nueva variable
+
+// rawy: hacer que el navbarsec se mantenga en el mismo sitio aunque no exista seccion
+// para testear borrar linea 101 a 103 y clickear navbarsec
