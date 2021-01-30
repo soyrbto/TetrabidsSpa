@@ -1,10 +1,10 @@
 <script>
   import { onMount } from "svelte";
   import Home from "../sections/Home.svelte";
-  import SecNavbar from "../sections/SecNavbar.svelte";
+  import NavbarSec from "../sections/NavbarSec.svelte";
   import Footer from "../sections/Footer.svelte";
-  import NavbarMob from "../sections/NavbarMob.svelte";
-  import SectionsMob from "../sections/SectionsMob.svelte";
+  import NavbarMob from "../sectionsMobile/NavbarMob.svelte";
+  import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
 
   import { moveSectionHandler } from "../optimizedFunctions";
@@ -164,9 +164,9 @@
       class="section-wrapper"
       bind:this={sectionsNode}
     >
-      {#if windowsWidth > maxWidthTablet}
+      {#if windowsWidth > $maxWidthTablet}
         <div class="secnavbar-wrapper">
-          <SecNavbar />
+          <NavbarSec />
         </div>
       {/if}
       <svelte:component this={componentSections} />

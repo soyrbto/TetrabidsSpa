@@ -4,7 +4,7 @@
   import { navbarState } from "../Stores";
   import { moveSectionHandler } from "../optimizedFunctions";
 
-  const clickedItem = (e) => {
+  const clickedItem = () => {
     var whereTo = $nodeSections["targetText"];
     console.log(whereTo);
     moveSectionHandler.vertical(whereTo);
