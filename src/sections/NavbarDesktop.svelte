@@ -5,8 +5,7 @@
   let windowsWidth;
   const navbarMove = (e) => {
     var target = e.currentTarget.innerText;
-    var whereTo = "sections";
-    moveSectionHandler.vertical($nodeSections[whereTo]);
+    moveSectionHandler.vertical($nodeSections[1]);
     setTimeout(() => moveSectionHandler.horizontal(target), 400);
   };
 </script>

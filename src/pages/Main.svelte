@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import Home from "../sections/Home.svelte";
   import SecNavbar from "../sections/SecNavbar.svelte";
   import Footer from "../sections/Footer.svelte";
@@ -8,9 +9,19 @@
 
   import { moveSectionHandler } from "../optimizedFunctions";
   import { visibleSections, desktopSection } from "../StaticStore";
-  import { sectionItems, displayedSection, maxWidthTablet } from "../Stores.js";
+  import {
+    sectionItems,
+    displayedSection,
+    maxWidthTablet,
+    nodeSections,
+  } from "../Stores.js";
 
   let homeNode, sectionsNode;
+
+  onMount(() => {
+    let nodesArr = [homeNode, sectionsNode];
+    nodeSections.set(nodesArr);
+  });
 
   let windowsWidth;
   let active = true;

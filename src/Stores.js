@@ -11,7 +11,7 @@ const navbarState = writable(false);
 // 4 arrays used as list for different use cases:
 // Contacto, Servicios, Productos, Blog, FAQ, home, sections
 const sectionItems = writable({
-  desktop: pageSections.slice(5, 8),
+  desktop: pageSections.slice(5, 6),
   navbarMob: pageSections.slice(1, 5),
   navbarSec: pageSections.slice(0, 3),
   navbarDesktop: pageSections.slice(1, 5),

@@ -3,7 +3,7 @@
   import { moveSectionHandler } from "../optimizedFunctions";
 
   const sectionMove = () => {
-    moveSectionHandler.vertical($nodeSections.home);
+    moveSectionHandler.vertical($nodeSections[0]);
   };
 </script>
 
@@ -63,8 +63,7 @@
     class="item"
     class:active={item === $displayedSection}
     on:click={(e) => {
-      let target = e.currentTarget.innerText;
-      moveSectionHandler.horizontal(target);
+      moveSectionHandler.horizontal(e.currentTarget.innerText);
     }}
   >
     {item}

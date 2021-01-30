@@ -1,5 +1,5 @@
 import { writable, get } from "svelte/store";
-import { pageSections } from "./StaticStore" ;
+import { pageSections } from "./StaticStore";
 
 let isDesktop = true;
 
