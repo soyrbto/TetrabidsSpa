@@ -1,4 +1,5 @@
 <script>
+  import { fly } from "svelte/transition";
   import Card from "../components/Card.svelte";
   import { contactData } from "../StaticStore";
   import Form from "../components/Form.svelte";
@@ -8,7 +9,7 @@
 </script>
 
 <style type="text/scss">
-  .wrapper-section {
+  .section-container {
     display: flex;
     justify-content: space-between;
     padding: 5%;
@@ -108,7 +109,6 @@
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
-
 <Card
   backgroundColor={"#0B5771"}
   borderRadius={windowsWidth > $maxWidthTablet ? "20px" : "0px 0px 10px 10px"}
@@ -116,7 +116,7 @@
     ? "none"
     : "9px 12px 31px rgba(0, 0, 0, 0.5)"}
 >
-  <div class="wrapper-section">
+  <div class="section-container">
     <div class="col-1">
       <div class="concept">
         <div class="title">{contactData.title}</div>

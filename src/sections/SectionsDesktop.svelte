@@ -1,5 +1,5 @@
 <script>
-  import Services from "./Services.svelte";
+  import Services from "../sections/Services.svelte";
   import Products from "./Products.svelte";
   import Contact from "./Contact.svelte";
 

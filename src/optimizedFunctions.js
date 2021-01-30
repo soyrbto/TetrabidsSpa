@@ -104,7 +104,7 @@ let moveSectionHandler = (function moveSection(arrSections) {
           (value = { ...value, [whereTo]: false, [get(currentPos)]: true })
       );
 
-      setTimeout(() => currentPos.set(whereTo), 450);
+      currentPos.set(whereTo);
     }
   }
 
