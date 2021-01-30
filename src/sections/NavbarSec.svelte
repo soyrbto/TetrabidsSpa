@@ -61,8 +61,9 @@
 {#each $sectionItems.navbarSec as item}
   <div
     class="item"
-    class:active={item === $displayedSection}
+    class:active={item == $displayedSection}
     on:click={(e) => {
+      console.log(e.currentTarget.innerText);
       moveSectionHandler.horizontal(e.currentTarget.innerText);
     }}
   >

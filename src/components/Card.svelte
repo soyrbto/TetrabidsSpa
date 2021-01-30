@@ -18,7 +18,7 @@
   class="card"
   style="border-radius:{borderRadius}; background-color:{backgroundColor}; box-shadow:{boxShadow}"
   out:fly={{ x: animateFly, duration: 500, opacity: 1 }}
-  in:fly={{ x: animateFly, duration: 400, opacity: 1 }}
+  in:fly={{ x: animateFly, duration: 800, opacity: 1 }}
 >
   <slot />
 </div>

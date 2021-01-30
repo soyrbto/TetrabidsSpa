@@ -8,9 +8,9 @@
   let componentList = $sectionItems.navbarSec;
 
   let components = {
-    [componentList[1]]: Services,
-    [componentList[2]]: Products,
-    [componentList[0]]: Contact,
+    [componentList[0]]: Services,
+    [componentList[1]]: Products,
+    [componentList[2]]: Contact,
   };
 </script>
 

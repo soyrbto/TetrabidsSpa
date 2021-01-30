@@ -1,5 +1,6 @@
 import { writable, get } from "svelte/store";
 import { pageSections } from "./StaticStore";
+import { sectionItems } from "./Stores";
 
 /******************************************************************/
 /******************************************************************/
@@ -97,6 +98,7 @@ let moveSectionHandler = (function moveSection(arrSections) {
   store = writable(initState);
 
   function horizontal(whereTo) {
+    console.log(whereTo);
     if (whereTo != get(currentPos) && !onMotion) {
       onMotion = true;
       currentPos.set(false);
@@ -130,7 +132,7 @@ let moveSectionHandler = (function moveSection(arrSections) {
     return (c / 2) * (t * t * t + 2) + b;
   }
   return { currentPos, store, horizontal, vertical };
-})(pageSections.slice(0, 3));
+})([pageSections[1], pageSections[2], pageSections[0]]);
 
 /******************************************************************/
 /******************************************************************/

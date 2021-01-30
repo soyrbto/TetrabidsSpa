@@ -12,15 +12,11 @@
 
   const contactMove = (e) => {
     var target = e.currentTarget.innerText;
-
     if (windowsWidth > $maxWidthTablet) {
-      let whereTo = $nodeSections["sections"];
-      moveSectionHandler.vertical(whereTo);
+      moveSectionHandler.vertical($nodeSections[1]);
       setTimeout(() => moveSectionHandler.horizontal(target), 400);
     } else {
-      console.log(target);
       let whereTo = $nodeSections[target];
-      console.log(whereTo);
       moveSectionHandler.vertical(whereTo);
     }
   };
