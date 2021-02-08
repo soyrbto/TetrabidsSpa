@@ -109,6 +109,7 @@
       background-image: url(../images/background-product-mob.svg);
       background-size: cover;
       background-position: center;
+      margin-top: -5px;
     }
 
     .title {
