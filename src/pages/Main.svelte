@@ -99,6 +99,7 @@
       flex-direction: column;
       justify-content: flex-end !important;
       height: auto !important;
+      padding: 0 !important;
     }
   }
 
@@ -126,9 +127,10 @@
   .section-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     transition: all;
     height: 92vh;
+    padding: 0 3.5vw;
     background-image: url(/images/background-white-shape.svg);
     background-repeat: no-repeat;
     background-position: bottom;
@@ -140,8 +142,6 @@
     flex-direction: column;
     //META 118px
     width: 6.14vw;
-    //META 110PX
-    margin-right: 5.72vw;
   }
 </style>
 

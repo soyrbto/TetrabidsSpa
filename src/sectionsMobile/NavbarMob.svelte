@@ -47,7 +47,7 @@
     touch-action: none;
     background-color: rgba(0, 0, 0, 0.98);
     width: 100vw;
-    height: 120vh;
+    height: 100vh;
     position: absolute;
     right: 0px;
     top: 0px;

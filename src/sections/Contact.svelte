@@ -74,7 +74,7 @@
   }
 
   @media screen and (max-width: 1280px) {
-    .wrapper-section {
+    .section-container {
       width: 100vw;
       height: 800px;
 
