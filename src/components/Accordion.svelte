@@ -22,7 +22,7 @@
     /* META 66px*/
     height: clamp(52px, 3.43vw, 90px);
     /* META 30px*/
-    margin-bottom: 2.77vh;
+    margin-bottom: clamp(30px, 1.56vw, 40px);
     border-radius: 1rem;
     box-shadow: 9px 12px 31px rgba(0, 0, 0, 0.45);
     overflow: hidden;

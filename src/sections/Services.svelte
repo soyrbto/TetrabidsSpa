@@ -126,8 +126,8 @@
 <!--  SERVICES SECTION -->
 <Card
   animateFly={animationRange}
-  borderRadius={windowsWidth < $maxWidthTablet ? "0px" : "20px"}
-  boxShadow={windowsWidth < $maxWidthTablet
+  borderRadius={windowsWidth <= $maxWidthTablet ? "0px" : "20px"}
+  boxShadow={windowsWidth <= $maxWidthTablet
     ? "none"
     : "9px 12px 31px rgba(0, 0, 0, 0.5)"}
 >

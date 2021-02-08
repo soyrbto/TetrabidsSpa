@@ -56,6 +56,7 @@
       justify-content: center;
       /* height: 9vh; */
       height: 72px;
+      padding: 0;
       font-size: clamp(12px, 1.3vw, 15px);
     }
 
@@ -83,7 +84,8 @@
         <a
           href="https://www.facebook.com/tetrabids"
           target="_blank"
-          rel="noopener">
+          rel="noopener"
+        >
           <img src="../images/facebook.svg" alt="facebook icon" /></a
         >
       </li>
@@ -91,7 +93,8 @@
         <a
           href="https://www.instagram.com/tetrabids/"
           target="_blank"
-          rel="noopener">
+          rel="noopener"
+        >
           <img src="../images/instagram.svg" alt="instagram icon" /></a
         >
       </li>

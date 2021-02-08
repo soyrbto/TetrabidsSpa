@@ -29,6 +29,12 @@
     height: 11.57vh;
   }
 
+  @media only screen and (max-width: 1280px) {
+    .navbar {
+      height: 120px;
+    }
+  }
+
   .wrapper {
     display: flex;
     justify-content: space-around;
