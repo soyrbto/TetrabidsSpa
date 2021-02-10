@@ -111,7 +111,7 @@
 <Card
   animateFly={animationRange}
   backgroundColor={"#0B5771"}
-  borderRadius={windowsWidth > $maxWidthTablet ? "20px" : "0px 0px 10px 10px"}
+  borderRadius={windowsWidth > $maxWidthTablet ? "20px" : "0px 0px 8px 8px"}
   boxShadow={windowsWidth < $maxWidthTablet
     ? "none"
     : "9px 12px 31px rgba(0, 0, 0, 0.5)"}
