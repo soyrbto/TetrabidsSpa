@@ -115,7 +115,6 @@
   }
 
   .button-contact {
-    font-size: $font-size-botton;
     padding: clamp(15px, 1.04vw, 23px) clamp(26px, 1.45vw, 37px);
   }
 

@@ -63,11 +63,9 @@
         .abstract {
           display: block;
           font-weight: 400;
-          margin-top: 28px;
+          margin-top: 15px;
           font-family: "Josefin Sans", sans-serif;
-          /* meta font size 14px */
-          // font-size: unquote($string: "clamp(11px, 0.6vw + 0.448rem, 20px)");
-          font-size: clamp(14px, 0.93vw, 25px);
+          font-size: $font-size-card;
           line-height: clamp(23px, 1.66vw, 43px);
           text-align: justify;
         }
@@ -81,7 +79,6 @@
         width: 100%;
 
         .button-item {
-          font-size: $font-size-botton;
           padding: $padding-button-Blue;
         }
       }
@@ -113,12 +110,6 @@
     .title {
       text-align: center;
       font-size: clamp(23px, 4vw, 32px) !important;
-    }
-
-    .abstract {
-      text-align: center;
-      margin-top: 0 !important;
-      font-size: clamp(11px, 1.95vw, 15px) !important;
     }
   }
 </style>

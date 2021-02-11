@@ -9,6 +9,7 @@
   @import "../stylesGlobal/vars";
 
   button {
+    font-size: $font-size-botton;
     font-family: $font-primary;
     font-weight: 600;
     color: white;
@@ -43,20 +44,17 @@
   // OUTLINE BUTTON
 
   .outline {
-    font-size: clamp(15px, 1.3vw, 29px);
-    width: clamp(130px, 8.59vw, 170px);
-    margin-left: 44px;
-    font-family: "Josefin Sans", sans-serif;
     font-weight: 700;
+    padding: clamp(10px, 0.78vw, 17px) clamp(25px, 1.56vw, 30px);
+    margin-left: 44px;
     border: solid 2px transparent;
+    box-shadow: 2px 1000px 1px #fff inset;
     background-image: linear-gradient(
         rgba(255, 255, 255, 0),
         rgba(255, 255, 255, 0)
       ),
       linear-gradient(180deg, #ec35f8 0%, #3c26ab 100%);
     background-origin: border-box;
-    box-shadow: 2px 1000px 1px #fff inset;
-    // outline: none;
 
     span {
       background: -webkit-linear-gradient(90deg, #ec35f8 0%, #3c26ab 100%);

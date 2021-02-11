@@ -4,7 +4,8 @@ $color-text-blue: #066d92;
 
 $font-primary: "Josefin Sans", sans-serif;
 
-$font-size-botton: clamp(15px, 1.3vw, 29px); //25px
+$font-size-botton: clamp(15px, 1.3vw, 29px); // 25px
+$font-size-card: clamp(14px, 0.93vw, 25px); // 18px
 $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0;
 
 // MIXINS

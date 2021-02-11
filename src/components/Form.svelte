@@ -76,7 +76,6 @@
       top: 96%;
 
       .button-content {
-        font-size: $font-size-botton;
         padding: clamp(10px, 0.7vw, 20px) clamp(23px, 1.8vw, 40px);
       }
     }
@@ -92,7 +91,7 @@
     }
 
     .fields {
-      width: 80vw !important;
+      width: clamp(0px, 80vw, 750px) !important;
     }
   }
 </style>

@@ -28,7 +28,7 @@
 
       .service-body {
         font-family: $font-primary;
-        font-size: clamp(14px, 0.93vw, 25px); // 14px
+        font-size: $font-size-card;
         font-weight: 400;
         line-height: clamp(22px, 1.69vw, 32.5px);
         height: clamp(217px, 15.625vw, 400px); // 300px
@@ -53,7 +53,6 @@
         top: 96%;
 
         .button-card-content {
-          font-size: $font-size-botton;
           padding: clamp(10px, 0.78vw, 17px) clamp(28px, 2.08vw, 40px);
         }
       }
