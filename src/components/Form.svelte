@@ -7,6 +7,8 @@
 </script>
 
 <style type="text/scss">
+  @import "../stylesGlobal/vars";
+
   .column-wrapper {
     font-family: josefin Sans;
     display: flex;
@@ -70,16 +72,12 @@
 
     .button-wrapper {
       display: flex;
-      justify-content: center;
       position: absolute;
       top: 96%;
 
       .button-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        font-size: $font-size-botton;
         padding: clamp(10px, 0.7vw, 20px) clamp(23px, 1.8vw, 40px);
-        font-size: clamp(15px, 1.3vw, 29px);
       }
     }
   }

@@ -5,31 +5,29 @@
 </script>
 
 <style type="text/scss">
+  @import "../stylesGlobal/vars";
+
   .col-3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include flex-col-center;
     width: clamp(345px, 25.31vw, 648px); // 486px
 
-    @media (max-width: 1280px) {
+    @include respond(tab-land) {
       width: 100%;
       padding: 0 clamp(12px, calc(9.4vw - 60px), 60px); //SCREEN:1280 : 60PX - SCREEN:768 : 12PX
     }
 
     .description-card-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include flex-col-center;
       padding: 4% 5% 0 5%;
       position: relative;
 
       .typo-title {
-        color: #066d92;
+        color: $color-text-blue;
         font-size: clamp(18px, 1.3vw, 33px);
       }
 
       .service-body {
-        font-family: "Josefin Sans", sans-serif;
+        font-family: $font-primary;
         font-size: clamp(14px, 0.93vw, 25px); // 14px
         font-weight: 400;
         line-height: clamp(22px, 1.69vw, 32.5px);
@@ -42,7 +40,7 @@
         height: 11.66vw;
         margin-bottom: 10%;
 
-        @media (max-width: 1280px) {
+        @include respond(tab-land) {
           height: 206px;
           margin-bottom: 25px;
         }
@@ -50,18 +48,13 @@
 
       .button-wrapper {
         display: flex;
-        justify-content: center;
         align-self: center;
         position: absolute;
         top: 96%;
 
         .button-card-content {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: clamp(18px, 1.3vw, 33px); // 25px
-          width: clamp(174px, 12.81vw, 328px); // 246px
-          height: clamp(41px, 2.96vw, 77px); // 58px
+          font-size: $font-size-botton;
+          padding: clamp(10px, 0.78vw, 17px) clamp(28px, 2.08vw, 40px);
         }
       }
     }

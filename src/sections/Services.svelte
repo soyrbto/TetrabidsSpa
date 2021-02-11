@@ -27,6 +27,8 @@
 </script>
 
 <style type="text/scss">
+  @import "../stylesGlobal/vars";
+
   .wrapper-section {
     display: flex;
     justify-content: space-between;
@@ -79,18 +81,13 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        //Meta width 243px
         height: 100%;
-        //META PADDING 75PX
-        padding: unquote($string: "clamp(50px, 3.9vw, 40px)") 0;
+        padding: clamp(50px, 3.9vw, 40px) 0; // 75px
       }
 
       .button-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 3.125vw;
-        font-size: 1.3vw;
+        font-size: $font-size-botton;
+        padding: $padding-button-Blue;
       }
     }
   }

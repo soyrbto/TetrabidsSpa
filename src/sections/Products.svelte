@@ -33,6 +33,8 @@
 </script>
 
 <style type="text/scss">
+  @import "../stylesGlobal/vars";
+
   .wrapper-section {
     display: flex;
     justify-content: space-between;
@@ -79,12 +81,8 @@
         width: 100%;
 
         .button-item {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          // META 60px
-          height: clamp(42px, 3.125vw, 80px);
-          font-size: 1.3vw;
+          font-size: $font-size-botton;
+          padding: $padding-button-Blue;
         }
       }
     }

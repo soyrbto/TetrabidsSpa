@@ -22,7 +22,9 @@
   };
 </script>
 
-<style>
+<style type="text/scss">
+  @import "../stylesGlobal/vars";
+
   .navbar {
     display: flex;
     justify-content: center;
@@ -55,7 +57,7 @@
     font-family: "Josefin Sans", sans-serif;
     color: white;
     /* meta font size 70px */
-    font-size: clamp(clamp(40px, 3.25vw + 2.5rem, 50px), 3.65vw, 90px);
+    font-size: clamp(clamp(40px, calc(3.25vw + 2.5rem), 50px), 3.65vw, 90px);
     font-weight: 700;
   }
 
@@ -64,13 +66,13 @@
     /* META margin-top -25px  */
     margin-top: clamp(-2.5rem, -1.3vw, -1.5rem);
     /* meta font size 45px*/
-    font-size: clamp(clamp(26px, 2vw + 16px, 32px), 2.34vw, 55px);
+    font-size: clamp(clamp(26px, calc(2vw + 16px), 32px), 2.34vw, 55px);
     font-weight: 400;
   }
 
   .title-accordion {
     /** META 22px */
-    font-size: clamp(clamp(12px, 0.25vw + 1.2rem, 16px), 1.14vw, 30px);
+    font-size: clamp(clamp(12px, calc(0.25vw + 1.2rem), 16px), 1.14vw, 30px);
     line-height: 0;
   }
 
@@ -109,14 +111,12 @@
 
   .button {
     display: flex;
-    justify-content: center;
     align-self: center;
   }
 
   .button-contact {
+    font-size: $font-size-botton;
     padding: clamp(15px, 1.04vw, 23px) clamp(26px, 1.45vw, 37px);
-    /* META 25px */
-    font-size: clamp(15px, 1.3vw, 29px);
   }
 
   .accordion {
