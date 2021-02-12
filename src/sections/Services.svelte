@@ -62,8 +62,8 @@
           font-weight: 400;
           margin-top: 15px;
           font-family: "Josefin Sans", sans-serif;
-          font-size: $font-size-card;
-          line-height: clamp(22px, 1.69vw, 32.5px);
+          font-size: $font-size-body;
+          line-height: $line-height;
           text-align: justify;
         }
       }
@@ -105,7 +105,7 @@
 
     .title {
       text-align: center;
-      font-size: clamp(23px, 4vw, 32px) !important;
+      font-size: clamp(25px, 4vw, 32px) !important;
     }
   }
 </style>
@@ -146,10 +146,10 @@
             {#each servicesData.items as service}
               <SwiperSlide>
                 <ServiceDescription>
-                  <div class="title" slot="title">
+                  <div slot="title">
                     {@html service}
                   </div>
-                  <div class="body" slot="body">
+                  <div slot="body">
                     {@html servicesData[service]}
                   </div>
                 </ServiceDescription>

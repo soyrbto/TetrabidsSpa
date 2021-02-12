@@ -9,7 +9,7 @@
   @import "../stylesGlobal/vars";
 
   button {
-    font-size: $font-size-botton;
+    font-size: $font-size-primary;
     font-family: $font-primary;
     font-weight: 600;
     color: white;

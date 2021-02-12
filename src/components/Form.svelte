@@ -10,11 +10,7 @@
   @import "../stylesGlobal/vars";
 
   .column-wrapper {
-    font-family: josefin Sans;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: clamp(30px, 2.08vw, 45px) calc(0.6vw + 1.2rem);
+    padding: clamp(30px, 2.08vw, 45px) clamp(20px, 2.08vw, 35px);
     position: relative;
 
     .form-wrapper {
@@ -23,28 +19,34 @@
       align-items: center;
 
       .group {
-        position: relative;
-        //META font size 18px
-        font-size: clamp(12px, 0.95vw, 22px);
+        font-family: $font-primary;
+        font-size: clamp(12px, 0.95vw, 22px); // 18px
         line-height: 50%;
         color: #838383;
-        // margin-bottom: calc(0.5vw + 1rem);
-        margin-bottom: 1.98vw;
+        width: 100%;
+        margin-bottom: clamp(20px, 1.98vw, 50px);
+        position: relative;
 
-        & .fields {
-          width: 32vw;
-          height: clamp(40px, 3.22vw, 75px);
+        .fields {
+          font-family: $font-primary;
+          font-size: clamp(16px, 1.14vw, 26px); // 22px
+          letter-spacing: 0.03em;
+          line-height: 120%;
           background-color: #f3f3f3;
-          line-height: 150%;
-          padding: 0px 0 0 20px;
+          width: 100%;
+          height: clamp(40px, 3.22vw, 75px);
+          padding-left: 20px;
           border-radius: 5px;
+
+          @include respond(tab-land) {
+            width: clamp(0px, 80vw, 750px);
+          }
         }
 
         input:focus ~ label,
         input:valid ~ label,
         textarea:focus ~ label,
         textarea:valid ~ label {
-          // top: calc(-0.3vw - 0.5rem);
           top: -0.95vw;
           background: white;
         }
@@ -52,7 +54,12 @@
         & textarea.fields {
           height: 16vw;
           border-style: none;
-          padding: 15px 0.4em 0.4em 15px;
+          padding: 20px 0.4em 0.4em 20px;
+          font-weight: 600;
+
+          @include respond(tab-land) {
+            height: calc(3.125vw + 20rem);
+          }
         }
 
         & > label {
@@ -64,7 +71,6 @@
         }
 
         & textarea + label {
-          // top: 2.31vh;
           top: 5%;
         }
       }
@@ -78,20 +84,6 @@
       .button-content {
         padding: clamp(10px, 0.7vw, 20px) clamp(23px, 1.8vw, 40px);
       }
-    }
-  }
-
-  @media screen and (max-width: 1280px) {
-    .group {
-      margin-bottom: 20px !important;
-
-      & textarea {
-        height: calc(3.125vw + 20rem) !important;
-      }
-    }
-
-    .fields {
-      width: clamp(0px, 80vw, 750px) !important;
     }
   }
 </style>

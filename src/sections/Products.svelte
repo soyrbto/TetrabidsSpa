@@ -65,8 +65,8 @@
           font-weight: 400;
           margin-top: 15px;
           font-family: "Josefin Sans", sans-serif;
-          font-size: $font-size-card;
-          line-height: clamp(23px, 1.66vw, 43px);
+          font-size: $font-size-body;
+          line-height: $line-height;
           text-align: justify;
         }
       }
@@ -109,7 +109,7 @@
 
     .title {
       text-align: center;
-      font-size: clamp(23px, 4vw, 32px) !important;
+      font-size: clamp(25px, 4vw, 32px) !important;
     }
   }
 </style>
@@ -156,10 +156,10 @@
             {#each productsData.items as product}
               <SwiperSlide>
                 <DescriptionCard>
-                  <div class="title" slot="title">
+                  <div slot="title">
                     {@html product}
                   </div>
-                  <div class="body" slot="body">
+                  <div slot="body">
                     {@html productsData[product]}
                   </div>
                 </DescriptionCard>
