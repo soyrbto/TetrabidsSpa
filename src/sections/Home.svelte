@@ -8,7 +8,6 @@
   import { accordionData } from "../StaticStore";
 
   let windowsWidth;
-  let ContactButton;
 
   const contactMove = (e) => {
     var target = e.currentTarget.innerText;
@@ -134,6 +133,7 @@
 <div class="wrapper">
   <div class="col-1">
     <h1>Tetrabids <span> Desarrollo web contigo</span></h1>
+
     <div class="accordion">
       {#each accordionData as accordion}
         <Accordion>
@@ -142,7 +142,8 @@
         </Accordion>
       {/each}
     </div>
-    <div on:click={contactMove} class="button" bind:this={ContactButton}>
+
+    <div on:click={contactMove} class="button">
       <Button>
         <div class="button-contact">{$sectionItems.navbarSec[2]}</div>
       </Button>
