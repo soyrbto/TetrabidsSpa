@@ -1,9 +1,24 @@
 <script>
   import Card from "./Card.svelte";
   import Button from "./Button.svelte";
+  import { writable } from "svelte/store";
 
-  let contactForm;
-  let nameField, emailField, messageField;
+  let user = writable({});
+
+  let submitForm = (event) => {
+    let formdata = new FormData();
+    formdata.append("name", `${user.name}`); //notice we cast the store values as strings with the `${var}` syntax
+    formdata.append("email", `${user.email}`);
+    formdata.append("message", `${user.message}`);
+    fetch("/contact/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formdata,
+    })
+      .then(() => alert("Success!"))
+      .catch((error) => alert(error));
+    event.preventDefault();
+  };
 </script>
 
 <style type="text/scss">
@@ -96,7 +111,6 @@
       data-netlify="true"
       autocomplete="off"
       class="form-wrapper"
-      bind:this={contactForm}
     >
       <div class="group">
         <input
@@ -104,36 +118,36 @@
           type="text"
           class="fields"
           name="name"
-          bind:this={nameField}
           id="name"
+          bind:value={$user.name}
         />
         <label for="name">nombre</label>
       </div>
       <div class="group">
         <input
-          bind:this={emailField}
           required
           type="email"
           name="email"
           class="fields"
           id="email"
+          bind:value={$user.email}
         />
         <label for="email">email</label>
       </div>
       <div class="group">
         <textarea
           required
-          bind:this={messageField}
           type="text"
           style="resize:none"
           class="fields"
           name="message"
           id="message"
+          bind:value={$user.message}
         />
         <label for="message">mensaje</label>
       </div>
       <input name="form-name" type="hidden" value="contact" />
-      <div class="button-wrapper">
+      <div class="button-wrapper" on:click|preventDefault={submitForm}>
         <Button>
           <div class="button-content">Enviar</div>
         </Button>
