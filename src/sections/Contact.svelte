@@ -8,42 +8,54 @@
 </script>
 
 <style type="text/scss">
+  @import "../stylesGlobal/vars";
+
   .section-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 5%;
-    width: 78.65vw;
-    height: clamp(450px, 40.15vw, 1025px);
-    // height: 71.4vh;
+    @include card-dim-desk;
+
+    @include respond(tab-land) {
+      @include sec-mob;
+    }
 
     .col-1 {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      //meta width 523px
+
+      @include respond(tab-land) {
+        justify-content: center;
+        width: 100%;
+      }
 
       .concept {
+        @include respond(tab-land) {
+          text-align: center;
+          margin-bottom: 50px;
+        }
+
         .title {
-          align-self: flex-start;
-          color: white;
-          display: inline-block;
-          width: 25.7vw;
-          font-family: Josefin Sans;
-          font-style: normal;
-          font-weight: normal;
-          font-size: clamp(18px, 1.66vw, 32px);
-          line-height: 3.78rem;
+          font-size: $font-size-titleSec-desk;
+          line-height: clamp(33px, 2.08vw, 50px);
           letter-spacing: 0.05em;
+          color: white;
+          width: 25.7vw;
+
+          @include respond(tab-land) {
+            font-size: $font-size-titleSec-Mob;
+            width: 100%;
+          }
         }
 
         .subtitle {
+          font-size: clamp(13px, 0.93vw, 24px);
           color: white;
-          font-family: Josefin Sans;
-          font-weight: normal;
-          font-size: clamp(13px, 0.93vw, 25px);
-          line-height: 1.4vw;
-          margin-top: 0.28vw;
+          margin-top: clamp(6px, 0.36vw, 8px);
+
+          @include respond(tab-land) {
+            text-align: center;
+            font-size: 17px;
+          }
         }
       }
 
@@ -58,51 +70,19 @@
         align-items: center;
         height: clamp(53px, 3.85vw, 99px);
         color: white;
-        font-family: Josefin Sans;
-        font-style: normal;
-        font-weight: 600;
         font-size: clamp(13px, 0.83vw, 22px);
+        font-weight: 600;
+
+        @include respond(tab-land) {
+          margin-top: 60px;
+          font-size: 17px;
+        }
       }
     }
 
     .col-2 {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include flex-col-center;
       width: 37vw;
-    }
-  }
-
-  @media screen and (max-width: 1280px) {
-    .section-container {
-      width: 100vw;
-      height: 800px;
-
-      .col-1 {
-        justify-content: center !important;
-        width: 100%;
-
-        .concept {
-          margin-bottom: 50px;
-          text-align: center;
-
-          .title {
-            width: 100% !important;
-            font-size: clamp(23px, 4.7vw, 32px) !important;
-          }
-
-          .subtitle {
-            text-align: center;
-            font-size: 16px !important;
-            margin-top: 7px !important;
-          }
-        }
-
-        .wrapper-info {
-          margin-top: 60px;
-          font-size: 16px !important;
-        }
-      }
     }
   }
 </style>

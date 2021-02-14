@@ -24,16 +24,10 @@
       .typo-title {
         color: $color-text-blue;
         font-size: $font-size-primary;
-
-        @include respond(tab-land) {
-          text-align: center;
-        }
       }
 
       .service-body {
-        font-family: $font-primary;
         font-size: $font-size-body;
-        font-weight: 400;
         line-height: $line-height;
         height: clamp(217px, 15.625vw, 400px); // 300px
         overflow: hidden;

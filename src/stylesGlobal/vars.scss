@@ -5,8 +5,12 @@ $color-text-blue: #066d92;
 $font-primary: "Josefin Sans", sans-serif;
 
 $font-size-primary: clamp(21px, 1.3vw, 33px); // 25px
+$font-size-titleSec-desk: clamp(23px, 1.66vw, 43px);
+$font-size-titleSec-Mob: clamp(26px, 2.34vw, 30px);
 $font-size-body: clamp(14px, 0.93vw, 25px); // 18px
+
 $line-height: clamp(23px, 1.66vw, 43px);
+
 $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0;
 
 // MIXINS
@@ -24,4 +28,17 @@ $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@mixin card-dim-desk {
+  display: flex;
+  justify-content: space-between;
+  width: 78.65vw; // 1511px
+  height: clamp(450px, 40.15vw, 1025px);
+  padding: 5%;
+}
+
+@mixin sec-mob {
+  width: 100vw;
+  height: 800px;
 }

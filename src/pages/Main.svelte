@@ -67,10 +67,13 @@
 </script>
 
 <style type="text/scss">
+  @import "../stylesGlobal/vars";
+
   .page-container {
     position: relative;
     height: 208vh;
     overflow: hidden;
+    font-family: $font-primary;
   }
 
   @media screen and (max-width: 1280px) {

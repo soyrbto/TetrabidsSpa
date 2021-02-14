@@ -30,82 +30,64 @@
   @import "../stylesGlobal/vars";
 
   .wrapper-section {
-    display: flex;
-    justify-content: space-between;
+    @include card-dim-desk;
     background-image: url(../images/services-background.svg);
     background-position: right;
     background-repeat: no-repeat;
     background-size: 70vw 1200px;
     border-radius: 20px;
-    //META PADDING 96px 70px 85px 70px
-    padding: 3% 4.5%;
-    //  META WIDTH 1511PX
-    width: 78.65vw;
-    // height: 71.4vh;
-    height: clamp(450px, 40.15vw, 1025px);
 
-    .col-1 {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      // META WIDTH 358PX
-      width: 18.65vw;
-
-      .concept {
-        .title {
-          font-family: var(--display-typo);
-          //META font-size 32px
-          font-size: clamp(23px, 1.66vw, 43px);
-        }
-
-        .abstract {
-          font-weight: 400;
-          margin-top: 15px;
-          font-family: "Josefin Sans", sans-serif;
-          font-size: $font-size-body;
-          line-height: $line-height;
-          text-align: justify;
-        }
-      }
-    }
-
-    .col-2 {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      width: unquote($string: "clamp(150px, 12.65vw, 350px)");
-
-      .buttons-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        padding: clamp(50px, 3.9vw, 40px) 0; // 75px
-      }
-
-      .button-item {
-        padding: $padding-button-Blue;
-      }
-    }
-  }
-
-  @media screen and (max-width: 1280px) {
-    .col-1 {
-      width: 100% !important;
-    }
-
-    .wrapper-section {
-      width: 100vw;
-      height: 800px;
-      border-radius: 0;
+    @include respond(tab-land) {
+      @include sec-mob;
       background-image: url(../images/background-service-mob.svg);
       background-size: cover;
       background-position: center;
     }
 
-    .title {
-      text-align: center;
-      font-size: clamp(25px, 4vw, 32px) !important;
+    .col-1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 18.65vw; // 358px
+
+      @include respond(tab-land) {
+        width: 100%;
+      }
+
+      .concept {
+        .title {
+          font-size: $font-size-titleSec-desk; // 32px
+
+          @include respond(tab-land) {
+            text-align: center;
+            font-size: $font-size-titleSec-Mob; // 30px
+            font-weight: 600;
+          }
+        }
+
+        .abstract {
+          font-size: $font-size-body;
+          line-height: $line-height;
+          text-align: justify;
+          margin-top: 15px;
+        }
+      }
+    }
+
+    .col-2 {
+      @include flex-col-center;
+      width: clamp(150px, 12.65vw, 350px);
+
+      .buttons-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 90%;
+      }
+
+      .button-item {
+        padding: $padding-button-Blue;
+      }
     }
   }
 </style>

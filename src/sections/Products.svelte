@@ -36,38 +36,41 @@
   @import "../stylesGlobal/vars";
 
   .wrapper-section {
-    display: flex;
-    justify-content: space-between;
+    @include card-dim-desk;
 
-    //META PADDING 96px 70px 85px 70px
-    padding: 5%;
-    //  META WIDTH 1511PX
-    width: 78.65vw;
-    // height: 71.4vh;
-    height: clamp(450px, 40.15vw, 1025px);
+    @include respond(tab-land) {
+      @include sec-mob;
+      background-image: url(../images/background-product-mob.svg);
+      background-size: cover;
+      background-position: center;
+    }
 
     .col-1 {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      // META WIDTH 358px
-      width: 18.65vw;
+      width: 18.65vw; // 358px
+
+      @include respond(tab-land) {
+        width: 100%;
+      }
 
       .concept {
         .title {
-          font-family: var(--display-typo);
-          // META 32px
-          font-size: clamp(23px, 1.66vw, 43px);
+          font-size: $font-size-titleSec-desk; // 32px
+
+          @include respond(tab-land) {
+            text-align: center;
+            font-size: $font-size-titleSec-Mob; // 30px
+            font-weight: 600;
+          }
         }
 
         .abstract {
-          display: block;
-          font-weight: 400;
-          margin-top: 15px;
-          font-family: "Josefin Sans", sans-serif;
           font-size: $font-size-body;
           line-height: $line-height;
           text-align: justify;
+          margin-top: 15px;
         }
       }
 
@@ -85,31 +88,8 @@
     }
 
     .col-2 {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include flex-col-center;
       width: 20.5vw;
-    }
-  }
-
-  @media screen and (max-width: 1280px) {
-    .col-1 {
-      // align-items: center;
-      width: 100% !important;
-    }
-
-    .wrapper-section {
-      width: 100vw;
-      height: 800px;
-      background-image: url(../images/background-product-mob.svg);
-      background-size: cover;
-      background-position: center;
-      margin-top: -5px;
-    }
-
-    .title {
-      text-align: center;
-      font-size: clamp(25px, 4vw, 32px) !important;
     }
   }
 </style>

@@ -34,7 +34,6 @@
       align-items: center;
 
       .group {
-        font-family: $font-primary;
         font-size: clamp(12px, 0.95vw, 22px); // 18px
         line-height: 50%;
         color: #838383;
