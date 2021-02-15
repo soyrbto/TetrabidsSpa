@@ -53,7 +53,7 @@
             height: clamp(25px, 1.82vw, 47px); // 35px
 
             @include respond(tab-port) {
-              height: 30px;
+              height: 28px;
             }
           }
         }

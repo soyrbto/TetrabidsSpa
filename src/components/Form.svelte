@@ -47,14 +47,14 @@
         }
 
         .fields {
-          font-family: $font-primary;
+          font-family: sans-serif;
           font-size: clamp(16px, 1.14vw, 26px); // 22px
           letter-spacing: 0.03em;
-          line-height: 120%;
+          line-height: 150%;
           background-color: #f3f3f3;
           width: 100%;
           height: clamp(40px, 3.22vw, 75px);
-          padding-left: 20px;
+          padding: 0 20px;
           border-radius: 5px;
 
           @include respond(tab-land) {
@@ -71,14 +71,14 @@
         textarea:focus ~ label,
         textarea:valid ~ label {
           top: -0.95vw;
-          background: white;
+          // background: white;
         }
 
         & textarea.fields {
           height: 16vw;
           border-style: none;
-          padding: 20px 0.4em 0.4em 20px;
-          font-weight: 600;
+          padding: 20px;
+          text-align: justify;
 
           @include respond(tab-land) {
             height: 260px;
@@ -87,7 +87,7 @@
 
         & > label {
           position: absolute;
-          top: 40%;
+          top: 45%;
           left: 15px;
           transition: all 0.35s;
           user-select: none;
