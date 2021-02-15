@@ -48,13 +48,13 @@
         }
 
         .subtitle {
-          font-size: clamp(13px, 0.93vw, 24px);
+          font-size: $font-size-subtitle-desk;
           color: white;
           margin-top: clamp(6px, 0.36vw, 8px);
 
           @include respond(tab-land) {
             text-align: center;
-            font-size: 17px;
+            font-size: $font-size-subtitle-mob;
           }
         }
       }
@@ -70,12 +70,12 @@
         align-items: center;
         height: clamp(53px, 3.85vw, 99px);
         color: white;
-        font-size: clamp(13px, 0.83vw, 22px);
+        font-size: $font-size-subtitle-desk;
         font-weight: 600;
 
         @include respond(tab-land) {
           margin-top: 60px;
-          font-size: 17px;
+          font-size: $font-size-subtitle-mob;
         }
       }
     }

@@ -34,12 +34,17 @@
       align-items: center;
 
       .group {
-        font-size: clamp(12px, 0.95vw, 22px); // 18px
+        font-size: clamp(13px, 0.95vw, 22px); // 18px
         line-height: 50%;
         color: #838383;
         width: 100%;
         margin-bottom: clamp(20px, 1.98vw, 50px);
         position: relative;
+
+        @include respond(phone) {
+          font-size: 16px;
+          margin-bottom: 35px;
+        }
 
         .fields {
           font-family: $font-primary;
@@ -54,6 +59,10 @@
 
           @include respond(tab-land) {
             width: clamp(0px, 80vw, 750px);
+          }
+
+          @include respond(phone) {
+            height: 55px;
           }
         }
 
@@ -72,7 +81,7 @@
           font-weight: 600;
 
           @include respond(tab-land) {
-            height: calc(3.125vw + 20rem);
+            height: 260px;
           }
         }
 
@@ -85,7 +94,11 @@
         }
 
         & textarea + label {
-          top: 5%;
+          top: clamp(20px, 1.4vw, 30px);
+
+          @include respond(phone) {
+            top: 27px;
+          }
         }
       }
     }
@@ -120,7 +133,7 @@
           id="name"
           bind:value={$user.name}
         />
-        <label for="name">nombre</label>
+        <label for="name">Nombre</label>
       </div>
       <div class="group">
         <input
@@ -131,7 +144,7 @@
           id="email"
           bind:value={$user.email}
         />
-        <label for="email">email</label>
+        <label for="email">Correo electrónico</label>
       </div>
       <div class="group">
         <textarea
@@ -143,7 +156,7 @@
           id="message"
           bind:value={$user.message}
         />
-        <label for="message">mensaje</label>
+        <label for="message">Mensaje</label>
       </div>
       <input name="form-name" type="hidden" value="contact" />
       <div class="button-wrapper" on:click|preventDefault={submitForm}>

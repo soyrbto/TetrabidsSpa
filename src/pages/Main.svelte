@@ -71,20 +71,12 @@
 
   .page-container {
     position: relative;
-    height: 208vh;
     overflow: hidden;
     font-family: $font-primary;
   }
 
   @media screen and (max-width: 1280px) {
-    // HEIGHT 800PX PER SECTION
-    .page-container {
-      // height: 3272px;
-      height: auto;
-    }
     main {
-      // height: 3200px !important;
-      height: auto !important;
       background: linear-gradient(
         180deg,
         #0082ba 0%,
@@ -110,7 +102,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 200vh;
     background: linear-gradient(
       180deg,
       #0082ba 0%,
@@ -118,7 +109,6 @@
       #23074b 47.19%,
       #23074b 57.34%
     );
-    // background-image: url(/images/background-white-shape.svg);
     border-radius: 0 0 50px 50px;
   }
 
@@ -143,8 +133,7 @@
   .secnavbar-wrapper {
     display: flex;
     flex-direction: column;
-    //META 118px
-    width: 6.14vw;
+    width: 6.14vw; // 118px
   }
 </style>
 

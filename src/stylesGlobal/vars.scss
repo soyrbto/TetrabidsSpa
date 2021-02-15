@@ -7,6 +7,8 @@ $font-primary: "Josefin Sans", sans-serif;
 $font-size-primary: clamp(19px, 1.3vw, 33px); // 25px
 $font-size-titleSec-desk: clamp(23px, 1.66vw, 43px);
 $font-size-titleSec-Mob: clamp(26px, 2.34vw, 30px);
+$font-size-subtitle-desk: clamp(13px, 0.93vw, 24px);
+$font-size-subtitle-mob: 17px;
 $font-size-body: clamp(14px, 0.93vw, 25px); // 18px
 
 $line-height: clamp(23px, 1.66vw, 43px);
@@ -16,6 +18,9 @@ $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0;
 // ------------------------------- MIXINS --------------------------------------
 
 @mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 414px) { @content }; 
+}
   @if $breakpoint == tab-port {
       @media (max-width: 768px) { @content }; 
   }

@@ -20,7 +20,7 @@
   }
 
   .item {
-    font-size: clamp(18px, 1.3vw, 33px); // 25px
+    font-size: $font-size-primary; // 25px
     font-weight: 700;
     color: #11a7dd;
     margin-bottom: clamp(14px, 1.04vw, 27px);

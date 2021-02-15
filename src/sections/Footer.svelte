@@ -1,75 +1,63 @@
-<style>
-  footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 8vh;
-    padding: 0 5.2vw 0 1.56vw;
-    background: rgba(0, 0, 0, 1);
-    color: #666666;
-    font-family: var(--display-typo);
-    /* META font size 24px*/
-    font-size: clamp(15px, 1.25vw, 32px);
-  }
-
-  span {
-    font-weight: 700;
-  }
-
-  ul {
-    display: flex;
-    justify-content: space-between;
-    height: 3.26vh;
-    width: 100%;
-    margin: 0;
-  }
-
-  li {
-    list-style: none;
-  }
-
-  img {
-    /** META 35px */
-    height: 1.82vw;
-  }
-
-  .icons {
-    display: flex;
-    align-items: center;
-    /* META 141px */
-    width: clamp(10.5rem, 7.34vw, 18.5rem);
-  }
+<style type="text/scss">
+  @import "../stylesGlobal/vars";
 
   .underFooter {
     position: absolute;
     bottom: 0px;
-    /* height: 15.75vh; */
     height: 200px;
     width: 100%;
     z-index: -1;
     background-color: black;
   }
 
-  @media screen and (max-width: 1280px) {
-    footer {
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: clamp(60px, 4.46vw, 115px);
+    padding: 0 5.2vw 0 1.56vw;
+    background: rgba(0, 0, 0, 1);
+    color: #666666;
+    font-size: clamp(17px, 1.25vw, 32px); // 24px
+
+    @include respond(tab-port) {
       flex-direction: column-reverse;
-      justify-content: center;
-      /* height: 9vh; */
-      height: 72px;
-      padding: 0;
-      font-size: clamp(12px, 1.3vw, 15px);
+      height: 90px;
+      padding: 15px 0 7px 0;
+      font-size: clamp(16px, 0.98vw, 19px);
     }
 
-    ul {
-      height: 30px;
+    span {
+      font-weight: 700;
     }
 
     .icons {
-      width: max(15%, 125px);
-    }
+      display: flex;
+      align-items: center;
+      width: clamp(110px, 7.34vw, 185px); // 141px
 
-    img {
-      height: clamp(18px, 5vw, 25px);
+      @include respond(tab-port) {
+        width: 140px;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        li {
+          height: clamp(25px, 1.82vw, 47px); // 35px
+          list-style: none;
+
+          img {
+            height: clamp(25px, 1.82vw, 47px); // 35px
+
+            @include respond(tab-port) {
+              height: 30px;
+            }
+          }
+        }
+      }
     }
   }
 </style>
@@ -77,7 +65,9 @@
 <div class="underFooter" />
 
 <footer>
-  <div class="content">Designed and powered <span> by Tetrabids</span></div>
+  <div class="content">
+    Designed and powered <span> by Tetrabids</span> | 2021
+  </div>
   <div class="icons">
     <ul>
       <li>
