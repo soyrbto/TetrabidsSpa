@@ -58,11 +58,7 @@
         .title {
           font-size: $font-size-titleSec-desk; // 32px
 
-          @include respond(tab-land) {
-            text-align: center;
-            font-size: $font-size-titleSec-Mob; // 30px
-            font-weight: 600;
-          }
+          @include title-sec-mob;
         }
 
         .abstract {
