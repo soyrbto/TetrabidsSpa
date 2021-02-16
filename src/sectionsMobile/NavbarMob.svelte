@@ -21,7 +21,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    font-family: "Roboto", sans-serif;
+    font-family: $font-secundary;
     transition: all 500ms ease-in-out;
     pointer-events: none;
 
@@ -30,7 +30,7 @@
       top: clamp(27px, 4.55vw, 35px);
       right: clamp(24px, 3.9vw, 30px);
       border-radius: 50%;
-      z-index: 2;
+      z-index: 10;
 
       .button {
         pointer-events: visible;
@@ -45,7 +45,7 @@
       align-items: center;
       transition: all 200ms ease-in-out;
       pointer-events: visible;
-      z-index: 1;
+      z-index: 5;
 
       @include respond(tab-port) {
         height: calc(100vh + 35px);

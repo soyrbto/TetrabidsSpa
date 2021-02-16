@@ -46,7 +46,7 @@
         }
 
         .fields {
-          font-family: sans-serif;
+          font-family: $font-secundary;
           font-size: clamp(16px, 1.1vw, 26px); // 21px
           letter-spacing: 0.03em;
           line-height: 150%;
@@ -81,6 +81,22 @@
 
           @include respond(tab-land) {
             height: 260px;
+          }
+
+          @include respond(tab-landMin) {
+            &::-webkit-scrollbar {
+              width: clamp(6px, 0.52vw, 12px); // 10px
+              background-color: #ebe8e8;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              border-radius: 6px;
+              background-color: #c0bebe;
+
+              &:hover {
+                background-color: #a5a5a8;
+              }
+            }
           }
         }
 
