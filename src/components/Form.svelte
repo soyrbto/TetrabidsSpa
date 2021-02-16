@@ -7,12 +7,7 @@
   @import "../stylesGlobal/vars";
 
   .column-wrapper {
-    font-family: josefin Sans;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: clamp(30px, 2.08vw, 45px) calc(0.6vw + 1.2rem);
-    position: relative;
+    padding: clamp(30px, 2.08vw, 45px) clamp(20px, 2.08vw, 35px);
 
     .form-wrapper {
       display: flex;
@@ -20,49 +15,87 @@
       align-items: center;
 
       .group {
-        position: relative;
-        //META font size 18px
-        font-size: clamp(12px, 0.95vw, 22px);
+        font-size: clamp(13px, 0.95vw, 22px); // 18px
         line-height: 50%;
         color: #838383;
-        // margin-bottom: calc(0.5vw + 1rem);
-        margin-bottom: 1.98vw;
+        width: 100%;
+        margin-bottom: clamp(20px, 1.98vw, 50px);
+        position: relative;
 
-        & .fields {
-          width: 32vw;
-          height: clamp(40px, 3.22vw, 75px);
-          background-color: #f3f3f3;
+        @include respond(phone) {
+          font-size: 16px;
+          margin-bottom: 35px;
+        }
+
+        .fields {
+          font-family: $font-secundary;
+          font-size: clamp(16px, 1.1vw, 26px); // 21px
+          letter-spacing: 0.03em;
           line-height: 150%;
-          padding: 0px 0 0 20px;
+          background-color: #f3f3f3;
+          width: 100%;
+          height: clamp(45px, 3.22vw, 75px); // 62px
+          padding: 0 20px;
           border-radius: 5px;
+
+          @include respond(tab-land) {
+            width: clamp(0px, 80vw, 750px);
+          }
         }
 
         input:focus ~ label,
         input:valid ~ label,
         textarea:focus ~ label,
         textarea:valid ~ label {
-          // top: calc(-0.3vw - 0.5rem);
           top: -0.95vw;
           background: white;
+
+          @include respond(phone) {
+            top: -4vw;
+          }
         }
 
         & textarea.fields {
           height: 16vw;
           border-style: none;
-          padding: 15px 0.4em 0.4em 15px;
+          padding: 20px;
+          text-align: justify;
+
+          @include respond(tab-land) {
+            height: 260px;
+          }
+
+          @include respond(tab-landMin) {
+            &::-webkit-scrollbar {
+              width: clamp(6px, 0.52vw, 12px); // 10px
+              background-color: #ebe8e8;
+            }
+
+            &::-webkit-scrollbar-thumb {
+              border-radius: 6px;
+              background-color: #c0bebe;
+
+              &:hover {
+                background-color: #a5a5a8;
+              }
+            }
+          }
         }
 
         & > label {
           position: absolute;
-          top: 40%;
+          top: 45%;
           left: 15px;
           transition: all 0.35s;
           user-select: none;
         }
 
         & textarea + label {
-          // top: 2.31vh;
-          top: 5%;
+          top: clamp(20px, 1.4vw, 30px);
+
+          @include respond(phone) {
+            top: 27px;
+          }
         }
       }
     }
@@ -77,20 +110,6 @@
       }
     }
   }
-
-  @media screen and (max-width: 1280px) {
-    .group {
-      margin-bottom: 20px !important;
-
-      & textarea {
-        height: calc(3.125vw + 20rem) !important;
-      }
-    }
-
-    .fields {
-      width: clamp(0px, 80vw, 750px) !important;
-    }
-  }
 </style>
 
 <Card>
@@ -103,12 +122,26 @@
       class="form-wrapper"
     >
       <div class="group">
-        <input required type="text" class="fields" name="name" id="name" />
-        <label for="name">nombre</label>
+        <input
+          required
+          type="text"
+          class="fields"
+          name="name"
+          id="name"
+          bind:value={$user.name}
+        />
+        <label for="name">Nombre</label>
       </div>
       <div class="group">
-        <input required type="email" name="email" class="fields" id="email" />
-        <label for="email">email</label>
+        <input
+          required
+          type="email"
+          name="email"
+          class="fields"
+          id="email"
+          bind:value={$user.email}
+        />
+        <label for="email">Correo electrónico</label>
       </div>
       <div class="group">
         <textarea
@@ -119,7 +152,7 @@
           name="message"
           id="message"
         />
-        <label for="message">mensaje</label>
+        <label for="message">Mensaje</label>
       </div>
       <input name="form-name" type="hidden" value="contact" />
       <div class="button-wrapper">

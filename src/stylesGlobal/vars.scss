@@ -1,21 +1,35 @@
-// VARIABLES
+// ------------------------------ VARIABLES -------------------------------------
 
 $color-text-blue: #066d92;
 
 $font-primary: "Josefin Sans", sans-serif;
+$font-secundary: sans-serif;
 
-$font-size-botton: clamp(15px, 1.3vw, 29px); // 25px
-$font-size-card: clamp(14px, 0.93vw, 25px); // 18px
-$padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0;
+$font-size-primary: clamp(19px, 1.3vw, 33px); // 25px
+$font-size-titleSec-desk: clamp(23px, 1.66vw, 43px); // 32px
+$font-size-titleSec-Mob: clamp(26px, 2.34vw, 30px); // 45px
+$font-size-subtitle-desk: clamp(13px, 0.93vw, 24px); // 18px
+$font-size-subtitle-mob: 17px;
+$font-size-body: clamp(14px, 0.93vw, 25px); // 18px
 
-// MIXINS
+$line-height: clamp(23px, 1.66vw, 43px); // 32px
+
+$padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0; // 18px
+
+// ------------------------------- MIXINS --------------------------------------
 
 @mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 414px) { @content }; 
+  }
   @if $breakpoint == tab-port {
       @media (max-width: 768px) { @content }; 
   }
   @if $breakpoint == tab-land {
       @media (max-width: 1280px) { @content }; 
+  }
+  @if $breakpoint == tab-landMin {
+    @media (min-width: 1280px) { @content }; 
   }
 }
 
@@ -23,4 +37,52 @@ $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@mixin card-dim-desk {
+  display: flex;
+  justify-content: space-between;
+  width: 78.65vw; // 1511px
+  height: clamp(450px, 40.15vw, 1025px);
+  padding: 5%;
+}
+
+@mixin sec-mob {
+  width: 100vw;
+  height: 800px;
+}
+
+@mixin title-sec-mob {
+  @include respond(tab-land) {
+    text-align: center;
+    font-size: $font-size-titleSec-Mob; // 30px
+    font-weight: 400;
+  }
+}
+
+// ------------------------------- ANIMATION -------------------------------------
+
+// NavbarSec - Sections
+
+@keyframes slide {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+    border-bottom: 2px solid white;
+  }
+}
+
+// NavbarMob - sectionsMob
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+  }
 }

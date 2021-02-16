@@ -10,41 +10,38 @@
   };
 </script>
 
-<style>
+<style type="text/scss">
+  @import "../stylesGlobal/vars";
+
   nav {
-    /* META font-size 22px */
-    font-size: clamp(16px, 1.2vw, 31px);
-    font-family: "Josefin Sans", sans-serif;
+    font-size: clamp(16px, 1.2vw, 31px); // 22px
     color: white;
-    /* META width 580px */
-    width: clamp(450px, 33.2vw, 750px);
-  }
+    width: clamp(450px, 33.2vw, 750px); //580px
 
-  a {
-    text-decoration: none;
-    color: white;
-  }
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      margin: 0;
 
-  ul {
-    /* META HEIGH 125PX */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    margin: 0;
-  }
+      li {
+        transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
+        text-align: center;
+        list-style: none;
+        width: 17rem; // 170px
 
-  ul > li {
-    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
-    text-align: center;
-    list-style: none;
-    /* META 150px*/
-    width: 17rem;
-  }
+        &:hover {
+          cursor: pointer;
+          letter-spacing: 0.1em;
+        }
 
-  li:hover {
-    cursor: pointer;
-    letter-spacing: 0.1em;
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+      }
+    }
   }
 </style>
 

@@ -7,48 +7,38 @@
   };
 </script>
 
-<style>
-  .item {
-    /* META font size 25px */
-    font-size: clamp(18px, 1.3vw, 33px);
-    font-family: "Josefin Sans", sans-serif;
-    color: #11a7dd;
-    font-weight: 700;
-    margin-bottom: clamp(14px, 1.04vw, 27px);
-    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
-    user-select: none;
-  }
-  .item:hover {
-    cursor: pointer;
-    letter-spacing: 0.15em;
-    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
-  }
+<style type="text/scss">
+  @import "../stylesGlobal/vars";
 
   img {
     margin-bottom: clamp(14px, 1.04vw, 27px);
     height: clamp(42px, 3.125vw, 85px);
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
-  img:hover {
-    cursor: pointer;
-  }
+  .item {
+    font-size: $font-size-primary; // 25px
+    font-weight: 700;
+    color: #11a7dd;
+    margin-bottom: clamp(14px, 1.04vw, 27px);
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
+    user-select: none;
 
-  .active {
-    margin: 0 0 clamp(14px, 1.04vw, 27px) 0;
-    width: 120%;
-    border-bottom: 2px solid white;
-    animation: slide 0.3s ease-in-out;
-    letter-spacing: 0.15em;
-  }
-
-  @keyframes slide {
-    from {
-      width: 0%;
+    &:hover {
+      cursor: pointer;
+      letter-spacing: 0.15em;
+      transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
     }
 
-    to {
-      width: 100%;
+    &.active {
+      margin: 0 0 clamp(14px, 1.04vw, 27px) 0;
+      width: 120%;
       border-bottom: 2px solid white;
+      animation: slide 0.3s ease-in-out;
+      letter-spacing: 0.15em;
     }
   }
 </style>

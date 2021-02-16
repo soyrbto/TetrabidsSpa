@@ -9,8 +9,8 @@
   @import "../stylesGlobal/vars";
 
   button {
-    font-size: $font-size-botton;
     font-family: $font-primary;
+    font-size: $font-size-primary;
     font-weight: 600;
     color: white;
     border-style: none;

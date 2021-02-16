@@ -19,21 +19,18 @@
     .description-card-content {
       @include flex-col-center;
       padding: 4% 5% 0 5%;
-      position: relative;
 
       .typo-title {
         color: $color-text-blue;
-        font-size: clamp(18px, 1.3vw, 33px);
+        font-size: $font-size-primary;
       }
 
       .service-body {
-        font-family: $font-primary;
-        font-size: $font-size-card;
-        font-weight: 400;
-        line-height: clamp(22px, 1.69vw, 32.5px);
+        font-size: $font-size-body;
+        line-height: $line-height;
         height: clamp(217px, 15.625vw, 400px); // 300px
         overflow: hidden;
-        margin-top: 1.1vw; // 28px
+        margin-top: clamp(10px, 1.1vw, 28px); // 28px
       }
 
       .meeting {
