@@ -48,21 +48,17 @@
 
         .fields {
           font-family: sans-serif;
-          font-size: clamp(16px, 1.1vw, 26px); // 22px
+          font-size: clamp(16px, 1.1vw, 26px); // 21px
           letter-spacing: 0.03em;
           line-height: 150%;
           background-color: #f3f3f3;
           width: 100%;
-          height: clamp(40px, 3.22vw, 75px);
+          height: clamp(45px, 3.22vw, 75px); // 62px
           padding: 0 20px;
           border-radius: 5px;
 
           @include respond(tab-land) {
             width: clamp(0px, 80vw, 750px);
-          }
-
-          @include respond(phone) {
-            height: 55px;
           }
         }
 
