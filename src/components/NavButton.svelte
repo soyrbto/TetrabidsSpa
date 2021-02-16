@@ -1,6 +1,8 @@
 <script>
   import { navbarState as open } from "../Stores";
 
+  let navButton;
+
   const clicked = () => {
     open.update((n) => !n);
   };

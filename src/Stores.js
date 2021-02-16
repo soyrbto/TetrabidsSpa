@@ -6,7 +6,7 @@ const maxWidthTablet = writable(1280);
 const displayedSection = moveSectionHandler.currentPos;
 const displayedState = moveSectionHandler.store;
 const nodeSections = writable([]);
-const navbarState = writable(false);
+const navbarState = writable("false");
 const animationRange = 2100;
 
 // 4 arrays used as list for different use cases:

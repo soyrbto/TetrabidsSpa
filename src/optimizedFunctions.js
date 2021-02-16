@@ -1,6 +1,5 @@
 import { writable, get } from "svelte/store";
 import { pageSections } from "./StaticStore";
-import { sectionItems } from "./Stores";
 
 /******************************************************************/
 /******************************************************************/
