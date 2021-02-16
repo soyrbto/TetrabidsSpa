@@ -26,7 +26,6 @@
 
   .column-wrapper {
     padding: clamp(30px, 2.08vw, 45px) clamp(20px, 2.08vw, 35px);
-    position: relative;
 
     .form-wrapper {
       display: flex;

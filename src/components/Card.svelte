@@ -5,6 +5,7 @@
   export let borderRadius = "20px";
   export let backgroundColor = "fff";
   export let boxShadow = "9px 12px 31px rgba(0, 0, 0, 0.5)";
+  export let position = "relative";
 </script>
 
 <style>
@@ -16,7 +17,7 @@
 
 <div
   class="card"
-  style="border-radius:{borderRadius}; background-color:{backgroundColor}; box-shadow:{boxShadow}"
+  style="border-radius:{borderRadius}; background-color:{backgroundColor}; box-shadow:{boxShadow}; position:{position}"
   out:fly={{ x: animateFly, duration: 500, opacity: 1 }}
   in:fly={{ x: animateFly, duration: 800, opacity: 1 }}
 >

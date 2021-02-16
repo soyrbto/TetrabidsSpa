@@ -19,7 +19,6 @@
     .description-card-content {
       @include flex-col-center;
       padding: 4% 5% 0 5%;
-      position: relative;
 
       .typo-title {
         color: $color-text-blue;
