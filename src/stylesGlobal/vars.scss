@@ -58,6 +58,8 @@ $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0;
 
 // ------------------------------- ANIMATION -------------------------------------
 
+// NavbarSec - Sections
+
 @keyframes slide {
   from {
     width: 0%;
@@ -66,5 +68,17 @@ $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0;
   to {
     width: 100%;
     border-bottom: 2px solid white;
+  }
+}
+
+// NavbarMob - sectionsMob
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
   }
 }

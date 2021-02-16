@@ -73,67 +73,65 @@
     position: relative;
     overflow: hidden;
     font-family: $font-primary;
-  }
 
-  @media screen and (max-width: 1280px) {
     main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 0 0 50px 50px;
       background: linear-gradient(
         180deg,
         #0082ba 0%,
         #361081 31.36%,
         #23074b 47.19%,
-        #fff 57.34%
-      ) !important;
+        #23074b 57.34%
+      );
+
+      @include respond(tab-land) {
+        background: linear-gradient(
+          180deg,
+          #0082ba 0%,
+          #361081 31.36%,
+          #23074b 47.19%,
+          #fff 57.34%
+        );
+      }
+
+      .home-wrapper {
+        height: 100vh;
+        position: relative;
+
+        @include respond(tab-land) {
+          height: 800px;
+        }
+      }
+
+      .section-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all;
+        height: 92vh;
+        padding: 0 3.5vw;
+        background-image: url(/images/background-white-shape.svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 100%;
+
+        @include respond(tab-land) {
+          flex-direction: column;
+          justify-content: flex-end;
+          height: auto;
+          padding: 0;
+        }
+
+        .secnavbar-wrapper {
+          display: flex;
+          flex-direction: column;
+          width: 6.14vw; // 118px
+        }
+      }
     }
-
-    .home-wrapper {
-      height: 800px !important;
-    }
-
-    .section-wrapper {
-      flex-direction: column;
-      justify-content: flex-end !important;
-      height: auto !important;
-      padding: 0 !important;
-    }
-  }
-
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: linear-gradient(
-      180deg,
-      #0082ba 0%,
-      #361081 31.36%,
-      #23074b 47.19%,
-      #23074b 57.34%
-    );
-    border-radius: 0 0 50px 50px;
-  }
-
-  .home-wrapper {
-    height: 100vh;
-    position: relative;
-  }
-
-  .section-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: all;
-    height: 92vh;
-    padding: 0 3.5vw;
-    background-image: url(/images/background-white-shape.svg);
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: 100%;
-  }
-
-  .secnavbar-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 6.14vw; // 118px
   }
 </style>
 
