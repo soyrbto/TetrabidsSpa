@@ -48,7 +48,7 @@
 
         .fields {
           font-family: sans-serif;
-          font-size: clamp(15px, 1.1vw, 26px); // 22px
+          font-size: clamp(16px, 1.1vw, 26px); // 22px
           letter-spacing: 0.03em;
           line-height: 150%;
           background-color: #f3f3f3;
@@ -72,6 +72,10 @@
         textarea:valid ~ label {
           top: -0.95vw;
           background: white;
+
+          @include respond(phone) {
+            top: -4vw;
+          }
         }
 
         & textarea.fields {
