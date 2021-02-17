@@ -1,6 +1,5 @@
 import { writable, get } from "svelte/store";
 import { pageSections } from "./StaticStore";
-import { sectionItems } from "./Stores";
 
 /******************************************************************/
 /******************************************************************/
@@ -147,6 +146,3 @@ export { accordionHandler, dynaListHandler, textShortener, moveSectionHandler };
 // agregar movimiento vertical si se hace en el footer
 // bajar un poco el navbar
 // importar correctamente en main secnavbarItems a la nueva variable
-
-// rawy: hacer que el navbarsec se mantenga en el mismo sitio aunque no exista seccion
-// para testear borrar linea 101 a 103 y clickear navbarsec

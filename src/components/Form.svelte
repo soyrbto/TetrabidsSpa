@@ -1,24 +1,6 @@
 <script>
   import Card from "./Card.svelte";
   import Button from "./Button.svelte";
-  import { writable } from "svelte/store";
-
-  let user = writable({});
-
-  let submitForm = (event) => {
-    let formdata = new FormData();
-    formdata.append("name", `${user.name}`); //notice we cast the store values as strings with the `${var}` syntax
-    formdata.append("email", `${user.email}`);
-    formdata.append("message", `${user.message}`);
-    fetch("/contact/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: formdata,
-    })
-      .then(() => alert("Success!"))
-      .catch((error) => alert(error));
-    event.preventDefault();
-  };
 </script>
 
 <style type="text/scss">
@@ -140,25 +122,11 @@
       class="form-wrapper"
     >
       <div class="group">
-        <input
-          required
-          type="text"
-          class="fields"
-          name="name"
-          id="name"
-          bind:value={$user.name}
-        />
+        <input required type="text" class="fields" name="name" id="name" />
         <label for="name">Nombre</label>
       </div>
       <div class="group">
-        <input
-          required
-          type="email"
-          name="email"
-          class="fields"
-          id="email"
-          bind:value={$user.email}
-        />
+        <input required type="email" name="email" class="fields" id="email" />
         <label for="email">Correo electrónico</label>
       </div>
       <div class="group">
@@ -169,12 +137,11 @@
           class="fields"
           name="message"
           id="message"
-          bind:value={$user.message}
         />
         <label for="message">Mensaje</label>
       </div>
       <input name="form-name" type="hidden" value="contact" />
-      <div class="button-wrapper" on:click|preventDefault={submitForm}>
+      <div class="button-wrapper">
         <Button>
           <div class="button-content">Enviar</div>
         </Button>
