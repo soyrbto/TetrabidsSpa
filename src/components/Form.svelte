@@ -122,25 +122,11 @@
       class="form-wrapper"
     >
       <div class="group">
-        <input
-          required
-          type="text"
-          class="fields"
-          name="name"
-          id="name"
-          bind:value={$user.name}
-        />
+        <input required type="text" class="fields" name="name" id="name" />
         <label for="name">Nombre</label>
       </div>
       <div class="group">
-        <input
-          required
-          type="email"
-          name="email"
-          class="fields"
-          id="email"
-          bind:value={$user.email}
-        />
+        <input required type="email" name="email" class="fields" id="email" />
         <label for="email">Correo electrónico</label>
       </div>
       <div class="group">
