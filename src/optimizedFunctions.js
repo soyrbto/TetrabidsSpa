@@ -68,7 +68,7 @@ const textShortener = (function privateShortener() {
 
   const shortener = (fullText, numbCharacters) => {
     let longitud = fullText.length;
-    let position = fullText.lastIndexOf(" ", numbWords);
+    let position = fullText.lastIndexOf(" ", numbCharacters);
     fullText = fullText.slice(0, position);
 
     if (numbWords < longitud) {
