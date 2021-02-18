@@ -152,14 +152,17 @@ const wheelMove = function (Sections, pageSections) {
       moveSectionHandler.horizontal(pageSections[1]);
     },
     2: () => {
+      moveSectionHandler.vertical(Sections[1]);
       moveSectionHandler.horizontal(pageSections[2]);
     },
     3: () => {
+      moveSectionHandler.vertical(Sections[1]);
       moveSectionHandler.horizontal(pageSections[0]);
     },
   };
 
   function go(e) {
+    e.preventDefault();
     if (e.deltaY > 0 && i != Object.keys(instructions).length) {
       i++;
       instructions[i]();

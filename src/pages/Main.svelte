@@ -24,7 +24,9 @@
   $: componentSections =
     windowsWidth > $maxWidthTablet ? SectionsDesktop : SectionsMob;
 
-  $: typeNavbar = windowsWidth > 768 ? NavbarDesktop : NavbarMob;
+  $: typeNavbar = windowsWidth < $maxWidthTablet ? NavbarMob : NavbarDesktop;
+
+  $: isDesktop = windowsWidth > $maxWidthTablet;
 </script>
 
 <style type="text/scss">
@@ -100,10 +102,9 @@
 
 <div class="page-container">
   <main bind:this={homeNode}>
-    <!-- svelte-ignore missing-declaration -->
     <div
-      on:wheel|preventDefault={(e) => {
-        driver(e);
+      on:wheel|nonpassive={(e) => {
+        if (isDesktop) driver(e);
       }}
       class="home-wrapper"
       id={visibleSections[0]}
@@ -112,10 +113,9 @@
       <Home />
     </div>
 
-    <!-- svelte-ignore missing-declaration -->
     <div
-      on:wheel|preventDefault={(e) => {
-        driver(e);
+      on:wheel|nonpassive={(e) => {
+        if (isDesktop) driver(e);
       }}
       id="section-container"
       class="section-wrapper"
