@@ -33,7 +33,6 @@
         font-size: $font-size-body;
         line-height: $line-height;
         height: clamp(217px, 15.625vw, 400px); // 300px
-        overflow: hidden;
         margin-top: clamp(10px, 1.1vw, 28px); // 28px
       }
 

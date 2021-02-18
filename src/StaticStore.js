@@ -55,7 +55,7 @@ const servicesData = {
   Intuitivos, accesibles, estéticos, son algunas de las características finales, después de un proceso, de estudio de los usuarios, objetivos que deben cumplir y pruebas que deben cursar para entender cuál es la mejor manera de llevarlos a cabo.`,
   Desarrollo: `Es la fase donde se toman los lineamientos técnicos, la estructura lógica del seudocódigo y los diseños de las interfaces como guía para desarrollar el software. <br>
   <br>
-  hay ciclos de fase de desarrollo y pruebas conforme se van cumpliendo los objetivos de desarrollo.`,
+  hay ciclos de fase de desarrollo y pruebas conforme se van cumpliendo los objetivos de desarrollo. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu`,
   Optimizacion: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
   <br>
   Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
