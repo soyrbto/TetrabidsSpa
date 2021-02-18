@@ -8,7 +8,7 @@
   import { productsData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";
-  import { dynaListHandler } from "../optimizedFunctions";
+  import { dynaListHandler, textShortener } from "../optimizedFunctions";
 
   SwiperCore.use([Pagination]);
   let dynaList = productsData.items;
@@ -139,7 +139,7 @@
                     {@html product}
                   </div>
                   <div slot="body">
-                    {@html productsData[product]}
+                    {@html textShortener(productsData[product], "/blog", 255)}
                   </div>
                 </DescriptionCard>
               </SwiperSlide>
@@ -163,8 +163,10 @@
 
     {#if windowsWidth > $maxWidthTablet}
       <DescriptionCard imageUrl="product-{activeItem}" imageAlt={activeItem}>
-        <div class="title" slot="title">{activeItem}</div>
-        <div class="body" slot="body">{productsData[activeItem]}</div>
+        <div slot="title">{activeItem}</div>
+        <div slot="body">
+          {@html textShortener(productsData[activeItem], "/blog", 255)}
+        </div>
       </DescriptionCard>
     {/if}
   </div>

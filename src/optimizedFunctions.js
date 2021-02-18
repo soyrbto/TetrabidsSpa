@@ -72,7 +72,7 @@ const textShortener = (function privateShortener() {
     fullText = fullText.slice(0, position);
 
     if (numbCharacters < longitud) {
-      fullText = fullText + `<span><a href="${link}">${viewMore}</a></span>`;
+      fullText = fullText + ' ' + `<span><a href="${link}">${viewMore}</a></span>`;
     }
     return fullText;
   };

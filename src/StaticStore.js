@@ -56,17 +56,27 @@ const servicesData = {
   Desarrollo: `Es la fase donde se toman los lineamientos técnicos, la estructura lógica del seudocódigo y los diseños de las interfaces como guía para desarrollar el software. <br>
   <br>
   hay ciclos de fase de desarrollo y pruebas conforme se van cumpliendo los objetivos de desarrollo.`,
-  Optimizacion: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis, doloremque odio officia, harum tempora dolores repudiandae vel minus molestiae necessitatibus blanditiis ipsam. Incidunt placeat illum impedit nulla esse, earum ad et facere! Voluptates et, incidunt, magnam dolore placeat voluptatum porro velit animi maiores dignissimos natus recusandae autem.`,
-  Mantenimiento: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis, doloremque odio officia, harum tempora dolores repudiandae vel minus molestiae necessitatibus blanditiis ipsam. Incidunt placeat illum impedit nulla esse, earum ad et facere! Voluptates et, incidunt, magnam dolore placeat voluptatum porro velit animi maiores dignissimos natus recusandae autem.`,
+  Optimizacion: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+  Mantenimiento: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis.<br>
+  <br>
+  doloremque odio officia, harum tempora dolores repudiandae vel minus molestiae necessitatibus blanditiis ipsam. Incidunt placeat illum impedit nulla esse, earum ad et facere! Voluptates et, incidunt, magnam dolore placeat voluptatum porro velit animi maiores dignissimos natus recusandae autem.`,
 };
 
 const productsData = {
   title: "Productos",
   abstract: `Productos simples para temas complejos, si quieres informacion mas detallada del alcance que podemos tener en un proyecto contactanos.`,
   items: ["Wordpress", "Headless wordpress", "Paginas a medida"],
-  Wordpress: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis, doloremque odio officia.`,
-  "Headless wordpress": `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis, doloremque odio officia.`,
-  "Paginas a medida": `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis officia non neque debitis quod quibusdam maxime temporibus, laboriosam, suscipit ratione minus! Perferendis, doloremque odio officia.`,
+  Wordpress: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+  "Headless wordpress": `Lorem ipsum dolor sit amet consectetur adipiscing elit magnis rutrum, nostra consequat nisl integer non donec convallis ornare. Potenti nibh aptent ut libero est eu vitae purus sapien. <br>
+  <br>
+  at suscipit ullamcorper taciti pretium arcu viverra mi vel porttitor, dapibus facilisis mattis nullam commodo quisque curae convallis. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+  "Paginas a medida": `Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt. <br>
+  <br>
+  libero risus taciti massa eu, donec malesuada accumsan eros facilisis praesent porta erat magna class. Lacus nunc turpis blandit feugiat eget ac, risus platea sollicitudin sociis fusce tellus auctor, non imperdiet facilisis senectus montes. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
 };
 
 const contactData = {

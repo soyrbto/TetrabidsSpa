@@ -121,17 +121,14 @@
             breakpoints={{ 768: { slidesPerView: 2 } }}
             style={"overflow:visible; position:initial"}
           >
-            {#each servicesData.items as service}
+            {#each servicesData.items as service, i}
               <SwiperSlide>
-                <ServiceDescription
-                  imageUrl="service-{service}"
-                  imageAlt={service}
-                >
+                <ServiceDescription imageUrl="service-{i}" imageAlt={service}>
                   <div slot="title">
                     {@html service}
                   </div>
                   <div slot="body">
-                    {@html servicesData[service]}
+                    {@html textShortener(servicesData[service], "/blog", 255)}
                   </div>
                 </ServiceDescription>
               </SwiperSlide>
@@ -157,10 +154,10 @@
 
     <!--  SERVICES DESCRIPTIONS SUB-SECTION FOR WHEN THE WIDTH IS BIGGER THAN 1280PX -->
     {#if windowsWidth > $maxWidthTablet}
-      <ServiceDescription imageUrl="service-{activeItem}" imageAlt={activeItem}>
+      <ServiceDescription imageUrl="service-{0}" imageAlt={activeItem}>
         <div slot="title">{activeItem}</div>
         <div slot="body">
-          {@html textShortener(servicesData[activeItem], 255)}
+          {@html textShortener(servicesData[activeItem], "/blog", 255)}
         </div>
       </ServiceDescription>
     {/if}
