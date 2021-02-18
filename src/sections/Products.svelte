@@ -9,6 +9,7 @@
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";
   import { dynaListHandler, textShortener } from "../functions";
+  import "swiper/components/pagination/pagination.scss";
 
   SwiperCore.use([Pagination]);
   let dynaList = productsData.items;
