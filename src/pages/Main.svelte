@@ -24,7 +24,7 @@
   $: componentSections =
     windowsWidth > $maxWidthTablet ? SectionsDesktop : SectionsMob;
 
-  $: navbarType = windowsWidth < $maxWidthTablet ? NavbarMob : NavbarDesktop;
+  $: navbarType = windowsWidth <= 768 ? NavbarMob : NavbarDesktop;
 
   $: isDesktop = windowsWidth > $maxWidthTablet;
 </script>
