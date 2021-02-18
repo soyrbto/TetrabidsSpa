@@ -71,7 +71,7 @@ const textShortener = (function privateShortener() {
     let position = fullText.lastIndexOf(" ", numbCharacters);
     fullText = fullText.slice(0, position);
 
-    if (numbWords < longitud) {
+    if (numbCharacters < longitud) {
       fullText = fullText + `<span> ${viewMore} </span>`;
     }
     return fullText;

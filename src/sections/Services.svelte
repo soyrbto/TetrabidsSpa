@@ -156,7 +156,9 @@
     {#if windowsWidth > $maxWidthTablet}
       <ServiceDescription imageUrl="service-{activeItem}" imageAlt={activeItem}>
         <div slot="title">{activeItem}</div>
-        <div slot="body">{@html servicesData[activeItem]}</div>
+        <div slot="body">
+          {@html textShortener(servicesData[activeItem], 255)}
+        </div>
       </ServiceDescription>
     {/if}
   </div>
