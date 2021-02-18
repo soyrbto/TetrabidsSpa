@@ -21,7 +21,7 @@
     nodeSections,
   } from "../Stores.js";
 
-  let homeNode, sectionsNode, driver;
+  let homeNode, sectionsNode, driver, typeNavbar;
 
   onMount(() => {
     let nodesArr = [homeNode, sectionsNode];
