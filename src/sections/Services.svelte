@@ -24,7 +24,6 @@
 
   const updateState = (e) => {
     activeItem = e.target.innerText;
-    imgID = dynaListHandler.updateState(activeItem, "white");
   };
 </script>
 
