@@ -1,5 +1,6 @@
 import { writable, get } from "svelte/store";
 import { pageSections } from "./StaticStore";
+import { nodeSections } from "./Stores";
 
 /******************************************************************/
 /******************************************************************/
@@ -139,7 +140,47 @@ let moveSectionHandler = (function moveSection(arrSections) {
 /******************************************************************/
 /******************************************************************/
 
-export { accordionHandler, dynaListHandler, textShortener, moveSectionHandler };
+//function that controls the movement on wheel from main
+const wheelMove = function (Sections, pageSections) {
+  let i = 0;
+  const instructions = {
+    0: () => {
+      moveSectionHandler.vertical(Sections[0]);
+    },
+    1: () => {
+      moveSectionHandler.vertical(Sections[1]);
+      moveSectionHandler.horizontal(pageSections[1]);
+    },
+    2: () => {
+      moveSectionHandler.horizontal(pageSections[2]);
+    },
+    3: () => {
+      moveSectionHandler.horizontal(pageSections[0]);
+    },
+  };
+
+  function go(e) {
+    if (e.deltaY > 0 && i != Object.keys(instructions).length) {
+      i++;
+      instructions[i]();
+    } else if (e.deltaY < 0 && i != 0) {
+      i--;
+      instructions[i]();
+    }
+  }
+
+  return go;
+};
+/******************************************************************/
+/******************************************************************/
+
+export {
+  accordionHandler,
+  dynaListHandler,
+  textShortener,
+  moveSectionHandler,
+  wheelMove,
+};
 
 // commandments of functionality
 // 1. all functionality has to be encapsulated in a iife

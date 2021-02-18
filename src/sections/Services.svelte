@@ -18,8 +18,8 @@
 
   onMount(() => {
     dynaObjectState = dynaListHandler.createObjectStates(dynaList, "blue");
-    id = dynaListHandler.id;
     activeItem = dynaListHandler.updateState(dynaList[0], "white");
+    id = dynaListHandler.id;
   });
 
   const updateState = (e) => {

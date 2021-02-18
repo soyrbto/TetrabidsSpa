@@ -7,8 +7,12 @@
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
 
-  import { moveSectionHandler } from "../functions";
-  import { visibleSections, desktopSection } from "../StaticStore";
+  import { moveSectionHandler, wheelMove } from "../functions";
+  import {
+    visibleSections,
+    desktopSection,
+    pageSections,
+  } from "../StaticStore";
   import {
     sectionItems,
     displayedSection,
@@ -16,54 +20,18 @@
     nodeSections,
   } from "../Stores.js";
 
-  let homeNode, sectionsNode;
+  let homeNode, sectionsNode, driver;
 
   onMount(() => {
     let nodesArr = [homeNode, sectionsNode];
     nodeSections.set(nodesArr);
+    driver = wheelMove($nodeSections, pageSections);
   });
 
   let windowsWidth;
-  let active = true;
-  let query = document.querySelector.bind(document);
 
   $: componentSections =
     windowsWidth > $maxWidthTablet ? SectionsDesktop : SectionsMob;
-
-  //funcion que hace la traslacion si el ancho de pantalla es mayor a 980
-  const sectionDriver = (e) => {
-    e.preventDefault();
-    if (active == true) {
-      let target = e.currentTarget.getAttribute("id");
-      let currentIndex = desktopSection.findIndex((el) => el === target);
-      let nextIndex = e.deltaY > 0 ? currentIndex + 1 : currentIndex - 1;
-
-      //evita que siga debajo de section container o antes de home
-      if (nextIndex < 0) nextIndex = 0;
-      if (target !== "Home") {
-        nextIndex = 1;
-        let currentIndex = $sectionItems.navbarSec.findIndex(
-          (el) => el === $displayedSection
-        );
-        e.deltaY > 0
-          ? (nextIndex = currentIndex + 1)
-          : (nextIndex = currentIndex - 1);
-        if (nextIndex >= 2) nextIndex = 2;
-        if (nextIndex < 0) nextIndex = 0;
-        moveSectionHandler.horizontal($sectionItems.navbarSec[nextIndex]);
-      }
-
-      if (
-        $displayedSection == $sectionItems.navbarSec[0] ||
-        target == desktopSection[0]
-      ) {
-        let targetPosition;
-        // se llama el movimiento en base a la ubicacion de la pantalla y 750ms despues se habilita de nuevo
-        targetPosition = query(`#${desktopSection[nextIndex]}`);
-        moveSectionHandler.vertical(targetPosition);
-      }
-    }
-  };
 </script>
 
 <style type="text/scss">
@@ -139,8 +107,11 @@
 
 <div class="page-container">
   <main bind:this={homeNode}>
+    <!-- svelte-ignore missing-declaration -->
     <div
-      on:wheel={windowsWidth > $maxWidthTablet ? sectionDriver : ""}
+      on:wheel|preventDefault={(e) => {
+        driver(e);
+      }}
       class="home-wrapper"
       id={visibleSections[0]}
     >
@@ -148,8 +119,11 @@
       <NavbarMob />
     </div>
 
+    <!-- svelte-ignore missing-declaration -->
     <div
-      on:wheel={windowsWidth > $maxWidthTablet ? sectionDriver : ""}
+      on:wheel|preventDefault={(e) => {
+        driver(e);
+      }}
       id="section-container"
       class="section-wrapper"
       bind:this={sectionsNode}
