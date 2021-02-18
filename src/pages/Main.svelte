@@ -1,17 +1,17 @@
 <script>
   import { onMount } from "svelte";
   import Home from "../sections/Home.svelte";
+  import NavbarDesktop from "../Sections/NavbarDesktop.svelte";
   import NavbarSec from "../sections/NavbarSec.svelte";
   import Footer from "../sections/Footer.svelte";
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
   import NavbarMob from "../sectionsMobile/NavbarMob.svelte";
-  import NavbarDesktop from "../Sections/NavbarDesktop.svelte";
   import { moveDirector } from "../functions";
   import { visibleSections, pageSections } from "../StaticStore";
   import { maxWidthTablet, nodeSections } from "../Stores.js";
 
-  let homeNode, sectionsNode, driver, typeNavbar;
+  let homeNode, sectionsNode, driver, navbarType;
 
   onMount(() => {
     let nodesArr = [homeNode, sectionsNode];
@@ -24,7 +24,7 @@
   $: componentSections =
     windowsWidth > $maxWidthTablet ? SectionsDesktop : SectionsMob;
 
-  $: typeNavbar = windowsWidth < $maxWidthTablet ? NavbarMob : NavbarDesktop;
+  $: navbarType = windowsWidth < $maxWidthTablet ? NavbarMob : NavbarDesktop;
 
   $: isDesktop = windowsWidth > $maxWidthTablet;
 </script>
@@ -109,7 +109,7 @@
       class="home-wrapper"
       id={visibleSections[0]}
     >
-      <svelte:component this={typeNavbar} />
+      <svelte:component this={navbarType} />
       <Home />
     </div>
 
