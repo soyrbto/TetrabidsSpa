@@ -14,14 +14,22 @@
   @import "../stylesGlobal/vars";
 
   nav {
+    display: flex;
+    justify-content: center;
     font-size: clamp(16px, 1.2vw, 31px); // 22px
     color: white;
-    width: clamp(450px, 33.2vw, 750px); //580px
+    width: 100%;
+    height: 11.57vh;
+
+    @include respond(tab-land) {
+      height: 120px;
+    }
 
     ul {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: clamp(490px, 33.2vw, 750px); //580px
       height: 100%;
       margin: 0;
 

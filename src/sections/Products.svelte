@@ -15,9 +15,11 @@
   let dynaObjectState;
   let windowsWidth;
   let activeItem;
+  let id;
 
   onMount(() => {
     dynaObjectState = dynaListHandler.createObjectStates(dynaList, "blue");
+    id = dynaListHandler.id;
     activeItem = dynaListHandler.updateState(dynaList[0], "white");
   });
 
@@ -129,12 +131,9 @@
             breakpoints={{ 768: { slidesPerView: 2 } }}
             style={"overflow:visible; position:initial"}
           >
-            {#each productsData.items as product}
+            {#each productsData.items as product, i}
               <SwiperSlide>
-                <DescriptionCard
-                  imageUrl="product-{product}"
-                  imageAlt={product}
-                >
+                <DescriptionCard imageUrl="product-{i}" imageAlt={product}>
                   <div slot="title">
                     {@html product}
                   </div>
@@ -162,7 +161,10 @@
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
 
     {#if windowsWidth > $maxWidthTablet}
-      <DescriptionCard imageUrl="product-{activeItem}" imageAlt={activeItem}>
+      <DescriptionCard
+        imageUrl="product-{id[activeItem]}"
+        imageAlt={activeItem}
+      >
         <div slot="title">{activeItem}</div>
         <div slot="body">
           {@html textShortener(productsData[activeItem], "/blog", 255)}
