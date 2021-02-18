@@ -24,6 +24,7 @@
 
   const updateState = (e) => {
     activeItem = e.target.innerText;
+    dynaListHandler.updateState(activeItem, "white");
   };
 </script>
 
