@@ -131,7 +131,7 @@
           >
             {#each productsData.items as product}
               <SwiperSlide>
-                <DescriptionCard>
+                <DescriptionCard imageUrl={product} imageAlt={product}>
                   <div slot="title">
                     {@html product}
                   </div>
@@ -159,7 +159,7 @@
     <!--  SERVICES DESCRIPTIONS SUB-SECTION -->
 
     {#if windowsWidth > $maxWidthTablet}
-      <DescriptionCard>
+      <DescriptionCard imageUrl="product-{activeItem}" imageAlt={activeItem}>
         <div class="title" slot="title">{activeItem}</div>
         <div class="body" slot="body">{productsData[activeItem]}</div>
       </DescriptionCard>
