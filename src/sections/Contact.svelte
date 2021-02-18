@@ -12,7 +12,6 @@
 
   .section-container {
     @include card-dim-desk;
-
     @include respond(tab-land) {
       @include sec-mob;
     }
