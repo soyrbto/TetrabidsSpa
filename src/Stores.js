@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import { moveSectionHandler } from "./optimizedFunctions";
+import { moveSectionHandler } from "./functions";
 import { pageSections } from "./StaticStore";
 
 const maxWidthTablet = writable(1280);

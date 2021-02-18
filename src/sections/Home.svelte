@@ -3,7 +3,7 @@
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/Button.svelte";
   import Textures from "../components/Textures.svelte";
-  import { moveSectionHandler } from "../optimizedFunctions";
+  import { moveSectionHandler } from "../functions";
   import { maxWidthTablet, nodeSections, sectionItems } from "../Stores";
   import { accordionData } from "../StaticStore";
 

@@ -1,6 +1,6 @@
 <script>
   import { sectionItems, nodeSections } from "../Stores";
-  import { moveSectionHandler } from "../optimizedFunctions";
+  import { moveSectionHandler } from "../functions";
 
   let windowsWidth;
   const navbarMove = (e) => {

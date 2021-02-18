@@ -7,7 +7,7 @@
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
 
-  import { moveSectionHandler } from "../optimizedFunctions";
+  import { moveSectionHandler } from "../functions";
   import { visibleSections, desktopSection } from "../StaticStore";
   import {
     sectionItems,

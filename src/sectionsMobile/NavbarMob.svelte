@@ -2,7 +2,7 @@
   import { sectionItems, nodeSections } from "../Stores";
   import NavButton from "../components/NavButton.svelte";
   import { navbarState } from "../Stores";
-  import { moveSectionHandler } from "../optimizedFunctions";
+  import { moveSectionHandler } from "../functions";
 
   const clickedItem = () => {
     var whereTo = $nodeSections["targetText"];

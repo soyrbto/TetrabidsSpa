@@ -37,11 +37,15 @@ const dynaListHandler = (function activeElement() {
   let initState = {};
   let ObjectStates = writable({});
   let activeItem;
+  let id = {};
 
   function createObjectStates(arrayOfElems, initvalue) {
-    arrayOfElems.forEach((element) => {
+    arrayOfElems.forEach((element, i) => {
       initState[element] = initvalue;
+      id[element] = i;
     });
+
+    console.log(id);
 
     ObjectStates.set(initState);
     return ObjectStates;
@@ -56,7 +60,7 @@ const dynaListHandler = (function activeElement() {
     return activeItem;
   }
 
-  return { createObjectStates, updateState, ObjectStates };
+  return { createObjectStates, updateState, ObjectStates, id };
 })();
 
 /******************************************************************/
@@ -72,7 +76,8 @@ const textShortener = (function privateShortener() {
     fullText = fullText.slice(0, position);
 
     if (numbCharacters < longitud) {
-      fullText = fullText + ' ' + `<span><a href="${link}">${viewMore}</a></span>`;
+      fullText =
+        fullText + " " + `<span><a href="${link}">${viewMore}</a></span>`;
     }
     return fullText;
   };

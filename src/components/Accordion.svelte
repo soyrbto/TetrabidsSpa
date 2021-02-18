@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { accordionHandler } from "../optimizedFunctions";
+  import { accordionHandler } from "../functions";
   let accordionId;
   let states = accordionHandler.states;
 

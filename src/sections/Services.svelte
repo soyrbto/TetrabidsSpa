@@ -7,22 +7,24 @@
   import { servicesData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";
-  import { dynaListHandler, textShortener } from "../optimizedFunctions";
+  import { dynaListHandler, textShortener } from "../functions";
 
   SwiperCore.use([Pagination]);
   let dynaList = servicesData.items;
   let dynaObjectState;
   let windowsWidth;
   let activeItem;
+  let id;
 
   onMount(() => {
     dynaObjectState = dynaListHandler.createObjectStates(dynaList, "blue");
+    id = dynaListHandler.id;
     activeItem = dynaListHandler.updateState(dynaList[0], "white");
   });
 
   const updateState = (e) => {
     activeItem = e.target.innerText;
-    dynaListHandler.updateState(activeItem, "white");
+    imgID = dynaListHandler.updateState(activeItem, "white");
   };
 </script>
 
@@ -154,7 +156,10 @@
 
     <!--  SERVICES DESCRIPTIONS SUB-SECTION FOR WHEN THE WIDTH IS BIGGER THAN 1280PX -->
     {#if windowsWidth > $maxWidthTablet}
-      <ServiceDescription imageUrl="service-{0}" imageAlt={activeItem}>
+      <ServiceDescription
+        imageUrl="service-{id[activeItem]}"
+        imageAlt={activeItem}
+      >
         <div slot="title">{activeItem}</div>
         <div slot="body">
           {@html textShortener(servicesData[activeItem], "/blog", 255)}

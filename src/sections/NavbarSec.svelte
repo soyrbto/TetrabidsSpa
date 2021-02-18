@@ -1,6 +1,6 @@
 <script>
   import { displayedSection, nodeSections, sectionItems } from "../Stores";
-  import { moveSectionHandler } from "../optimizedFunctions";
+  import { moveSectionHandler } from "../functions";
 
   const sectionMove = () => {
     moveSectionHandler.vertical($nodeSections[0]);
