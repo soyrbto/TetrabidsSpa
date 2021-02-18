@@ -45,8 +45,6 @@ const dynaListHandler = (function activeElement() {
       id[element] = i;
     });
 
-    console.log(id);
-
     ObjectStates.set(initState);
     return ObjectStates;
   }
