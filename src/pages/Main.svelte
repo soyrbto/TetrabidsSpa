@@ -5,6 +5,8 @@
   import Footer from "../sections/Footer.svelte";
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
+  import NavbarMob from "../sectionsMobile/NavbarMob.svelte";
+  import NavbarDesktop from "../Sections/NavbarDesktop.svelte";
   import { wheelMove } from "../functions";
   import { visibleSections, pageSections } from "../StaticStore";
   import { maxWidthTablet, nodeSections } from "../Stores.js";
@@ -21,6 +23,8 @@
 
   $: componentSections =
     windowsWidth > $maxWidthTablet ? SectionsDesktop : SectionsMob;
+
+  $: typeNavbar = windowsWidth > 768 ? NavbarDesktop : NavbarMob;
 </script>
 
 <style type="text/scss">
