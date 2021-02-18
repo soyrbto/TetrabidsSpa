@@ -141,22 +141,22 @@ let moveSectionHandler = (function moveSection(arrSections) {
 /******************************************************************/
 
 //function that controls the movement on wheel from main
-const moveDirector = function (Sections, pageSections) {
+const moveDirector = function (sections, pageSections) {
   let i = 0;
   const instructions = {
     0: () => {
-      moveSectionHandler.vertical(Sections[0]);
+      moveSectionHandler.vertical(sections[0]);
     },
     1: () => {
-      moveSectionHandler.vertical(Sections[1]);
+      moveSectionHandler.vertical(sections[1]);
       moveSectionHandler.horizontal(pageSections[1]);
     },
     2: () => {
-      moveSectionHandler.vertical(Sections[1]);
+      moveSectionHandler.vertical(sections[1]);
       moveSectionHandler.horizontal(pageSections[2]);
     },
     3: () => {
-      moveSectionHandler.vertical(Sections[1]);
+      moveSectionHandler.vertical(sections[1]);
       moveSectionHandler.horizontal(pageSections[0]);
     },
   };
