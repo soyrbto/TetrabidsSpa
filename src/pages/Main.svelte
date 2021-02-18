@@ -4,6 +4,7 @@
   import NavbarSec from "../sections/NavbarSec.svelte";
   import Footer from "../sections/Footer.svelte";
   import NavbarMob from "../sectionsMobile/NavbarMob.svelte";
+  import NavbarDesktop from "../Sections/NavbarDesktop.svelte";
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
 
@@ -115,8 +116,8 @@
       class="home-wrapper"
       id={visibleSections[0]}
     >
+      <svelte:component this={typeNavbar} />
       <Home />
-      <NavbarMob />
     </div>
 
     <!-- svelte-ignore missing-declaration -->

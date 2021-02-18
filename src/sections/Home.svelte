@@ -24,16 +24,6 @@
 <style type="text/scss">
   @import "../stylesGlobal/vars";
 
-  .navbar {
-    display: flex;
-    justify-content: center;
-    height: 11.57vh;
-
-    @include respond(tab-land) {
-      height: 120px;
-    }
-  }
-
   .wrapper {
     display: flex;
     justify-content: space-around;
@@ -100,18 +90,14 @@
   }
 
   img {
+    position: relative;
     width: 29.5vw; // 565px
   }
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
-<Textures />
-{#if windowsWidth > 768}
-  <div class="navbar">
-    <Navbar />
-  </div>
-{/if}
 
+<Textures />
 <div class="wrapper">
   <div class="col-1">
     <h1>Tetrabids <span> Desarrollo web contigo</span></h1>
