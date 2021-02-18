@@ -66,9 +66,9 @@ const dynaListHandler = (function activeElement() {
 const textShortener = (function privateShortener() {
   let viewMore = "ver mas...";
 
-  const shortener = (fullText, numbWords) => {
+  const shortener = (fullText, numbCharacters) => {
     let longitud = fullText.length;
-    let position = fullText.lastIndexOf(" ", numbWords);
+    let position = fullText.lastIndexOf(" ", numbCharacters);
     fullText = fullText.slice(0, position);
 
     if (numbWords < longitud) {
@@ -123,6 +123,7 @@ let moveSectionHandler = (function moveSection(arrSections) {
     }
   }
 
+  // movement function (this case Cubic)
   function easeInOutCubic(t, b, c, d) {
     t /= d / 2;
     if (t < 1) return (c / 2) * t * t * t + b;
@@ -137,12 +138,11 @@ let moveSectionHandler = (function moveSection(arrSections) {
 
 export { accordionHandler, dynaListHandler, textShortener, moveSectionHandler };
 
-//resolver el problema de los nodos en la mainpage, agregar la funcionalidad vertical en la horizontal, (nunca se llamara por separado)
-// evitar que la animacion del boton se lance al cargarse
-// terminar el accordion
-// evitar que se relancen funciones de movimiento
-// configurar el formulario con netlify
-// agregar lazyLoad a las imagenes (en la pantalla principal) y textos en el blog
-// agregar movimiento vertical si se hace en el footer
-// bajar un poco el navbar
-// importar correctamente en main secnavbarItems a la nueva variable
+// commandments of functionality
+// 1. all functionality has to be encapsulated in a iife
+// 2. if instantiation is required it will be the return of the function
+// 3. is an state (store) is required it will be created on the function
+// 4. if a static info is required it will be consumed on the function
+// 5. states are consumed by components
+// 6. functions are used in correspondent lifecycle function of component
+// 7. html nodes will be caught on lifecycle component iife
