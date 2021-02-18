@@ -66,13 +66,13 @@ const dynaListHandler = (function activeElement() {
 const textShortener = (function privateShortener() {
   let viewMore = "ver mas...";
 
-  const shortener = (fullText, numbCharacters) => {
+  const shortener = (fullText, link, numbCharacters) => {
     let longitud = fullText.length;
     let position = fullText.lastIndexOf(" ", numbCharacters);
     fullText = fullText.slice(0, position);
 
     if (numbCharacters < longitud) {
-      fullText = fullText + `<span> ${viewMore} </span>`;
+      fullText = fullText + `<span><a href="${link}">${viewMore}</a></span>`;
     }
     return fullText;
   };
