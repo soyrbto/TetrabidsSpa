@@ -1,9 +1,9 @@
 <script>
   import { navbarState as open } from "../Stores";
 
-  let navButton;
-
+  let firstLoad = false;
   const clicked = () => {
+    firstLoad = true;
     open.update((n) => !n);
   };
 </script>
@@ -273,7 +273,7 @@
 <button
   on:click={clicked}
   class:open={$open}
-  class:close={!$open}
+  class:close={!$open && firstLoad}
   class="burger"
   type="button"
 >

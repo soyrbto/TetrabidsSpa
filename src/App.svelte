@@ -7,14 +7,12 @@
 
   let current;
 
-
   page("/", () => (current = Main));
   page("/blog", () => (current = Blog));
   page("/faq", () => (current = Faq));
   page(
     "/article/:id",
     (ctx, next) => {
-
       next();
     },
     () => (current = Article)
