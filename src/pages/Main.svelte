@@ -3,23 +3,11 @@
   import Home from "../sections/Home.svelte";
   import NavbarSec from "../sections/NavbarSec.svelte";
   import Footer from "../sections/Footer.svelte";
-  import NavbarMob from "../sectionsMobile/NavbarMob.svelte";
-  import NavbarDesktop from "../Sections/NavbarDesktop.svelte";
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
-
-  import { moveSectionHandler, wheelMove } from "../functions";
-  import {
-    visibleSections,
-    desktopSection,
-    pageSections,
-  } from "../StaticStore";
-  import {
-    sectionItems,
-    displayedSection,
-    maxWidthTablet,
-    nodeSections,
-  } from "../Stores.js";
+  import { wheelMove } from "../functions";
+  import { visibleSections, pageSections } from "../StaticStore";
+  import { maxWidthTablet, nodeSections } from "../Stores.js";
 
   let homeNode, sectionsNode, driver, typeNavbar;
 
