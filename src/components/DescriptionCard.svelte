@@ -1,7 +1,11 @@
 <script>
   import Button from "./Button.svelte";
   import Card from "./Card.svelte";
+
   let windowsWidth;
+
+  export let imageUrl;
+  export let imageAlt;
 </script>
 
 <style type="text/scss">
@@ -70,7 +74,11 @@
           <slot name="body">there is no service-body</slot>
         </p>
       </div>
-      <img src="./images/page.svg" alt="" class="meeting fade-in-bck" />
+      <img
+        src="./images/{imageUrl}.svg"
+        alt={imageAlt}
+        class="meeting fade-in-bck"
+      />
       <div class="button-wrapper">
         <Button color="purple">
           <div class="button-card-content">Sigue Leyendo</div>

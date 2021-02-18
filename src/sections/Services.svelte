@@ -7,7 +7,7 @@
   import { servicesData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
   import SwiperCore, { Pagination } from "swiper";
-  import { dynaListHandler } from "../optimizedFunctions";
+  import { dynaListHandler, textShortener } from "../optimizedFunctions";
 
   SwiperCore.use([Pagination]);
   let dynaList = servicesData.items;
@@ -123,7 +123,7 @@
           >
             {#each servicesData.items as service}
               <SwiperSlide>
-                <ServiceDescription>
+                <ServiceDescription imageUrl={service} imageAlt={service}>
                   <div slot="title">
                     {@html service}
                   </div>
@@ -154,9 +154,9 @@
 
     <!--  SERVICES DESCRIPTIONS SUB-SECTION FOR WHEN THE WIDTH IS BIGGER THAN 1280PX -->
     {#if windowsWidth > $maxWidthTablet}
-      <ServiceDescription>
-        <div class="title" slot="title">{activeItem}</div>
-        <div class="body" slot="body">{@html servicesData[activeItem]}</div>
+      <ServiceDescription imageUrl="service-{activeItem}" imageAlt={activeItem}>
+        <div slot="title">{activeItem}</div>
+        <div slot="body">{@html servicesData[activeItem]}</div>
       </ServiceDescription>
     {/if}
   </div>
