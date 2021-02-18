@@ -141,7 +141,7 @@ let moveSectionHandler = (function moveSection(arrSections) {
 /******************************************************************/
 
 //function that controls the movement on wheel from main
-const wheelMove = function (Sections, pageSections) {
+const moveDirector = function (Sections, pageSections) {
   let i = 0;
   const instructions = {
     0: () => {
@@ -182,7 +182,7 @@ export {
   dynaListHandler,
   textShortener,
   moveSectionHandler,
-  wheelMove,
+  moveDirector,
 };
 
 // commandments of functionality

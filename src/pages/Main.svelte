@@ -7,7 +7,7 @@
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
   import NavbarMob from "../sectionsMobile/NavbarMob.svelte";
   import NavbarDesktop from "../Sections/NavbarDesktop.svelte";
-  import { wheelMove } from "../functions";
+  import { moveDirector } from "../functions";
   import { visibleSections, pageSections } from "../StaticStore";
   import { maxWidthTablet, nodeSections } from "../Stores.js";
 
@@ -16,7 +16,7 @@
   onMount(() => {
     let nodesArr = [homeNode, sectionsNode];
     nodeSections.set(nodesArr);
-    driver = wheelMove($nodeSections, pageSections);
+    driver = moveDirector($nodeSections, pageSections);
   });
 
   let windowsWidth;
