@@ -69,6 +69,10 @@
           line-height: $line-height;
           text-align: justify;
           margin-top: 15px;
+
+          @include respond(phone) {
+            min-height: 92px;
+          }
         }
       }
 
