@@ -1,13 +1,11 @@
 <script>
-  import { sectionItems, nodeSections } from "../Stores";
+  import { sectionItems } from "../Stores";
   import NavButton from "../components/NavButton.svelte";
   import { navbarState } from "../Stores";
-  import { moveSectionHandler } from "../functions";
+  import { instructionsMapMob, mapDriver } from "../functions";
 
-  const clickedItem = () => {
-    var whereTo = $nodeSections["targetText"];
-    console.log(whereTo);
-    moveSectionHandler.vertical(whereTo);
+  const clickedItem = (i) => {
+    if (i <= 1) instructionsMapMob.then((value) => mapDriver.button(value, i));
   };
 
   let windowsWidth;
@@ -117,9 +115,9 @@
       class="nav js-nav"
     >
       <ul class:show={$navbarState} class="nav__list js-nav__list">
-        {#each $sectionItems.navbarMob as item}
+        {#each $sectionItems.navbarMob as item, i}
           <li class="nav__item">
-            <div on:click={clickedItem} class="nav__link">{item}</div>
+            <div on:click={() => clickedItem(i)} class="nav__link">{item}</div>
           </li>
         {/each}
       </ul>

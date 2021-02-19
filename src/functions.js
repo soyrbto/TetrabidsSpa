@@ -1,7 +1,7 @@
 import { tick } from "svelte";
 import { writable, get } from "svelte/store";
 import { pageSections } from "./StaticStore";
-import { nodeSections, mapState } from "./Stores";
+import { nodeSections, mapState, nodeSectionsMob } from "./Stores";
 
 /******************************************************************/
 /******************************************************************/
@@ -166,6 +166,26 @@ const instructionsMap = (async function asyncWrapper() {
   return instruction;
 })();
 
+const instructionsMapMob = (async function asyncWrapper() {
+  await tick();
+  const instruction = (function (sections) {
+    const instructionsObj = {
+      0: () => {
+        moveSectionHandler.vertical(get(sections)[0]);
+      },
+      1: () => {
+        moveSectionHandler.vertical(get(sections)[1]);
+      },
+      2: () => {
+        moveSectionHandler.vertical(get(sections)[2]);
+      },
+    };
+    return instructionsObj;
+  })(nodeSectionsMob);
+
+  return instruction;
+})();
+
 const mapDriver = (function InstructFollower() {
   function wheel(e, instructions) {
     e.preventDefault();
@@ -196,6 +216,7 @@ export {
   textShortener,
   moveSectionHandler,
   instructionsMap,
+  instructionsMapMob,
   mapDriver,
 };
 

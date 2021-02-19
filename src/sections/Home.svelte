@@ -3,14 +3,18 @@
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/Button.svelte";
   import Textures from "../components/Textures.svelte";
-  import { instructionsMap, mapDriver } from "../functions";
+  import { instructionsMap, mapDriver, instructionsMapMob } from "../functions";
   import { maxWidthTablet, sectionItems } from "../Stores";
   import { accordionData } from "../StaticStore";
 
   let windowsWidth;
 
-  const contactMove = (e) => {
-    instructionsMap.then((value) => mapDriver.button(value, 3));
+  const contactMove = () => {
+    if (windowsWidth > maxWidthTablet) {
+      instructionsMap.then((value) => mapDriver.button(value, 3));
+    } else {
+      instructionsMapMob.then((value) => mapDriver.button(value, 2));
+    }
   };
 </script>
 
