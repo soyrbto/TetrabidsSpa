@@ -48,7 +48,8 @@
       z-index: 5;
 
       @include respond(tab-port) {
-        height: calc(100vh + 35px);
+        height: 100vh;
+        position: fixed;
       }
     }
   }
