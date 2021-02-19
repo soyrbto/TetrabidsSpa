@@ -68,16 +68,15 @@ const dynaListHandler = (function activeElement() {
 
 // function that shortens the text in function of how many words
 const textShortener = (function privateShortener() {
-  let viewMore = "ver mas...";
 
-  const shortener = (fullText, link, numbCharacters) => {
+  const shortener = (fullText, numbCharacters) => {
     let longitud = fullText.length;
     let position = fullText.lastIndexOf(" ", numbCharacters);
     fullText = fullText.slice(0, position);
 
     if (numbCharacters < longitud) {
       fullText =
-        fullText + " " + `<span><a href="${link}">${viewMore}</a></span>`;
+        fullText + " " + ". . .";
     }
     return fullText;
   };

@@ -143,7 +143,7 @@
                     {@html product}
                   </div>
                   <div slot="body">
-                    {@html textShortener(productsData[product], "/blog", 270)}
+                    {@html textShortener(productsData[product], 270)}
                   </div>
                 </DescriptionCard>
               </SwiperSlide>
@@ -172,7 +172,7 @@
       >
         <div slot="title">{activeItem}</div>
         <div slot="body">
-          {@html textShortener(productsData[activeItem], "/blog", 330)}
+          {@html textShortener(productsData[activeItem], 330)}
         </div>
       </DescriptionCard>
     {/if}
