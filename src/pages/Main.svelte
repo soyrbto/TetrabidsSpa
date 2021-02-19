@@ -7,16 +7,15 @@
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
   import NavbarMob from "../sectionsMobile/NavbarMob.svelte";
-  import { moveDirector } from "../functions";
-  import { visibleSections, pageSections } from "../StaticStore";
+  import { nodeInstructions, driver } from "../functions";
+  import { visibleSections } from "../StaticStore";
   import { maxWidthTablet, nodeSections } from "../Stores.js";
 
-  let homeNode, sectionsNode, driver, navbarType;
+  let homeNode, sectionsNode, navbarType;
 
   onMount(() => {
     let nodesArr = [homeNode, sectionsNode];
     nodeSections.set(nodesArr);
-    driver = moveDirector($nodeSections, pageSections);
   });
 
   let windowsWidth;
@@ -104,7 +103,7 @@
   <main bind:this={homeNode}>
     <div
       on:wheel|nonpassive={(e) => {
-        if (isDesktop) driver(e);
+        if (isDesktop) nodeInstructions.then((value) => driver(e, value));
       }}
       class="home-wrapper"
       id={visibleSections[0]}
@@ -115,7 +114,7 @@
 
     <div
       on:wheel|nonpassive={(e) => {
-        if (isDesktop) driver(e);
+        if (isDesktop) nodeInstructions.then((value) => driver(e, value));
       }}
       id="section-container"
       class="section-wrapper"

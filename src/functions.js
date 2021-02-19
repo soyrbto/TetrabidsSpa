@@ -1,3 +1,4 @@
+import { tick } from "svelte";
 import { writable, get } from "svelte/store";
 import { pageSections } from "./StaticStore";
 import { nodeSections } from "./Stores";
@@ -141,27 +142,37 @@ let moveSectionHandler = (function moveSection(arrSections) {
 /******************************************************************/
 
 //function that controls the movement on wheel from main
-const moveDirector = function (sections, pageSections) {
-  let i = 0;
-  const instructions = {
-    0: () => {
-      moveSectionHandler.vertical(sections[0]);
-    },
-    1: () => {
-      moveSectionHandler.vertical(sections[1]);
-      moveSectionHandler.horizontal(pageSections[1]);
-    },
-    2: () => {
-      moveSectionHandler.vertical(sections[1]);
-      moveSectionHandler.horizontal(pageSections[2]);
-    },
-    3: () => {
-      moveSectionHandler.vertical(sections[1]);
-      moveSectionHandler.horizontal(pageSections[0]);
-    },
-  };
 
-  function go(e) {
+const nodeInstructions = (async function asyncWrapper() {
+  await tick();
+  const outerInstruction = (function (sections, pageSections) {
+    const instructions = {
+      0: () => {
+        moveSectionHandler.vertical(get(sections)[0]);
+      },
+      1: () => {
+        moveSectionHandler.vertical(get(sections)[1]);
+        moveSectionHandler.horizontal(pageSections[1]);
+      },
+      2: () => {
+        moveSectionHandler.vertical(get(sections)[1]);
+        moveSectionHandler.horizontal(pageSections[2]);
+      },
+      3: () => {
+        moveSectionHandler.vertical(get(sections)[1]);
+        moveSectionHandler.horizontal(pageSections[0]);
+      },
+    };
+    return instructions;
+  })(nodeSections, pageSections);
+
+  return outerInstruction;
+})();
+
+const driver = (function InstructFollower() {
+  let i = 0;
+
+  function iterator(e, instructions) {
     e.preventDefault();
     if (e.deltaY > 0 && i != Object.keys(instructions).length) {
       i++;
@@ -172,8 +183,8 @@ const moveDirector = function (sections, pageSections) {
     }
   }
 
-  return go;
-};
+  return iterator;
+})();
 /******************************************************************/
 /******************************************************************/
 
@@ -182,7 +193,8 @@ export {
   dynaListHandler,
   textShortener,
   moveSectionHandler,
-  moveDirector,
+  nodeInstructions,
+  driver,
 };
 
 // commandments of functionality
