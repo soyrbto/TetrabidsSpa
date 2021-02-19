@@ -7,7 +7,7 @@
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
   import NavbarMob from "../sectionsMobile/NavbarMob.svelte";
-  import { nodeInstructions, driver } from "../functions";
+  import { instructionsMap, mapDriver } from "../functions";
   import { visibleSections } from "../StaticStore";
   import { maxWidthTablet, nodeSections } from "../Stores.js";
 
@@ -103,7 +103,8 @@
   <main bind:this={homeNode}>
     <div
       on:wheel|nonpassive={(e) => {
-        if (isDesktop) nodeInstructions.then((value) => driver(e, value));
+        if (isDesktop)
+          instructionsMap.then((value) => mapDriver.wheel(e, value));
       }}
       class="home-wrapper"
       id={visibleSections[0]}
@@ -114,7 +115,8 @@
 
     <div
       on:wheel|nonpassive={(e) => {
-        if (isDesktop) nodeInstructions.then((value) => driver(e, value));
+        if (isDesktop)
+          instructionsMap.then((value) => mapDriver.wheel(e, value));
       }}
       id="section-container"
       class="section-wrapper"

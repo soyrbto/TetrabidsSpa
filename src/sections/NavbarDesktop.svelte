@@ -1,12 +1,10 @@
 <script>
-  import { sectionItems, nodeSections } from "../Stores";
-  import { moveSectionHandler } from "../functions";
+  import { sectionItems } from "../Stores";
+  import { mapDriver, instructionsMap } from "../functions";
 
   let windowsWidth;
-  const navbarMove = (e) => {
-    var target = e.currentTarget.innerText;
-    moveSectionHandler.vertical($nodeSections[1]);
-    setTimeout(() => moveSectionHandler.horizontal(target), 400);
+  const navbarMove = (i) => {
+    instructionsMap.then((value) => mapDriver.button(value, i + 1));
   };
 </script>
 
@@ -59,7 +57,7 @@
   <ul>
     {#each $sectionItems.navbarDesktop as item, i}
       {#if i < 2}
-        <li on:click={(e) => navbarMove(e)}>{item}</li>
+        <li on:click={() => navbarMove(i)}>{item}</li>
       {:else}
         <li><a href={"/" + item}>{item}</a></li>
       {/if}

@@ -1,9 +1,9 @@
 <script>
   import { displayedSection, nodeSections, sectionItems } from "../Stores";
-  import { moveSectionHandler } from "../functions";
+  import { instructionsMap, mapDriver } from "../functions";
 
   const sectionMove = () => {
-    moveSectionHandler.vertical($nodeSections[0]);
+    instructionsMap.then((value) => mapDriver.button(value, 0));
   };
 </script>
 
@@ -48,12 +48,12 @@
   src="./images/home-button.svg"
   alt="blue home button"
 />
-{#each $sectionItems.navbarSec as item}
+{#each $sectionItems.navbarSec as item, i}
   <div
     class="item"
     class:active={item == $displayedSection}
-    on:click={(e) => {
-      moveSectionHandler.horizontal(e.currentTarget.innerText);
+    on:click={() => {
+      instructionsMap.then((value) => mapDriver.button(value, i + 1));
     }}
   >
     {item}

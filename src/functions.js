@@ -1,7 +1,7 @@
 import { tick } from "svelte";
 import { writable, get } from "svelte/store";
 import { pageSections } from "./StaticStore";
-import { nodeSections } from "./Stores";
+import { nodeSections, mapState } from "./Stores";
 
 /******************************************************************/
 /******************************************************************/
@@ -68,15 +68,13 @@ const dynaListHandler = (function activeElement() {
 
 // function that shortens the text in function of how many words
 const textShortener = (function privateShortener() {
-
   const shortener = (fullText, numbCharacters) => {
     let longitud = fullText.length;
     let position = fullText.lastIndexOf(" ", numbCharacters);
     fullText = fullText.slice(0, position);
 
     if (numbCharacters < longitud) {
-      fullText =
-        fullText + " " + ". . .";
+      fullText = fullText + " " + ". . .";
     }
     return fullText;
   };
@@ -142,10 +140,10 @@ let moveSectionHandler = (function moveSection(arrSections) {
 
 //function that controls the movement on wheel from main
 
-const nodeInstructions = (async function asyncWrapper() {
+const instructionsMap = (async function asyncWrapper() {
   await tick();
-  const outerInstruction = (function (sections, pageSections) {
-    const instructions = {
+  const instruction = (function (sections, pageSections) {
+    const instructionsObj = {
       0: () => {
         moveSectionHandler.vertical(get(sections)[0]);
       },
@@ -162,17 +160,16 @@ const nodeInstructions = (async function asyncWrapper() {
         moveSectionHandler.horizontal(pageSections[0]);
       },
     };
-    return instructions;
+    return instructionsObj;
   })(nodeSections, pageSections);
 
-  return outerInstruction;
+  return instruction;
 })();
 
-const driver = (function InstructFollower() {
-  let i = 0;
-
-  function iterator(e, instructions) {
+const mapDriver = (function InstructFollower() {
+  function wheel(e, instructions) {
     e.preventDefault();
+    let i = get(mapState);
     if (e.deltaY > 0 && i != Object.keys(instructions).length) {
       i++;
       instructions[i]();
@@ -180,9 +177,15 @@ const driver = (function InstructFollower() {
       i--;
       instructions[i]();
     }
+    mapState.set(i);
   }
 
-  return iterator;
+  function button(instructions, path) {
+    instructions[path]();
+    mapState.set(path);
+  }
+
+  return { wheel, button };
 })();
 /******************************************************************/
 /******************************************************************/
@@ -192,8 +195,8 @@ export {
   dynaListHandler,
   textShortener,
   moveSectionHandler,
-  nodeInstructions,
-  driver,
+  instructionsMap,
+  mapDriver,
 };
 
 // commandments of functionality
