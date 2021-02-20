@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
-  import Home from "../sections/Home.svelte";
   import NavbarDesktop from "../sections/NavbarDesktop.svelte";
+  import Home from "../sections/Home.svelte";
   import NavbarSec from "../sections/NavbarSec.svelte";
   import Footer from "../sections/Footer.svelte";
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";

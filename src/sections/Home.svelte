@@ -1,5 +1,4 @@
 <script>
-  import Navbar from "./NavbarDesktop.svelte";
   import Accordion from "../components/Accordion.svelte";
   import Button from "../components/Button.svelte";
   import Textures from "../components/Textures.svelte";
