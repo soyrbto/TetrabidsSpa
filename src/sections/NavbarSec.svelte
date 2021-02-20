@@ -1,5 +1,5 @@
 <script>
-  import { displayedSection, nodeSections, sectionItems } from "../Stores";
+  import { displayedSection, sectionItems } from "../Stores";
   import { instructionsMap, mapDriver } from "../functions";
 
   const sectionMove = () => {

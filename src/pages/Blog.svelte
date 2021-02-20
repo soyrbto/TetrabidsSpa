@@ -3,11 +3,8 @@
   import BlogCard from "../components/blogCard.svelte";
   import Button from "../components/Button.svelte";
   import CheckboxCategories from "../components/CheckboxCategories.svelte";
-  import {
-    areaCategories,
-    experienceCategories
-  } from "../StaticStore";
-  import { sectionItems } from "../Stores"
+  import { areaCategories, experienceCategories } from "../StaticStore";
+  import { sectionItems } from "../Stores";
   import { onMount } from "svelte";
   import axios from "axios";
 
@@ -224,7 +221,8 @@
             slot="title"
             href={`/article/${index}`}
             style="text-decoration: none; color: black;"
-            target="blank">{item.title}
+            target="blank"
+            >{item.title}
           </a>
         </BlogCard>
       {/each}

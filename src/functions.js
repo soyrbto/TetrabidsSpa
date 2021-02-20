@@ -196,7 +196,10 @@ const mapDriver = (function InstructFollower() {
     } else if (e.deltaY < 0 && i != 0) {
       i--;
       instructions[i]();
+    } else {
+      instructions[0]();
     }
+
     mapState.set(i);
   }
 

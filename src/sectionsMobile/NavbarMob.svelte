@@ -102,25 +102,23 @@
 </style>
 
 <svelte:window bind:innerWidth={windowsWidth} />
-{#if windowsWidth <= 768}
-  <nav on:wheel|preventDefault>
-    <div class:active={$navbarState} class="menu js-menu">
-      <div class="button">
-        <NavButton />
-      </div>
+<nav on:wheel|preventDefault>
+  <div class:active={$navbarState} class="menu js-menu">
+    <div class="button">
+      <NavButton />
     </div>
-    <nav
-      on:click={() => navbarState.update((el) => !el)}
-      class:open={$navbarState}
-      class="nav js-nav"
-    >
-      <ul class:show={$navbarState} class="nav__list js-nav__list">
-        {#each $sectionItems.navbarMob as item, i}
-          <li class="nav__item">
-            <div on:click={() => clickedItem(i)} class="nav__link">{item}</div>
-          </li>
-        {/each}
-      </ul>
-    </nav>
+  </div>
+  <nav
+    on:click={() => navbarState.update((el) => !el)}
+    class:open={$navbarState}
+    class="nav js-nav"
+  >
+    <ul class:show={$navbarState} class="nav__list js-nav__list">
+      {#each $sectionItems.navbarMob as item, i}
+        <li class="nav__item">
+          <div on:click={() => clickedItem(i)} class="nav__link">{item}</div>
+        </li>
+      {/each}
+    </ul>
   </nav>
-{/if}
+</nav>

@@ -1,9 +1,8 @@
 <script>
-  import { onMount, onDestroy } from "svelte";
+  import { onMount } from "svelte";
   import Card from "../components/Card.svelte";
   import Button from "../components/Button.svelte";
   import DescriptionCard from "../components/DescriptionCard.svelte";
-
   import { maxWidthTablet, animationRange } from "../Stores";
   import { productsData } from "../StaticStore";
   import { Swiper, SwiperSlide } from "swiper/svelte";
@@ -22,11 +21,6 @@
     dynaObjectState = dynaListHandler.createObjectStates(dynaList, "blue");
     id = dynaListHandler.id;
     activeItem = dynaListHandler.updateState(dynaList[0], "white");
-  });
-
-  onDestroy(() => {
-    //
-    //
   });
 
   const updateState = (e) => {
