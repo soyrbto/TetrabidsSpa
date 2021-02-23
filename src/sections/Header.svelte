@@ -13,6 +13,11 @@
       font-size: clamp(40px, 3.65vw, 90px);
       height: clamp(55px, 4.6875vw, 100px); // 90px
       margin-right: clamp(23px, 1.82vw, 46px); // 35px
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
     }
 
     & .ellipse {
@@ -27,6 +32,6 @@
 </style>
 
 <header class="header">
-  <div class="name">Tetrabids</div>
+  <div class="name"><a href="/">Tetrabids</a></div>
   <div class="ellipse">Post</div>
 </header>
