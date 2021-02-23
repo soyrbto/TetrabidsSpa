@@ -14,6 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: $font-primary;
     height: clamp(60px, 4.46vw, 115px);
     padding: 0 5.2vw 0 1.56vw;
     background: rgba(0, 0, 0, 1);
@@ -46,11 +47,11 @@
         width: 100%;
 
         li {
-          height: clamp(25px, 1.82vw, 47px); // 35px
+          height: $height-icons; // 35px
           list-style: none;
 
           img {
-            height: clamp(25px, 1.82vw, 47px); // 35px
+            height: $height-icons; // 35px
 
             @include respond(tab-port) {
               height: 28px;

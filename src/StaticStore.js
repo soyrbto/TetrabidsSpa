@@ -86,6 +86,8 @@ const contactData = {
   location: "Agencia totalmente remota",
 };
 
+const socialNetwork = ["instagram","telegram","facebook","whatsapp","email"];
+
 export {
   pageSections,
   accordionData,
@@ -96,4 +98,5 @@ export {
   desktopSection,
   areaCategories,
   experienceCategories,
+  socialNetwork,
 };

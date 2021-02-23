@@ -1,6 +1,7 @@
 // ------------------------------ VARIABLES -------------------------------------
 
 $color-text-blue: #066d92;
+$color-header: #0082ba;
 
 $font-primary: "Josefin Sans", sans-serif;
 $font-secundary: sans-serif;
@@ -15,6 +16,7 @@ $font-size-body: clamp(14px, 0.93vw, 25px); // 18px
 
 $line-height: clamp(23px, 1.66vw, 43px); // 32px
 
+$height-icons: clamp(25px, 1.82vw, 47px); // 35px
 $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0; // 18px
 
 // ------------------------------- MIXINS --------------------------------------
@@ -38,6 +40,12 @@ $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0; // 18px
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin card-dim-desk {
