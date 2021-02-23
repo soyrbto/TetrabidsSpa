@@ -1,6 +1,8 @@
 <script>
   import ArticleCard from "../components/ArticleCard.svelte";
   import Footer from "../Sections/Footer.svelte";
+
+  let windowsWidth;
 </script>
 
 <style type="text/scss">
@@ -203,6 +205,8 @@
     }
   }
 </style>
+
+<svelte:window bind:innerWidth={windowsWidth} />
 
 <div class="wrapper-content">
   <div class="header">
