@@ -1,6 +1,6 @@
 <script>
   import ArticleCard from "../components/ArticleCard.svelte";
-  import Footer from "../Sections/Footer.svelte";
+  import Footer from "../sections/Footer.svelte";
 </script>
 
 <style type="text/scss">
