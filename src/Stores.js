@@ -10,6 +10,7 @@ const nodeSectionsMob = writable([]);
 const navbarState = writable(false);
 const animationRange = 2100;
 const mapState = writable(0);
+const throttleState = writable(false);
 // 4 arrays used as list for different use cases:
 // Contacto, Servicios, Productos, Blog, FAQ, home, sections
 const sectionItems = writable({
@@ -29,4 +30,5 @@ export {
   nodeSections,
   nodeSectionsMob,
   mapState,
+  throttleState,
 };

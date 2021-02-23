@@ -1,7 +1,12 @@
 import { tick } from "svelte";
 import { writable, get } from "svelte/store";
 import { pageSections } from "./StaticStore";
-import { nodeSections, mapState, nodeSectionsMob } from "./Stores";
+import {
+  nodeSections,
+  mapState,
+  nodeSectionsMob,
+  throttleState,
+} from "./Stores";
 
 /******************************************************************/
 /******************************************************************/
@@ -188,19 +193,25 @@ const instructionsMapMob = (async function asyncWrapper() {
 
 const mapDriver = (function InstructFollower() {
   function wheel(e, instructions) {
-    e.preventDefault();
     let i = get(mapState);
-    if (e.deltaY > 0 && i != Object.keys(instructions).length) {
-      i++;
-      instructions[i]();
-    } else if (e.deltaY < 0 && i != 0) {
-      i--;
-      instructions[i]();
-    } else {
-      instructions[0]();
+    e.preventDefault();
+    if (!get(throttleState)) {
+      throttleState.set(true);
+      if (e.deltaY > 0 && i != Object.keys(instructions).length) {
+        i++;
+        instructions[i]();
+      } else if (e.deltaY < 0 && i != 0) {
+        i--;
+        instructions[i]();
+      } else {
+        instructions[0]();
+      }
     }
 
     mapState.set(i);
+    setTimeout(() => {
+      throttleState.set(false);
+    }, 750);
   }
 
   function button(instructions, path) {
