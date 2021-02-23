@@ -1,5 +1,9 @@
 <script>
   import { socialNetwork } from "../StaticStore";
+
+  let icon;
+  let url;
+  let dataAction;
 </script>
 
 <style type="text/scss">
@@ -26,7 +30,7 @@
         justify-content: space-between;
         list-style: none;
 
-        & > li > img {
+        & > li > a > img {
           height: $height-icons;
           cursor: pointer;
         }
@@ -42,10 +46,6 @@
         height: $height-icons;
       }
 
-      & > img:hover {
-        cursor: pointer;
-      }
-
       .share-text {
         font-size: $font-size-subtitle-desk;
         color: #bcbcbc;
@@ -58,7 +58,15 @@
   <div class="social-network">
     <ul>
       {#each socialNetwork as item}
-        <li><img src="/images/{item}-icon.svg" alt="{item}-icon" /></li>
+        <li>
+          <a target="_blank" href={item.url}
+            ><img
+              src="/images/{item.icon}-icon.svg"
+              alt="{item.icon}-icon"
+              rel="noopener noreferrer"
+            /></a
+          >
+        </li>
       {/each}
     </ul>
   </div>
