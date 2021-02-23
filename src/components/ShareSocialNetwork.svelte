@@ -33,6 +33,10 @@
         & > li > a > img {
           height: $height-icons;
           cursor: pointer;
+
+          &:hover {
+            filter: sepia(1) saturate(5) hue-rotate(175deg);
+          }
         }
       }
     }
