@@ -44,11 +44,7 @@
 
       h1 {
         color: white;
-        font-size: clamp(
-          clamp(40px, calc(3.25vw + 2.5rem), 50px),
-          3.65vw,
-          90px
-        ); // 70px
+        font-size: $font-size-logo;
         font-weight: 700;
 
         span {

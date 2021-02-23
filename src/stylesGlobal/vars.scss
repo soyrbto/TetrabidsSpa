@@ -5,6 +5,7 @@ $color-text-blue: #066d92;
 $font-primary: "Josefin Sans", sans-serif;
 $font-secundary: sans-serif;
 
+$font-size-logo: clamp(clamp(40px, calc(3.25vw + 2.5rem), 50px),3.65vw,90px); // 70px
 $font-size-primary: clamp(19px, 1.3vw, 33px); // 25px
 $font-size-titleSec-desk: clamp(23px, 1.66vw, 43px); // 32px
 $font-size-titleSec-Mob: clamp(26px, 2.34vw, 30px); // 45px

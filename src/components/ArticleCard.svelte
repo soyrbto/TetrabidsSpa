@@ -3,46 +3,64 @@
 </script>
 
 <style type="text/scss">
-  .wrapper-section {
+  @import "../stylesGlobal/vars";
+
+  .article-card-wrapper {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 468px;
-    width: 458px;
-    padding: 5% 7%;
+    width: 29.16vw; //560px
+    height: 13vw; //250px
+    padding: 1.14vw; //22px
+    border-radius: 20px;
+    background-color: #fbefef;
 
-    img {
-      background: #c4c4c4;
-      height: 170px;
-      width: 100%;
+    @include respond(tab-port) {
+      flex-direction: column;
+      height: auto;
     }
 
-    .summary {
-      font-size: 16px;
-      line-height: 37px;
-      height: 200px;
+    @include respond(phone) {
       width: 100%;
+      margin-bottom: 20px;
     }
-  }
 
-  @media screen and (max-width: 768px) {
-    .wrapper-section {
-      width: 300px;
+    .post-img {
+      background-color: grey;
+      border-radius: 10px;
+      width: 12.39vw; //238px
+
+      @include respond(tab-port) {
+        width: 100%;
+      }
+    }
+
+    .content {
+      margin-left: 0.67vw; //13px
+
+      .title {
+        font-size: $font-size-primary;
+        line-height: 1.1;
+        margin: 0.52vw 0;
+
+        @include respond(tab-port) {
+          margin: 1.2vw 0;
+        }
+      }
+      .author,
+      .date {
+        font-size: clamp(10px, 0.78vw, 20px);
+        color: #888383;
+      }
     }
   }
 </style>
 
-<Card>
-  <div class="wrapper-section">
-    <img
-      src="/images/home-image.svg"
-      alt="image_articule"
-      class="others-articule-image"
-    />
-    <div class="summary">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nisl egestas
-      dignissim cursus nunc at neque porttitor. Nibh egestas interdum mi
-      consectetur non. Diam consequat feugiat augue.
+<Card boxShadow="none">
+  <div class="article-card-wrapper">
+    <img src="/images/service-1.svg" alt="post-1" class="post-img" />
+    <div class="content">
+      <div class="title">Razones por las cuales deberias usar Telegram</div>
+      <div class="author">Roberto Traspalacio</div>
+      <div class="date">20 de febrero de 2021</div>
     </div>
   </div>
 </Card>
