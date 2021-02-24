@@ -33,5 +33,5 @@
 
 <header class="header">
   <div class="name"><a href="/">Tetrabids</a></div>
-  <div class="ellipse">Post</div>
+  <div class="ellipse"><slot name="page" /></div>
 </header>

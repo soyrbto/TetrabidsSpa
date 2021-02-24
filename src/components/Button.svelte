@@ -45,19 +45,17 @@
 
   .outline {
     font-weight: 700;
-    padding: clamp(10px, 0.78vw, 17px) clamp(25px, 1.56vw, 30px);
-    margin-left: 44px;
     border: solid 2px transparent;
     box-shadow: 2px 1000px 1px #fff inset;
     background-image: linear-gradient(
         rgba(255, 255, 255, 0),
         rgba(255, 255, 255, 0)
       ),
-      linear-gradient(180deg, #ec35f8 0%, #3c26ab 100%);
+      linear-gradient(180deg, #ffbe0b 0%, #ab2626 100%);
     background-origin: border-box;
 
     span {
-      background: -webkit-linear-gradient(90deg, #ec35f8 0%, #3c26ab 100%);
+      background: -webkit-linear-gradient(180deg, #ffbe0b 0%, #ab2626 100%);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;

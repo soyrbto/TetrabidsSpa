@@ -66,19 +66,7 @@
           }
 
           @include respond(tab-landMin) {
-            &::-webkit-scrollbar {
-              width: clamp(6px, 0.52vw, 12px); // 10px
-              background-color: #ebe8e8;
-            }
-
-            &::-webkit-scrollbar-thumb {
-              border-radius: 6px;
-              background-color: #c0bebe;
-
-              &:hover {
-                background-color: #a5a5a8;
-              }
-            }
+            @include scrollBar;
           }
         }
 

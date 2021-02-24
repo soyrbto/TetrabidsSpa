@@ -69,6 +69,22 @@ $padding-button-Blue: clamp(12px, 0.9375vw, 24px) 0; // 18px
   }
 }
 
+@mixin scrollBar {
+  &::-webkit-scrollbar {
+    width: clamp(6px, 0.52vw, 12px); // 10px
+    background-color: #ebe8e8;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #c0bebe;
+
+    &:hover {
+      background-color: #a5a5a8;
+    }
+  }
+}
+
 // ------------------------------- ANIMATION -------------------------------------
 
 // NavbarSec - Sections

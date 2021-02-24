@@ -1,149 +1,93 @@
 <script>
   import Footer from "../sections/Footer.svelte";
+  import Header from "../sections/Header.svelte";
   import Button from "../components/Button.svelte";
-  import { sectionItems } from "../Stores";
-  let windowsWidth;
+  import { faq } from "../FaqStore";
+  import FaqCard from "../components/FaqCard.svelte";
 </script>
 
 <style type="text/scss">
-  .page-content {
+  @import "../stylesGlobal/vars";
+
+  .page-container {
     position: relative;
-    width: 100%;
-    font-family: "Josefin Sans", sans-serif;
+    background-color: white;
+    font-family: $font-primary;
 
-    .header {
+    .content {
       display: flex;
-      align-items: center;
-      height: clamp(120px, 7.81vw, 151px);
-      border-radius: 0 0 0 80px;
-      background: #0082ba;
+      height: calc(
+        100vh - clamp(80px, 6.25vw, 160px) - clamp(60px, 4.46vw, 115px)
+      );
 
-      .logo {
-        padding: 0 40px;
-        color: white;
-        font-size: clamp(50px, 2.6vw, 70px);
-        font-weight: 700;
+      &-left {
+        width: 36.25%;
+        padding: 15px 38px 0;
+        overflow: scroll;
+        overflow-x: hidden;
 
-        .logo-title {
-          text-decoration: none;
-          color: white;
-        }
-      }
-    }
+        @include scrollBar;
 
-    .section-start {
-      display: flex;
-      padding: 4% 10% 0 10%;
+        .button-wrapper {
+          text-align: right;
+          margin-bottom: 20px;
 
-      .left-column {
-        display: flex;
-        flex-direction: column;
-        width: 55%;
-        padding-right: 132px;
-
-        .title {
-          font-size: clamp(30px, 2.5vw, 55px);
-          line-height: clamp(30px, 2.5vw, 48px);
-          font-weight: 700;
-          margin-top: 86px;
-        }
-
-        .description {
-          font-size: clamp(18px, 1.5vw, 33px);
-          line-height: clamp(35px, 2.6vw, 50px);
-          margin: clamp(25px, 1.56vw, 30px) 0 clamp(60px, 4.16vw, 80px) 0;
-          color: #a5a1a1;
-        }
-
-        @media screen and (max-width: 768px) {
-          .description {
-            margin: 20px 0 40px 0;
+          a {
+            display: inline-block;
+            padding: 0.26vw 0.52vw;
           }
         }
 
-        .wrapper-buttons {
-          display: flex;
+        ul li {
+          font-size: $font-size-primary;
+          list-style: none;
+          margin-bottom: 35px;
 
-          .fill {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: clamp(15px, 1.3vw, 29px);
-            height: clamp(43px, 2.86vw, 60px);
-            width: clamp(130px, 8.59vw, 170px);
-
-            .button-faq {
-              text-decoration: none;
-              color: white;
-            }
+          & a {
+            text-decoration: none;
+            color: #595656;
           }
         }
       }
 
-      @media screen and (max-width: 768px) {
-        .left-column {
-          width: 100%;
-          padding-right: 0;
-        }
-      }
+      &-right {
+        width: 63.75%;
+        padding: 25px;
+        background-color: #e9e6e6;
+        overflow: scroll;
+        overflow-x: hidden;
 
-      .right-column {
-        height: clamp(510px, 37.39vw, 718px);
-        width: 45%;
-        background: #c4c4c4;
-        border-radius: 20px;
+        @include scrollBar;
       }
-
-      @media screen and (max-width: 768px) {
-        .right-column {
-          width: 100%;
-        }
-      }
-
-      @media screen and (max-width: 414px) {
-        .right-column {
-          height: 350px;
-        }
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      .section-start {
-        flex-direction: column-reverse;
-        padding-top: 10%;
-      }
-    }
-
-    .acordeon-wrapper {
-      height: 1000px;
-      background: white;
     }
   }
 </style>
 
-<svelte:window bind:innerWidth={windowsWidth} />
-
-<main class="page-content">
-  <div class="header">
-    <div class="logo"><a class="logo-title" href="/">Tetrabids</a></div>
-  </div>
-  <div class="section-start">
-    <div class="left-column">
-      <div class="title">FAQ</div>
-      <div class="description">
-        consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet
-        volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat.
-        Risus ut libero pellentesque praesent sociis in lorem sapien sit.
+<Header>
+  <h4 slot="page">faq</h4>
+</Header>
+<main class="page-container">
+  <div class="content">
+    <div class="content-left">
+      <div class="button-wrapper">
+        <Button buttonType="outline"><a href="/">Volver</a></Button>
       </div>
-      <div class="wrapper-buttons">
-        <Button color="purple">
-          <div class="fill"><a class="button-faq" href="/blog">Blog</a></div>
-        </Button>
-        <Button buttonType="outline">{$sectionItems.navbarSec[2]}</Button>
-      </div>
+      <ul class="faq-list">
+        {#each faq as item, i}
+          <li>
+            <a href="/faq#{i}">{item.title}</a>
+          </li>
+        {/each}
+      </ul>
     </div>
-    <div class="right-column" />
+    <div class="content-right">
+      {#each faq as cardContent, i}
+        <FaqCard id={i}>
+          <div slot="title">{cardContent.title}</div>
+          <div slot="content">{@html cardContent.abstract}</div>
+        </FaqCard>
+      {/each}
+    </div>
   </div>
-  <div class="acordeon-wrapper" />
-  <Footer />
 </main>
+<Footer />
