@@ -35,7 +35,8 @@
           cursor: pointer;
 
           &:hover {
-            filter: sepia(1) saturate(5) hue-rotate(175deg);
+            filter: invert(35%) sepia(4%) saturate(215%) hue-rotate(338deg)
+              brightness(101%) contrast(90%);
           }
         }
       }
@@ -68,8 +69,8 @@
               src="/images/{item.icon}-icon.svg"
               alt="{item.icon}-icon"
               rel="noopener noreferrer"
-            /></a
-          >
+            />
+          </a>
         </li>
       {/each}
     </ul>
