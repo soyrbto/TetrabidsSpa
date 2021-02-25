@@ -20,6 +20,10 @@
         100vh - clamp(80px, 6.25vw, 160px) - clamp(60px, 4.46vw, 115px)
       );
 
+      @include respond(tab-port) {
+        flex-direction: column;
+      }
+
       &-left {
         width: 36.25%;
         padding: 15px 38px 0;
@@ -27,6 +31,10 @@
         overflow-x: hidden;
 
         @include scrollBar;
+
+        @include respond(tab-port) {
+          width: 100%;
+        }
 
         .button-wrapper {
           text-align: right;
@@ -58,6 +66,10 @@
         overflow-x: hidden;
 
         @include scrollBar;
+
+        @include respond(tab-port) {
+          width: 100%;
+        }
       }
     }
   }
