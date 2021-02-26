@@ -16,12 +16,11 @@
 
     .content {
       display: flex;
-      height: calc(
-        100vh - clamp(80px, 6.25vw, 160px) - clamp(60px, 4.46vw, 115px)
-      );
+      height: calc(100vh - #{$height-header} - #{$height-footer});
 
       @include respond(tab-port) {
         flex-direction: column;
+        height: calc(100vh - #{$height-header} - #{$height-footer-mob});
       }
 
       &-left {

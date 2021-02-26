@@ -7,7 +7,7 @@
     font-weight: 700;
     color: white;
     background-color: $color-header;
-    height: clamp(80px, 6.25vw, 160px); // 120px
+    height: $height-header; // 120px
 
     & .name {
       font-size: clamp(40px, 3.65vw, 90px);
