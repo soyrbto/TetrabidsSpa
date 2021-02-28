@@ -4,6 +4,8 @@
   import Button from "../components/Button.svelte";
   import { faq } from "../FaqStore";
   import FaqCard from "../components/FaqCard.svelte";
+
+  let windowsWidth;
 </script>
 
 <style type="text/scss">
@@ -74,23 +76,27 @@
   }
 </style>
 
-<Header>
+<svelte:window bind:innerWidth={windowsWidth} />
+
+<Header arrow={"hello"}>
   <h4 slot="page">faq</h4>
 </Header>
 <main class="page-container">
   <div class="content">
-    <div class="content-left">
-      <div class="button-wrapper">
-        <Button buttonType="outline"><a href="/">Volver</a></Button>
+    {#if windowsWidth > 768}
+      <div class="content-left">
+        <div class="button-wrapper">
+          <Button buttonType="outline"><a href="/">Volver</a></Button>
+        </div>
+        <ul class="faq-list">
+          {#each faq as item, i}
+            <li>
+              <a href="/faq#{i}">{item.title}</a>
+            </li>
+          {/each}
+        </ul>
       </div>
-      <ul class="faq-list">
-        {#each faq as item, i}
-          <li>
-            <a href="/faq#{i}">{item.title}</a>
-          </li>
-        {/each}
-      </ul>
-    </div>
+    {/if}
     <div class="content-right">
       {#each faq as cardContent, i}
         <FaqCard id={i}>

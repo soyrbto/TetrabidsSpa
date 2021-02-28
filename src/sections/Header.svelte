@@ -1,3 +1,7 @@
+<script>
+  let windowsWidth;
+</script>
+
 <style type="text/scss">
   @import "../stylesGlobal/vars";
 
@@ -8,6 +12,12 @@
     color: white;
     background-color: $color-header;
     height: $height-header; // 120px
+    position: relative;
+
+    img {
+      position: absolute;
+      left: clamp(20px, 3.25vw, 25px);
+    }
 
     & .name {
       font-size: clamp(40px, 3.65vw, 90px);
@@ -31,7 +41,12 @@
   }
 </style>
 
+<svelte:window bind:innerWidth={windowsWidth} />
+
 <header class="header">
+  {#if windowsWidth <= 768}
+    <img src="../images/chevron-down.svg" alt="menu-arrow" />
+  {/if}
   <div class="name"><a href="/">Tetrabids</a></div>
   <div class="ellipse"><slot name="page" /></div>
 </header>
