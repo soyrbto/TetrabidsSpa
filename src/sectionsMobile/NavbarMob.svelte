@@ -36,11 +36,9 @@
     }
 
     .nav.open {
+      @include flex-center;
       touch-action: none;
       background-color: rgba(0, 0, 0, 0.98);
-      display: flex;
-      justify-content: center;
-      align-items: center;
       transition: all 200ms ease-in-out;
       pointer-events: visible;
       z-index: 5;
@@ -64,9 +62,7 @@
     }
 
     .nav__item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex-center;
       background-color: transparent;
       width: 100%;
       opacity: 0;

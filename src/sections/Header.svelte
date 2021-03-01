@@ -1,4 +1,6 @@
 <script>
+  export let displayOn = false;
+
   let windowsWidth;
 </script>
 
@@ -44,7 +46,7 @@
 <svelte:window bind:innerWidth={windowsWidth} />
 
 <header class="header">
-  {#if windowsWidth <= 768}
+  {#if windowsWidth <= 768 && displayOn}
     <img src="../images/chevron-down.svg" alt="menu-arrow" />
   {/if}
   <div class="name"><a href="/">Tetrabids</a></div>

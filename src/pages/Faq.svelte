@@ -4,6 +4,7 @@
   import Button from "../components/Button.svelte";
   import { faq } from "../FaqStore";
   import FaqCard from "../components/FaqCard.svelte";
+  import FaqNavbarMob from "../sectionsMobile/FaqNavbarMob.svelte";
 
   let windowsWidth;
 </script>
@@ -70,6 +71,11 @@
 
         @include respond(tab-port) {
           width: 100%;
+          position: relative;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
         }
       }
     }
@@ -78,7 +84,7 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 
-<Header arrow={"hello"}>
+<Header displayOn="true">
   <h4 slot="page">faq</h4>
 </Header>
 <main class="page-container">
@@ -98,6 +104,9 @@
       </div>
     {/if}
     <div class="content-right">
+      {#if windowsWidth <= 768}
+        <FaqNavbarMob />
+      {/if}
       {#each faq as cardContent, i}
         <FaqCard id={i}>
           <div slot="title">{cardContent.title}</div>
