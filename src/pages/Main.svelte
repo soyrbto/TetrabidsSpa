@@ -7,7 +7,7 @@
   import SectionsMob from "../sectionsMobile/SectionsMob.svelte";
   import SectionsDesktop from "../sections/SectionsDesktop.svelte";
   import NavbarMob from "../sectionsMobile/NavbarMob.svelte";
-  import { instructionsMap, mapDriver } from "../functions";
+  import { instructionsMap, mapDriver, preImage } from "../functions";
   import { visibleSections } from "../StaticStore";
   import { maxWidthTablet, nodeSections } from "../Stores.js";
 
@@ -16,6 +16,7 @@
   onMount(() => {
     let nodesArr = [homeNode, sectionsNode];
     nodeSections.set(nodesArr);
+    preImage("/images/service-1.svg");
   });
 
   let windowsWidth;
