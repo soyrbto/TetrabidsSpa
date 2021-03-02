@@ -7,8 +7,9 @@
 <style type="text/scss">
   @import "../stylesGlobal/vars";
   .wrapper {
-    margin-bottom: 30px;
-
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
     .wrapper-card {
       padding: 25px;
 

@@ -5,6 +5,7 @@ const post = [
         title: "Nombre del articulo",
         author: "Roberto Traspalacio",
         date: "22 de Febrero del 2021",
+        image: "/images/service-3.svg",
         tldr:`Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,

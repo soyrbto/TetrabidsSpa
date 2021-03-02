@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     font-family: $font-primary;
-    height: clamp(60px, 4.46vw, 115px);
+    height: $height-footer;
     padding: 0 5.2vw 0 1.56vw;
     background: rgba(0, 0, 0, 1);
     color: #666666;
@@ -23,7 +23,7 @@
 
     @include respond(tab-port) {
       flex-direction: column-reverse;
-      height: 90px;
+      height: $height-footer-mob;
       padding: 15px 0 7px 0;
       font-size: clamp(16px, 0.98vw, 19px);
     }

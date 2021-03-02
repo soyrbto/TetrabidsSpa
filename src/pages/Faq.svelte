@@ -4,6 +4,9 @@
   import Button from "../components/Button.svelte";
   import { faq } from "../FaqStore";
   import FaqCard from "../components/FaqCard.svelte";
+  import FaqNavbarMob from "../sectionsMobile/FaqNavbarMob.svelte";
+
+  let windowsWidth;
 </script>
 
 <style type="text/scss">
@@ -16,9 +19,12 @@
 
     .content {
       display: flex;
-      height: calc(
-        100vh - clamp(80px, 6.25vw, 160px) - clamp(60px, 4.46vw, 115px)
-      );
+      height: calc(100vh - #{$height-header} - #{$height-footer});
+
+      @include respond(tab-port) {
+        flex-direction: column;
+        height: calc(100vh - #{$height-header} - #{$height-footer-mob});
+      }
 
       &-left {
         width: 36.25%;
@@ -27,6 +33,10 @@
         overflow-x: hidden;
 
         @include scrollBar;
+
+        @include respond(tab-port) {
+          width: 100%;
+        }
 
         .button-wrapper {
           text-align: right;
@@ -58,29 +68,45 @@
         overflow-x: hidden;
 
         @include scrollBar;
+
+        @include respond(tab-port) {
+          width: 100%;
+          position: relative;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
       }
     }
   }
 </style>
 
-<Header>
+<svelte:window bind:innerWidth={windowsWidth} />
+
+<Header displayOn="true">
   <h4 slot="page">faq</h4>
 </Header>
 <main class="page-container">
   <div class="content">
-    <div class="content-left">
-      <div class="button-wrapper">
-        <Button buttonType="outline"><a href="/">Volver</a></Button>
+    {#if windowsWidth > 768}
+      <div class="content-left">
+        <div class="button-wrapper">
+          <Button buttonType="outline"><a href="/">Volver</a></Button>
+        </div>
+        <ul class="faq-list">
+          {#each faq as item, i}
+            <li>
+              <a href="/faq#{i}">{item.title}</a>
+            </li>
+          {/each}
+        </ul>
       </div>
-      <ul class="faq-list">
-        {#each faq as item, i}
-          <li>
-            <a href="/faq#{i}">{item.title}</a>
-          </li>
-        {/each}
-      </ul>
-    </div>
+    {/if}
     <div class="content-right">
+      {#if windowsWidth <= 768}
+        <FaqNavbarMob />
+      {/if}
       {#each faq as cardContent, i}
         <FaqCard id={i}>
           <div slot="title">{cardContent.title}</div>

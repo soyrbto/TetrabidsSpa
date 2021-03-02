@@ -117,7 +117,7 @@
     <div class="cover-page-left">
       <div class="title">{post[0].title}</div>
       <div class="author">{post[0].author}, {post[0].date}</div>
-      <img src="/images/service-3.svg" alt="cover" class="image-cover" />
+      <img src={post[0].image} alt="cover" class="image-cover" />
       <Share />
     </div>
     <div class="cover-page-right">
@@ -125,7 +125,6 @@
       <div class="tldr">{@html post[0].tldr}</div>
     </div>
   </div>
-
   <div class="article">
     <div class="article-title">{post[0].title}</div>
     <div class="article-reading-time">Tiempo de lectura 5 min</div>
