@@ -114,11 +114,27 @@
     class="nav js-nav"
   >
     <ul class:show={$navbarState} class="nav__list js-nav__list">
-      {#each $sectionItems.navbarMob as item, i}
-        <li class="nav__item">
-          <div on:click={() => clickedItem(i)} class="nav__link">{item}</div>
-        </li>
-      {/each}
+      <li class="nav__item">
+        <div on:click={() => clickedItem(0)} class="nav__link">
+          {$sectionItems.navbarMob[0]}
+        </div>
+      </li>
+      <li class="nav__item">
+        <div on:click={() => clickedItem(1)} class="nav__link">
+          {$sectionItems.navbarMob[1]}
+        </div>
+      </li>
+      <li />
+      <li class="nav__item">
+        <div class="nav__link">
+          <a href="/blog">{$sectionItems.navbarMob[2]}</a>
+        </div>
+      </li>
+      <li class="nav__item">
+        <div class="nav__link">
+          <a href="/faq">{$sectionItems.navbarMob[3]}</a>
+        </div>
+      </li>
     </ul>
   </nav>
 </nav>
