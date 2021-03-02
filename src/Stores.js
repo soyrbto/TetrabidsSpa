@@ -6,8 +6,10 @@ const maxWidthTablet = writable(1280);
 const displayedSection = moveSectionHandler.currentPos;
 const displayedState = moveSectionHandler.store;
 const nodeSections = writable([]);
+const nodeFaq = writable([]);
 const nodeSectionsMob = writable([]);
 const navbarState = writable(false);
+const navbarStateFaq = writable(false);
 const animationRange = 2100;
 const mapState = writable(0);
 const throttleState = writable(false);
@@ -31,4 +33,6 @@ export {
   nodeSectionsMob,
   mapState,
   throttleState,
+  navbarStateFaq,
+  nodeFaq,
 };

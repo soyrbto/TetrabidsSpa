@@ -1,3 +1,7 @@
+<script>
+  export let sticky = false;
+</script>
+
 <style type="text/scss">
   @import "../stylesGlobal/vars";
 
@@ -20,6 +24,17 @@
     background: rgba(0, 0, 0, 1);
     color: #666666;
     font-size: clamp(17px, 1.25vw, 32px); // 24px
+
+    &.sticky {
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+
+      @include respond(tab-port) {
+        position: fixed;
+        width: 100%;
+      }
+    }
 
     @include respond(tab-port) {
       flex-direction: column-reverse;
@@ -65,7 +80,7 @@
 
 <div class="underFooter" />
 
-<footer>
+<footer class:sticky>
   <div class="content">
     Designed and powered <span> by Tetrabids</span> | 2021
   </div>

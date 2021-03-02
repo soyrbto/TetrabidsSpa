@@ -1,13 +1,19 @@
 <script>
-  import { faq } from "../FaqStore";
+  import { navbarStateFaq, nodeFaq } from "../Stores";
+  import { faqStore } from "../FaqStore";
+  import { moveSectionHandler } from "../functions";
+
+  function goTo(i) {
+    moveSectionHandler.vertical($nodeFaq[i]);
+  }
 </script>
 
 <style type="text/scss">
   @import "../stylesGlobal/vars";
 
   .nav {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: $height-header;
     left: 0;
     width: 100%;
     height: 100%;
@@ -16,7 +22,8 @@
     z-index: -1;
 
     &.open {
-      touch-action: none;
+      // touch-action: none;
+      height: calc(100vh - #{$height-footer-mob} - #{$height-header});
       background-color: rgba(0, 0, 0, 0.98);
       pointer-events: visible;
       transition: all 200ms ease-in-out;
@@ -41,6 +48,7 @@
       animation-name: fadein;
       animation-duration: 1s;
       animation-fill-mode: forwards;
+      user-select: none;
 
       &:nth-child(1) {
         animation-delay: 0.2s;
@@ -68,6 +76,7 @@
       }
 
       .nav__link {
+        display: inline;
         font-size: clamp(16px, 4.58vw, 24px);
         font-weight: 300;
         line-height: 1.2;
@@ -79,10 +88,15 @@
   }
 </style>
 
-<nav on:wheel|preventDefault class="nav">
+<nav
+  class:open={$navbarStateFaq}
+  on:wheel|preventDefault
+  class="nav"
+  on:click={() => navbarStateFaq.set(false)}
+>
   <ul class="show nav__list js-nav__list">
-    {#each faq as item}
-      <li class="nav__item">
+    {#each faqStore as item, i}
+      <li on:click={() => goTo(i)} class="nav__item">
         <div class="nav__link">{item.title}</div>
       </li>
     {/each}

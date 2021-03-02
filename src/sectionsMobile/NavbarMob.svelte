@@ -20,7 +20,7 @@
     width: 100%;
     height: 100%;
     font-family: $font-secundary;
-    transition: all 500ms ease-in-out;
+    // transition: all 500ms ease-in-out;
     pointer-events: none;
 
     .menu {
@@ -92,6 +92,11 @@
         text-decoration: none;
         color: white;
         cursor: pointer;
+
+        a {
+          text-decoration: none;
+          color: white;
+        }
       }
     }
   }
@@ -120,7 +125,6 @@
           {$sectionItems.navbarMob[1]}
         </div>
       </li>
-      <li />
       <li class="nav__item">
         <div class="nav__link">
           <a href="/blog">{$sectionItems.navbarMob[2]}</a>

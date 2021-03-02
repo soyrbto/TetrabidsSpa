@@ -1,7 +1,13 @@
 <script>
+  import { navbarStateFaq } from "../Stores";
   export let displayOn = false;
+  export let sticky = false;
 
   let windowsWidth;
+
+  function changeState() {
+    navbarStateFaq.update((value) => (value = !value));
+  }
 </script>
 
 <style type="text/scss">
@@ -15,6 +21,16 @@
     background-color: $color-header;
     height: $height-header; // 120px
     position: relative;
+    user-select: none;
+
+    &.sticky {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    position: sticky;
+    top: 0;
+    z-index: 10;
 
     img {
       position: absolute;
@@ -45,9 +61,13 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 
-<header class="header">
+<header class:sticky class="header">
   {#if windowsWidth <= 768 && displayOn}
-    <img src="../images/chevron-down.svg" alt="menu-arrow" />
+    <img
+      on:click={changeState}
+      src="../images/chevron-down.svg"
+      alt="menu-arrow"
+    />
   {/if}
   <div class="name"><a href="/">Tetrabids</a></div>
   <div class="ellipse"><slot name="page" /></div>

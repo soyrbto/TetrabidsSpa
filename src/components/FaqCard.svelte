@@ -1,7 +1,13 @@
 <script>
+  import { onMount } from "svelte";
+  import { nodeFaq } from "../Stores";
   import Card from "../components/Card.svelte";
 
-  export let id = "";
+  let titleNode;
+
+  onMount(() => {
+    nodeFaq.update((value) => [...value, titleNode]);
+  });
 </script>
 
 <style type="text/scss">
@@ -26,10 +32,12 @@
   }
 </style>
 
-<div class="wrapper" id={`${id}`}>
+<div bind:this={titleNode} class="wrapper">
   <Card>
     <div class="wrapper-card">
-      <h3 class="title"><slot name="title">title</slot></h3>
+      <h3 class="title">
+        <slot name="title">title</slot>
+      </h3>
       <p class="content"><slot name="content">content</slot></p>
     </div>
   </Card>

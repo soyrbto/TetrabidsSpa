@@ -1,12 +1,19 @@
 <script>
+  import { moveSectionHandler } from "../functions";
   import Footer from "../sections/Footer.svelte";
   import Header from "../sections/Header.svelte";
   import Button from "../components/Button.svelte";
-  import { faq } from "../FaqStore";
+  import { faqStore } from "../FaqStore";
+  import { nodeFaq } from "../Stores";
   import FaqCard from "../components/FaqCard.svelte";
   import FaqNavbarMob from "../sectionsMobile/FaqNavbarMob.svelte";
 
   let windowsWidth;
+  let scrollable;
+
+  function goTo(i) {
+    moveSectionHandler.vertical($nodeFaq[i]);
+  }
 </script>
 
 <style type="text/scss">
@@ -19,18 +26,22 @@
 
     .content {
       display: flex;
-      height: calc(100vh - #{$height-header} - #{$height-footer});
+      // height: calc(100vh - #{$height-header} - #{$height-footer});
 
       @include respond(tab-port) {
         flex-direction: column;
-        height: calc(100vh - #{$height-header} - #{$height-footer-mob});
+        // height: calc(100vh - #{$height-header} - #{$height-footer-mob});
       }
 
       &-left {
         width: 36.25%;
+        height: calc(100vh - #{$height-header} - #{$height-footer});
         padding: 15px 38px 0;
         overflow: scroll;
         overflow-x: hidden;
+        position: sticky;
+        top: $height-header;
+        z-index: 10;
 
         @include scrollBar;
 
@@ -72,6 +83,7 @@
         @include respond(tab-port) {
           width: 100%;
           position: relative;
+          margin-bottom: $height-footer-mob;
 
           &::-webkit-scrollbar {
             display: none;
@@ -84,7 +96,7 @@
 
 <svelte:window bind:innerWidth={windowsWidth} />
 
-<Header displayOn="true">
+<Header displayOn="true" sticky="true">
   <h4 slot="page">faq</h4>
 </Header>
 <main class="page-container">
@@ -95,19 +107,19 @@
           <Button buttonType="outline"><a href="/">Volver</a></Button>
         </div>
         <ul class="faq-list">
-          {#each faq as item, i}
-            <li>
+          {#each faqStore as item, i}
+            <li on:click={() => goTo(i)}>
               <a href="/faq#{i}">{item.title}</a>
             </li>
           {/each}
         </ul>
       </div>
     {/if}
-    <div class="content-right">
+    <div bind:this={scrollable} class="content-right">
       {#if windowsWidth <= 768}
         <FaqNavbarMob />
       {/if}
-      {#each faq as cardContent, i}
+      {#each faqStore as cardContent, i}
         <FaqCard id={i}>
           <div slot="title">{cardContent.title}</div>
           <div slot="content">{@html cardContent.abstract}</div>
@@ -116,4 +128,4 @@
     </div>
   </div>
 </main>
-<Footer />
+<Footer sticky="true" />

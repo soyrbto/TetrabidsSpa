@@ -224,11 +224,6 @@ const mapDriver = (function InstructFollower() {
 /******************************************************************/
 /******************************************************************/
 
-const preImage = function (url) {
-  let img = new Image();
-  img.src = url;
-};
-
 export {
   accordionHandler,
   dynaListHandler,
@@ -237,7 +232,6 @@ export {
   instructionsMap,
   instructionsMapMob,
   mapDriver,
-  preImage,
 };
 
 // commandments of functionality
