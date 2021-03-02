@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   import Button from "./Button.svelte";
   import Card from "./Card.svelte";
 
@@ -73,11 +74,14 @@
           <slot name="body">there is no service-body</slot>
         </p>
       </div>
-      <img
-        src="./images/{imageUrl}.svg"
-        alt={imageAlt}
-        class="meeting fade-in-bck"
-      />
+      {#key imageUrl}
+        <img
+          in:fade={{ delay: 250, duration: 300 }}
+          src="./images/{imageUrl}.svg"
+          alt={imageAlt}
+          class="meeting fade-in-bck"
+        />
+      {/key}
       <div class="button-wrapper">
         <Button color="purple">
           <div class="button-card-content">Sigue Leyendo</div>
