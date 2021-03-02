@@ -7,20 +7,37 @@
   import Faq from "./pages/Faq.svelte";
 
   let current;
+  let params;
 
   page("/", () => (current = Main));
   page("/blog", () => (current = Blog));
   page("/faq", () => (current = Faq));
-  page("/post", () => (current = Post));
   page(
-    "/article/:id",
+    "/post/:id",
     (ctx, next) => {
+      params = ctx.params;
       next();
     },
-    () => (current = Article)
+    () => (current = Post)
+  );
+  page(
+    "/service/:id",
+    (ctx, next) => {
+      params = ctx.params;
+      next();
+    },
+    () => (current = Post)
+  );
+  page(
+    "/product/:id",
+    (ctx, next) => {
+      params = ctx.params;
+      next();
+    },
+    () => (current = Post)
   );
 
   page.start();
 </script>
 
-<svelte:component this={current} />
+<svelte:component this={current} params={params} />

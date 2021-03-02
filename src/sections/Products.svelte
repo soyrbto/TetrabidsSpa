@@ -163,6 +163,8 @@
       <DescriptionCard
         imageUrl="product-{id[activeItem]}"
         imageAlt={activeItem}
+        idPost={id[activeItem] + 6}
+        section="product"
       >
         <div slot="title">{activeItem}</div>
         <div slot="body">

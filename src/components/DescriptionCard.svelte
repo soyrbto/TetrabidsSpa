@@ -7,6 +7,8 @@
 
   export let imageUrl;
   export let imageAlt;
+  export let idPost;
+  export let section;
 </script>
 
 <style type="text/scss">
@@ -55,6 +57,11 @@
 
         .button-card-content {
           padding: clamp(10px, 0.78vw, 17px) clamp(28px, 2.08vw, 40px);
+
+          a {
+            text-decoration: none;
+            color: white;
+          }
         }
       }
     }
@@ -84,7 +91,9 @@
       {/key}
       <div class="button-wrapper">
         <Button color="purple">
-          <div class="button-card-content">Sigue Leyendo</div>
+          <div class="button-card-content">
+            <a href="/{section}/{idPost}">Sigue Leyendo</a>
+          </div>
         </Button>
       </div>
     </div>

@@ -1,9 +1,13 @@
 <script>
+  import { onMount } from "svelte";
   import Share from "../components/ShareSocialNetwork.svelte";
   import Header from "../sections/Header.svelte";
   import RelatedPosts from "../sections/RelatedPosts.svelte";
   import Footer from "../sections/Footer.svelte";
-  import { post } from "../PostStore";
+  import { posts } from "../PostStore";
+
+  export let params;
+  let postId = params.id;
 </script>
 
 <style type="text/scss">
@@ -115,20 +119,20 @@
 <div class="page-container">
   <div class="cover-page">
     <div class="cover-page-left">
-      <div class="title">{post[0].title}</div>
-      <div class="author">{post[0].author}, {post[0].date}</div>
-      <img src={post[0].image} alt="cover" class="image-cover" />
+      <div class="title">{posts[postId].title}</div>
+      <div class="author">{posts[postId].author}, {posts[postId].date}</div>
+      <img src={posts[postId].image} alt="cover" class="image-cover" />
       <Share />
     </div>
     <div class="cover-page-right">
       <div class="title-tldr">Tl;dr = Muy largo, no lo leeré</div>
-      <div class="tldr">{@html post[0].tldr}</div>
+      <div class="tldr">{@html posts[postId].tldr}</div>
     </div>
   </div>
   <div class="article">
-    <div class="article-title">{post[0].title}</div>
+    <div class="article-title">{posts[postId].title}</div>
     <div class="article-reading-time">Tiempo de lectura 5 min</div>
-    <div class="article-body">{@html post[0].body}</div>
+    <div class="article-body">{@html posts[postId].body}</div>
   </div>
   <RelatedPosts />
 </div>

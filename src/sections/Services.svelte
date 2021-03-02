@@ -164,6 +164,8 @@
       <ServiceDescription
         imageUrl="service-{id[activeItem]}"
         imageAlt={activeItem}
+        idPost={id[activeItem]}
+        section="service"
       >
         <div slot="title">{activeItem}</div>
         <div slot="body">
