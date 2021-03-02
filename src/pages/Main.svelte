@@ -17,6 +17,7 @@
     let nodesArr = [homeNode, sectionsNode];
     nodeSections.set(nodesArr);
     preImage("/images/service-1.svg");
+    preImage("/images/service-3.svg");
   });
 
   let windowsWidth;
