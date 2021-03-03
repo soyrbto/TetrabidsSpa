@@ -8,10 +8,6 @@
 
   export let params;
   let postId = params.id;
-
-  onMount(() => {
-    window.scrollTo(0, 0);
-  });
 </script>
 
 <style type="text/scss">
