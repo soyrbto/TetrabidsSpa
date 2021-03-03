@@ -1,5 +1,5 @@
 <script>
-  import { afterUpdate, tick } from "svelte";
+  import { onMount } from "svelte";
   import Share from "../components/ShareSocialNetwork.svelte";
   import Header from "../sections/Header.svelte";
   import RelatedPosts from "../sections/RelatedPosts.svelte";
@@ -9,8 +9,7 @@
   export let params;
   let postId = params.id;
 
-  afterUpdate(async () => {
-    await tick();
+  onMount(() => {
     window.scrollTo(0, 0);
   });
 </script>
