@@ -88,24 +88,26 @@ const contactData = {
 
 const socialNetwork = [
   {
-    icon:"instagram",
-    url:"https://www.instagram.com/tetrabids/",
+    icon: "instagram",
+    url: "https://www.instagram.com/tetrabids/",
   },
   {
-    icon:"telegram",
-    url:"https://t.me/share/url?url={https://www.tetrabids.com/}&text={mira este hermoso sitio web}",
+    icon: "telegram",
+    url:
+      "https://t.me/share/url?url={https://www.tetrabids.com/}&text={mira este hermoso sitio web}",
   },
   {
-    icon:"facebook",
-    url:"https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2F&amp;src=sdkpreparse",
+    icon: "facebook",
+    url:
+      "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2F&amp;src=sdkpreparse",
   },
   {
-    icon:"whatsapp",
-    url:"whatsapp://send?text=https://www.tetrabids.com/",
+    icon: "whatsapp",
+    url: "whatsapp://send?text=https://www.tetrabids.com/",
   },
   {
-    icon:"email",
-    url:"mailto:rawy.ucla@gmail.com",
+    icon: "email",
+    url: "mailto:rawy.ucla@gmail.com?Subjet=Hello%20again",
   },
 ];
 
