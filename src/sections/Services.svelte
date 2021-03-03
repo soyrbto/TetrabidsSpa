@@ -130,7 +130,12 @@
           >
             {#each servicesData.items as service, i}
               <SwiperSlide>
-                <ServiceDescription imageUrl="service-{i}" imageAlt={service}>
+                <ServiceDescription
+                  imageUrl="service-{i}"
+                  imageAlt={service}
+                  idPost={i}
+                  section="service"
+                >
                   <div slot="title">
                     {@html service}
                   </div>

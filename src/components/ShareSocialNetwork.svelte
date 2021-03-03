@@ -41,21 +41,6 @@
         }
       }
     }
-
-    .share {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: clamp(130px, 9.68vw, 235px); //186px
-      & > img {
-        height: $height-icons;
-      }
-
-      .share-text {
-        font-size: $font-size-subtitle-desk;
-        color: #bcbcbc;
-      }
-    }
   }
 </style>
 
@@ -74,9 +59,5 @@
         </li>
       {/each}
     </ul>
-  </div>
-  <div class="share">
-    <img src="/images/share-icon.svg" alt="share-icon" />
-    <p class="share-text">20 compartidos</p>
   </div>
 </div>

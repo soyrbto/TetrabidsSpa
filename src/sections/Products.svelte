@@ -132,7 +132,12 @@
           >
             {#each productsData.items as product, i}
               <SwiperSlide>
-                <DescriptionCard imageUrl="product-{i}" imageAlt={product}>
+                <DescriptionCard
+                  imageUrl="product-{i}"
+                  imageAlt={product}
+                  idPost={i + 6}
+                  section="product"
+                >
                   <div slot="title">
                     {@html product}
                   </div>
