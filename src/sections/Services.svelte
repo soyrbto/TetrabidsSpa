@@ -4,18 +4,17 @@
   import Card from "../components/Card.svelte";
   import Button from "../components/Button.svelte";
   import { maxWidthTablet, animationRange } from "../Stores";
-  import { servicesData } from "../StaticStore";
-  import { Swiper, SwiperSlide } from "swiper/svelte";
-  import SwiperCore, { Pagination } from "swiper";
+  import { servicesData, services } from "../StaticStore";
   import { dynaListHandler, textShortener } from "../functions";
-  import "swiper/components/pagination/pagination.scss";
+  import Slidy from "../slidy/Slidy.svelte";
 
-  SwiperCore.use([Pagination]);
   let dynaList = servicesData.items;
   let dynaObjectState;
   let windowsWidth;
   let activeItem;
   let id;
+
+  const local = services;
 
   onMount(() => {
     dynaObjectState = dynaListHandler.createObjectStates(dynaList, "blue");
@@ -26,6 +25,43 @@
   const updateState = (e) => {
     activeItem = e.target.innerText;
     dynaListHandler.updateState(activeItem, "white");
+  };
+
+  $: slidy_cards = {
+    slides: local,
+    wrap: {
+      id: "slidy_default", // customize this instance Slidy by #id
+      width: "100%",
+      height: "100%",
+      padding: "0",
+      align: "right",
+      alignmargin: 50,
+    },
+    slide: {
+      gap: 50,
+      class: "", // classname for styling slide
+      width: "50%",
+      height: "100%",
+      backimg: true, // if true image on background slidewrap & slot for content empty
+      imgsrckey: "src", // prop for ypurs image src key
+      objectfit: "cover", // new in 2.3.0
+      overflow: "hidden", // new in 2.4.1
+    },
+    controls: {
+      dots: true,
+      dotsnum: false,
+      dotsarrow: false,
+      dotspure: true, // dotnav like realy dots :)
+      arrows: false,
+      keys: false, // nav by arrow keys
+      drag: true, // nav by mousedrag
+      wheel: false, // nav by mousewheel (shift + wheel) or swipe on touch/trackpads
+    },
+    options: {
+      axis: "x", // new in 2.2.0 axis direction
+      loop: false, // new in 2.3.0 loop/no options
+      duration: 550, // duration slides animation
+    },
   };
 </script>
 
@@ -121,32 +157,23 @@
 
       <!-- THIS IS RENDERED WHEN SCREEN IS SMALLER THAN 1280PX -->
       {#if windowsWidth <= $maxWidthTablet}
-        <div class="description-card-container">
-          <Swiper
-            pagination={{ clickable: true }}
-            spaceBetween={10}
-            breakpoints={{ 768: { slidesPerView: 2 } }}
-            style={"overflow:visible; position:initial"}
-          >
-            {#each servicesData.items as service, i}
-              <SwiperSlide>
-                <ServiceDescription
-                  imageUrl="service-{i}"
-                  imageAlt={service}
-                  idPost={i}
-                  section="service"
-                >
-                  <div slot="title">
-                    {@html service}
-                  </div>
-                  <div slot="body">
-                    {@html textShortener(servicesData[service], 270)}
-                  </div>
-                </ServiceDescription>
-              </SwiperSlide>
-            {/each}
-          </Swiper>
-        </div>
+        <Slidy {...slidy_cards} let:item>
+          <div class="slide">
+            <ServiceDescription
+              imageUrl="service-{item.id}"
+              imageAlt={`image-${item.header}`}
+              idPost={item.id}
+              section="service"
+            >
+              <div slot="title">
+                {@html item.header}
+              </div>
+              <div slot="body">
+                {@html textShortener(item.abstract, 270)}
+              </div>
+            </ServiceDescription>
+          </div>
+        </Slidy>
       {/if}
     </div>
     <!--  SERVICE ITEMS SUB-SECTION -->

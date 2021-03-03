@@ -64,6 +64,58 @@ const servicesData = {
   doloremque odio officia, harum tempora dolores repudiandae vel minus molestiae necessitatibus blanditiis ipsam. Incidunt placeat illum impedit nulla esse, earum ad et facere! Voluptates et, incidunt, magnam dolore placeat voluptatum porro velit animi maiores dignissimos natus recusandae autem.`,
 };
 
+const services = [
+  {
+    id: 0,
+    header: "Asesoria",
+    abstract: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+    url: "service-0",
+  },
+  {
+    id: 1,
+    header: "Seudocodigo",
+    abstract: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+    url: "service-1",
+  },
+  {
+    id: 2,
+    header: "UI UX",
+    abstract: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+    url: "service-2",
+  },
+  {
+    id: 3,
+    header: "Desarrollo",
+    abstract: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+    url: "service-3",
+  },
+
+  {
+    id: 4,
+    header: "Optimizacion",
+    abstract: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+    url: "service-4",
+  },
+  {
+    id: 5,
+    header: "Mantenimiento",
+    abstract: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+    url: "service-5",
+  },
+];
+
 const productsData = {
   title: "Productos",
   abstract: `Productos simples para temas complejos, si quieres informacion mas detallada del alcance que podemos tener en un proyecto contactanos.`,
@@ -78,6 +130,33 @@ const productsData = {
   <br>
   libero risus taciti massa eu, donec malesuada accumsan eros facilisis praesent porta erat magna class. Lacus nunc turpis blandit feugiat eget ac, risus platea sollicitudin sociis fusce tellus auctor, non imperdiet facilisis senectus montes. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
 };
+
+const products = [
+  {
+    id: 0,
+    header: "Wordpress",
+    abstract: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+    url: "product-0",
+  },
+  {
+    id: 1,
+    header: "Headless Wordpress",
+    abstract: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+    url: "product-1",
+  },
+  {
+    id: 2,
+    header: "Paginas a medida",
+    abstract: `Porta quam dui egestas eros ullamcorper cras orci sapien, id nostra et habitasse imperdiet molestie donec magna neque, consequat commodo dapibus senectus tellus aptent duis. <br> 
+  <br>
+  Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero. Cursus fusce dignissim neque nostra egestas blandit suscipit urna ultricies lacus arcu, turpis senectus fringilla penatibus nam porttitor tincidunt libero.`,
+    url: "product-2",
+  },
+];
 
 const contactData = {
   title: "¿Quieres conocer mas de nuestros servicios?",
@@ -122,4 +201,6 @@ export {
   areaCategories,
   experienceCategories,
   socialNetwork,
+  products,
+  services,
 };
