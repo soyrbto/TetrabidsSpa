@@ -28,8 +28,13 @@ export function pannable(node) {
     const dy = unify(e).clientY - y;
     x = unify(e).clientX;
     y = unify(e).clientY;
-   
-    }
+    // if (dx !== 0) {
+    //   if (e.preventDefault && e.cancelable) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     e.returnValue = false;
+    //   }
+    // }
 
     node.dispatchEvent(
       new CustomEvent("panmove", {
