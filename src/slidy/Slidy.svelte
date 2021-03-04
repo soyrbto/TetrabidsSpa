@@ -353,8 +353,9 @@
       clearInterval(tracker);
     }
   }
+
   function dragSlide(e) {
-    pos += e.detail.dx;
+    if (e.detail.dy <= 2 || e.detail >= -2) pos += e.detail.dx;
 
     if (e.detail.dy == 0) {
       slidyLoop();
