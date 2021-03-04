@@ -354,9 +354,9 @@
     }
   }
   function dragSlide(e) {
-    if (e.detail.dy <= 2 || e.detail.dy >= -2) {
-      pos += e.detail.dx;
+    pos += e.detail.dx;
 
+    if (e.detail.dy == 0) {
       slidyLoop();
       tracker = setInterval(() => (htx = pos), options.duration / 2);
       speed = (htx - pos) / options.duration / 2;
