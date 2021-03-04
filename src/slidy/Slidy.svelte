@@ -31,7 +31,7 @@
       dotspure: true,
       arrows: false,
       keys: false,
-      drag: true,
+      drag: false,
       wheel: false,
     },
     options = {
