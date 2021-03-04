@@ -354,7 +354,7 @@
     }
   }
   function dragSlide(e) {
-    if (e.detail.dy <= 50 || e.detail.dy >= -50) {
+    if (e.detail.dy <= 5 || e.detail.dy >= -5) {
       pos += e.detail.dx;
 
       slidyLoop();
