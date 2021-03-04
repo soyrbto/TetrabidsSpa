@@ -29,7 +29,11 @@ export function pannable(node) {
     x = unify(e).clientX;
     y = unify(e).clientY;
     if (dx !== 0) {
-      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+      if (e.preventDefault && e.cancelable) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.returnValue = false;
+      }
     }
 
     node.dispatchEvent(
@@ -45,7 +49,7 @@ export function pannable(node) {
 
     node.dispatchEvent(
       new CustomEvent("panend", {
-        detail: { x, y },
+        detail: { x },
       })
     );
 

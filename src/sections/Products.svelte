@@ -15,7 +15,6 @@
   let id;
 
   const local = products;
-  console.log(local);
 
   onMount(() => {
     dynaObjectState = dynaListHandler.createObjectStates(dynaList, "blue");

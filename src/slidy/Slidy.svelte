@@ -3,7 +3,6 @@
   import * as action from "./actions";
 
   let windowsWidth;
-  console.log(windowsWidth);
 
   export let slides = [],
     wrap = {
@@ -25,10 +24,10 @@
       overflow: "hidden",
     },
     controls = {
-      dots: true,
+      dots: false,
       dotsnum: false,
       dotsarrow: false,
-      dotspure: true,
+      dotspure: false,
       arrows: false,
       keys: false,
       drag: false,
@@ -48,10 +47,10 @@
     slide.width = windowsWidth <= 414 ? "95%" : "50%";
 
     controls = {
-      dots: true,
+      dots: false,
       dotsnum: false,
       dotsarrow: false,
-      dotspure: true, // dotnav like realy dots :)
+      dotspure: false, // dotnav like realy dots :)
       arrows: false,
       keys: false, // nav by arrow keys
       drag: true, // nav by mousedrag
