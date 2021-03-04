@@ -357,10 +357,10 @@
   function dragSlide(e) {
     pos += e.detail.dx;
 
+    slidyLoop();
     if (e.detail.dy == 0) {
-      slidyLoop();
-      tracker = setInterval(() => (htx = pos), options.duration / 2);
       speed = (htx - pos) / options.duration / 2;
+      tracker = setInterval(() => (htx = pos), options.duration / 2);
     }
   }
   function dragStop() {
