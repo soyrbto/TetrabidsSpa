@@ -1,7 +1,7 @@
 export function pannable(node) {
   const eventHandlerOptions = { passive: false };
-  let x = 0,
-    y = 0;
+  let x = 0;
+  let y = 0;
 
   function unify(e) {
     return e.changedTouches ? e.changedTouches[0] : e;
@@ -49,7 +49,7 @@ export function pannable(node) {
 
     node.dispatchEvent(
       new CustomEvent("panend", {
-        detail: { x },
+        detail: { x, y },
       })
     );
 
@@ -90,7 +90,7 @@ export function resize(node) {
   let CR;
   let ET;
 
-  const ro = new ResizeObserver((entries, observer) => {
+  const ro = new ResizeObserver((entries) => {
     for (let entry of entries) {
       CR = entry.contentRect;
       ET = entry.target;
