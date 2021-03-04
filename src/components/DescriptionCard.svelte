@@ -1,5 +1,6 @@
 <script>
   import { fade } from "svelte/transition";
+  import { maxWidthTablet } from "../Stores";
   import Button from "./Button.svelte";
   import Card from "./Card.svelte";
 
@@ -71,7 +72,11 @@
 <svelte:window bind:innerWidth={windowsWidth} />
 
 <div class="col-3">
-  <Card>
+  <Card
+    boxShadow={windowsWidth <= 1280
+      ? "0px 7px 10px rgba(0, 0, 0, 0.5)"
+      : "9px 12px 31px rgba(0, 0, 0, 0.5)"}
+  >
     <div class="description-card-content">
       <div class="wrapper-text-descripction">
         <h3 class="typo-title">

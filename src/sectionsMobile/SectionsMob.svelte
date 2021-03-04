@@ -32,7 +32,6 @@
   bind:this={contact}
   class="slide-in-right {$sectionItems.navbarSec[2]}"
   id={$sectionItems.navbarSec[2]}
-  style="margin-top: 60px;"
 >
   <Contact />
 </div>

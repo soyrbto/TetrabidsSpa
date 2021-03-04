@@ -1,25 +1,28 @@
 <script>
-  import { afterUpdate, tick } from 'svelte';
-  import * as action from './actions';
+  import { afterUpdate, onMount, tick } from "svelte";
+  import * as action from "./actions";
+
+  let windowsWidth;
+  console.log(windowsWidth);
 
   export let slides = [],
     wrap = {
       id: null,
-      width: '100%',
-      height: '50%',
-      padding: '0',
-      align: 'middle',
+      width: "100%",
+      height: "100%",
+      padding: "0",
+      align: "middle",
       alignmargin: 0,
     },
     slide = {
       gap: 0,
-      class: '',
-      width: '50%',
-      height: '100%',
+      class: "",
+      width: "50%",
+      height: "100%",
       backimg: false,
-      imgsrckey: 'src',
-      objectfit: 'cover',
-      overflow: 'hidden',
+      imgsrckey: "src",
+      objectfit: "fix",
+      overflow: "hidden",
     },
     controls = {
       dots: true,
@@ -32,12 +35,29 @@
       wheel: true,
     },
     options = {
-      axis: 'x',
+      axis: "x",
       loop: true,
       duration: 450,
     },
     index = 0,
     slidyinit = false;
+
+  // setup ------------------------------------------------
+
+  onMount(() => {
+    slide.width = windowsWidth <= 414 ? "95%" : "50%";
+
+    controls = {
+      dots: true,
+      dotsnum: false,
+      dotsarrow: false,
+      dotspure: true, // dotnav like realy dots :)
+      arrows: false,
+      keys: false, // nav by arrow keys
+      drag: true, // nav by mousedrag
+      wheel: false, // nav by mousewheel (shift + wheel) or swipe on touch/trackpads
+    };
+  });
 
   // SIZES ---------------------------------------------------
   let nodes = [],
@@ -105,12 +125,12 @@
   function slidyMatch() {
     if (render) {
       size = {
-        first: options.axis === 'y' ? el.first.height : el.first.width,
-        last: options.axis === 'y' ? el.last.height : el.last.width,
-        active: options.axis === 'y' ? el.active.height : el.active.width,
-        before: options.axis === 'y' ? el.before.height : el.before.width,
-        after: options.axis === 'y' ? el.after.height : el.after.width,
-        wrap: options.axis === 'y' ? wrapheight : wrapwidth,
+        first: options.axis === "y" ? el.first.height : el.first.width,
+        last: options.axis === "y" ? el.last.height : el.last.width,
+        active: options.axis === "y" ? el.active.height : el.active.width,
+        before: options.axis === "y" ? el.before.height : el.before.width,
+        after: options.axis === "y" ? el.after.height : el.after.width,
+        wrap: options.axis === "y" ? wrapheight : wrapwidth,
       };
       diff = {
         align: (size.wrap - size.active + slide.gap) / 2 - wrap.alignmargin,
@@ -143,14 +163,14 @@
     transition = options.duration;
 
   $: move = () => {
-    if (options.axis === 'y') {
+    if (options.axis === "y") {
       return `transform: translate(0, ${translate}px); top: ${comp}px; transition: transform ${transition}ms;`;
     } else {
       return `transform: translate(${translate}px, 0); left: ${comp}px; transition: transform ${transition}ms;`;
     }
   };
 
-  $: if (wrap.align === 'end') {
+  $: if (wrap.align === "end") {
     translate =
       slides.length % 2 === 0
         ? options.loop
@@ -159,7 +179,7 @@
         : options.loop
         ? pos + diff.align
         : -diff.pos + diff.align;
-  } else if (wrap.align === 'start') {
+  } else if (wrap.align === "start") {
     translate =
       slides.length % 2 === 0
         ? options.loop
@@ -305,7 +325,7 @@
     slidyNull();
     iswheel = true;
     transition = 0;
-    if (options.axis === 'y') {
+    if (options.axis === "y") {
       pos += -e.detail.dy;
     } else {
       pos += -e.detail.dx;
@@ -336,7 +356,7 @@
   }
   function dragSlide(e) {
     if (isdrag) {
-      if (options.axis === 'y') {
+      if (options.axis === "y") {
         pos += e.detail.dy;
       } else {
         pos += e.detail.dx;
@@ -361,125 +381,6 @@
     }
   }
 </script>
-
-<section
-  role="region"
-  tabindex="0"
-  aria-label="Slidy"
-  id={wrap.id}
-  class="slidy"
-  class:loaded={slidyinit}
-  class:axisy={options.axis === 'y'}
-  class:autowidth={slide.width === 'auto'}
-  class:antiloop={options.loop === false}
-  class:alignmiddle={wrap.align === 'middle'}
-  class:alignstart={wrap.align === 'start'}
-  class:alignend={wrap.align === 'end'}
-  use:action.resize
-  on:resize={resizeWrap}
-  use:action.wheel
-  on:wheels={controls.wheel ? slidyWheel : null}
-  use:action.pannable
-  on:panstart={controls.drag ? dragStart : null}
-  on:panmove={controls.drag ? dragSlide : null}
-  on:panend={controls.drag ? dragStop : null}
-  on:keydown={controls.keys ? slidyKeys : null}
-  style="
-        --wrapw: {wrap.width};
-        --wraph: {wrap.height};
-        --wrapp: {wrap.padding};
-        --slidew: {slide.width};
-        --slideh: {slide.height};
-        --slidef: {slide.objectfit};
-        --slideo: {slide.overflow};
-        --slideg: {options.axis ===
-  'y'
-    ? `${slide.gap}px 0 0 0`
-    : `0 0 0 ${slide.gap}px`};
-        --dur: {options.duration}ms;"
->
-  {#if !slidyinit}
-    <section id="loader">
-      <slot name="loader">Loading...</slot>
-    </section>
-  {/if}
-
-  <ul class="slidy-ul" on:contextmenu={() => (isdrag = false)} style={move()}>
-    {#if slides}
-      {#each slides as item, i (item.id)}
-        <li
-          bind:this={nodes[i]}
-          data-id={i}
-          class={slide.class}
-          class:active={item.ix === index}
-        >
-          {#if slidyinit}
-            <slot {item} />
-          {/if}
-        </li>
-      {/each}
-    {/if}
-  </ul>
-
-  {#if controls.arrows && slidyinit}
-    {#if !options.loop}
-      {#if index > 0}
-        <button class="arrow-left" on:click={() => index--}>
-          <slot name="arrow-left">&#8592;</slot>
-        </button>
-      {/if}
-      {#if index < slides.length - 1}
-        <button class="arrow-right" on:click={() => index++}>
-          <slot name="arrow-right">&#8594;</slot>
-        </button>
-      {/if}
-    {:else}
-      <button class="arrow-left" on:click={() => index--}>
-        <slot name="arrow-left">&#8592;</slot>
-      </button>
-      <button class="arrow-right" on:click={() => index++}>
-        <slot name="arrow-right">&#8594;</slot>
-      </button>
-    {/if}
-  {/if}
-  {#if controls.dots && slidyinit}
-    <ul class="slidy-dots" class:pure={controls.dotspure}>
-      {#if controls.dotsarrow}
-        {#if !options.loop}
-          {#if index > 0}
-            <li class="dots-arrow-left" on:click={() => index--}>
-              <slot name="dots-arrow-left"><button>&#8592;</button></slot>
-            </li>
-          {/if}
-        {:else}
-          <li class="dots-arrow-left" on:click={() => index--}>
-            <slot name="dots-arrow-left"><button>&#8592;</button></slot>
-          </li>
-        {/if}
-      {/if}
-      {#each dots as dot, i}
-        <li class:active={i === index} on:click={() => (index = i)}>
-          <slot name="dot" {dot}>
-            <button>{controls.dotsnum && !controls.dotspure ? i : ''}</button>
-          </slot>
-        </li>
-      {/each}
-      {#if controls.dotsarrow}
-        {#if !options.loop}
-          {#if index < slides.length - 1}
-            <li class="dots-arrow-right" on:click={() => index++}>
-              <slot name="dots-arrow-right"><button>&#8594;</button></slot>
-            </li>
-          {/if}
-        {:else}
-          <li class="dots-arrow-right" on:click={() => index++}>
-            <slot name="dots-arrow-right"><button>&#8594;</button></slot>
-          </li>
-        {/if}
-      {/if}
-    </ul>
-  {/if}
-</section>
 
 <style>
   #loader {
@@ -579,7 +480,7 @@
   }
   .slidy li.active,
   .slidy li.active button {
-    color: red;
+    color: black;
   }
   .slidy-dots {
     position: absolute;
@@ -618,7 +519,7 @@
     transition: color var(--dur);
   }
   .slidy-dots.pure li.active button {
-    background: red;
+    background: #0082ba;
   }
   .arrow-left,
   .dots-arrow-left {
@@ -644,3 +545,124 @@
     height: 50px;
   }
 </style>
+
+<svelte:window bind:innerWidth={windowsWidth} />
+
+<section
+  role="region"
+  tabindex="0"
+  aria-label="Slidy"
+  id={wrap.id}
+  class="slidy"
+  class:loaded={slidyinit}
+  class:axisy={options.axis === "y"}
+  class:autowidth={slide.width === "auto"}
+  class:antiloop={options.loop === false}
+  class:alignmiddle={wrap.align === "middle"}
+  class:alignstart={wrap.align === "start"}
+  class:alignend={wrap.align === "end"}
+  use:action.resize
+  on:resize={resizeWrap}
+  use:action.wheel
+  on:wheels={controls.wheel ? slidyWheel : null}
+  use:action.pannable
+  on:panstart={controls.drag ? dragStart : null}
+  on:panmove={controls.drag ? dragSlide : null}
+  on:panend={controls.drag ? dragStop : null}
+  on:keydown={controls.keys ? slidyKeys : null}
+  style="
+        --wrapw: {wrap.width};
+        --wraph: {wrap.height};
+        --wrapp: {wrap.padding};
+        --slidew: {slide.width};
+        --slideh: {slide.height};
+        --slidef: {slide.objectfit};
+        --slideo: {slide.overflow};
+        --slideg: {options.axis ===
+  'y'
+    ? `${slide.gap}px 0 0 0`
+    : `0 0 0 ${slide.gap}px`};
+        --dur: {options.duration}ms;"
+>
+  {#if !slidyinit}
+    <section id="loader">
+      <slot name="loader">Loading...</slot>
+    </section>
+  {/if}
+
+  <ul class="slidy-ul" on:contextmenu={() => (isdrag = false)} style={move()}>
+    {#if slides}
+      {#each slides as item, i (item.id)}
+        <li
+          bind:this={nodes[i]}
+          data-id={i}
+          class={slide.class}
+          class:active={item.ix === index}
+        >
+          {#if slidyinit}
+            <slot item={item} />
+          {/if}
+        </li>
+      {/each}
+    {/if}
+  </ul>
+
+  {#if controls.arrows && slidyinit}
+    {#if !options.loop}
+      {#if index > 0}
+        <button class="arrow-left" on:click={() => index--}>
+          <slot name="arrow-left">&#8592;</slot>
+        </button>
+      {/if}
+      {#if index < slides.length - 1}
+        <button class="arrow-right" on:click={() => index++}>
+          <slot name="arrow-right">&#8594;</slot>
+        </button>
+      {/if}
+    {:else}
+      <button class="arrow-left" on:click={() => index--}>
+        <slot name="arrow-left">&#8592;</slot>
+      </button>
+      <button class="arrow-right" on:click={() => index++}>
+        <slot name="arrow-right">&#8594;</slot>
+      </button>
+    {/if}
+  {/if}
+  {#if controls.dots && slidyinit}
+    <ul class="slidy-dots" class:pure={controls.dotspure}>
+      {#if controls.dotsarrow}
+        {#if !options.loop}
+          {#if index > 0}
+            <li class="dots-arrow-left" on:click={() => index--}>
+              <slot name="dots-arrow-left"><button>&#8592;</button></slot>
+            </li>
+          {/if}
+        {:else}
+          <li class="dots-arrow-left" on:click={() => index--}>
+            <slot name="dots-arrow-left"><button>&#8592;</button></slot>
+          </li>
+        {/if}
+      {/if}
+      {#each dots as dot, i}
+        <li class:active={i === index} on:click={() => (index = i)}>
+          <slot name="dot" dot={dot}>
+            <button>{controls.dotsnum && !controls.dotspure ? i : ""}</button>
+          </slot>
+        </li>
+      {/each}
+      {#if controls.dotsarrow}
+        {#if !options.loop}
+          {#if index < slides.length - 1}
+            <li class="dots-arrow-right" on:click={() => index++}>
+              <slot name="dots-arrow-right"><button>&#8594;</button></slot>
+            </li>
+          {/if}
+        {:else}
+          <li class="dots-arrow-right" on:click={() => index++}>
+            <slot name="dots-arrow-right"><button>&#8594;</button></slot>
+          </li>
+        {/if}
+      {/if}
+    </ul>
+  {/if}
+</section>

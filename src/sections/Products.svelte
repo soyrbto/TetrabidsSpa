@@ -30,39 +30,6 @@
 
   $: slidy_cards = {
     slides: local,
-    wrap: {
-      id: "slidy_default", // customize this instance Slidy by #id
-      width: "100%",
-      height: "100%",
-      padding: "0",
-      align: "middle",
-      alignmargin: 50,
-    },
-    slide: {
-      gap: 50,
-      class: "", // classname for styling slide
-      width: "50%",
-      height: "100%",
-      backimg: true, // if true image on background slidewrap & slot for content empty
-      imgsrckey: "src", // prop for ypurs image src key
-      objectfit: "cover", // new in 2.3.0
-      overflow: "hidden", // new in 2.4.1
-    },
-    controls: {
-      dots: true,
-      dotsnum: false,
-      dotsarrow: false,
-      dotspure: true, // dotnav like realy dots :)
-      arrows: false,
-      keys: false, // nav by arrow keys
-      drag: true, // nav by mousedrag
-      wheel: false, // nav by mousewheel (shift + wheel) or swipe on touch/trackpads
-    },
-    options: {
-      axis: "x", // new in 2.2.0 axis direction
-      loop: false, // new in 2.3.0 loop/no options
-      duration: 550, // duration slides animation
-    },
   };
 </script>
 
@@ -77,6 +44,7 @@
       background-image: url(../images/background-product-mob.svg);
       background-size: cover;
       background-position: center;
+      padding: 5% 0;
     }
 
     .col-1 {
@@ -99,11 +67,13 @@
         .abstract {
           font-size: $font-size-body;
           line-height: $line-height;
-          text-align: justify;
+          text-align: center;
           margin-top: 15px;
 
           @include respond(phone) {
             min-height: 92px;
+            text-align: justify;
+            padding: 0 5%;
           }
         }
       }
