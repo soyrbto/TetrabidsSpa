@@ -10,14 +10,6 @@
   page("/", () => (current = Main));
   page("/faq", () => (current = Faq));
   page(
-    "/post/:id",
-    (ctx, next) => {
-      params = ctx.params;
-      next();
-    },
-    () => (current = Post)
-  );
-  page(
     "/service/:id",
     (ctx, next) => {
       params = ctx.params;
@@ -26,6 +18,7 @@
     () => (current = Post)
   );
   page(
+    "/product/:id",
     (ctx, next) => {
       params = ctx.params;
       next();
