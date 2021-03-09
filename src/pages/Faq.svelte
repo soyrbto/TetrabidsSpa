@@ -2,7 +2,6 @@
   import { moveSectionHandler } from "../functions";
   import Footer from "../sections/Footer.svelte";
   import Header from "../sections/Header.svelte";
-  import Button from "../components/Button.svelte";
   import { faqStore } from "../FaqStore";
   import { nodeFaq } from "../Stores";
   import FaqCard from "../components/FaqCard.svelte";
@@ -56,6 +55,16 @@
           a {
             display: inline-block;
             padding: 0.26vw 0.52vw;
+
+            img {
+              transition: all 200ms ease-in-out;
+              width: 1.66vw;
+
+              &:hover {
+                filter: invert(35%) sepia(4%) saturate(215%) hue-rotate(338deg)
+                  brightness(101%) contrast(90%);
+              }
+            }
           }
         }
 
@@ -104,7 +113,7 @@
     {#if windowsWidth > 768}
       <div class="content-left">
         <div class="button-wrapper">
-          <Button buttonType="outline"><a href="/">Volver</a></Button>
+          <a href="/"><img src="\images\goback.svg" alt="goback" /></a>
         </div>
         <ul class="faq-list">
           {#each faqStore as item, i}
