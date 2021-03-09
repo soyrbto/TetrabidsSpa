@@ -4,6 +4,7 @@ const posts = [
     author: "Roberto Traspalacio",
     date: "22 de Febrero del 2021",
     image: "/images/service-0.svg",
+    url: ["https://www.instagram.com/tetrabids/", "https://t.me/share/url?url=https://www.tetrabids.com/service/0&text=Asesoria","https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2Fservice%2F0&amp;src=sdkpreparse","whatsapp://send?text=https://www.tetrabids.com/service/0","mailto:?subject=Tetrabids-Servicios:%20Asesoría&body=https://www.tetrabids.com/service/0"],
     tldr: `Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,
@@ -18,6 +19,7 @@ const posts = [
     author: "Rawy Alvarez",
     date: "22 de Febrero del 2022",
     image: "/images/service-1.svg",
+    url: ["https://www.instagram.com/p/Bues0YnhHJ5/", "https://t.me/share/url?url=https://www.tetrabids.com/&text=Nuestros servicios","https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2Fservice%2F1&amp;src=sdkpreparse","whatsapp://send?text=https://www.tetrabids.com/service/1","mailto:rawy.ucla@gmail.com?Subjet=Hello%20again"],
     tldr: `Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,
@@ -32,6 +34,7 @@ const posts = [
     author: "Paris",
     date: "22 de Febrero del 2020",
     image: "/images/service-2.svg",
+    url: ["https://www.instagram.com/tetrabids/", "https://t.me/share/url?url={https://www.tetrabids.com/}&text={mira este hermoso sitio web}","https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2F&amp;src=sdkpreparse","whatsapp://send?text=https://www.tetrabids.com/","mailto:rawy.ucla@gmail.com?Subjet=Hello%20again"],
     tldr: `Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,
@@ -46,6 +49,7 @@ const posts = [
     author: "Paris",
     date: "22 de Febrero del 2020",
     image: "/images/service-3.svg",
+    url: ["https://www.instagram.com/tetrabids/", "https://t.me/share/url?url={https://www.tetrabids.com/}&text={mira este hermoso sitio web}","https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2F&amp;src=sdkpreparse","whatsapp://send?text=https://www.tetrabids.com/","mailto:rawy.ucla@gmail.com?Subjet=Hello%20again"],
     tldr: `Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,
@@ -60,6 +64,7 @@ const posts = [
     author: "Paris",
     date: "22 de Febrero del 2020",
     image: "/images/service-4.svg",
+    url: ["https://www.instagram.com/tetrabids/", "https://t.me/share/url?url={https://www.tetrabids.com/}&text={mira este hermoso sitio web}","https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2F&amp;src=sdkpreparse","whatsapp://send?text=https://www.tetrabids.com/","mailto:rawy.ucla@gmail.com?Subjet=Hello%20again"],
     tldr: `Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,
@@ -74,6 +79,7 @@ const posts = [
     author: "Paris",
     date: "22 de Febrero del 2020",
     image: "/images/service-5.svg",
+    url: ["https://www.instagram.com/tetrabids/", "https://t.me/share/url?url={https://www.tetrabids.com/}&text={mira este hermoso sitio web}","https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2F&amp;src=sdkpreparse","whatsapp://send?text=https://www.tetrabids.com/","mailto:rawy.ucla@gmail.com?Subjet=Hello%20again"],
     tldr: `Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,
@@ -88,6 +94,7 @@ const posts = [
     author: "Viviana Mendoza",
     date: "22 de Febrero del 2020",
     image: "/images/product-0.svg",
+    url: ["https://www.instagram.com/tetrabids/", "https://t.me/share/url?url={https://www.tetrabids.com/}&text={mira este hermoso sitio web}","https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2F&amp;src=sdkpreparse","whatsapp://send?text=https://www.tetrabids.com/","mailto:rawy.ucla@gmail.com?Subjet=Hello%20again"],
     tldr: `Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,
@@ -102,6 +109,7 @@ const posts = [
     author: "Paris",
     date: "22 de Febrero del 2020",
     image: "/images/product-1.svg",
+    url: ["https://www.instagram.com/tetrabids/", "https://t.me/share/url?url={https://www.tetrabids.com/}&text={mira este hermoso sitio web}","https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2F&amp;src=sdkpreparse","whatsapp://send?text=https://www.tetrabids.com/","mailto:rawy.ucla@gmail.com?Subjet=Hello%20again"],
     tldr: `Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,
@@ -116,6 +124,7 @@ const posts = [
     author: "Rawy Alvarez",
     date: "22 de Febrero del 2021",
     image: "/images/product-2.svg",
+    url: ["https://www.instagram.com/tetrabids/", "https://t.me/share/url?url={https://www.tetrabids.com/}&text={mira este hermoso sitio web}","https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.tetrabids.com%2F&amp;src=sdkpreparse","whatsapp://send?text=https://www.tetrabids.com/","mailto:rawy.ucla@gmail.com?Subjet=Hello%20again"],
     tldr: `Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.<br>
         <br>
         Consectetur adipiscing elit. Auctor vestibulum proin tempor eget amet volutpat tortor nunc. In tortor, ornare lobortis sit feugiat volutpat. Risus ut libero pellentesque praesent sociis in lorem sapien sit. Gravida cras enim dui ullamcorper pharetra, varius. Ridiculus aliquam, enim, amet, pretium felis et. Porttitor egestas nec bibendum amet mattis integer. Lectus turpis aliquet lectus ipsum lectus. Auctor lobortis ac nisl porttitor faucibus blandit nunc nisl enim. Eget odio quam fusce sit malesuada tempus fringilla.`,

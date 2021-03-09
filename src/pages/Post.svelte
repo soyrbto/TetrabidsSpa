@@ -122,7 +122,13 @@
       <div class="title">{posts[postId].title}</div>
       <div class="author">{posts[postId].author}, {posts[postId].date}</div>
       <img src={posts[postId].image} alt="cover" class="image-cover" />
-      <Share />
+      <Share
+        urlInstagram={posts[postId].url[0]}
+        urlTelegram={posts[postId].url[1]}
+        urlFacebook={posts[postId].url[2]}
+        urlWhatsapp={posts[postId].url[3]}
+        urlEmail={posts[postId].url[4]}
+      />
     </div>
     <div class="cover-page-right">
       <div class="title-tldr">Tl;dr = Muy largo, no lo leeré</div>

@@ -1,18 +1,15 @@
 <script>
-  import { socialNetwork } from "../StaticStore";
-
-  let icon;
-  let url;
-  let dataAction;
+  export let urlInstagram;
+  export let urlTelegram;
+  export let urlFacebook;
+  export let urlWhatsapp;
+  export let urlEmail;
 </script>
 
 <style type="text/scss">
   @import "../stylesGlobal/vars";
 
   .wrapper-icons {
-    display: flex;
-    justify-content: space-between;
-
     @include respond(tab-port) {
       width: 50vw;
       margin: auto;
@@ -47,17 +44,51 @@
 <div class="wrapper-icons">
   <div class="social-network">
     <ul>
-      {#each socialNetwork as item}
-        <li>
-          <a target="_blank" href={item.url}
-            ><img
-              src="/images/{item.icon}-icon.svg"
-              alt="{item.icon}-icon"
-              rel="noopener noreferrer"
-            />
-          </a>
-        </li>
-      {/each}
+      <li>
+        <a target="_blank" href={urlInstagram}
+          ><img
+            src="/images/instagram-icon.svg"
+            alt="instagram-icon"
+            rel="noopener noreferrer"
+          />
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href={urlTelegram}
+          ><img
+            src="/images/telegram-icon.svg"
+            alt="telegram-icon"
+            rel="noopener noreferrer"
+          />
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href={urlFacebook}
+          ><img
+            src="/images/facebook-icon.svg"
+            alt="facebook-icon"
+            rel="noopener noreferrer"
+          />
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href={urlWhatsapp}
+          ><img
+            src="/images/whatsapp-icon.svg"
+            alt="whatsapp-icon"
+            rel="noopener noreferrer"
+          />
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href={urlEmail}
+          ><img
+            src="/images/email-icon.svg"
+            alt="email-icon"
+            rel="noopener noreferrer"
+          />
+        </a>
+      </li>
     </ul>
   </div>
 </div>
