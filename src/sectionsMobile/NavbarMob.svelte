@@ -93,6 +93,19 @@
         color: white;
         cursor: pointer;
 
+        &.soom {
+          transform: translate(25.5%);
+        }
+
+        sup {
+          background-color: red;
+          border-radius: 3px;
+          font-size: 10px;
+          font-weight: 700;
+          padding: 2px;
+          margin-left: 3px;
+        }
+
         a {
           text-decoration: none;
           color: white;
@@ -126,8 +139,8 @@
         </div>
       </li>
       <li class="nav__item">
-        <div class="nav__link">
-          <a href="/blog">{$sectionItems.navbarMob[2]}</a>
+        <div class="nav__link soom">
+          {$sectionItems.navbarMob[2]}<sup>Pronto</sup>
         </div>
       </li>
       <li class="nav__item">

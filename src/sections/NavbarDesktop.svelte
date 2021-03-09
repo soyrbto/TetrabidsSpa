@@ -36,8 +36,9 @@
         text-align: center;
         list-style: none;
         width: 17rem; // 170px
+        user-select: none;
 
-        &:hover {
+        &:hover:not(:nth-child(3)) {
           cursor: pointer;
           letter-spacing: 0.1em;
         }
@@ -45,6 +46,16 @@
         a {
           text-decoration: none;
           color: inherit;
+        }
+
+        sup {
+          color: white;
+          background-color: red;
+          border-radius: 3px;
+          font-size: clamp(8px, 0.625vw, 12px);
+          font-weight: 700;
+          padding: 2px;
+          margin-left: 3px;
         }
       }
     }
@@ -58,8 +69,10 @@
     {#each $sectionItems.navbarDesktop as item, i}
       {#if i < 2}
         <li on:click={() => navbarMove(i)}>{item}</li>
-      {:else}
+      {:else if i > 2}
         <li><a href={"/" + item}>{item}</a></li>
+      {:else}
+        <li>{item}<sup>Pronto</sup></li>
       {/if}
     {/each}
   </ul>

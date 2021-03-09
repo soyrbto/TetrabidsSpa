@@ -45,6 +45,7 @@
         color: white;
         font-size: $font-size-logo;
         font-weight: 700;
+        user-select: none;
 
         span {
           display: block;
