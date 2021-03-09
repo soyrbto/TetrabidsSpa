@@ -3,6 +3,7 @@
   import Main from "./pages/Main.svelte";
   import Post from "./pages/Post.svelte";
   import Faq from "./pages/Faq.svelte";
+  import ErrorPage from "./pages/ErrorPage.svelte";
 
   let current;
   let params;
@@ -25,6 +26,7 @@
     },
     () => (current = Post)
   );
+  page("/*", () => (current = ErrorPage));
 
   page.start();
 </script>

@@ -113,7 +113,7 @@
     {#if windowsWidth > 768}
       <div class="content-left">
         <div class="button-wrapper">
-          <a href="/"><img src="/images/goback.svg" alt="goback" /></a>
+          <a href="/"><img src="/images/goback-faq.svg" alt="go-back" /></a>
         </div>
         <ul class="faq-list">
           {#each faqStore as item, i}
