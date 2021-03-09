@@ -56,12 +56,12 @@
         position: absolute;
         top: 96%;
 
-        .button-card-content {
-          padding: clamp(10px, 0.78vw, 17px) clamp(28px, 2.08vw, 40px);
+        a {
+          text-decoration: none;
+          color: white;
 
-          a {
-            text-decoration: none;
-            color: white;
+          .button-card-content {
+            padding: clamp(10px, 0.78vw, 17px) clamp(28px, 2.08vw, 40px);
           }
         }
       }
@@ -96,9 +96,9 @@
       {/key}
       <div class="button-wrapper">
         <Button color="purple">
-          <div class="button-card-content">
-            <a href="/{section}/{idPost}">Sigue Leyendo</a>
-          </div>
+          <a href="/{section}/{idPost}">
+            <div class="button-card-content">Sigue Leyendo</div>
+          </a>
         </Button>
       </div>
     </div>
