@@ -49,16 +49,6 @@
         #23074b 57.34%
       );
 
-      @include respond(tab-land) {
-        background: linear-gradient(
-          180deg,
-          #0082ba 0%,
-          #361081 31.36%,
-          #23074b 47.19%,
-          #fff 57.34%
-        );
-      }
-
       .home-wrapper {
         height: 100vh;
         position: relative;
