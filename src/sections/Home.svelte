@@ -72,14 +72,14 @@
       .accordion {
         margin-top: clamp(19px, 1.04vw, 27px);
 
-        .title-accordion {
-          font-size: clamp(
-            clamp(12px, calc(0.25vw + 1.2rem), 16px),
-            1.14vw,
-            30px
-          ); // 22px
-          line-height: 0;
-        }
+        // .title-accordion {
+        //   font-size: clamp(
+        //     clamp(12px, calc(0.25vw + 1.2rem), 16px),
+        //     1.14vw,
+        //     30px
+        //   ); // 22px
+        //   line-height: 0;
+        // }
       }
 
       & > .button {
@@ -107,9 +107,13 @@
 
     <div class="accordion">
       {#each accordionData as accordion, i}
-        <Accordion on:openAccordion>
-          <h3 class="title-accordion" slot="title">{accordion.title}</h3>
-          <p slot="body" bind:this={accoSlot[i]}>{accordion.body}</p>
+        <Accordion
+          on:openAccordion
+          title={accordion.title}
+          body={accordion.body}
+        >
+          <!-- <h3 class="title-accordion" slot="title">{accordion.title}</h3> -->
+          <!-- <p slot="body" bind:this={accoSlot[i]}>{accordion.body}</p> -->
         </Accordion>
       {/each}
     </div>

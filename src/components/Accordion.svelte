@@ -2,6 +2,9 @@
   import { onMount } from "svelte";
   import { accordionHandler } from "../functions";
 
+  export let title;
+  export let body;
+
   let accordionId;
   let accordionBody;
   let thatOpens;
@@ -62,6 +65,8 @@
     margin-left: clamp(11px, 0.57vw, 12px);
     cursor: pointer;
     user-select: none;
+    font-size: clamp(clamp(12px, calc(0.25vw + 1.2rem), 16px), 1.14vw, 30px);
+    line-height: 0;
   }
 
   .body {
@@ -69,7 +74,7 @@
     font-family: montserrat;
     /* meta font size 15px */
     /* font-size: clamp(13px, 0.6vw + 0.7rem, 16px); */
-    font-size: clamp(11px, 0.78vw, 20px);
+    font-size: clamp(12px, 0.78vw, 20px);
     /* meta line height 28px */
     line-height: clamp(18px, 0.94vw + 10px, 32px);
     letter-spacing: 0.05em;
@@ -123,10 +128,10 @@
         />
       </svg></button
     >
-    <slot name="title" />
+    <h3 class="title-accordion">{title}</h3>
   </label>
 
   <div class="body" bind:this={accordionBody}>
-    <slot name="body" />
+    <p>{body}</p>
   </div>
 </div>
