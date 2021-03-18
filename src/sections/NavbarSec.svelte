@@ -53,7 +53,7 @@
     class="item"
     class:active={item == $displayedSection}
     on:click={() => {
-      instructionsMap.then((value) => mapDriver.button(value, i + 1));
+      instructionsMap.then((value) => mapDriver.button(value, i + 2));
     }}
   >
     {item}

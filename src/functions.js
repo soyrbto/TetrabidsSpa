@@ -161,13 +161,16 @@ const instructionsMap = (async function asyncWrapper() {
       },
       1: () => {
         moveSectionHandler.vertical(get(sections)[1]);
-        // moveSectionHandler.horizontal(pageSections[1]);
       },
       2: () => {
         moveSectionHandler.vertical(get(sections)[1]);
-        moveSectionHandler.horizontal(pageSections[2]);
+        moveSectionHandler.horizontal(pageSections[1]);
       },
       3: () => {
+        moveSectionHandler.vertical(get(sections)[1]);
+        moveSectionHandler.horizontal(pageSections[2]);
+      },
+      4: () => {
         moveSectionHandler.vertical(get(sections)[1]);
         moveSectionHandler.horizontal(pageSections[0]);
       },
