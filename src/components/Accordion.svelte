@@ -27,6 +27,8 @@
         thatOpens.style.removeProperty("height");
       }
     });
+
+    accordionHandler.updateState(Object.keys($accordionStates)[0]);
   });
 
   const changeState = () => {
