@@ -8,6 +8,7 @@
   let states = accordionHandler.states;
 
   onMount(() => {
+    console.log(thatOpens.scrollHeight);
     accordionId = accordionHandler.addItem();
   });
 
