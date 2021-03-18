@@ -5,8 +5,16 @@
   import { instructionsMap, mapDriver, instructionsMapMob } from "../functions";
   import { maxWidthTablet, sectionItems } from "../Stores";
   import { accordionData } from "../StaticStore";
+  import { onMount } from "svelte";
 
   let windowsWidth;
+  let accoSlot = [];
+
+  onMount(() => {
+    accoSlot.forEach((el) => {
+      console.log(el.scrollHeight);
+    });
+  });
 
   const contactMove = (e) => {
     if (windowsWidth > $maxWidthTablet) {
@@ -15,6 +23,8 @@
       instructionsMapMob.then((value) => mapDriver.button(value, 2));
     }
   };
+
+  const openAccordion = () => {};
 </script>
 
 <style type="text/scss">
@@ -96,15 +106,15 @@
     <h1>Tetrabids <span> Desarrollo web contigo</span></h1>
 
     <div class="accordion">
-      {#each accordionData as accordion}
-        <Accordion>
+      {#each accordionData as accordion, i}
+        <Accordion on:openAccordion>
           <h3 class="title-accordion" slot="title">{accordion.title}</h3>
-          <p slot="body">{accordion.body}</p>
+          <p slot="body" bind:this={accoSlot[i]}>{accordion.body}</p>
         </Accordion>
       {/each}
     </div>
 
-    <div on:click={contactMove} class="button">
+    <div class="button">
       <Button>
         <div class="button-contact">{$sectionItems.navbarSec[2]}</div>
       </Button>

@@ -1,7 +1,10 @@
 <script>
   import { onMount } from "svelte";
   import { accordionHandler } from "../functions";
+
   let accordionId;
+  let accordionBody;
+  let thatOpens;
   let states = accordionHandler.states;
 
   onMount(() => {
@@ -9,6 +12,8 @@
   });
 
   const changeState = () => {
+    thatOpens.style.height = `272px`;
+    console.log(accordionBody.scrollHeight);
     accordionHandler.updateState(accordionId);
   };
 </script>
@@ -97,6 +102,7 @@
 </style>
 
 <div
+  bind:this={thatOpens}
   class:container-open={$states[accordionId]}
   class="container container-smaller"
 >
@@ -119,7 +125,7 @@
     <slot name="title" />
   </label>
 
-  <div class="body">
+  <div class="body" bind:this={accordionBody}>
     <slot name="body" />
   </div>
 </div>

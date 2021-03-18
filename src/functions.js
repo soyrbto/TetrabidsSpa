@@ -209,16 +209,13 @@ const mapDriver = (function InstructFollower() {
     if (!get(throttleState)) {
       throttleState.set(true);
 
-      if (e.deltaY > 0 && i != 1) {
+      if (e.deltaY > 0 && i <= 1) {
         i = 1;
         instructions[i]();
         delay(throttleState, time);
-      } else if (e.deltaY < 0 && i != 0) {
+      } else if (e.deltaY < 0 && i >= 0) {
         i = 0;
         instructions[i]();
-        delay(throttleState, time);
-      } else {
-        instructions[0]();
         delay(throttleState, time);
       }
     }
