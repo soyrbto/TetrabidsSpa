@@ -8,7 +8,7 @@
 
   let windowsWidth;
 
-  const contactMove = () => {
+  const contactMove = (e) => {
     if (windowsWidth > $maxWidthTablet) {
       instructionsMap.then((value) => mapDriver.button(value, 3));
     } else {

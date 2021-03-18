@@ -140,6 +140,13 @@ let moveSectionHandler = (function moveSection(arrSections) {
   return { currentPos, store, horizontal, vertical };
 })([pageSections[1], pageSections[2], pageSections[0]]);
 
+//=================== function that delays a state =======>
+function delay(storeState, time) {
+  setTimeout(() => {
+    storeState.update((value) => !value);
+  }, time);
+}
+
 /******************************************************************/
 /******************************************************************/
 
@@ -192,26 +199,28 @@ const instructionsMapMob = (async function asyncWrapper() {
 })();
 
 const mapDriver = (function InstructFollower() {
+  let time = 600;
   function wheel(e, instructions) {
     let i = get(mapState);
     e.preventDefault();
     if (!get(throttleState)) {
       throttleState.set(true);
-      if (e.deltaY > 0 && i != Object.keys(instructions).length) {
-        i++;
+
+      if (e.deltaY > 0 && i != 1) {
+        i = 1;
         instructions[i]();
+        delay(throttleState, time);
       } else if (e.deltaY < 0 && i != 0) {
-        i--;
+        i = 0;
         instructions[i]();
+        delay(throttleState, time);
       } else {
         instructions[0]();
+        delay(throttleState, time);
       }
     }
 
     mapState.set(i);
-    setTimeout(() => {
-      throttleState.set(false);
-    }, 750);
   }
 
   function button(instructions, path) {

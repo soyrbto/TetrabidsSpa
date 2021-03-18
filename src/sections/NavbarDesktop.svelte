@@ -4,6 +4,7 @@
 
   let windowsWidth;
   const navbarMove = (i) => {
+    console.log(i);
     instructionsMap.then((value) => mapDriver.button(value, i + 1));
   };
 </script>

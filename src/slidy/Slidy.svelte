@@ -199,9 +199,11 @@
   }
 
   function prev() {
+    console.log("prev");
     slides = [slides[slides.length - 1], ...slides.slice(0, -1)];
   }
   function next() {
+    console.log("next");
     slides = [...slides.slice(1), slides[0]];
   }
 
