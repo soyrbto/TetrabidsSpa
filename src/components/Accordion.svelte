@@ -1,23 +1,35 @@
 <script>
   import { onMount } from "svelte";
   import { accordionHandler } from "../functions";
+  import { accordionStates } from "../Stores";
 
   export let title;
   export let body;
 
   let accordionId;
   let accordionBody;
+  let accordionTitle;
   let thatOpens;
-  let states = accordionHandler.states;
+  let fullSize;
+  let states = accordionStates;
 
   onMount(() => {
-    console.log(thatOpens.scrollHeight);
+    fullSize =
+      thatOpens.scrollHeight +
+      accordionBody.scrollHeight -
+      accordionTitle.scrollHeight;
     accordionId = accordionHandler.addItem();
+
+    accordionStates.subscribe((value) => {
+      if (value[accordionId]) {
+        thatOpens.style.height = `${fullSize}px`;
+      } else {
+        thatOpens.style.removeProperty("height");
+      }
+    });
   });
 
   const changeState = () => {
-    thatOpens.style.height = `272px`;
-    console.log(accordionBody.scrollHeight);
     accordionHandler.updateState(accordionId);
   };
 </script>
@@ -128,7 +140,7 @@
         />
       </svg></button
     >
-    <h3 class="title-accordion">{title}</h3>
+    <h3 bind:this={accordionTitle} class="title-accordion">{title}</h3>
   </label>
 
   <div class="body" bind:this={accordionBody}>

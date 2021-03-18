@@ -13,6 +13,7 @@ const navbarStateFaq = writable(false);
 const animationRange = 2100;
 const mapState = writable(0);
 const throttleState = writable(false);
+const accordionStates = writable({});
 // 4 arrays used as list for different use cases:
 // Contacto, Servicios, Productos, Blog, FAQ, home, sections
 const sectionItems = writable({
@@ -35,4 +36,5 @@ export {
   throttleState,
   navbarStateFaq,
   nodeFaq,
+  accordionStates,
 };
