@@ -26,7 +26,7 @@
     user-select: none;
     margin-bottom: clamp(14px, 1.04vw, 27px);
     display: inline-block;
-    align-self: center;
+    text-align: center;
 
     &::after {
       content: "";
