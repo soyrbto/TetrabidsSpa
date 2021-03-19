@@ -78,8 +78,6 @@
         }
 
         .secnavbar-wrapper {
-          display: flex;
-          flex-direction: column;
           width: 6.14vw; // 118px
         }
       }

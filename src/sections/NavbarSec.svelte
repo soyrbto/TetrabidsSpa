@@ -9,13 +9,16 @@
 
 <style type="text/scss">
   @import "../stylesGlobal/vars";
+  .wrapper-img {
+    display: flex;
+    justify-content: center;
+    img {
+      margin-bottom: clamp(14px, 1.04vw, 27px);
+      height: clamp(42px, 3.125vw, 85px);
 
-  img {
-    margin-bottom: clamp(14px, 1.04vw, 27px);
-    height: clamp(42px, 3.125vw, 85px);
-
-    &:hover {
-      cursor: pointer;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -27,6 +30,7 @@
     margin-bottom: clamp(14px, 1.04vw, 27px);
     display: inline-block;
     text-align: center;
+    transition: all 0.3s ease-in-out;
 
     &::after {
       content: "";
@@ -39,9 +43,13 @@
 
     &:hover {
       cursor: pointer;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease-in-out;
     }
 
     &.active {
+      letter-spacing: 0.1em;
+
       &::after {
         content: "";
         display: block;
@@ -54,11 +62,13 @@
   }
 </style>
 
-<img
-  on:click={sectionMove}
-  src="./images/home-button.svg"
-  alt="blue home button"
-/>
+<div class="wrapper-img">
+  <img
+    on:click={sectionMove}
+    src="./images/home-button.svg"
+    alt="blue home button"
+  />
+</div>
 {#each $sectionItems.navbarSec as item, i}
   <div
     class="item"
