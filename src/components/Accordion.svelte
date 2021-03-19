@@ -15,14 +15,10 @@
   let states = accordionStates;
 
   $: {
-    console.log(windowsWidth);
-    if (thatOpens && accordionBody && accordionTitle) {
-      fullSize =
-        thatOpens.scrollHeight +
-        accordionBody.scrollHeight -
-        accordionTitle.scrollHeight;
+    if (thatOpens && accordionBody && accordionTitle && windowsWidth > 0) {
+      fullSize = 1.6 * accordionBody.scrollHeight + accordionTitle.offsetHeight;
 
-      if ($accordionStates[accordionId] &&) {
+      if ($accordionStates[accordionId] && thatOpens.style.height != "") {
         thatOpens.style.height = `${fullSize}px`;
       } else {
         thatOpens.style.removeProperty("height");
