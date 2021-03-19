@@ -1,17 +1,34 @@
 <script>
   import { onMount } from "svelte";
   import { accordionHandler } from "../functions";
-  import { accordionStates } from "../Stores";
+  import { accordionStates, currentWindow } from "../Stores";
 
   export let title;
   export let body;
 
+  let windowsWidth;
   let accordionId;
   let accordionBody;
   let accordionTitle;
   let thatOpens;
   let fullSize;
   let states = accordionStates;
+
+  $: {
+    console.log(windowsWidth);
+    if (thatOpens && accordionBody && accordionTitle) {
+      fullSize =
+        thatOpens.scrollHeight +
+        accordionBody.scrollHeight -
+        accordionTitle.scrollHeight;
+
+      if ($accordionStates[accordionId] &&) {
+        thatOpens.style.height = `${fullSize}px`;
+      } else {
+        thatOpens.style.removeProperty("height");
+      }
+    }
+  }
 
   onMount(() => {
     fullSize =
@@ -30,6 +47,10 @@
 
     accordionHandler.updateState(Object.keys($accordionStates)[0]);
   });
+
+  // currentWindow.subscribe((value) => {
+  //   console.log(value);
+  // });
 
   const changeState = () => {
     accordionHandler.updateState(accordionId);
@@ -120,6 +141,8 @@
     background-color: #a0a3a4;
   }
 </style>
+
+<svelte:window bind:innerWidth={windowsWidth} />
 
 <div
   bind:this={thatOpens}
