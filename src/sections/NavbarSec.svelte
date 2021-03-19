@@ -38,7 +38,7 @@
       width: 0;
       height: 2px;
       background: white;
-      transition: width cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+      transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
     &:hover {
@@ -48,7 +48,7 @@
     }
 
     &.active {
-      letter-spacing: 0.1em;
+      letter-spacing: 0;
 
       &::after {
         content: "";
