@@ -23,22 +23,33 @@
     font-size: $font-size-primary; // 25px
     font-weight: 700;
     color: #11a7dd;
-    margin-bottom: clamp(14px, 1.04vw, 27px);
-    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
     user-select: none;
+    margin-bottom: clamp(14px, 1.04vw, 27px);
+    display: inline-block;
+    align-self: center;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+    }
 
     &:hover {
       cursor: pointer;
-      letter-spacing: 0.15em;
-      transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.65s;
     }
 
     &.active {
-      margin: 0 0 clamp(14px, 1.04vw, 27px) 0;
-      width: 120%;
-      border-bottom: 2px solid white;
-      animation: slide 0.3s ease-in-out;
-      letter-spacing: 0.15em;
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: white;
+        transition: width 0.65s;
+      }
     }
   }
 </style>
