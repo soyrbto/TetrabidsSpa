@@ -102,13 +102,7 @@
 
 <Card>
   <div class="column-wrapper">
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      autocomplete="off"
-      class="form-wrapper"
-    >
+    <form class="form-wrapper" name="contact" netlify>
       <div class="group">
         <input required type="text" class="fields" name="name" id="name" />
         <label for="name">Nombre</label>

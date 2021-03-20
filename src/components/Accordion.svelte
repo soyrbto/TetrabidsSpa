@@ -18,7 +18,7 @@
     if (thatOpens && accordionBody && accordionTitle && windowsWidth > 0) {
       fullSize = 1.6 * accordionBody.scrollHeight + accordionTitle.offsetHeight;
 
-      if ($accordionStates[accordionId] && thatOpens.style.height != "") {
+      if ($accordionStates[accordionId]) {
         thatOpens.style.height = `${fullSize}px`;
       } else {
         thatOpens.style.removeProperty("height");
