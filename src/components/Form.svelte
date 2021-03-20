@@ -1,6 +1,20 @@
 <script>
   import Card from "./Card.svelte";
   import Button from "./Button.svelte";
+
+  let contactForm;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let formData = new FormData(contactForm);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
+  };
 </script>
 
 <style type="text/scss">
@@ -102,7 +116,13 @@
 
 <Card>
   <div class="column-wrapper">
-    <form class="form-wrapper" name="contact" netlify>
+    <form
+      bind:this={contactForm}
+      on:submit={handleSubmit}
+      class="form-wrapper"
+      name="contact"
+      netlify
+    >
       <div class="group">
         <input required type="text" class="fields" name="name" id="name" />
         <label for="name">Nombre</label>
