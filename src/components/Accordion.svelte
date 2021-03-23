@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { accordionHandler } from "../functions";
-  import { accordionStates, currentWindow } from "../Stores";
+  import { accordionStates } from "../Stores";
 
   export let title;
   export let body;
@@ -33,15 +33,15 @@
       accordionTitle.scrollHeight;
     accordionId = accordionHandler.addItem();
 
-    accordionStates.subscribe((value) => {
-      if (value[accordionId]) {
-        thatOpens.style.height = `${fullSize}px`;
-      } else {
-        thatOpens.style.removeProperty("height");
-      }
-    });
-
     accordionHandler.updateState(Object.keys($accordionStates)[0]);
+  });
+
+  accordionStates.subscribe((value) => {
+    if (value[accordionId] && thatOpens != undefined) {
+      thatOpens.style.height = `${fullSize}px`;
+    } else if (thatOpens != undefined) {
+      thatOpens.style.removeProperty("height");
+    }
   });
 
   // currentWindow.subscribe((value) => {
