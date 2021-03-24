@@ -353,7 +353,7 @@
       verticalDist = e.detail.dy;
       initMove = true;
     }
-    if (Math.abs(verticalDist) < 6) {
+    if (Math.abs(verticalDist) < 7) {
       pos += e.detail.dx;
 
       slidyLoop();
