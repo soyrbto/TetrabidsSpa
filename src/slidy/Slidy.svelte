@@ -334,17 +334,19 @@
     htx = 0,
     speed = 0,
     tracker;
-  function dragStart() {
-    slidyNull();
-    isdrag = true;
-    transition = 0;
-    if (tracker !== null) {
-      clearInterval(tracker);
+  function dragStart(e) {
+    if (e.detail.dy > 1 || e.detail.dy < -1) {
+      slidyNull();
+      isdrag = true;
+      transition = 0;
+      if (tracker !== null) {
+        clearInterval(tracker);
+      }
     }
   }
 
   function dragSlide(e) {
-    if (e.detail.dy < 2 || e.detail.dy > -2) {
+    if (e.detail.dy > 1 || e.detail.dy < -1) {
       pos += e.detail.dx;
 
       slidyLoop();
