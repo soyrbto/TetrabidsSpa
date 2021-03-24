@@ -338,7 +338,7 @@
   let verticalDist;
   let initMove = false;
 
-  function dragStart(e) {
+  function dragStart() {
     slidyNull();
     isdrag = true;
     transition = 0;
@@ -353,7 +353,7 @@
       verticalDist = e.detail.dy;
       initMove = true;
     }
-    if (verticalDist == 0) {
+    if (Math.abs(verticalDist) < 2) {
       pos += e.detail.dx;
 
       slidyLoop();
@@ -364,8 +364,7 @@
     }
   }
   function dragStop() {
-    initMove = false;
-    isdrag = false;
+    initMove = isdrag = false;
     clearInterval(tracker);
     slidyStop();
   }
