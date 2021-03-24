@@ -334,27 +334,37 @@
     htx = 0,
     speed = 0,
     tracker;
+
+  let verticalDist;
+  let initMove = false;
+
   function dragStart(e) {
-    if (e.detail.dy > 1 || e.detail.dy < -1) {
-      slidyNull();
-      isdrag = true;
-      transition = 0;
-      if (tracker !== null) {
-        clearInterval(tracker);
-      }
+    slidyNull();
+    isdrag = true;
+    transition = 0;
+    if (tracker !== null) {
+      clearInterval(tracker);
     }
   }
 
   function dragSlide(e) {
-    pos += e.detail.dx;
+    if (!initMove) {
+      console.log(e.detail.dy);
+      verticalDist = e.detail.dy;
+      initMove = true;
+    }
+    if (verticalDist == 0) {
+      pos += e.detail.dx;
 
-    slidyLoop();
-    if (e.detail.dy == 0) {
-      speed = (htx - pos) / options.duration / 2;
-      tracker = setInterval(() => (htx = pos), options.duration / 2);
+      slidyLoop();
+      if (e.detail.dy == 0) {
+        speed = (htx - pos) / options.duration / 2;
+        tracker = setInterval(() => (htx = pos), options.duration / 2);
+      }
     }
   }
   function dragStop() {
+    initMove = false;
     isdrag = false;
     clearInterval(tracker);
     slidyStop();
