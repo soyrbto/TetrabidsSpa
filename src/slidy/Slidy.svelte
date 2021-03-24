@@ -335,7 +335,7 @@
     speed = 0,
     tracker;
   function dragStart(e) {
-    if (e.detail.dy > 2 || e.detail.dy < -2) {
+    if (e.detail.dy > 1 || e.detail.dy < -1) {
       slidyNull();
       isdrag = true;
       transition = 0;
