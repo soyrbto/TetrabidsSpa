@@ -8,6 +8,12 @@
 
   export let params;
   let postId = params.id;
+
+  onMount(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 700);
+  });
 </script>
 
 <style type="text/scss">

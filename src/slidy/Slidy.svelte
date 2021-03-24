@@ -255,6 +255,8 @@
   }
 
   // SLIDY ------------------------------------------------------
+
+  //funcion que se dispara cuando hay movimiento
   function slidyLoop() {
     if (pos >= size.last) {
       if (options.loop) {
@@ -280,8 +282,12 @@
     }
   }
 
+  //sabemos que se llama esta funcion cada vez que se hace click o touch sobre el elemento
   function slidyStop() {
+    // asigna variables
     transition = options.duration / 2;
+
+    //define la funcion nulled con el parametro "direct"
     const nulled = (direct) => {
       if (direct) {
         if (options.loop) {
@@ -296,6 +302,9 @@
         pos = comp = speed = 0;
       }
     };
+
+    // A partir de aqui es que hay accion
+
     if (pos > size.last / 3 || speed < 0) {
       if (options.loop) {
         pos += size.last - pos;
@@ -315,31 +324,9 @@
     }
   }
 
+  // se define la funcion slidyNull
   function slidyNull() {
     if (comp !== 0) comp = pos = 0;
-  }
-
-  // WHEELL -----------------------------------------------------
-  let iswheel = false,
-    wheeltime;
-  function slidyWheel(e) {
-    slidyNull();
-    iswheel = true;
-    transition = 0;
-    if (options.axis === "y") {
-      pos += -e.detail.dy;
-    } else {
-      pos += -e.detail.dx;
-    }
-    slidyLoop();
-    if (wheeltime !== null) {
-      clearTimeout(wheeltime);
-    }
-    wheeltime = setTimeout(() => {
-      iswheel = false;
-      clearTimeout(wheeltime);
-      slidyStop();
-    }, options.duration / 2);
   }
 
   // DRAG -------------------------------------------------------
@@ -357,12 +344,14 @@
   }
 
   function dragSlide(e) {
-    pos += e.detail.dx;
-
-    slidyLoop();
     if (e.detail.dy == 0) {
-      speed = (htx - pos) / options.duration / 2;
-      tracker = setInterval(() => (htx = pos), options.duration / 2);
+      pos += e.detail.dx;
+
+      slidyLoop();
+      if (e.detail.dy == 0) {
+        speed = (htx - pos) / options.duration / 2;
+        tracker = setInterval(() => (htx = pos), options.duration / 2);
+      }
     }
   }
   function dragStop() {
@@ -560,10 +549,6 @@
   class:alignmiddle={wrap.align === "middle"}
   class:alignstart={wrap.align === "start"}
   class:alignend={wrap.align === "end"}
-  use:action.resize
-  on:resize={resizeWrap}
-  use:action.wheel
-  on:wheels={controls.wheel ? slidyWheel : null}
   use:action.pannable
   on:panstart={controls.drag ? dragStart : null}
   on:panmove={controls.drag ? dragSlide : null}

@@ -1,4 +1,5 @@
 export function pannable(node) {
+  // definicion de estados iniciales =========>
   const eventHandlerOptions = { passive: false };
   let x = 0;
   let y = 0;
@@ -7,6 +8,11 @@ export function pannable(node) {
     return e.changedTouches ? e.changedTouches[0] : e;
   }
 
+  // eventos que seran oidos desde que se cree el elemento ======>
+  node.addEventListener("mousedown", handleMousedown, eventHandlerOptions);
+  node.addEventListener("touchstart", handleMousedown, eventHandlerOptions);
+
+  // inicio de la funcionalidad llamada  ================>
   function handleMousedown(e) {
     x = unify(e).clientX;
     y = unify(e).clientY;
@@ -28,13 +34,6 @@ export function pannable(node) {
     const dy = unify(e).clientY - y;
     x = unify(e).clientX;
     y = unify(e).clientY;
-    // if (dx !== 0) {
-    //   if (e.preventDefault && e.cancelable) {
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     e.returnValue = false;
-    //   }
-    // }
 
     node.dispatchEvent(
       new CustomEvent("panmove", {
@@ -67,9 +66,6 @@ export function pannable(node) {
     window.removeEventListener("touchend", handleMouseup, eventHandlerOptions);
   }
 
-  node.addEventListener("mousedown", handleMousedown, eventHandlerOptions);
-  node.addEventListener("touchstart", handleMousedown, eventHandlerOptions);
-
   return {
     destroy() {
       node.removeEventListener(
@@ -82,61 +78,6 @@ export function pannable(node) {
         handleMousedown,
         eventHandlerOptions
       );
-    },
-  };
-}
-
-export function resize(node) {
-  let CR;
-  let ET;
-
-  const ro = new ResizeObserver((entries) => {
-    for (let entry of entries) {
-      CR = entry.contentRect;
-      ET = entry.target;
-    }
-    node.dispatchEvent(
-      new CustomEvent("resize", {
-        detail: { CR, ET },
-      })
-    );
-  });
-
-  ro.observe(node);
-
-  return {
-    destroy() {
-      ro.disconnect();
-    },
-  };
-}
-
-export function wheel(node) {
-  let dx = 0,
-    dy = 0;
-
-  function handleWheel(e) {
-    if (navigator.platform.indexOf("Win") > -1 && e.shiftKey) {
-      dx = e.deltaY;
-    } else {
-      dx = e.deltaX * 1.5;
-      dy = e.deltaY * 1.5;
-    }
-    if (dx !== 0) {
-      e.preventDefault ? e.preventDefault() : (e.returnValue = false);
-    }
-    node.dispatchEvent(
-      new CustomEvent("wheels", {
-        detail: { dx, dy },
-      })
-    );
-  }
-
-  node.addEventListener("wheel", handleWheel, { passive: false });
-
-  return {
-    destroy() {
-      node.removeEventListener("wheel", handleWheel);
     },
   };
 }
