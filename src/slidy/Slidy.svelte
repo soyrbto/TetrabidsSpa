@@ -335,7 +335,7 @@
     speed = 0,
     tracker;
   function dragStart(e) {
-    if (e.detail.dy > 3 || e.detail.dy < -3) {
+    if (e.detail.dy > 2 || e.detail.dy < -2) {
       slidyNull();
       isdrag = true;
       transition = 0;
@@ -346,14 +346,12 @@
   }
 
   function dragSlide(e) {
-    if (e.detail.dy > 1 || e.detail.dy < -1) {
-      pos += e.detail.dx;
+    pos += e.detail.dx;
 
-      slidyLoop();
-      if (e.detail.dy == 0) {
-        speed = (htx - pos) / options.duration / 2;
-        tracker = setInterval(() => (htx = pos), options.duration / 2);
-      }
+    slidyLoop();
+    if (e.detail.dy == 0) {
+      speed = (htx - pos) / options.duration / 2;
+      tracker = setInterval(() => (htx = pos), options.duration / 2);
     }
   }
   function dragStop() {
