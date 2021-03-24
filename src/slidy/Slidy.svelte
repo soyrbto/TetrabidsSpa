@@ -344,7 +344,7 @@
   }
 
   function dragSlide(e) {
-    if (e.detail.dy == 0) {
+    if (e.detail.dy < 2 || e.detail.dy > -2) {
       pos += e.detail.dx;
 
       slidyLoop();
