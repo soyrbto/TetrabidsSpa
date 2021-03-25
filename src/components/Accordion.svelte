@@ -17,7 +17,7 @@
   $: {
     if (thatOpens && accordionBody && accordionTitle && windowsWidth > 0) {
       fullSize =
-        1.65 * accordionBody.scrollHeight + accordionTitle.offsetHeight;
+        1.45 * accordionBody.scrollHeight + accordionTitle.offsetHeight;
 
       if ($accordionStates[accordionId]) {
         thatOpens.style.height = `${fullSize}px`;
@@ -57,7 +57,7 @@
     display: flex;
     flex-direction: column;
     width: clamp(calc(20vw + 26rem), 30.72vw, 750px); // 590px
-    height: clamp(52px, 3.43vw, 90px); // 66px
+    height: clamp(55px, 3.43vw, 90px); // 66px
     margin-bottom: clamp(30px, 1.56vw, 40px); // 30px
     border-radius: 10px;
     box-shadow: 9px 12px 31px rgba(0, 0, 0, 0.45);
@@ -81,9 +81,7 @@
     .title {
       display: flex;
       align-items: center;
-      font-size: clamp(clamp(12px, calc(0.25vw + 1.2rem), 16px), 1.14vw, 30px);
-      line-height: 0;
-      margin: clamp(16px, 1.14vw, 30px) auto clamp(16px, 1.14vw, 30px)
+      margin: clamp(17px, 1.143vw, 30px) auto clamp(17px, 1.143vw, 30px)
         clamp(11px, 0.57vw, 12px);
       // user-select: none;
       cursor: pointer;
@@ -92,8 +90,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: clamp(22px, 1.14vw, 30px); // 22px
-        height: clamp(22px, 1.14vw, 30px);
+        width: clamp(22px, 1.143vw, 30px); // 22px
+        height: clamp(22px, 1.143vw, 30px);
         color: white;
         margin-right: clamp(11px, 0.66vw, 13px); // 13px
         background-color: #11a7dd;
@@ -107,7 +105,16 @@
       .wrapper-title-accordion {
         display: flex;
         align-items: center;
-        height: clamp(22px, 1.14vw, 30px);
+        height: clamp(22px, 1.143vw, 30px);
+
+        .title-accordion {
+          font-size: clamp(14px, 1.143vw, 30px);
+          height: clamp(20px, 1.45vw, 38px);
+
+          @include respond(tab-land) {
+            height: 82.2%;
+          }
+        }
       }
 
       .disabled {
@@ -115,13 +122,12 @@
       }
     }
     .body {
-      font-family: montserrat;
       font-size: clamp(12px, 0.78vw, 20px);
-      line-height: clamp(18px, calc(0.94vw + 10px), 32px); // 28px
+      line-height: clamp(17px, calc(0.94vw + 10px), 32px); // 28px
       letter-spacing: 0.05em;
       width: 100%;
       padding: 0 4% 0 clamp(44.5px, 2.395vw, 47px);
-      padding-bottom: clamp(16px, 1.14vw, 30px);
+      padding-bottom: clamp(16px, 1.143vw, 30px);
       overflow: hidden;
     }
   }
