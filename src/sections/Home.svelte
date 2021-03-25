@@ -5,6 +5,7 @@
   import { instructionsMap, mapDriver, instructionsMapMob } from "../functions";
   import { maxWidthTablet, sectionItems } from "../Stores";
   import { accordionData } from "../StaticStore";
+  import { fade } from "svelte/transition";
 
   let windowsWidth;
 
@@ -61,15 +62,6 @@
 
       .accordion {
         margin-top: clamp(19px, 1.04vw, 27px);
-
-        // .title-accordion {
-        //   font-size: clamp(
-        //     clamp(12px, calc(0.25vw + 1.2rem), 16px),
-        //     1.14vw,
-        //     30px
-        //   ); // 22px
-        //   line-height: 0;
-        // }
       }
 
       & > .button {
@@ -101,10 +93,7 @@
           on:openAccordion
           title={accordion.title}
           body={accordion.body}
-        >
-          <!-- <h3 class="title-accordion" slot="title">{accordion.title}</h3> -->
-          <!-- <p slot="body" bind:this={accoSlot[i]}>{accordion.body}</p> -->
-        </Accordion>
+        />
       {/each}
     </div>
 
@@ -118,6 +107,7 @@
   {#if windowsWidth > $maxWidthTablet}
     <div class="col-2">
       <img
+        in:fade={{ delay: 350, duration: 600 }}
         class="slide-in-right"
         src="./images/laptop.svg"
         alt="Laptop with code on the screen"

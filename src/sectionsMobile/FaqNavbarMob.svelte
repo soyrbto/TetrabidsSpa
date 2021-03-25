@@ -22,11 +22,11 @@
     z-index: -1;
 
     &.open {
-      // touch-action: none;
+      touch-action: none;
       height: calc(100vh - #{$height-footer-mob} - #{$height-header});
       background-color: rgba(0, 0, 0, 0.98);
       pointer-events: visible;
-      transition: all 200ms ease-in-out;
+      transition: all 700ms ease-in-out;
       z-index: 5;
     }
   }
@@ -51,28 +51,28 @@
       user-select: none;
 
       &:nth-child(1) {
-        animation-delay: 0.2s;
+        animation-delay: 0.1s;
       }
       &:nth-child(2) {
-        animation-delay: 0.25s;
+        animation-delay: 0.15s;
       }
       &:nth-child(3) {
-        animation-delay: 0.3s;
+        animation-delay: 0.2s;
       }
       &:nth-child(4) {
-        animation-delay: 0.35s;
+        animation-delay: 0.25s;
       }
       &:nth-child(5) {
-        animation-delay: 0.4s;
+        animation-delay: 0.3s;
       }
       &:nth-child(6) {
-        animation-delay: 0.45s;
+        animation-delay: 0.35s;
       }
       &:nth-child(7) {
-        animation-delay: 0.5s;
+        animation-delay: 0.4s;
       }
       &:nth-child(8) {
-        animation-delay: 0.55s;
+        animation-delay: 0.45s;
       }
 
       .nav__link {

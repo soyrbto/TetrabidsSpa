@@ -88,7 +88,7 @@
       </div>
       {#key imageUrl}
         <img
-          in:fade={{ delay: 250, duration: 300 }}
+          in:fade={{ delay: 350, duration: 600 }}
           src="./images/{imageUrl}.svg"
           alt={imageAlt}
           class="meeting fade-in-bck"

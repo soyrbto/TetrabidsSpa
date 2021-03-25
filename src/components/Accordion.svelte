@@ -16,7 +16,8 @@
 
   $: {
     if (thatOpens && accordionBody && accordionTitle && windowsWidth > 0) {
-      fullSize = 1.6 * accordionBody.scrollHeight + accordionTitle.offsetHeight;
+      fullSize =
+        1.65 * accordionBody.scrollHeight + accordionTitle.offsetHeight;
 
       if ($accordionStates[accordionId]) {
         thatOpens.style.height = `${fullSize}px`;
@@ -44,97 +45,90 @@
     }
   });
 
-  // currentWindow.subscribe((value) => {
-  //   console.log(value);
-  // });
-
   const changeState = () => {
     accordionHandler.updateState(accordionId);
   };
 </script>
 
-<style>
+<style type="text/scss">
+  @import "../stylesGlobal/vars";
+
   .container {
     display: flex;
     flex-direction: column;
-    /* META width 590px */
-    width: clamp(calc(20vw + 26rem), 30.72vw, 750px);
-    /* META 66px*/
-    height: clamp(52px, 3.43vw, 90px);
-    /* META 30px*/
-    margin-bottom: clamp(30px, 1.56vw, 40px);
-    border-radius: 1rem;
+    width: clamp(calc(20vw + 26rem), 30.72vw, 750px); // 590px
+    height: clamp(52px, 3.43vw, 90px); // 66px
+    margin-bottom: clamp(30px, 1.56vw, 40px); // 30px
+    border-radius: 10px;
     box-shadow: 9px 12px 31px rgba(0, 0, 0, 0.45);
     overflow: hidden;
     background-color: white;
     transition: height ease-in-out 0.7s;
-  }
 
-  @media screen and (max-width: 768px) {
-    .container {
-      width: clamp(332px, 80vw, 538px);
+    @include respond(tab-port) {
+      width: 60.72vw;
+    }
+
+    @include respond(phone) {
+      width: 90vw;
+    }
+
+    &-open svg path {
+      //d: path("M2 7H12 M7 7L7 7");
+      transition: 0.6s;
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      font-size: clamp(clamp(12px, calc(0.25vw + 1.2rem), 16px), 1.14vw, 30px);
+      line-height: 0;
+      margin: clamp(16px, 1.14vw, 30px) auto clamp(16px, 1.14vw, 30px)
+        clamp(11px, 0.57vw, 12px);
+      // user-select: none;
+      cursor: pointer;
+
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: clamp(22px, 1.14vw, 30px); // 22px
+        height: clamp(22px, 1.14vw, 30px);
+        color: white;
+        margin-right: clamp(11px, 0.66vw, 13px); // 13px
+        background-color: #11a7dd;
+        border-radius: 50%;
+        outline: none;
+        border-style: none;
+        transition: all ease-in-out 0.7s;
+        cursor: pointer;
+      }
+
+      .wrapper-title-accordion {
+        display: flex;
+        align-items: center;
+        height: clamp(22px, 1.14vw, 30px);
+      }
+
+      .disabled {
+        background-color: #a0a3a4;
+      }
+    }
+    .body {
+      font-family: montserrat;
+      font-size: clamp(12px, 0.78vw, 20px);
+      line-height: clamp(18px, calc(0.94vw + 10px), 32px); // 28px
+      letter-spacing: 0.05em;
+      width: 100%;
+      padding: 0 4% 0 clamp(44.5px, 2.395vw, 47px);
+      padding-bottom: clamp(16px, 1.14vw, 30px);
+      overflow: hidden;
     }
   }
 
   .container-open > .title,
   .container-open button {
     cursor: auto;
-  }
-
-  .container-open svg path {
-    /* d: path("M2 7H12 M7 7L7 7"); */
-    transition: 0.6s;
-  }
-
-  .title {
-    display: flex;
-    align-items: center;
-    font-family: "Josefin Sans", sans-serif;
-    font-weight: 600;
-    margin-top: clamp(16px, 1.14vw, 30px);
-    margin-bottom: clamp(16px, 1.14vw, 30px);
-    margin-left: clamp(11px, 0.57vw, 12px);
-    cursor: pointer;
-    user-select: none;
-    font-size: clamp(clamp(12px, calc(0.25vw + 1.2rem), 16px), 1.14vw, 30px);
-    line-height: 0;
-  }
-
-  .body {
-    overflow: hidden;
-    font-family: montserrat;
-    /* meta font size 15px */
-    /* font-size: clamp(13px, 0.6vw + 0.7rem, 16px); */
-    font-size: clamp(12px, 0.78vw, 20px);
-    /* meta line height 28px */
-    line-height: clamp(18px, 0.94vw + 10px, 32px);
-    letter-spacing: 0.05em;
-    width: 100%;
-    /* padding: 0 3% 0 6%; */
-    padding: 0 4% 0 clamp(44.5px, 2.395vw, 47px);
-    padding-bottom: clamp(16px, 1.14vw, 30px);
-  }
-
-  .button {
-    width: 22px;
-    height: 22px;
-    color: white;
-    font-weight: 700;
-    cursor: pointer;
-    /** META 12.77px*/
-    margin-right: clamp(11px, 0.66vw, 13px);
-    background-color: #11a7dd;
-    border-radius: 50%;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-style: none;
-    transition: all ease-in-out 0.7s;
-  }
-
-  .disabled {
-    background-color: #a0a3a4;
   }
 </style>
 
@@ -161,7 +155,9 @@
         />
       </svg></button
     >
-    <h3 bind:this={accordionTitle} class="title-accordion">{title}</h3>
+    <div class="wrapper-title-accordion">
+      <h3 bind:this={accordionTitle} class="title-accordion">{title}</h3>
+    </div>
   </label>
 
   <div class="body" bind:this={accordionBody}>

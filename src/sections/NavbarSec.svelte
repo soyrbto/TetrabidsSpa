@@ -9,6 +9,7 @@
 
 <style type="text/scss">
   @import "../stylesGlobal/vars";
+
   .wrapper-img {
     display: flex;
     justify-content: center;
