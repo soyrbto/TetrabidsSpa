@@ -106,6 +106,7 @@
       display: flex;
       position: absolute;
       top: 96%;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
       .button-content {
         padding: clamp(10px, 0.7vw, 20px) clamp(23px, 1.8vw, 40px);

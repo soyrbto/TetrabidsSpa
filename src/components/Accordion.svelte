@@ -17,7 +17,7 @@
   $: {
     if (thatOpens && accordionBody && accordionTitle && windowsWidth > 0) {
       fullSize =
-        1.45 * accordionBody.scrollHeight + accordionTitle.offsetHeight;
+        1.35 * accordionBody.scrollHeight + accordionTitle.offsetHeight;
 
       if ($accordionStates[accordionId]) {
         thatOpens.style.height = `${fullSize}px`;
@@ -78,63 +78,75 @@
       transition: 0.6s;
     }
 
+    &-open > .title > .wrapper-title-accordion,
+    &-open > .title > .wrapper-button {
+      cursor: default;
+    }
+
     .title {
       display: flex;
       align-items: center;
       margin: clamp(17px, 1.143vw, 30px) auto clamp(17px, 1.143vw, 30px)
         clamp(11px, 0.57vw, 12px);
-      // user-select: none;
       cursor: pointer;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // remove blue box on click
 
-      .button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: clamp(22px, 1.143vw, 30px); // 22px
+      .wrapper-button {
         height: clamp(22px, 1.143vw, 30px);
-        color: white;
-        margin-right: clamp(11px, 0.66vw, 13px); // 13px
-        background-color: #11a7dd;
-        border-radius: 50%;
-        outline: none;
-        border-style: none;
-        transition: all ease-in-out 0.7s;
-        cursor: pointer;
+        .button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: clamp(22px, 1.143vw, 30px); // 22px
+          height: clamp(22px, 1.143vw, 30px);
+          color: white;
+          margin-right: clamp(11px, 0.66vw, 13px); // 13px
+          background-color: #11a7dd;
+          border-radius: 50%;
+          outline: none;
+          border-style: none;
+          transition: all ease-in-out 0.7s;
+          cursor: pointer;
+        }
+        .disabled {
+          background-color: #a0a3a4;
+          cursor: default;
+        }
       }
 
       .wrapper-title-accordion {
-        display: flex;
-        align-items: center;
         height: clamp(22px, 1.143vw, 30px);
 
+        @include respond(phone) {
+          display: flex;
+          align-items: flex-end;
+        }
+
         .title-accordion {
-          font-size: clamp(14px, 1.143vw, 30px);
-          height: clamp(20px, 1.45vw, 38px);
+          font-size: clamp(20px, 1.143vw, 30px);
+          line-height: 1;
+          display: inline;
+          vertical-align: text-top;
 
           @include respond(tab-land) {
             height: 82.2%;
           }
-        }
-      }
 
-      .disabled {
-        background-color: #a0a3a4;
+          @include respond(phone) {
+            font-size: clamp(15px, 4.34vw, 18px); // 18px
+          }
+        }
       }
     }
     .body {
-      font-size: clamp(12px, 0.78vw, 20px);
-      line-height: clamp(17px, calc(0.94vw + 10px), 32px); // 28px
+      font-size: $font-size-body;
+      line-height: clamp(20px, 1.45vw, 35px);
       letter-spacing: 0.05em;
       width: 100%;
       padding: 0 4% 0 clamp(44.5px, 2.395vw, 47px);
       padding-bottom: clamp(16px, 1.143vw, 30px);
       overflow: hidden;
     }
-  }
-
-  .container-open > .title,
-  .container-open button {
-    cursor: auto;
   }
 </style>
 
@@ -145,22 +157,30 @@
   class:container-open={$states[accordionId]}
   class="container container-smaller"
 >
-  <label for={accordionId} class="title"
-    ><button
-      class:disabled={$states[accordionId]}
-      on:click={changeState}
-      id={accordionId}
-      type="button"
-      class="button"
-      ><svg class="svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path
-          d="M2 7H12 M7 2L7 12"
-          stroke="white"
-          stroke-width="4"
-          stroke-linecap="round"
-        />
-      </svg></button
-    >
+  <label for={accordionId} class="title">
+    <div class="wrapper-button">
+      <button
+        class:disabled={$states[accordionId]}
+        on:click={changeState}
+        id={accordionId}
+        type="button"
+        class="button"
+        ><svg
+          class="svg"
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+        >
+          <path
+            d="M2 7H12 M7 2L7 12"
+            stroke="white"
+            stroke-width="4"
+            stroke-linecap="round"
+          />
+        </svg></button
+      >
+    </div>
     <div class="wrapper-title-accordion">
       <h3 bind:this={accordionTitle} class="title-accordion">{title}</h3>
     </div>

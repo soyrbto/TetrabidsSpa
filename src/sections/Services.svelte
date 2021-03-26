@@ -51,6 +51,10 @@
       padding: 5% 0;
     }
 
+    @include respond(phone) {
+      padding: 12% 0 0 0;
+    }
+
     .col-1 {
       display: flex;
       flex-direction: column;
@@ -63,6 +67,10 @@
 
       .concept {
         margin-bottom: 20px;
+
+        @include respond(tab-land) {
+          margin-bottom: 0;
+        }
         .title {
           font-size: $font-size-titleSec-desk; // 32px
 
@@ -72,13 +80,20 @@
         .abstract {
           font-size: $font-size-body;
           line-height: $line-height;
-          text-align: center;
+          text-align: justify;
           margin-top: 15px;
+
+          @include respond(tab-land) {
+            font-size: clamp(14px, 2.08vw, 18px);
+            text-align: center;
+            width: clamp(653px, 65vw, 832px);
+            margin: 10px auto clamp(35px, 5.85vw, 38px) auto;
+          }
 
           @include respond(phone) {
             min-height: 92px;
             text-align: justify;
-            padding: 0 5%;
+            width: 85vw;
           }
         }
       }

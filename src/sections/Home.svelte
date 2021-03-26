@@ -66,6 +66,7 @@
 
       & > .button {
         text-align: center;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
         .button-contact {
           padding: clamp(15px, 0.9375vw, 18px) clamp(18px, 1.2vw, 23px);
@@ -97,9 +98,11 @@
       {/each}
     </div>
 
-    <div class="button" on:click={contactMove}>
+    <div class="button">
       <Button>
-        <div class="button-contact">{$sectionItems.navbarSec[2]}</div>
+        <div class="button-contact" on:click={contactMove}>
+          {$sectionItems.navbarSec[2]}
+        </div>
       </Button>
     </div>
   </div>

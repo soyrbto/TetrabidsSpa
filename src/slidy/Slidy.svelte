@@ -38,7 +38,7 @@
       loop: false,
       duration: 450,
     },
-    index = 0,
+    index = 1,
     slidyinit = false;
 
   // setup ------------------------------------------------

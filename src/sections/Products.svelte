@@ -66,13 +66,20 @@
         .abstract {
           font-size: $font-size-body;
           line-height: $line-height;
-          text-align: center;
+          text-align: justify;
           margin-top: 15px;
+
+          @include respond(tab-land) {
+            font-size: clamp(14px, 2.08vw, 18px);
+            text-align: center;
+            width: clamp(653px, 65vw, 832px);
+            margin: 10px auto clamp(35px, 5.85vw, 38px) auto;
+          }
 
           @include respond(phone) {
             min-height: 92px;
             text-align: justify;
-            padding: 0 5%;
+            width: 85vw;
           }
         }
       }
