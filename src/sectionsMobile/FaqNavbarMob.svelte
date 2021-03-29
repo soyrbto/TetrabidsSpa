@@ -23,7 +23,7 @@
 
     &.open {
       touch-action: none;
-      height: calc(100vh - #{$height-footer-mob} - #{$height-header});
+      height: calc(100vh - #{$height-header});
       background-color: rgba(0, 0, 0, 0.98);
       pointer-events: visible;
       transition: all 700ms ease-in-out;

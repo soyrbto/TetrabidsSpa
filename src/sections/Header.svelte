@@ -28,9 +28,6 @@
       top: 0;
       z-index: 10;
     }
-    position: sticky;
-    top: 0;
-    z-index: 10;
 
     img {
       position: absolute;
@@ -41,6 +38,7 @@
       font-size: clamp(40px, 3.65vw, 90px);
       height: clamp(55px, 4.6875vw, 100px); // 90px
       margin-right: clamp(23px, 1.82vw, 46px); // 35px
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
       a {
         color: white;

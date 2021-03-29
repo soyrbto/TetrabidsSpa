@@ -34,8 +34,8 @@
 
       &-left {
         width: 36.25%;
-        height: calc(100vh - #{$height-header} - #{$height-footer});
-        padding: 15px 38px 0;
+        height: calc(100vh - #{$height-header});
+        padding: 15px 38px;
         overflow: scroll;
         overflow-x: hidden;
         position: sticky;
@@ -92,7 +92,6 @@
         @include respond(tab-port) {
           width: 100%;
           position: relative;
-          margin-bottom: $height-footer-mob;
 
           &::-webkit-scrollbar {
             display: none;
@@ -137,4 +136,3 @@
     </div>
   </div>
 </main>
-<Footer sticky="true" />
