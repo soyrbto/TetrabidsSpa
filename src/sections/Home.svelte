@@ -81,6 +81,7 @@
   }
 </style>
 
+<link rel="preload" as="image" href="./images/laptop.svg" />
 <svelte:window bind:innerWidth={windowsWidth} />
 
 <Textures />

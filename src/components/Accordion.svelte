@@ -28,12 +28,7 @@
   }
 
   onMount(() => {
-    fullSize =
-      thatOpens.scrollHeight +
-      accordionBody.scrollHeight -
-      accordionTitle.scrollHeight;
     accordionId = accordionHandler.addItem();
-
     accordionHandler.updateState(Object.keys($accordionStates)[0]);
   });
 
@@ -155,7 +150,7 @@
 <div
   bind:this={thatOpens}
   class:container-open={$states[accordionId]}
-  class="container container-smaller"
+  class="container"
 >
   <label for={accordionId} class="title">
     <div class="wrapper-button">
