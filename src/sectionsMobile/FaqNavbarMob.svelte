@@ -13,7 +13,7 @@
 
   .nav {
     position: fixed;
-    top: $height-header;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -23,11 +23,11 @@
 
     &.open {
       touch-action: none;
-      height: calc(100vh - #{$height-header});
+      height: 100vh;
       background-color: rgba(0, 0, 0, 0.98);
       pointer-events: visible;
-      transition: all 700ms ease-in-out;
-      z-index: 5;
+      transition: all 200ms ease-in-out;
+      z-index: 11;
     }
   }
 
@@ -51,28 +51,28 @@
       user-select: none;
 
       &:nth-child(1) {
-        animation-delay: 0.1s;
+        animation-delay: 1.2s;
       }
       &:nth-child(2) {
-        animation-delay: 0.15s;
+        animation-delay: 1.3s;
       }
       &:nth-child(3) {
-        animation-delay: 0.2s;
+        animation-delay: 1.4s;
       }
       &:nth-child(4) {
-        animation-delay: 0.25s;
+        animation-delay: 1.5s;
       }
       &:nth-child(5) {
-        animation-delay: 0.3s;
+        animation-delay: 1.6s;
       }
       &:nth-child(6) {
-        animation-delay: 0.35s;
+        animation-delay: 1.7s;
       }
       &:nth-child(7) {
-        animation-delay: 0.4s;
+        animation-delay: 1.8s;
       }
       &:nth-child(8) {
-        animation-delay: 0.45s;
+        animation-delay: 1.9s;
       }
 
       .nav__link {
@@ -96,8 +96,8 @@
 >
   <ul class="show nav__list js-nav__list">
     {#each faqStore as item, i}
-      <li on:click={() => goTo(i)} class="nav__item">
-        <div class="nav__link">{item.title}</div>
+      <li class="nav__item">
+        <div on:click={() => goTo(i)} class="nav__link">{item.title}</div>
       </li>
     {/each}
   </ul>
