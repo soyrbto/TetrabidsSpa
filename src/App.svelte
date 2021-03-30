@@ -1,9 +1,15 @@
 <script>
+  import { load } from "./Stores";
+  import { onMount } from "svelte";
   import page from "page";
   import Main from "./pages/Main.svelte";
   import Post from "./pages/Post.svelte";
   import Faq from "./pages/Faq.svelte";
   import ErrorPage from "./pages/ErrorPage.svelte";
+
+  onMount(() => {
+    load.set(true);
+  });
 
   let current;
   let params;

@@ -1,12 +1,13 @@
 <script>
   import { onMount } from "svelte";
-  import { nodeFaq } from "../Stores";
+  import { nodeFaq, load } from "../Stores";
   import Card from "../components/Card.svelte";
 
   let titleNode;
+  export let titleText, contentText, id;
 
   onMount(() => {
-    nodeFaq.update((value) => [...value, titleNode]);
+    if ($load) nodeFaq.update((value) => [...value, titleNode]);
   });
 </script>
 
@@ -34,11 +35,11 @@
 
 <div bind:this={titleNode} class="wrapper">
   <Card>
-    <div class="wrapper-card">
+    <div class="wrapper-card" id={`faq#${id}`}>
       <h3 class="title">
-        <slot name="title">title</slot>
+        <div>{titleText}</div>
       </h3>
-      <p class="content"><slot name="content">content</slot></p>
+      <div class="content">{@html contentText}</div>
     </div>
   </Card>
 </div>

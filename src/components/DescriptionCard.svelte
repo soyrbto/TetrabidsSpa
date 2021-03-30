@@ -80,7 +80,7 @@
     <div class="description-card-content">
       <div class="wrapper-text-descripction">
         <h3 class="typo-title">
-          <slot name="title">there is no service-title</slot>
+          <slot />
         </h3>
         <p class="service-body">
           <slot name="body">there is no service-body</slot>

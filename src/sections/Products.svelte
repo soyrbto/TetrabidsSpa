@@ -177,7 +177,7 @@
         idPost={id[activeItem] + 6}
         section="product"
       >
-        <div slot="title">{activeItem}</div>
+        <div>{activeItem}</div>
         <div slot="body">
           {@html textShortener(productsData[activeItem], 330)}
         </div>

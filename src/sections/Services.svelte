@@ -185,7 +185,7 @@
         idPost={id[activeItem]}
         section="service"
       >
-        <div slot="title">{activeItem}</div>
+        <div>{activeItem}</div>
         <div slot="body">
           {@html textShortener(servicesData[activeItem], 330)}
         </div>
