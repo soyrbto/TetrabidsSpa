@@ -6,7 +6,6 @@
   import FaqCard from "../components/FaqCard.svelte";
   import FaqNavbarMob from "../sectionsMobile/FaqNavbarMob.svelte";
 
-  export let params = "";
 
   let windowsWidth;
   let scrollable;

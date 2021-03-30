@@ -12,7 +12,6 @@
   import { maxWidthTablet, nodeSections } from "../Stores.js";
 
   let homeNode, sectionsNode, navbarType;
-  export let params;
 
   onMount(() => {
     let nodesArr = [homeNode, sectionsNode];

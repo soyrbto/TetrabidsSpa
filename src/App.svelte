@@ -37,4 +37,5 @@
   page.start();
 </script>
 
+<!-- svelte-ignore a11y-autofocus -->
 <svelte:component this={current} params={params} />
