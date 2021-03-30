@@ -1,6 +1,5 @@
 <script>
   import { moveSectionHandler } from "../functions";
-  import Footer from "../sections/Footer.svelte";
   import Header from "../sections/Header.svelte";
   import { faqStore } from "../FaqStore";
   import { nodeFaq } from "../Stores";
@@ -25,11 +24,9 @@
 
     .content {
       display: flex;
-      // height: calc(100vh - #{$height-header} - #{$height-footer});
 
       @include respond(tab-port) {
         flex-direction: column;
-        // height: calc(100vh - #{$height-header} - #{$height-footer-mob});
       }
 
       &-left {
@@ -116,8 +113,8 @@
         </div>
         <ul class="faq-list">
           {#each faqStore as item, i}
-            <li on:click={() => goTo(i)}>
-              <a href="/faq#{i}">{item.title}</a>
+            <li>
+              <a on:click={() => goTo(i)} href="/faq#{i}">{item.title}</a>
             </li>
           {/each}
         </ul>
