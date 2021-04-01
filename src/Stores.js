@@ -2,6 +2,7 @@ import { writable } from "svelte/store";
 import { moveSectionHandler } from "./functions";
 import { pageSections } from "./StaticStore";
 
+const load = writable(false);
 const maxWidthTablet = writable(1280);
 const displayedSection = moveSectionHandler.currentPos;
 const displayedState = moveSectionHandler.store;
@@ -26,6 +27,7 @@ const sectionItems = writable({
 });
 
 export {
+  load,
   animationRange,
   sectionItems,
   displayedSection,

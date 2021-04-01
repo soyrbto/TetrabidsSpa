@@ -6,6 +6,7 @@
   import FaqCard from "../components/FaqCard.svelte";
   import FaqNavbarMob from "../sectionsMobile/FaqNavbarMob.svelte";
 
+
   let windowsWidth;
   let scrollable;
 
@@ -125,10 +126,11 @@
         <FaqNavbarMob />
       {/if}
       {#each faqStore as cardContent, i}
-        <FaqCard id={i}>
-          <div slot="title">{cardContent.title}</div>
-          <div slot="content">{@html cardContent.abstract}</div>
-        </FaqCard>
+        <FaqCard
+          id={`faq#${i}`}
+          titleText={cardContent.title}
+          contentText={cardContent.abstract}
+        />
       {/each}
     </div>
   </div>

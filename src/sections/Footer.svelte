@@ -1,5 +1,10 @@
 <script>
+  import { maxWidthTablet } from "../Stores";
+  import { instructionsMap, mapDriver } from "../functions";
   export let sticky = false;
+
+  let windowsWidth;
+  $: isDesktop = windowsWidth > $maxWidthTablet;
 </script>
 
 <style type="text/scss">
@@ -78,9 +83,16 @@
   }
 </style>
 
+<svelte:window bind:innerWidth={windowsWidth} />
+
 <div class="underFooter" />
 
-<footer class:sticky>
+<footer
+  class:sticky
+  on:wheel|nonpassive={(e) => {
+    if (isDesktop) instructionsMap.then((value) => mapDriver.wheel(e, value));
+  }}
+>
   <div class="content">
     Designed and powered <span> by Tetrabids</span> | 2021
   </div>

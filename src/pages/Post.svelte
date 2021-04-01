@@ -10,9 +10,7 @@
   let postId = params.id;
 
   onMount(() => {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 700);
+    window.scrollTo(0, 0);
   });
 </script>
 
