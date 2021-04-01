@@ -2,6 +2,7 @@
   import Card from "../components/Card.svelte";
   import { contactData } from "../StaticStore";
   import Form from "../components/Form.svelte";
+  import Message from "../components/MessageSuccessful.svelte";
   import { maxWidthTablet, animationRange } from "../Stores";
 
   let windowsWidth;
@@ -82,6 +83,7 @@
     .col-2 {
       @include flex-col-center;
       width: 37vw;
+      position: relative;
     }
   }
 </style>
@@ -110,6 +112,7 @@
       <!-- FORM COMPONENT -->
 
       {#if windowsWidth <= $maxWidthTablet}
+        <Message />
         <Form />
       {/if}
 
@@ -123,6 +126,7 @@
 
     {#if windowsWidth > $maxWidthTablet}
       <div class="col-2">
+        <Message />
         <Form />
       </div>
     {/if}

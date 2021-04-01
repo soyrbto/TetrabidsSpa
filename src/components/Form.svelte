@@ -1,6 +1,7 @@
 <script>
   import Card from "./Card.svelte";
   import Button from "./Button.svelte";
+  import { messageState } from "../Stores";
 
   let contactForm;
 
@@ -15,6 +16,10 @@
       .then(() => console.log("Form successfully submitted"))
       .catch((error) => alert(error));
   };
+
+  function changeStateMessage() {
+    messageState.update((value) => (value = !value));
+  }
 </script>
 
 <style type="text/scss">
@@ -146,7 +151,7 @@
       <input name="form-name" type="hidden" value="contact" />
       <div class="button-wrapper">
         <Button>
-          <div class="button-content">Enviar</div>
+          <div on:click={changeStateMessage} class="button-content">Enviar</div>
         </Button>
       </div>
     </form>
