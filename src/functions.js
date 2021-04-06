@@ -33,7 +33,14 @@ const accordionHandler = (function accordionFuntionality() {
     );
   }
 
-  return { addItem, updateState };
+  function resetState() {
+    idNumber = 0;
+    idsArray = [];
+    InitialStates = {};
+    accordionStates.set({});
+  }
+
+  return { addItem, updateState, resetState };
 })();
 
 /******************************************************************/

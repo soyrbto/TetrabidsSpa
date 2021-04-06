@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import { accordionHandler } from "../functions";
   import { accordionStates } from "../Stores";
 
@@ -30,6 +30,10 @@
   onMount(() => {
     accordionId = accordionHandler.addItem();
     accordionHandler.updateState(Object.keys($accordionStates)[0]);
+  });
+
+  onDestroy(() => {
+    accordionHandler.resetState();
   });
 
   accordionStates.subscribe((value) => {

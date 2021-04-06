@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { beforeUpdate } from "svelte";
   import Share from "../components/ShareSocialNetwork.svelte";
   import Header from "../sections/Header.svelte";
   import RelatedPosts from "../sections/RelatedPosts.svelte";
@@ -9,7 +9,7 @@
   export let params;
   let postId = params.id;
 
-  onMount(() => {
+  beforeUpdate(() => {
     window.scrollTo(0, 0);
   });
 </script>

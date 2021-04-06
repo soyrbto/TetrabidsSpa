@@ -1,4 +1,5 @@
 <script>
+  import { beforeUpdate } from "svelte";
   import { moveSectionHandler } from "../functions";
   import Header from "../sections/Header.svelte";
   import { faqStore } from "../FaqStore";
@@ -6,13 +7,16 @@
   import FaqCard from "../components/FaqCard.svelte";
   import FaqNavbarMob from "../sectionsMobile/FaqNavbarMob.svelte";
 
-
   let windowsWidth;
   let scrollable;
 
   function goTo(i) {
     moveSectionHandler.vertical($nodeFaq[i]);
   }
+
+  beforeUpdate(() => {
+    window.scrollTo(0, 0);
+  });
 </script>
 
 <style type="text/scss">

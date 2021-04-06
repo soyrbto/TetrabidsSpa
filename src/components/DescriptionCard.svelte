@@ -1,9 +1,8 @@
 <script>
   import { fade } from "svelte/transition";
-  import { maxWidthTablet } from "../Stores";
   import Button from "./Button.svelte";
   import Card from "./Card.svelte";
-
+  import { animationRange } from "../Stores";
   let windowsWidth;
 
   export let imageUrl;

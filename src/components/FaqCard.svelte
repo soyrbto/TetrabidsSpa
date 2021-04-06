@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import { nodeFaq, load } from "../Stores";
   import Card from "../components/Card.svelte";
 
@@ -8,6 +8,10 @@
 
   onMount(() => {
     if ($load) nodeFaq.update((value) => [...value, titleNode]);
+  });
+
+  onDestroy(() => {
+    nodeFaq.set([]);
   });
 </script>
 

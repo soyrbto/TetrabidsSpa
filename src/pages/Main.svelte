@@ -1,5 +1,5 @@
 <script>
-  import { onMount } from "svelte";
+  import { beforeUpdate, onMount } from "svelte";
   import NavbarDesktop from "../sections/NavbarDesktop.svelte";
   import Home from "../sections/Home.svelte";
   import NavbarSec from "../sections/NavbarSec.svelte";
@@ -16,6 +16,10 @@
   onMount(() => {
     let nodesArr = [homeNode, sectionsNode];
     nodeSections.set(nodesArr);
+  });
+
+  beforeUpdate(() => {
+    window.scrollTo(0, 0);
   });
 
   let windowsWidth;
